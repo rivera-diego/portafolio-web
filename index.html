@@ -35,14 +35,19 @@
        HERO SECTION
        ═══════════════════════════════════════════ -->
   <section class="hero" id="inicio">
+    <!-- Interactive Canvas Particle Background -->
+    <canvas id="hero-canvas"></canvas>
+    
     <!-- Animated Grid Background -->
     <div class="hero-grid-bg"></div>
+    
     <!-- Floating Orbs -->
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
     <div class="hero-orb hero-orb-3"></div>
 
-    <div class="container">
+    <div class="container hero-container">
+      <!-- Column 1: Info -->
       <div class="hero-content">
         <p class="hero-greeting">// Hola, soy</p>
         <h1 class="hero-name">
@@ -63,12 +68,46 @@
         <div class="hero-actions">
           <a href="#portafolio" class="btn btn-neon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            Ver Portafolio
+            Ver Demos
           </a>
           <a href="#contacto" class="btn btn-glass">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             Hablemos
           </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Interactive Cyberpunk Terminal -->
+      <div class="hero-terminal-wrapper">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="t-btn red"></span>
+              <span class="t-btn yellow"></span>
+              <span class="t-btn green"></span>
+            </div>
+            <div class="terminal-title">diego@dev: ~/studio_os</div>
+            <div class="terminal-status">[ONLINE]</div>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <div class="terminal-line text-muted">// BOOTING SYSTEM INITIALIZATION...</div>
+            <div class="terminal-line text-muted">// LOADING ASSETS... OK</div>
+            <div class="terminal-line text-muted">// CORE DRIVERS STABLE. ACTIVE_FPS: 60</div>
+            <div class="terminal-line text-muted">--------------------------------------------</div>
+            <div class="terminal-line">Bienvenido al Terminal de Diego Rivera v4.6.</div>
+            <div class="terminal-line">Escribe <span class="neon-magenta">help</span> en la consola para ver comandos disponibles.</div>
+            <div class="terminal-line text-muted">--------------------------------------------</div>
+          </div>
+          <div class="terminal-input-row">
+            <span class="terminal-prompt">&gt;</span>
+            <input type="text" id="terminal-input" placeholder="Ingresa comando (ej. help, projects, skills)..." autocomplete="off" spellcheck="false">
+          </div>
+          <div class="terminal-quick-btns">
+            <button class="terminal-quick-btn" onclick="runTerminalCmd('projects')">projects</button>
+            <button class="terminal-quick-btn" onclick="runTerminalCmd('skills')">skills</button>
+            <button class="terminal-quick-btn" onclick="runTerminalCmd('about')">about</button>
+            <button class="terminal-quick-btn" onclick="runTerminalCmd('clear')">clear</button>
+          </div>
         </div>
       </div>
     </div>
@@ -474,6 +513,120 @@
             <li>Entrega en 30 días</li>
           </ul>
           <a href="#contacto" class="btn btn-glass" style="width: 100%; border-color: rgba(0,255,136,0.2); color: var(--neon-green);">Elegir Premium</a>
+      </div>
+
+      <!-- COTIZADOR INTERACTIVO -->
+      <div class="configurator-wrapper reveal">
+        <h3 class="configurator-title">// CONFIGURADOR DE PROYECTO WEB</h3>
+        <p class="configurator-desc">Configura tu página web ideal y calcula una cotización estimada al instante. ¡Puedes enviar esta propuesta directamente a mi WhatsApp!</p>
+        
+        <div class="configurator-grid">
+          <!-- Opciones (Izquierda) -->
+          <div class="configurator-options">
+            <!-- Tipo de Web -->
+            <div class="config-group">
+              <label class="config-label">1. Tipo de Proyecto Web</label>
+              <div class="config-select-grid">
+                <div class="config-option active" id="type-landing" onclick="selectWebType('landing', 800)">
+                  <h4>Landing Page</h4>
+                  <p>Base: S/ 800</p>
+                </div>
+                <div class="config-option" id="type-corporativa" onclick="selectWebType('corporativa', 2000)">
+                  <h4>Web Corporativa</h4>
+                  <p>Base: S/ 2,000</p>
+                </div>
+                <div class="config-option" id="type-ecommerce" onclick="selectWebType('ecommerce', 4500)">
+                  <h4>Tienda Virtual</h4>
+                  <p>Base: S/ 4,500</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Cantidad de Secciones (Slider) -->
+            <div class="config-group">
+              <div class="config-flex-label">
+                <label class="config-label">2. Número de Páginas / Secciones</label>
+                <span class="config-val" id="pages-val">1 página</span>
+              </div>
+              <input type="range" id="config-pages" min="1" max="15" value="1" oninput="updatePages(this.value)">
+              <div class="slider-ticks">
+                <span>1</span>
+                <span>5</span>
+                <span>10</span>
+                <span>15</span>
+              </div>
+            </div>
+
+            <!-- Adicionales (Checkboxes) -->
+            <div class="config-group">
+              <label class="config-label">3. Características Adicionales</label>
+              <div class="config-checkbox-list">
+                <label class="config-checkbox-item">
+                  <input type="checkbox" id="feature-dark" value="250" onchange="calculatePrice()">
+                  <span class="custom-checkbox"></span>
+                  <span class="checkbox-text">Soporte Dark Mode / Light Mode (+S/ 250)</span>
+                </label>
+                <label class="config-checkbox-item">
+                  <input type="checkbox" id="feature-seo" value="400" onchange="calculatePrice()">
+                  <span class="custom-checkbox"></span>
+                  <span class="checkbox-text">SEO Posicionamiento Avanzado (+S/ 400)</span>
+                </label>
+                <label class="config-checkbox-item">
+                  <input type="checkbox" id="feature-payment" value="600" onchange="calculatePrice()">
+                  <span class="custom-checkbox"></span>
+                  <span class="checkbox-text">Pasarela de Pagos (Visa/PayPal/Culqi) (+S/ 600)</span>
+                </label>
+                <label class="config-checkbox-item">
+                  <input type="checkbox" id="feature-admin" value="800" onchange="calculatePrice()">
+                  <span class="custom-checkbox"></span>
+                  <span class="checkbox-text">Panel de Administración de Contenidos (+S/ 800)</span>
+                </label>
+                <label class="config-checkbox-item">
+                  <input type="checkbox" id="feature-anim" value="350" onchange="calculatePrice()">
+                  <span class="custom-checkbox"></span>
+                  <span class="checkbox-text">Animaciones y Efectos 3D Premium (+S/ 350)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Resumen de Costos (Derecha) -->
+          <div class="configurator-summary">
+            <div class="summary-card">
+              <h4>Resumen del Proyecto</h4>
+              
+              <div class="summary-details">
+                <div class="summary-line">
+                  <span>Tipo de Web:</span>
+                  <strong id="summary-web-type">Landing Page</strong>
+                </div>
+                <div class="summary-line">
+                  <span>Páginas adicionales:</span>
+                  <strong id="summary-pages">0</strong>
+                </div>
+                <div class="summary-line">
+                  <span>Adicionales seleccionados:</span>
+                  <strong id="summary-features">0</strong>
+                </div>
+              </div>
+              
+              <div class="price-breakdown">
+                <div class="price-total">
+                  <span>Inversión Estimada:</span>
+                  <span class="price-val" id="configurator-total">S/ 800</span>
+                </div>
+                <!-- Barra de carga neón -->
+                <div class="neon-progress-bar">
+                  <div class="progress-fill" id="price-progress" style="width: 15%;"></div>
+                </div>
+              </div>
+              
+              <button onclick="sendConfigToWhatsapp()" class="btn btn-neon" style="width: 100%; justify-content: center; padding: 16px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Enviar Presupuesto a WhatsApp
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
