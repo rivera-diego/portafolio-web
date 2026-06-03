@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore nuestro catálogo interactivo de alquiler de mobiliario de lujo en Lima: Sillas Tiffany, mesas rústicas, toldos estructurales y barras LED.">
+  <title>Catálogo de Mobiliario de Lujo | Nayeli Eventos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- --- HEADER & NAVIGATION --- -->
+  <header class="light-theme">
+    <div class="container">
+      <nav class="navbar" id="nav-wrapper">
+        <a href="index.html" class="logo" id="logo-link">
+          NAYELI EVENTOS
+          <span>luxury production</span>
+        </a>
+        
+        <ul class="nav-links" id="navbar-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="portafolio.html">Portafolio</a></li>
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="mobiliario.html" class="active">Mobiliario</a></li>
+          <li><a href="cotizar.html">Cotizar</a></li>
+          <li><a href="cotizar.html" class="btn btn-accent" style="padding: 8px 16px; font-size: 0.75rem;" id="nav-cta-btn">Diseñar Evento</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir panel de navegación">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- --- STYLE D HERO: MINIMALIST WHITE CARD SLIDESHOW --- -->
+  <section class="hero-luxury-furniture" id="mobiliario-hero">
+    <div class="container">
+      <h1>Mobiliario de Diseño</h1>
+      <p>Catálogo Digital de Equipamiento Premium</p>
+    </div>
+  </section>
+
+  <!-- --- CATALOG GRID --- -->
+  <section class="section-padding" style="background-color: var(--bg-main);" id="mobiliario-catalogo">
+    <div class="container">
+      
+      <!-- Category Tabs -->
+      <div class="furniture-tabs">
+        <button class="furniture-tab-btn active" data-filter="all" id="tab-all">Todos</button>
+        <button class="furniture-tab-btn" data-filter="silla" id="tab-sillas">Sillas</button>
+        <button class="furniture-tab-btn" data-filter="mesa" id="tab-mesas">Mesas & Barras</button>
+        <button class="furniture-tab-btn" data-filter="toldo" id="tab-toldos">Toldos</button>
+      </div>
+
+      <!-- Grid Catalog -->
+      <div class="furniture-grid" id="grid-furniture">
+        
+        <!-- Prod 1 -->
+        <div class="furniture-card" data-category="silla" id="item-tiffany">
+          <div class="furniture-img-box">
+            <img src="img/furniture_chairs.png" alt="Silla Tiffany dorada de gala premium para alquiler">
+          </div>
+          <div class="furniture-info">
+            <h3>Silla Tiffany Dorada</h3>
+            <ul class="furniture-specs">
+              <li><span>Material:</span> Aluminio y Terciopelo</li>
+              <li><span>Medidas:</span> 92cm x 40cm x 40cm</li>
+              <li><span>Stock:</span> 500 Unidades</li>
+            </ul>
+            <a href="cotizar.html" class="btn btn-primary" style="width:100%; padding:10px; font-size:0.7rem;" id="btn-add-tiffany">Cotizar Alquiler</a>
+          </div>
+        </div>
+
+        <!-- Prod 2 -->
+        <div class="furniture-card" data-category="silla" id="item-crossback">
+          <div class="furniture-img-box">
+            <img src="img/furniture_chairs.png" alt="Silla Crossback rústica de madera de roble para eventos">
+          </div>
+          <div class="furniture-info">
+            <h3>Silla Crossback Madera</h3>
+            <ul class="furniture-specs">
+              <li><span>Material:</span> Roble y Asiento de Rattan</li>
+              <li><span>Medidas:</span> 88cm x 44cm x 42cm</li>
+              <li><span>Stock:</span> 400 Unidades</li>
+            </ul>
+            <a href="cotizar.html" class="btn btn-primary" style="width:100%; padding:10px; font-size:0.7rem;" id="btn-add-crossback">Cotizar Alquiler</a>
+          </div>
+        </div>
+
+        <!-- Prod 3 -->
+        <div class="furniture-card" data-category="mesa" id="item-mesa-redonda">
+          <div class="furniture-img-box">
+            <img src="img/event_setup.png" alt="Mesa de gala redonda vestida con mantelería de lino fino">
+          </div>
+          <div class="furniture-info">
+            <h3>Mesa Redonda Vestida</h3>
+            <ul class="furniture-specs">
+              <li><span>Capacidad:</span> 10 Comensales</li>
+              <li><span>Material:</span> Madera y Lino Fino</li>
+              <li><span>Stock:</span> 50 Unidades</li>
+            </ul>
+            <a href="cotizar.html" class="btn btn-primary" style="width:100%; padding:10px; font-size:0.7rem;" id="btn-add-mesa-redonda">Cotizar Alquiler</a>
+          </div>
+        </div>
+
+        <!-- Prod 4 -->
+        <div class="furniture-card" data-category="mesa" id="item-mesa-rustica">
+          <div class="furniture-img-box">
+            <img src="img/event_setup.png" alt="Mesa rústica presidencial de madera pino envejecida">
+          </div>
+          <div class="furniture-info">
+            <h3>Mesa Presidencial Pino</h3>
+            <ul class="furniture-specs">
+              <li><span>Capacidad:</span> 8 Comensales</li>
+              <li><span>Material:</span> Pino Macizo Envejecido</li>
+              <li><span>Stock:</span> 40 Unidades</li>
+            </ul>
+            <a href="cotizar.html" class="btn btn-primary" style="width:100%; padding:10px; font-size:0.7rem;" id="btn-add-mesa-rustica">Cotizar Alquiler</a>
+          </div>
+        </div>
+
+        <!-- Prod 5 -->
+        <div class="furniture-card" data-category="toldo" id="item-toldo">
+          <div class="furniture-img-box">
+            <img src="img/event_hero.png" alt="Toldo estructural transparente de gran envergadura para eventos">
+          </div>
+          <div class="furniture-info">
+            <h3>Toldo Estructural PVC</h3>
+            <ul class="furniture-specs">
+              <li><span>Material:</span> Aluminio y PVC Cristal</li>
+              <li><span>Altura:</span> 5.5 Metros (Punto Central)</li>
+              <li><span>Stock:</span> 6 Estructuras</li>
+            </ul>
+            <a href="cotizar.html" class="btn btn-primary" style="width:100%; padding:10px; font-size:0.7rem;" id="btn-add-toldo">Cotizar Alquiler</a>
+          </div>
+        </div>
+
+        <!-- Prod 6 -->
+        <div class="furniture-card" data-category="mesa" id="item-led">
+          <div class="furniture-img-box">
+            <img src="img/event_hero.png" alt="Módulo de barra LED de coctelería acrílico retroiluminado">
+          </div>
+          <div class="furniture-info">
+            <h3>Barra LED Coctelería</h3>
+            <ul class="furniture-specs">
+              <li><span>Material:</span> Acrílico Iluminación LED</li>
+              <li><span>Medidas:</span> Módulos Curvos de 1.5m</li>
+              <li><span>Stock:</span> 12 Módulos</li>
+            </ul>
+            <a href="cotizar.html" class="btn btn-primary" style="width:100%; padding:10px; font-size:0.7rem;" id="btn-add-led">Cotizar Alquiler</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            NAYELI EVENTOS
+            <span>luxury production</span>
+          </a>
+          <p>Organización integral de bodas, eventos sociales y corporativos en Lima, Perú. Producción de alta gama, catering y mobiliario exclusivo.</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Secciones</h4>
+          <ul class="footer-links">
+            <li><a href="portafolio.html">Galería de Montajes</a></li>
+            <li><a href="catering.html">Propuestas de Menús</a></li>
+            <li><a href="mobiliario.html">Catálogo de Mobiliario</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sede Administrativa</h4>
+          <ul class="footer-contact">
+            <li>
+              <span>Locación</span>
+              <span>Av. Primavera 1024, Oficina 502, Santiago de Surco, Lima, Perú</span>
+            </li>
+            <li>
+              <span>Contacto</span>
+              <span>informes@nayelieventos.pe | (01) 789-4561 / 999 666 555</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nayeli Eventos. Todos los derechos reservados. Confidencialidad y rigurosidad logística.</p>
+        <p>Bodas &bull; Corporativos &bull; Mobiliario</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

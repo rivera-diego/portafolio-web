@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalyster - Papelería y Novedades Kawaii 🌸</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF8EBC',       // Warm cute pink
+                        secondary: '#D8B4FE',     // Lavender/purple
+                        accent: '#BAE6FD',        // Soft pastel blue
+                        cta: '#FEF08A',           // Soft pastel yellow
+                        stroke: '#2D1B3D',        // Dark cartoon contour
+                        bgPastel: '#FFF0F5',      // Lavender blush background
+                        textDark: '#2D1B3D',
+                        success: '#86EFAC'        // Pastel green
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        nunito: ['Nunito', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Floating decoration animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        @keyframes float-delayed {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(-3deg); }
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float-delayed 8s ease-in-out infinite;
+        }
+
+        .animate-pulse-soft {
+            animation: pulse-soft 3s ease-in-out infinite;
+        }
+
+        /* Claymorphism & Neobrutalism custom styles */
+        .kawaii-card {
+            border: 3px solid #2D1B3D;
+            border-radius: 28px;
+            box-shadow: 6px 6px 0px #2D1B3D;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .kawaii-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 10px 10px 0px #2D1B3D;
+        }
+
+        .kawaii-card:active {
+            transform: translateY(2px);
+            box-shadow: 4px 4px 0px #2D1B3D;
+        }
+
+        .kawaii-btn {
+            border: 3px solid #2D1B3D;
+            box-shadow: 4px 4px 0px #2D1B3D;
+            transition: all 0.2s ease-out;
+        }
+
+        .kawaii-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0px #2D1B3D;
+        }
+
+        .kawaii-btn:active {
+            transform: translateY(2px);
+            box-shadow: 2px 2px 0px #2D1B3D;
+        }
+
+        /* Custom scrollbar for a bubbly feeling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF0F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF8EBC;
+            border-radius: 10px;
+            border: 2px solid #FFF0F5;
+        }
+    </style>
+</head>
+<body class="bg-[#FFF5F8] text-[#2D1B3D] selection:bg-[#FF8EBC] selection:text-white">
+
+    <!-- DECORACIONES FLOTANTES EN EL FONDO -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- Estrella 1 -->
+        <svg class="absolute top-28 left-[10%] w-8 h-8 text-[#FEF08A] opacity-70 animate-float" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z"/>
+        </svg>
+        <!-- Nube 1 -->
+        <svg class="absolute top-48 right-[8%] w-16 h-10 text-white opacity-80 animate-float-delayed" viewBox="0 0 64 40" fill="currentColor">
+            <path d="M18 16a12 12 0 0 1 20.3-8.6A16 16 0 0 1 54 16a14 14 0 0 1-6 24H14a14 14 0 0 1 4-24z"/>
+        </svg>
+        <!-- Estrella 2 -->
+        <svg class="absolute top-[800px] left-[5%] w-6 h-6 text-[#BAE6FD] opacity-70 animate-float-delayed" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z"/>
+        </svg>
+        <!-- Corazón 1 -->
+        <svg class="absolute top-[1400px] right-[12%] w-8 h-8 text-[#FF8EBC] opacity-60 animate-float" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <!-- Estrella 3 -->
+        <svg class="absolute bottom-64 left-[15%] w-7 h-7 text-[#D8B4FE] opacity-70 animate-float" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z"/>
+        </svg>
+    </div>
+
+    <!-- NAVBAR FLOTANTE -->
+    <div class="fixed top-4 left-4 right-4 z-50">
+        <header class="w-full max-w-7xl mx-auto bg-white border-[3px] border-[#2D1B3D] rounded-[24px] shadow-[4px_4px_0px_#2D1B3D] px-4 sm:px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <!-- Logo -->
+            <a href="#inicio" class="flex items-center space-x-2.5 group">
+                <div class="w-10 h-10 bg-[#FF8EBC] rounded-[16px] border-[2.5px] border-[#2D1B3D] flex items-center justify-center shadow-[2px_2px_0px_#2D1B3D] group-hover:rotate-6 transition-transform">
+                    <!-- Sparks SVG Icon -->
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-fredoka font-bold text-[#2D1B3D] tracking-wide">Dalyster</h1>
+            </a>
+
+            <!-- Menú de navegación -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#inicio" class="font-fredoka text-lg font-bold text-[#2D1B3D] hover:text-[#FF8EBC] transition-colors">Inicio</a>
+                <a href="#categorias" class="font-fredoka text-lg font-bold text-[#2D1B3D] hover:text-[#FF8EBC] transition-colors">Categorías</a>
+                <a href="#productos" class="font-fredoka text-lg font-bold text-[#2D1B3D] hover:text-[#FF8EBC] transition-colors">Catálogo</a>
+                <a href="#contacto" class="font-fredoka text-lg font-bold text-[#2D1B3D] hover:text-[#FF8EBC] transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Acciones -->
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleCart()" class="relative p-2.5 bg-[#BAE6FD] hover:bg-[#8eccee] border-[2.5px] border-[#2D1B3D] rounded-xl shadow-[3px_3px_0px_#2D1B3D] active:translate-y-[2px] active:shadow-[1px_1px_0px_#2D1B3D] transition-all cursor-pointer">
+                    <!-- Shopping Bag SVG Icon -->
+                    <svg class="w-6 h-6 text-[#2D1B3D]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span id="cartCount" class="absolute -top-2.5 -right-2.5 bg-[#FF8EBC] text-[#2D1B3D] text-xs font-fredoka font-bold rounded-full w-6 h-6 flex items-center justify-center border-2 border-[#2D1B3D] shadow-[1px_1px_0px_#2D1B3D]">0</span>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="pt-28 z-10 relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- HERO SECTION -->
+        <section id="inicio" class="py-10 md:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <!-- Info a la izquierda -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center px-4 py-1.5 bg-[#FEF08A] border-2 border-[#2D1B3D] rounded-full text-sm font-fredoka font-bold shadow-[2px_2px_0px_#2D1B3D] text-[#2D1B3D] animate-pulse-soft">
+                        ✨ ¡Envíos con contraentrega en todo el Perú! ✨
+                    </span>
+
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-fredoka font-bold text-[#2D1B3D] leading-tight">
+                        La papelería más
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#FF8EBC] to-[#D8B4FE]">
+                            tierna y kawaii 🦄
+                        </span>
+                        para tus días felices
+                    </h2>
+
+                    <p class="text-lg text-gray-600 max-w-xl mx-auto lg:mx-0 font-nunito leading-relaxed">
+                        Descubre llaveros pachoncitos, peluches apachurrables, lapiceros de gel divertidos y novedades directas desde Asia. Todo empacado con mucho amor y enviado de forma segura hasta tu puerta.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#productos" class="kawaii-btn px-8 py-4 bg-[#FF8EBC] text-[#2D1B3D] font-fredoka font-bold rounded-2xl text-lg flex items-center justify-center space-x-2">
+                            <span>Ver Catálogo 🛍️</span>
+                        </a>
+                        <a href="#contacto" class="kawaii-btn px-8 py-4 bg-[#FEF08A] text-[#2D1B3D] font-fredoka font-bold rounded-2xl text-lg flex items-center justify-center space-x-2">
+                            <span>Contáctanos 💬</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ilustración a la derecha -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <!-- Frame Offset decorativo -->
+                    <div class="absolute inset-0 bg-[#D8B4FE] border-[3px] border-[#2D1B3D] rounded-[32px] translate-x-3 translate-y-3 -z-10"></div>
+                    <!-- Contenedor de Imagen -->
+                    <div class="w-full max-w-md bg-white border-[3px] border-[#2D1B3D] rounded-[32px] overflow-hidden p-3 shadow-lg animate-float">
+                        <img src="img/hero.png" alt="Dalyster Cute Workspace Illustration" class="w-full h-auto object-cover rounded-[22px]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE CATEGORÍAS -->
+        <section id="categorias" class="py-16">
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-4xl font-fredoka font-bold text-[#2D1B3D]">Categorías Lindas</h2>
+                <p class="text-gray-600 font-nunito">Explora nuestra colección de cositas lindas seleccionadas especialmente para ti.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Categoría 1 -->
+                <div onclick="filterCategory('llaveros')" class="kawaii-card bg-white p-5 cursor-pointer flex flex-col justify-between h-[360px]">
+                    <div class="h-44 overflow-hidden rounded-2xl border-[2.5px] border-[#2D1B3D] bg-pink-50 mb-4">
+                        <img src="img/category_llaveros.png" alt="Llaveros Kawai" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-fredoka font-bold text-[#2D1B3D] mb-1">Llaveros Kawaii</h3>
+                        <p class="text-xs text-gray-500 font-nunito line-clamp-2">Llaveros pachoncitos de Chicago, Zag y personajes super tiernos.</p>
+                    </div>
+                    <div class="flex items-center text-[#FF8EBC] font-fredoka font-bold text-sm mt-3">
+                        <span>Ver Colección</span>
+                        <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+
+                <!-- Categoría 2 -->
+                <div onclick="filterCategory('envases')" class="kawaii-card bg-white p-5 cursor-pointer flex flex-col justify-between h-[360px]">
+                    <div class="h-44 overflow-hidden rounded-2xl border-[2.5px] border-[#2D1B3D] bg-sky-50 mb-4">
+                        <img src="img/category_envases.png" alt="Envases Descartables" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-fredoka font-bold text-[#2D1B3D] mb-1">Envases Descartables</h3>
+                        <p class="text-xs text-gray-500 font-nunito line-clamp-2">Platos y vasos con caritas felices para tus fiestas o emprendimientos.</p>
+                    </div>
+                    <div class="flex items-center text-[#BAE6FD] font-fredoka font-bold text-sm mt-3">
+                        <span>Ver Colección</span>
+                        <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+
+                <!-- Categoría 3 -->
+                <div onclick="filterCategory('peluches')" class="kawaii-card bg-white p-5 cursor-pointer flex flex-col justify-between h-[360px]">
+                    <div class="h-44 overflow-hidden rounded-2xl border-[2.5px] border-[#2D1B3D] bg-purple-50 mb-4">
+                        <img src="img/category_peluches.png" alt="Peluches Esponjosos" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-fredoka font-bold text-[#2D1B3D] mb-1">Peluches Esponjosos</h3>
+                        <p class="text-xs text-gray-500 font-nunito line-clamp-2">Peluches abrazables, suaves y listos para acompañarte en tu cama o escritorio.</p>
+                    </div>
+                    <div class="flex items-center text-[#D8B4FE] font-fredoka font-bold text-sm mt-3">
+                        <span>Ver Colección</span>
+                        <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+
+                <!-- Categoría 4 -->
+                <div onclick="filterCategory('monederos')" class="kawaii-card bg-white p-5 cursor-pointer flex flex-col justify-between h-[360px]">
+                    <div class="h-44 overflow-hidden rounded-2xl border-[2.5px] border-[#2D1B3D] bg-yellow-50 mb-4">
+                        <img src="img/category_monederos.png" alt="Monederos Tiernos" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-fredoka font-bold text-[#2D1B3D] mb-1">Monederos Tiernos</h3>
+                        <p class="text-xs text-gray-500 font-nunito line-clamp-2">Monederos de silicona en forma de tiernos animalitos con caritas sonrientes.</p>
+                    </div>
+                    <div class="flex items-center text-[#FEF08A] font-fredoka font-bold text-sm mt-3">
+                        <span>Ver Colección</span>
+                        <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO DE PRODUCTOS -->
+        <section id="productos" class="py-16">
+            <div class="text-center space-y-3 mb-10">
+                <h2 class="text-4xl font-fredoka font-bold text-[#2D1B3D]">Catálogo Adorable</h2>
+                <p class="text-gray-600 font-nunito">Agrega lo que desees al carrito y cotiza el envío a tu provincia por WhatsApp en un toque.</p>
+            </div>
+
+            <!-- Filtros de categoría interactivos -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button onclick="filterCategory('all')" id="filter-all" class="kawaii-btn px-5 py-2.5 bg-[#FF8EBC] text-[#2D1B3D] font-fredoka font-bold rounded-xl text-sm cursor-pointer transition-all">Todos 🌟</button>
+                <button onclick="filterCategory('llaveros')" id="filter-llaveros" class="kawaii-btn px-5 py-2.5 bg-white text-[#2D1B3D] font-fredoka font-bold rounded-xl text-sm cursor-pointer transition-all">Llaveros 🔑</button>
+                <button onclick="filterCategory('lapiceros')" id="filter-lapiceros" class="kawaii-btn px-5 py-2.5 bg-white text-[#2D1B3D] font-fredoka font-bold rounded-xl text-sm cursor-pointer transition-all">Lapiceros ✏️</button>
+                <button onclick="filterCategory('envases')" id="filter-envases" class="kawaii-btn px-5 py-2.5 bg-white text-[#2D1B3D] font-fredoka font-bold rounded-xl text-sm cursor-pointer transition-all">Envases 🍽️</button>
+                <button onclick="filterCategory('peluches')" id="filter-peluches" class="kawaii-btn px-5 py-2.5 bg-white text-[#2D1B3D] font-fredoka font-bold rounded-xl text-sm cursor-pointer transition-all">Peluches 🧸</button>
+            </div>
+
+            <!-- Grid de productos -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Se genera vía JS -->
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE CONTACTO -->
+        <section id="contacto" class="py-16">
+            <div class="w-full bg-white border-[3px] border-[#2D1B3D] rounded-[32px] shadow-[8px_8px_0px_#2D1B3D] overflow-hidden p-6 sm:p-10 md:p-14">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                    
+                    <!-- Información de contacto a la izquierda -->
+                    <div class="md:col-span-5 space-y-6">
+                        <div>
+                            <h2 class="text-3xl font-fredoka font-bold text-[#2D1B3D] mb-2">Hablemos 🌸</h2>
+                            <p class="text-gray-600 text-sm font-nunito">¿Tienes dudas sobre los costos de envío a provincias o buscas precios mayoristas? ¡Escríbenos!</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Teléfono -->
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-[#BAE6FD] border-2 border-[#2D1B3D] flex items-center justify-center shadow-[2px_2px_0px_#2D1B3D]">
+                                    <svg class="w-5 h-5 text-[#2D1B3D]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase">Llámanos</p>
+                                    <a href="tel:+51988233246" class="text-[#2D1B3D] font-fredoka font-bold hover:text-[#FF8EBC] transition-colors">988 233 246</a>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-[#86EFAC] border-2 border-[#2D1B3D] flex items-center justify-center shadow-[2px_2px_0px_#2D1B3D]">
+                                    <svg class="w-5 h-5 text-[#2D1B3D]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase">WhatsApp Directo</p>
+                                    <a href="https://wa.me/51988233246" target="_blank" class="text-[#2D1B3D] font-fredoka font-bold hover:text-[#FF8EBC] transition-colors">Enviar un mensaje</a>
+                                </div>
+                            </div>
+
+                            <!-- Envíos -->
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-11 h-11 rounded-xl bg-[#FEF08A] border-2 border-[#2D1B3D] flex items-center justify-center shadow-[2px_2px_0px_#2D1B3D]">
+                                    <svg class="w-5 h-5 text-[#2D1B3D]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase">Envíos Seguros</p>
+                                    <p class="text-[#2D1B3D] font-nunito font-semibold text-sm">Contraentrega en Lima y envíos a provincia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de contacto a la derecha -->
+                    <div class="md:col-span-7 bg-[#FFF0F5] border-[2.5px] border-[#2D1B3D] rounded-3xl p-6 sm:p-8">
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-fredoka font-bold text-[#2D1B3D] mb-1.5">Tu Nombre</label>
+                                <input type="text" required class="w-full px-4 py-2.5 border-[2.5px] border-[#2D1B3D] rounded-2xl bg-white text-[#2D1B3D] font-nunito focus:outline-none focus:ring-4 focus:ring-[#FF8EBC]/35 transition-all" placeholder="Ej. Mariana Rivera">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-fredoka font-bold text-[#2D1B3D] mb-1.5">Tu Correo</label>
+                                <input type="email" required class="w-full px-4 py-2.5 border-[2.5px] border-[#2D1B3D] rounded-2xl bg-white text-[#2D1B3D] font-nunito focus:outline-none focus:ring-4 focus:ring-[#FF8EBC]/35 transition-all" placeholder="Ej. mariana@gmail.com">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-fredoka font-bold text-[#2D1B3D] mb-1.5">¿Qué te gustaría consultarnos?</label>
+                                <textarea required rows="3" class="w-full px-4 py-2.5 border-[2.5px] border-[#2D1B3D] rounded-2xl bg-white text-[#2D1B3D] font-nunito focus:outline-none focus:ring-4 focus:ring-[#FF8EBC]/35 transition-all" placeholder="Escribe tu mensaje aquí..."></textarea>
+                            </div>
+
+                            <button type="submit" class="kawaii-btn w-full py-3 bg-[#FF8EBC] text-[#2D1B3D] font-fredoka font-bold rounded-2xl text-base cursor-pointer">
+                                Enviar Mensaje Hermoso 💌
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER CARICATURESCO -->
+    <footer class="bg-[#2D1B3D] text-[#FFF0F5] border-t-[4px] border-[#FFF0F5] mt-20 py-12 relative overflow-hidden">
+        <!-- Decoración burbujas en el footer -->
+        <div class="absolute -top-10 left-[20%] w-20 h-20 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 right-[15%] w-32 h-32 bg-[#FF8EBC]/5 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
+                <!-- Dalyster Info -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-center md:justify-start space-x-2">
+                        <div class="w-8 h-8 bg-[#FF8EBC] rounded-[10px] border-2 border-white flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <h4 class="text-2xl font-fredoka font-bold text-white tracking-wide">Dalyster</h4>
+                    </div>
+                    <p class="text-sm text-[#FFB6E1] font-nunito leading-relaxed">
+                        Novedades y papelería linda para llenar tus días de sonrisas y ternura 🌸.
+                    </p>
+                </div>
+
+                <!-- Categorías -->
+                <div>
+                    <h5 class="text-white font-fredoka font-bold text-lg mb-4">Cositas Lindas</h5>
+                    <ul class="space-y-2 text-sm text-[#FFF0F5]/80 font-nunito">
+                        <li><a href="#productos" onclick="filterCategory('llaveros')" class="hover:text-[#FF8EBC] transition-colors">Llaveros Kawaii</a></li>
+                        <li><a href="#productos" onclick="filterCategory('lapiceros')" class="hover:text-[#FF8EBC] transition-colors">Lapiceros de Gel</a></li>
+                        <li><a href="#productos" onclick="filterCategory('envases')" class="hover:text-[#FF8EBC] transition-colors">Vasos y Platos</a></li>
+                        <li><a href="#productos" onclick="filterCategory('peluches')" class="hover:text-[#FF8EBC] transition-colors">Peluches Suaves</a></li>
+                    </ul>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div>
+                    <h5 class="text-white font-fredoka font-bold text-lg mb-4">Enlaces</h5>
+                    <ul class="space-y-2 text-sm text-[#FFF0F5]/80 font-nunito">
+                        <li><a href="#inicio" class="hover:text-[#FF8EBC] transition-colors">Inicio</a></li>
+                        <li><a href="#categorias" class="hover:text-[#FF8EBC] transition-colors">Categorías</a></li>
+                        <li><a href="#productos" class="hover:text-[#FF8EBC] transition-colors">Productos</a></li>
+                        <li><a href="#contacto" class="hover:text-[#FF8EBC] transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto Rápido -->
+                <div>
+                    <h5 class="text-white font-fredoka font-bold text-lg mb-4">Atención</h5>
+                    <ul class="space-y-2.5 text-sm text-[#FFF0F5]/80 font-nunito">
+                        <li class="flex items-center justify-center md:justify-start space-x-2">
+                            <span>📞</span> <span>988 233 246</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start space-x-2">
+                            <span>💬</span> <a href="https://wa.me/51988233246" target="_blank" class="hover:text-[#FF8EBC] transition-colors">WhatsApp Directo</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start space-x-2">
+                            <span>🇵🇪</span> <span>Envíos a todo el Perú</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-10 pt-8 text-center text-xs text-[#FFB6E1]/60 font-nunito">
+                <p>&copy; 2026 Dalyster. Todos los derechos reservados. Diseñado con mucha ternura 🌸.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CARRITO MODAL (SIDEBAR) -->
+    <div id="cartModal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex justify-end">
+        <!-- Fondo clickeable para cerrar -->
+        <div onclick="toggleCart()" class="absolute inset-0 z-0"></div>
+
+        <!-- Sidebar panel -->
+        <div class="relative w-full max-w-md h-full bg-white border-l-[4px] border-[#2D1B3D] flex flex-col justify-between p-6 z-10 animate-slide">
+            
+            <!-- Header del carrito -->
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b-2 border-gray-100 mb-5">
+                    <h2 class="text-2xl font-fredoka font-bold text-[#2D1B3D] flex items-center space-x-1.5">
+                        <span>Tu Carrito 🌸</span>
+                    </h2>
+                    <button onclick="toggleCart()" class="p-1.5 bg-[#FFF0F5] hover:bg-[#FF8EBC] text-[#2D1B3D] border-2 border-[#2D1B3D] rounded-lg shadow-[2px_2px_0px_#2D1B3D] transition-colors cursor-pointer">
+                        <!-- Close Icon -->
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+
+                <!-- Lista de items -->
+                <div id="cartItems" class="space-y-4 max-h-[50vh] overflow-y-auto pr-1">
+                    <!-- Items dinámicos -->
+                </div>
+            </div>
+
+            <!-- Totales y acciones inferiores -->
+            <div class="space-y-4 mt-6">
+                <!-- Tarjeta de totales -->
+                <div class="bg-[#FFF5F8] border-[2.5px] border-[#2D1B3D] rounded-2xl p-4 space-y-2 shadow-[4px_4px_0px_#2D1B3D]">
+                    <div class="flex justify-between text-sm font-nunito font-semibold">
+                        <span class="text-gray-500">Subtotal:</span>
+                        <span id="subtotal" class="text-[#2D1B3D]">S/ 0.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-nunito font-semibold">
+                        <span class="text-gray-500">IGV (18%):</span>
+                        <span id="igv" class="text-[#2D1B3D]">S/ 0.00</span>
+                    </div>
+                    <div class="flex justify-between text-lg font-fredoka font-bold pt-2 border-t-2 border-dashed border-[#2D1B3D]/20 text-[#2D1B3D]">
+                        <span>Total a Pagar:</span>
+                        <span id="total" class="text-[#FF8EBC]">S/ 0.00</span>
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div class="grid grid-cols-1 gap-2.5 pt-2">
+                    <button onclick="checkout()" class="kawaii-btn w-full py-3.5 bg-[#86EFAC] text-[#2D1B3D] font-fredoka font-bold rounded-2xl text-base cursor-pointer flex items-center justify-center space-x-2">
+                        <span>Enviar Pedido a WhatsApp 💬</span>
+                    </button>
+                    <button onclick="toggleCart()" class="w-full py-2.5 text-center text-sm font-fredoka font-bold text-gray-500 hover:text-[#2D1B3D] transition-colors cursor-pointer">
+                        Seguir Comprando 🛍️
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- NOTIFICACIONES KAWAII FLOTANTES -->
+    <div id="notificationContainer" class="fixed bottom-4 right-4 z-[200] flex flex-col space-y-3 pointer-events-none"></div>
+
+    <!-- JAVASCRIPT DE PRODUCTOS Y CARRITO -->
+    <script>
+        // Catálogo de Productos Reales de Dalyster
+        const products = [
+            { id: 1, name: 'Llavero Chicago', price: 8.99, image: 'img/category_llaveros.png', category: 'llaveros', desc: 'Llavero de peluche pachoncito Chicago, súper suave al tacto.' },
+            { id: 2, name: 'Llavero Zag', price: 7.99, image: 'img/category_llaveros.png', category: 'llaveros', desc: 'Llavero tierno del personaje Zag con carita bordada y orejitas.' },
+            { id: 3, name: 'Llavero Pancho Zag', price: 8.50, image: 'img/category_llaveros.png', category: 'llaveros', desc: 'Llavero tierno de Pancho Zag ideal para colgar en mochilas.' },
+            { id: 4, name: 'Llavero Lito', price: 7.50, image: 'img/category_llaveros.png', category: 'llaveros', desc: 'Mini llavero coleccionable Lito con diseño super lindo de estrellita.' },
+            { id: 5, name: 'Lapicero Kawaii Rosa', price: 3.99, image: 'img/product_lapiceros.png', category: 'lapiceros', desc: 'Lapicero de gel con tapita de conejito kawaii y tinta gel ultra fluida.' },
+            { id: 6, name: 'Lapicero Kawaii Azul', price: 3.99, image: 'img/product_lapiceros.png', category: 'lapiceros', desc: 'Lapicero de gel con tapita de osito panda y agarre acolchado.' },
+            { id: 7, name: 'Set Lapiceros (5 colores)', price: 12.99, image: 'img/product_lapiceros.png', category: 'lapiceros', desc: 'Pack completo de 5 bolígrafos multicolor con divertidos tapones de animalito.' },
+            { id: 8, name: 'Platos x25 unidades', price: 5.99, image: 'img/category_envases.png', category: 'envases', desc: 'Platos de cartón pastel compostables con caritas felices sonrientes.' },
+            { id: 9, name: 'Vasos Descartables x50', price: 4.99, image: 'img/category_envases.png', category: 'envases', desc: 'Vasos descartables gruesos con caritas divertidas en rosa, celeste y amarillo.' },
+            { id: 10, name: 'Servilletas x100 unidades', price: 2.99, image: 'img/category_envases.png', category: 'envases', desc: 'Servilletas de papel súper suaves estampadas con estrellitas kawaii.' },
+            { id: 11, name: 'Peluche Kawaii Mini', price: 9.99, image: 'img/category_peluches.png', category: 'peluches', desc: 'Peluchito mini de conejito súper esponjoso y ojos grandes tiernos.' },
+            { id: 12, name: 'Peluche Kawaii Grande', price: 19.99, image: 'img/category_peluches.png', category: 'peluches', desc: 'Almohada peluche gigante de osito dormilón ultra blando.' }
+        ];
+
+        // Carrito inicial
+        let cart = JSON.parse(localStorage.getItem('dalyster_cart')) || [];
+        let currentFilter = 'all';
+
+        // Renderizar Catálogo con Filtro
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            const filtered = currentFilter === 'all' 
+                ? products 
+                : products.filter(p => p.category === currentFilter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10 font-nunito">No hay productos en esta categoría.</p>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-card border-[3px] border-[#2D1B3D] bg-white rounded-[28px] overflow-hidden shadow-[6px_6px_0px_#2D1B3D] hover:-translate-y-2 hover:shadow-[10px_10px_0px_#2D1B3D] active:translate-y-[2px] active:shadow-[4px_4px_0px_#2D1B3D] transition-all duration-300 flex flex-col">
+                    <div class="h-56 overflow-hidden border-b-[3px] border-[#2D1B3D] bg-pink-50 relative group">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-3 right-3 bg-[#BAE6FD] text-[#2D1B3D] font-fredoka font-bold px-3 py-1 rounded-full border-2 border-[#2D1B3D] text-xs shadow-[2px_2px_0px_#2D1B3D] capitalize">
+                            ${product.category}
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col justify-between flex-1 space-y-4">
+                        <div class="space-y-1">
+                            <h3 class="text-xl font-fredoka font-bold text-[#2D1B3D] line-clamp-1">${product.name}</h3>
+                            <p class="text-xs text-gray-500 font-nunito line-clamp-2 leading-relaxed">${product.desc}</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-1">
+                            <p class="text-2xl font-fredoka font-bold text-[#FF8EBC]">S/ ${product.price.toFixed(2)}</p>
+                            <button onclick="addToCart(${product.id})" class="px-4 py-2 bg-[#FEF08A] hover:bg-[#FFF07C] text-[#2D1B3D] font-fredoka font-bold rounded-xl border-[2.5px] border-[#2D1B3D] shadow-[2.5px_2.5px_0px_#2D1B3D] active:translate-y-[2px] active:shadow-[1px_1px_0px_#2D1B3D] transition-all text-xs cursor-pointer flex items-center space-x-1.5">
+                                <span>Agregar</span>
+                                <span class="w-5 h-5 bg-[#FF8EBC] rounded-md border border-[#2D1B3D] flex items-center justify-center">
+                                    <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filtrar Categorías de forma interactiva
+        function filterCategory(categoryName) {
+            currentFilter = categoryName;
+
+            // Actualizar clases de botones
+            const categoriesList = ['all', 'llaveros', 'lapiceros', 'envases', 'peluches'];
+            categoriesList.forEach(cat => {
+                const btn = document.getElementById(`filter-${cat}`);
+                if (btn) {
+                    if (cat === categoryName) {
+                        btn.classList.replace('bg-white', 'bg-[#FF8EBC]');
+                    } else {
+                        btn.classList.replace('bg-[#FF8EBC]', 'bg-white');
+                    }
+                }
+            });
+
+            renderProducts();
+            
+            // Si la navegación es desde una card, desplazar hasta la sección
+            const targetSection = document.getElementById('productos');
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Agregar al Carrito
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const item = cart.find(i => i.id === productId);
+
+            if (item) {
+                item.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            saveCart();
+            renderCart();
+            updateCartCount();
+            showNotification(`¡${product.name} agregado al carrito! ✨`);
+        }
+
+        // Renderizar Items del Carrito
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 space-y-3 font-nunito">
+                        <span class="text-5xl block">🧁</span>
+                        <p class="text-gray-500 text-sm font-semibold">Tu carrito está completamente vacío.</p>
+                    </div>
+                `;
+                updateCartTotals(0);
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between border-2 border-[#2D1B3D] bg-[#FFF0F5] p-3 rounded-2xl shadow-[3px_3px_0px_#2D1B3D] space-x-3 transition-transform hover:translate-x-0.5">
+                    <div class="w-12 h-12 rounded-xl border-[2px] border-[#2D1B3D] overflow-hidden bg-white flex-shrink-0">
+                        <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-fredoka font-bold text-sm text-[#2D1B3D] truncate">${item.name}</h4>
+                        <p class="text-xs text-gray-500 font-nunito font-semibold">S/ ${item.price.toFixed(2)} x ${item.quantity}</p>
+                    </div>
+                    <div class="flex items-center space-x-1.5 flex-shrink-0">
+                        <button onclick="updateQuantity(${item.id}, -1)" class="w-7 h-7 bg-white hover:bg-red-100 text-[#2D1B3D] border-2 border-[#2D1B3D] rounded-lg font-bold flex items-center justify-center cursor-pointer text-sm font-fredoka">-</button>
+                        <span class="w-6 text-center text-xs font-fredoka font-bold text-[#2D1B3D]">${item.quantity}</span>
+                        <button onclick="updateQuantity(${item.id}, 1)" class="w-7 h-7 bg-white hover:bg-green-100 text-[#2D1B3D] border-2 border-[#2D1B3D] rounded-lg font-bold flex items-center justify-center cursor-pointer text-sm font-fredoka">+</button>
+                        <button onclick="removeFromCart(${item.id})" class="text-[#2D1B3D] hover:text-red-500 font-bold pl-1.5 transition-colors cursor-pointer text-sm">✕</button>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            updateCartTotals(subtotal);
+        }
+
+        // Actualizar cantidades
+        function updateQuantity(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    saveCart();
+                    renderCart();
+                    updateCartCount();
+                }
+            }
+        }
+
+        // Eliminar del carrito
+        function removeFromCart(productId) {
+            cart = cart.filter(i => i.id !== productId);
+            saveCart();
+            renderCart();
+            updateCartCount();
+            showNotification('Producto removido 🌸');
+        }
+
+        // Totales del carrito
+        function updateCartTotals(subtotal) {
+            const igv = subtotal * 0.18;
+            const total = subtotal + igv;
+
+            document.getElementById('subtotal').textContent = `S/ ${subtotal.toFixed(2)}`;
+            document.getElementById('igv').textContent = `S/ ${igv.toFixed(2)}`;
+            document.getElementById('total').textContent = `S/ ${total.toFixed(2)}`;
+        }
+
+        // Guardar en localStorage
+        function saveCart() {
+            localStorage.setItem('dalyster_cart', JSON.stringify(cart));
+        }
+
+        // Actualizar número en el Navbar
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        // Toggle Carrito Sidebar
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                renderCart();
+            }
+        }
+
+        // Checkout y envío a WhatsApp
+        function checkout() {
+            if (cart.length === 0) {
+                alert('El carrito está vacío 🌸');
+                return;
+            }
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const igv = subtotal * 0.18;
+            const total = (subtotal + igv).toFixed(2);
+
+            const itemsStr = cart.map(item => `🌸 *${item.name}* (x${item.quantity}) - S/ ${(item.price * item.quantity).toFixed(2)}`).join('%0A');
+            
+            const message = `¡Hola! Me gustaría hacer un pedido desde la web de Dalyster:%0A%0A${itemsStr}%0A%0A*Subtotal:* S/ ${subtotal.toFixed(2)}%0A*IGV (18%):* S/ ${igv.toFixed(2)}%0A*Total a Pagar:* S/ ${total}%0A%0A_Por favor coordinar contraentrega o envío a mi provincia. ¡Muchas gracias!_ ✨`;
+
+            const whatsappUrl = `https://wa.me/51988233246?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Notificaciones Kawaii Flotantes
+        function showNotification(msg) {
+            const container = document.getElementById('notificationContainer');
+            const notif = document.createElement('div');
+            notif.className = 'bg-[#FFF0F5] border-[2.5px] border-[#2D1B3D] text-[#2D1B3D] font-fredoka font-bold rounded-2xl px-5 py-3 shadow-[4px_4px_0px_#2D1B3D] pointer-events-auto flex items-center space-x-2 transition-all duration-300 translate-y-2 opacity-0';
+            notif.innerHTML = `<span>🌈</span> <span>${msg}</span>`;
+
+            container.appendChild(notif);
+
+            // Trigger animation
+            setTimeout(() => {
+                notif.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            // Auto-eliminar
+            setTimeout(() => {
+                notif.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => {
+                    notif.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Evento formulario
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showNotification('¡Mensaje enviado con éxito! Te responderemos muy pronto 💌');
+            this.reset();
+        });
+
+        // Inicializar
+        renderProducts();
+        updateCartCount();
+    </script>
+</body>
+</html>

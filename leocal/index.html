@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEOCAL — Seguridad Contra Incendios & Certificación ITSE en Lima</title>
+  <meta name="description" content="Venta y recarga de extintores, señalización ITSE, luces de emergencia y asesoría para inspecciones de Defensa Civil en Lima, Perú.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* ═══════════════════════════════════════════════════
+       LEOCAL v3 — MODERN INDUSTRIAL DESIGN SYSTEM
+       Light base with BOLD RED accents
+       ═══════════════════════════════════════════════════ */
+    :root {
+      --red-600: #DC2626;
+      --red-700: #B91C1C;
+      --red-500: #EF4444;
+      --red-50: #FEF2F2;
+      --red-100: #FEE2E2;
+      --orange-500: #F97316;
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748B;
+      --slate-400: #94A3B8;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --slate-50: #F8FAFC;
+      --white: #FFFFFF;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-full: 100px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
+      --shadow-red: 0 8px 30px rgba(220,38,38,0.15);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: all 0.3s var(--ease);
+      --max-w: 1200px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--slate-700);
+      background-color: var(--slate-50);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.2;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    /* ═══ NAVIGATION ═══ */
+    .nav-wrap {
+      position: fixed; top: 14px; left: 14px; right: 14px; z-index: 1000;
+    }
+    .navbar {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 28px;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+      border: 1px solid var(--slate-200); border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-md); border-color: transparent; }
+
+    .nav-brand {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.4rem;
+      color: var(--slate-900); display: flex; align-items: center; gap: 2px;
+    }
+    .nav-brand .accent { color: var(--red-600); }
+
+    .nav-menu { display: flex; list-style: none; gap: 6px; }
+    .nav-menu a {
+      font-family: var(--font-display); font-weight: 500; font-size: 0.85rem;
+      color: var(--slate-600); padding: 8px 16px; border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+    .nav-menu a:hover { color: var(--red-600); background: var(--red-50); }
+
+    .nav-cta-btn {
+      font-family: var(--font-display); font-weight: 600; font-size: 0.85rem;
+      background: var(--red-600); color: var(--white); padding: 10px 24px;
+      border-radius: var(--radius-sm); border: none; cursor: pointer;
+      transition: var(--transition); display: inline-flex; align-items: center; gap: 8px;
+    }
+    .nav-cta-btn:hover { background: var(--red-700); box-shadow: var(--shadow-red); transform: translateY(-1px); }
+
+    .burger-btn {
+      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+      color: var(--slate-900);
+    }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, var(--slate-50) 0%, var(--red-50) 50%, var(--slate-50) 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -40%; right: -10%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(220,38,38,0.06) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .hero-content { max-width: 560px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--red-600); background: var(--red-100);
+      padding: 6px 16px; border-radius: var(--radius-full);
+      margin-bottom: 20px;
+    }
+    .hero-tag svg { width: 14px; height: 14px; }
+    .hero-title {
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 800;
+      color: var(--slate-900); margin-bottom: 20px; letter-spacing: -0.02em;
+    }
+    .hero-title .red { color: var(--red-600); }
+    .hero-text { font-size: 1.05rem; color: var(--slate-600); margin-bottom: 32px; max-width: 480px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--font-display); font-weight: 600; font-size: 0.9rem;
+      padding: 14px 28px; border-radius: var(--radius-sm); cursor: pointer;
+      border: none; transition: var(--transition);
+    }
+    .btn-red { background: var(--red-600); color: var(--white); }
+    .btn-red:hover { background: var(--red-700); box-shadow: var(--shadow-red); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--slate-700);
+      border: 2px solid var(--slate-200);
+    }
+    .btn-outline:hover { border-color: var(--red-600); color: var(--red-600); }
+
+    .hero-badges { display: flex; gap: 24px; flex-wrap: wrap; }
+    .hero-badge-item { display: flex; align-items: center; gap: 10px; }
+    .hero-badge-icon {
+      width: 40px; height: 40px; border-radius: var(--radius-sm);
+      background: var(--white); border: 1px solid var(--slate-200);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-badge-icon svg { width: 18px; height: 18px; stroke: var(--red-600); fill: none; stroke-width: 2; }
+    .hero-badge-text { font-size: 0.8rem; color: var(--slate-500); }
+    .hero-badge-text strong { display: block; color: var(--slate-900); font-weight: 600; }
+
+    .hero-image-wrap {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-image-wrap img { width: 100%; height: 480px; object-fit: cover; }
+    .hero-image-badge {
+      position: absolute; bottom: 20px; left: 20px;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+      padding: 14px 20px; border-radius: var(--radius-sm);
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: var(--shadow-md);
+    }
+    .hero-image-badge-num {
+      font-family: var(--font-display); font-weight: 800; font-size: 1.6rem;
+      color: var(--red-600); line-height: 1;
+    }
+    .hero-image-badge-text { font-size: 0.75rem; color: var(--slate-600); line-height: 1.3; }
+
+    /* ═══ SECTION SHARED ═══ */
+    section { padding: 80px 0; }
+    .sec-alt { background: var(--white); }
+    .sec-header { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .sec-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-display); font-size: 0.7rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--red-600); background: var(--red-50);
+      padding: 6px 14px; border-radius: var(--radius-full);
+      margin-bottom: 14px;
+    }
+    .sec-title { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 14px; letter-spacing: -0.01em; }
+    .sec-desc { font-size: 1rem; color: var(--slate-500); max-width: 520px; margin: 0 auto; }
+
+    /* ═══ SERVICES ═══ */
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .svc-card {
+      background: var(--white); border: 1px solid var(--slate-200);
+      border-radius: var(--radius); padding: 28px 24px;
+      transition: var(--transition); cursor: default;
+      display: flex; flex-direction: column;
+    }
+    .svc-card:hover { border-color: var(--red-600); box-shadow: var(--shadow-red); transform: translateY(-4px); }
+    .svc-card-img {
+      width: 100%; height: 160px; border-radius: var(--radius-sm);
+      overflow: hidden; margin-bottom: 20px;
+    }
+    .svc-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .svc-icon {
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
+      background: var(--red-50); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 16px;
+    }
+    .svc-icon svg { width: 20px; height: 20px; stroke: var(--red-600); fill: none; stroke-width: 2; }
+    .svc-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .svc-card p { font-size: 0.85rem; color: var(--slate-500); line-height: 1.6; flex-grow: 1; }
+    .svc-link {
+      font-family: var(--font-display); font-size: 0.8rem; font-weight: 600;
+      color: var(--red-600); margin-top: 16px; display: inline-flex; align-items: center; gap: 4px;
+      cursor: pointer;
+    }
+    .svc-link:hover { gap: 8px; }
+    .svc-link svg { width: 14px; height: 14px; transition: var(--transition); }
+
+    /* ═══ IMAGE FEATURE BAND ═══ */
+    .feature-band {
+      padding: 80px 0; background: var(--slate-900); color: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .feature-band::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(220,38,38,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .feature-band-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .feature-band-img { border-radius: var(--radius); overflow: hidden; }
+    .feature-band-img img { width: 100%; height: 360px; object-fit: cover; border-radius: var(--radius); }
+    .feature-band-content h2 { color: var(--white); font-size: 2rem; margin-bottom: 16px; }
+    .feature-band-content p { color: var(--slate-400); font-size: 1rem; margin-bottom: 28px; line-height: 1.7; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .feature-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 0.9rem; color: var(--slate-200);
+    }
+    .feature-list li svg { width: 18px; height: 18px; stroke: var(--red-500); fill: none; flex-shrink: 0; }
+
+    /* ═══ SECTORS TABS ═══ */
+    .sector-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+    .sector-tab {
+      font-family: var(--font-display); font-size: 0.8rem; font-weight: 600;
+      padding: 10px 22px; border-radius: var(--radius-full);
+      background: var(--white); border: 1px solid var(--slate-200);
+      color: var(--slate-600); cursor: pointer; transition: var(--transition);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .sector-tab:hover { border-color: var(--red-600); color: var(--red-600); }
+    .sector-tab.active { background: var(--red-600); color: var(--white); border-color: var(--red-600); box-shadow: var(--shadow-red); }
+    .sector-tab svg { width: 16px; height: 16px; }
+
+    .sector-panel {
+      display: none; background: var(--white); border: 1px solid var(--slate-200);
+      border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow-sm);
+      grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .sector-panel.active { display: grid; animation: fadeUp 0.4s var(--ease); }
+
+    .sector-info h3 { font-size: 1.4rem; color: var(--red-600); margin-bottom: 10px; }
+    .sector-info > p { font-size: 0.9rem; color: var(--slate-600); margin-bottom: 20px; }
+    .sector-req-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .sector-req-list li {
+      display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: var(--slate-700);
+    }
+    .sector-req-list li svg { width: 18px; height: 18px; stroke: var(--red-600); fill: none; flex-shrink: 0; margin-top: 2px; }
+
+    .sector-visual {
+      background: var(--slate-50); border-radius: var(--radius); padding: 28px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .sector-step {
+      display: flex; gap: 14px; align-items: center;
+      background: var(--white); padding: 16px; border-radius: var(--radius-sm);
+      border: 1px solid var(--slate-200);
+    }
+    .sector-step-icon {
+      width: 42px; height: 42px; border-radius: var(--radius-sm);
+      background: var(--red-50); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .sector-step-icon svg { width: 18px; height: 18px; stroke: var(--red-600); fill: none; }
+    .sector-step h4 { font-size: 0.85rem; margin-bottom: 2px; }
+    .sector-step p { font-size: 0.75rem; color: var(--slate-500); margin: 0; }
+
+    /* ═══ CALCULATOR ═══ */
+    .calc-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: stretch; }
+    .calc-form-card {
+      background: var(--white); border: 1px solid var(--slate-200);
+      border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-sm);
+    }
+    .calc-form-card h3 {
+      font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+      color: var(--slate-900);
+    }
+    .calc-form-card h3 svg { width: 20px; height: 20px; stroke: var(--red-600); fill: none; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-family: var(--font-display); font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--slate-600); margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%; padding: 12px 16px;
+      background: var(--slate-50); border: 1px solid var(--slate-200);
+      color: var(--slate-900); font-family: var(--font-body); font-size: 0.9rem;
+      border-radius: var(--radius-sm); transition: var(--transition);
+    }
+    .form-control:focus { outline: none; border-color: var(--red-600); box-shadow: 0 0 0 3px rgba(220,38,38,0.08); }
+
+    .calc-result-card {
+      background: var(--slate-900); border-radius: var(--radius);
+      padding: 32px; color: var(--white); display: flex; flex-direction: column;
+    }
+    .calc-result-header {
+      border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 14px; margin-bottom: 20px;
+    }
+    .calc-result-header h3 {
+      font-size: 1rem; color: var(--red-500); margin-bottom: 4px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .calc-result-header h3 svg { width: 18px; height: 18px; stroke: var(--red-500); fill: none; }
+    .calc-result-header p { font-size: 0.8rem; color: var(--slate-400); margin: 0; }
+    .calc-row { margin-bottom: 18px; }
+    .calc-row-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--slate-400); margin-bottom: 4px; }
+    .calc-row-val { font-size: 0.9rem; color: var(--slate-200); line-height: 1.5; }
+    .calc-result-footer { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+    /* ═══ TESTIMONIALS ═══ */
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card {
+      background: var(--white); border: 1px solid var(--slate-200);
+      border-radius: var(--radius); padding: 28px;
+      transition: var(--transition);
+    }
+    .testimonial-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .stars svg { width: 16px; height: 16px; fill: #FBBF24; stroke: #FBBF24; }
+    .testimonial-text { font-size: 0.88rem; color: var(--slate-600); margin-bottom: 20px; line-height: 1.7; font-style: italic; }
+    .testimonial-user { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--red-50); color: var(--red-600);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 700; font-size: 0.85rem;
+    }
+    .testimonial-meta h4 { font-size: 0.85rem; margin-bottom: 1px; }
+    .testimonial-meta p { font-size: 0.75rem; color: var(--slate-500); margin: 0; }
+
+    /* ═══ FAQ ═══ */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item {
+      background: var(--white); border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item:hover { border-color: var(--red-200, #FECACA); }
+    .faq-item.active { border-color: var(--red-600); }
+    .faq-q {
+      width: 100%; padding: 18px 24px; background: none; border: none;
+      text-align: left; font-family: var(--font-display); font-size: 0.95rem;
+      font-weight: 600; color: var(--slate-900); cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-q svg { width: 18px; height: 18px; color: var(--slate-400); transition: var(--transition); flex-shrink: 0; }
+    .faq-item.active .faq-q svg { transform: rotate(180deg); color: var(--red-600); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease); }
+    .faq-a p { padding: 0 24px 18px; font-size: 0.88rem; color: var(--slate-600); border-top: 1px solid var(--slate-100); padding-top: 14px; margin: 0; line-height: 1.7; }
+
+    /* ═══ CONTACT ═══ */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 32px; align-items: start; }
+    .contact-info-card {
+      background: var(--red-600); border-radius: var(--radius);
+      padding: 36px; color: var(--white);
+    }
+    .contact-info-card h3 { color: var(--white); font-size: 1.4rem; margin-bottom: 10px; }
+    .contact-info-card > p { color: rgba(255,255,255,0.8); margin-bottom: 28px; font-size: 0.9rem; }
+    .contact-method {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+    }
+    .contact-method-icon {
+      width: 42px; height: 42px; border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-method-icon svg { width: 18px; height: 18px; stroke: var(--white); fill: none; }
+    .contact-method-text strong { display: block; font-size: 0.8rem; margin-bottom: 1px; color: rgba(255,255,255,0.7); font-weight: 500; }
+    .contact-method-text a, .contact-method-text span {
+      font-family: var(--font-display); font-weight: 600; font-size: 0.9rem; color: var(--white);
+    }
+    .contact-method-text a:hover { text-decoration: underline; }
+
+    .contact-form-card {
+      background: var(--white); border: 1px solid var(--slate-200);
+      border-radius: var(--radius); padding: 36px; box-shadow: var(--shadow-sm);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+    .check-label {
+      display: flex; align-items: center; gap: 8px; font-size: 0.85rem;
+      cursor: pointer; color: var(--slate-600);
+    }
+    .check-label input { accent-color: var(--red-600); cursor: pointer; }
+    textarea.form-control { min-height: 100px; resize: vertical; }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      background: var(--slate-900); color: var(--slate-400); padding: 60px 0 32px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 32px; margin-bottom: 40px; }
+    .footer-col h4 { color: var(--white); font-family: var(--font-display); font-size: 0.9rem; margin-bottom: 16px; }
+    .footer-col p { font-size: 0.85rem; line-height: 1.6; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 0.85rem; color: var(--slate-400); }
+    .footer-col ul a:hover { color: var(--red-500); }
+    .footer-social { display: flex; gap: 10px; margin-top: 14px; }
+    .footer-social a {
+      width: 36px; height: 36px; border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center; color: var(--slate-400);
+    }
+    .footer-social a:hover { background: var(--red-600); border-color: var(--red-600); color: var(--white); }
+    .footer-social a svg { width: 16px; height: 16px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: var(--slate-500); margin: 0; }
+    .footer-bottom a { font-size: 0.78rem; color: var(--slate-500); margin-left: 16px; }
+    .footer-bottom a:hover { color: var(--red-500); }
+
+    /* ═══ WHATSAPP FLOAT ═══ */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 90;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+      transition: var(--transition);
+    }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+    .wa-float svg { width: 28px; height: 28px; }
+
+    /* ═══ SCROLL REVEAL ═══ */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-image-wrap { max-height: 360px; }
+      .hero-image-wrap img { height: 360px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-band-grid { grid-template-columns: 1fr; gap: 32px; }
+      .sector-panel { grid-template-columns: 1fr; }
+      .calc-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .burger-btn { display: block; }
+      .nav-menu.open {
+        display: flex; flex-direction: column; position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+        justify-content: center; align-items: center; gap: 8px; z-index: 999;
+      }
+      .nav-menu.open a { font-size: 1.2rem; padding: 14px 24px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .check-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-badges { flex-direction: column; gap: 14px; }
+      section { padding: 60px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <div class="nav-wrap">
+    <nav class="navbar" id="navbar">
+      <a href="#" class="nav-brand">LEOCAL<span class="accent">.</span></a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#sectores">Sectores</a></li>
+        <li><a href="#calculadora">Calculadora</a></li>
+        <li><a href="#testimonios">Opiniones</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="#contacto" class="nav-cta-btn">
+          <i data-lucide="phone" style="width:16px;height:16px;"></i> Cotizar
+        </a>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menú">
+          <i data-lucide="menu" style="width:22px;height:22px;"></i>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i data-lucide="shield-check" style="width:14px;height:14px;"></i>
+            Certificados INDECI & Defensa Civil
+          </div>
+          <h1 class="hero-title">Protege tu Negocio con <span class="red">Seguridad Profesional</span></h1>
+          <p class="hero-text">
+            Venta, recarga y mantenimiento de extintores certificados. Señalización normativa, luces de emergencia y asesoría completa para inspecciones ITSE en Lima.
+          </p>
+          <div class="hero-actions">
+            <a href="#calculadora" class="btn btn-red">
+              <i data-lucide="calculator" style="width:18px;height:18px;"></i>
+              Calculadora ITSE
+            </a>
+            <a href="#contacto" class="btn btn-outline">
+              <i data-lucide="message-square" style="width:18px;height:18px;"></i>
+              Solicitar Asesor
+            </a>
+          </div>
+          <div class="hero-badges">
+            <div class="hero-badge-item">
+              <div class="hero-badge-icon"><i data-lucide="check-circle"></i></div>
+              <div class="hero-badge-text">
+                <strong>NTP 350.043</strong> Norma Técnica Peruana
+              </div>
+            </div>
+            <div class="hero-badge-item">
+              <div class="hero-badge-icon"><i data-lucide="award"></i></div>
+              <div class="hero-badge-text">
+                <strong>ITSE Aprobado</strong> Defensa Civil
+              </div>
+            </div>
+            <div class="hero-badge-item">
+              <div class="hero-badge-icon"><i data-lucide="clock"></i></div>
+              <div class="hero-badge-text">
+                <strong>24h Respuesta</strong> Lima Metropolitana
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-wrap">
+          <img src="img/hero.png" alt="Técnico LEOCAL inspeccionando extintores en edificio comercial">
+          <div class="hero-image-badge">
+            <div class="hero-image-badge-num">1.2K+</div>
+            <div class="hero-image-badge-text">Locales protegidos<br>en Lima</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="sec-alt" id="servicios">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-label"><i data-lucide="layers" style="width:14px;height:14px;"></i> Servicios</span>
+        <h2 class="sec-title">Equipamiento & Soporte Técnico</h2>
+        <p class="sec-desc">Soluciones integrales de seguridad contra incendios certificadas para tu negocio.</p>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card reveal">
+          <div class="svc-card-img"><img src="img/extintores.png" alt="Extintores PQS y CO2 alineados"></div>
+          <div class="svc-icon"><i data-lucide="flame"></i></div>
+          <h3>Venta de Extintores</h3>
+          <p>Extintores certificados PQS, CO2 y Clase K para cocinas industriales. Nacionales e importados con garantía.</p>
+          <a href="#contacto" class="svc-link">Cotizar <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card-img"><img src="img/capacitacion.png" alt="Capacitación de seguridad contra incendios"></div>
+          <div class="svc-icon"><i data-lucide="wrench"></i></div>
+          <h3>Recarga & Mantenimiento</h3>
+          <p>Laboratorio móvil homologado para recarga anual in situ. Pruebas de presión hidrostática sin interrumpir tus operaciones.</p>
+          <a href="#contacto" class="svc-link">Solicitar <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card-img"><img src="img/senalizacion.png" alt="Señalización de emergencia en pasillo comercial"></div>
+          <div class="svc-icon"><i data-lucide="signpost"></i></div>
+          <h3>Señalética ITSE</h3>
+          <p>Señalización fotoluminiscente NTP 399.010: evacuación, zona segura, extintores y tablero eléctrico.</p>
+          <a href="#contacto" class="svc-link">Ver catálogo <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card-img"><img src="img/luces.png" alt="Luces de emergencia LED instaladas"></div>
+          <div class="svc-icon"><i data-lucide="lightbulb"></i></div>
+          <h3>Luces de Emergencia</h3>
+          <p>Equipos LED de alta autonomía con encendido automático. Emitimos certificados de operatividad firmados por ingenieros CIP.</p>
+          <a href="#contacto" class="svc-link">Cotizar <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURE BAND ═══ -->
+  <div class="feature-band">
+    <div class="container">
+      <div class="feature-band-grid">
+        <div class="feature-band-img reveal">
+          <img src="img/capacitacion.png" alt="Capacitación de brigadas contra incendios">
+        </div>
+        <div class="feature-band-content reveal">
+          <h2>Capacitaciones & Brigadas de Emergencia</h2>
+          <p>Entrenamiento práctico con fuego real para tus brigadas. Cumple con las exigencias de INDECI y la municipalidad.</p>
+          <ul class="feature-list">
+            <li><i data-lucide="check-circle"></i> Simulacro de evacuación ante sismos</li>
+            <li><i data-lucide="check-circle"></i> Práctica con extintores en fuego controlado</li>
+            <li><i data-lucide="check-circle"></i> Primeros auxilios para personal de planta</li>
+            <li><i data-lucide="check-circle"></i> Certificado de participación para cada asistente</li>
+          </ul>
+          <a href="#contacto" class="btn btn-red">Agendar Capacitación</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTORS ═══ -->
+  <section id="sectores">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-label"><i data-lucide="building-2" style="width:14px;height:14px;"></i> Sectores</span>
+        <h2 class="sec-title">Estándares por Tipo de Negocio</h2>
+        <p class="sec-desc">Las exigencias de Defensa Civil varían según el aforo y la carga térmica de cada establecimiento.</p>
+      </div>
+
+      <div class="sector-tabs reveal">
+        <button class="sector-tab active" onclick="switchSector('restaurantes')"><i data-lucide="utensils"></i> Restaurantes</button>
+        <button class="sector-tab" onclick="switchSector('colegios')"><i data-lucide="graduation-cap"></i> Colegios</button>
+        <button class="sector-tab" onclick="switchSector('comercio')"><i data-lucide="store"></i> Tiendas & Oficinas</button>
+        <button class="sector-tab" onclick="switchSector('almacenes')"><i data-lucide="warehouse"></i> Almacenes</button>
+      </div>
+
+      <div class="reveal">
+        <div class="sector-panel active" id="panel-restaurantes">
+          <div class="sector-info">
+            <h3>Requerimientos para Restaurantes</h3>
+            <p>Las cocinas comerciales concentran grasa y aceites a altas temperaturas, requiriendo sistemas de extinción húmedos.</p>
+            <ul class="sector-req-list">
+              <li><i data-lucide="check-square"></i> <span><strong>Extintor Clase K:</strong> Acetato de potasio obligatorio en campanas de cocina.</span></li>
+              <li><i data-lucide="check-square"></i> <span><strong>Extintores PQS/CO2:</strong> En áreas de salón y tableros eléctricos.</span></li>
+              <li><i data-lucide="check-square"></i> <span><strong>Capacitaciones brigadas:</strong> Evacuación y amago de incendios para el personal.</span></li>
+            </ul>
+            <a href="#contacto" class="btn btn-red" style="padding:12px 22px;font-size:0.85rem;">Cotizar Sector</a>
+          </div>
+          <div class="sector-visual">
+            <div class="sector-step"><div class="sector-step-icon"><i data-lucide="alert-triangle"></i></div><div><h4>Clase K - Grasa de Cocina</h4><p>Químico húmedo que saponifica la grasa caliente.</p></div></div>
+            <div class="sector-step"><div class="sector-step-icon"><i data-lucide="shield"></i></div><div><h4>Planos de Evacuación ITSE</h4><p>Cálculo de pasadizos y aforo homologado.</p></div></div>
+          </div>
+        </div>
+        <div class="sector-panel" id="panel-colegios">
+          <div class="sector-info">
+            <h3>Estándares para Colegios</h3>
+            <p>Máxima protección para menores. Exigencias en sistemas de alerta acústica y señalizaciones.</p>
+            <ul class="sector-req-list">
+              <li><i data-lucide="check-square"></i> <span><strong>Señalización luminosa:</strong> Visible a oscuras en pasillos y escaleras.</span></li>
+              <li><i data-lucide="check-square"></i> <span><strong>Puntos de reunión:</strong> Pintura termoplástica en patios de evacuación.</span></li>
+              <li><i data-lucide="check-square"></i> <span><strong>Luces de emergencia:</strong> Distribuidas en cada salón y laboratorio.</span></li>
+            </ul>
+            <a href="#contacto" class="btn btn-red" style="padding:12px 22px;font-size:0.85rem;">Cotizar Sector</a>
+          </div>
+          <div class="sector-visual">
+            <div class="sector-step"><div class="sector-step-icon"><i data-lucide="bell"></i></div><div><h4>Alarmas Sísmicas</h4><p>Pulsadores interconectados de activación rápida.</p></div></div>
+            <div class="sector-step"><div class="sector-step-icon"><i data-lucide="route"></i></div><div><h4>Capacitación Docente</h4><p>Simulacros y evacuación coordinada de brigadas.</p></div></div>
+          </div>
+        </div>
+        <div class="sector-panel" id="panel-comercio">
+          <div class="sector-info">
+            <h3>Locales Comerciales & Oficinas</h3>
+            <p>Obligatorio para obtener la Licencia de Funcionamiento municipal en Lima.</p>
+            <ul class="sector-req-list">
+              <li><i data-lucide="check-square"></i> <span><strong>Extintores PQS 6KG:</strong> Con soporte mural rígido a 1.50m.</span></li>
+              <li><i data-lucide="check-square"></i> <span><strong>CO2 en Tableros:</strong> Protege servidores y gabinetes eléctricos.</span></li>
+              <li><i data-lucide="check-square"></i> <span><strong>Señalética ITSE completa:</strong> Rotulado reglamentario en accesos.</span></li>
+            </ul>
+            <a href="#contacto" class="btn btn-red" style="padding:12px 22px;font-size:0.85rem;">Cotizar Sector</a>
+          </div>
+          <div class="sector-visual">
+            <div class="sector-step"><div class="sector-step-icon"><i data-lucide="file-check"></i></div><div><h4>Certificados de Operatividad</h4><p>Pozo a tierra y luces de emergencia certificados.</p></div></div>
+            <div class="sector-step"><div class="sector-step-icon"><i data-lucide="info"></i></div><div><h4>Ubicación de Extintor</h4><p>Adhesivo fotoluminiscente superior obligatorio.</p></div></div>
+          </div>
+        </div>
+        <div class="sector-panel" id="panel-almacenes">
+          <div class="sector-info">
+            <h3>Almacenes e Industrias</h3>
+            <p>Alta densidad de carga de fuego por pallets, plásticos y cartón. Máxima exigencia.</p>
+            <ul class="sector-req-list">
+              <li><i data-lucide="check-square"></i> <span><strong>Extintores de Carretilla:</strong> PQS de 50KG para grandes coberturas.</span></li>
+              <li><i data-lucide="check-square"></i> <span><strong>Gabinetes contra incendio:</strong> Mantenimiento de mangueras y pitones.</span></li>
+              <li><i data-lucide="check-square"></i> <span><strong>Capacitaciones avanzadas:</strong> Simulacros con fuego real para brigadas SSOMA.</span></li>
+            </ul>
+            <a href="#contacto" class="btn btn-red" style="padding:12px 22px;font-size:0.85rem;">Cotizar Sector</a>
+          </div>
+          <div class="sector-visual">
+            <div class="sector-step"><div class="sector-step-icon"><i data-lucide="truck"></i></div><div><h4>Equipos Carretilla 50KG</h4><p>Extintor móvil sobre ruedas para amplios espacios.</p></div></div>
+            <div class="sector-step"><div class="sector-step-icon"><i data-lucide="flame"></i></div><div><h4>Inspecciones de Redes</h4><p>Certificado de bombas y rociadores automáticos.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CALCULATOR ═══ -->
+  <section class="sec-alt" id="calculadora">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-label"><i data-lucide="calculator" style="width:14px;height:14px;"></i> Calculadora</span>
+        <h2 class="sec-title">Estimador de Requerimientos ITSE</h2>
+        <p class="sec-desc">Ingresa los datos de tu local para conocer el equipamiento mínimo exigido por Defensa Civil.</p>
+      </div>
+      <div class="calc-grid reveal">
+        <div class="calc-form-card">
+          <h3><i data-lucide="settings"></i> Parámetros de Entrada</h3>
+          <div class="form-group">
+            <label for="calc-sector">Rubro Comercial</label>
+            <select class="form-control" id="calc-sector" onchange="runCalc()">
+              <option value="restaurante">Restaurante / Bar / Cafetería</option>
+              <option value="comercio" selected>Tienda Comercial / Oficina</option>
+              <option value="colegio">Colegio / Nido / Educación</option>
+              <option value="almacen">Almacén / Fábrica / Taller</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="calc-area">Superficie Total (m²)</label>
+            <input type="number" class="form-control" id="calc-area" value="150" min="10" max="10000" oninput="runCalc()">
+          </div>
+          <div class="form-group">
+            <label for="calc-pisos">Número de Plantas</label>
+            <select class="form-control" id="calc-pisos" onchange="runCalc()">
+              <option value="1">1 Planta</option>
+              <option value="2">2 Plantas</option>
+              <option value="3">3 o más Plantas</option>
+            </select>
+          </div>
+          <button class="btn btn-red" style="width:100%;margin-top:8px;" onclick="runCalc()">
+            <i data-lucide="refresh-cw" style="width:16px;height:16px;"></i> Procesar
+          </button>
+        </div>
+        <div class="calc-result-card">
+          <div class="calc-result-header">
+            <h3><i data-lucide="monitor"></i> Diagnóstico LEOCAL</h3>
+            <p id="crt-meta">TIENDA COMERCIAL / OFICINA: 150m²</p>
+          </div>
+          <div class="calc-row"><div class="calc-row-label">Equipos Extintores Requeridos</div><div class="calc-row-val" id="crt-extintores">Calculando...</div></div>
+          <div class="calc-row"><div class="calc-row-label">Señalización Reglamentaria NTP</div><div class="calc-row-val" id="crt-senales">Calculando...</div></div>
+          <div class="calc-row"><div class="calc-row-label">Sistema de Iluminación de Emergencia</div><div class="calc-row-val" id="crt-luces">Calculando...</div></div>
+          <div class="calc-row"><div class="calc-row-label">Entrenamiento y Brigadas</div><div class="calc-row-val" id="crt-brigadas">Calculando...</div></div>
+          <div class="calc-result-footer">
+            <button onclick="exportCalcToForm()" class="btn btn-red" style="width:100%;">
+              <i data-lucide="download" style="width:16px;height:16px;"></i> Exportar a Formulario
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section id="testimonios">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-label"><i data-lucide="message-circle" style="width:14px;height:14px;"></i> Opiniones</span>
+        <h2 class="sec-title">Lo que Dicen Nuestros Clientes</h2>
+        <p class="sec-desc">Ingenieros SSOMA y gerentes que aprueban sus ITSE con nosotros.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <p class="testimonial-text">"Estábamos contra el tiempo con la inspección ITSE de nuestra planta en Lurín. LEOCAL recargó los extintores de 50KG con su laboratorio móvil e instaló las luces en 24h. Aprobamos sin observaciones."</p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar">JG</div>
+            <div class="testimonial-meta"><h4>Juan García</h4><p>Gerente de Planta, Grupo Logístico</p></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <p class="testimonial-text">"Encontrar una empresa que firme certificados de operatividad de luces de emergencia con ingeniero de forma ágil era difícil en Lima. En LEOCAL coordinaron todo de inmediato."</p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar">MR</div>
+            <div class="testimonial-meta"><h4>María Rodríguez</h4><p>Directora de Seguridad, Cadena Gastronómica</p></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <p class="testimonial-text">"El taller práctico de lucha contra incendios fue sumamente crudo y realista. Nuestro personal de almacén aprendió a reaccionar en fuego real, cumpliendo con la exigencia municipal."</p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar">CR</div>
+            <div class="testimonial-meta"><h4>Carlos Reyes</h4><p>Coordinador SSOMA, Distribuidora Lurín</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="sec-alt" id="faq">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-label"><i data-lucide="help-circle" style="width:14px;height:14px;"></i> FAQ</span>
+        <h2 class="sec-title">Preguntas Frecuentes</h2>
+        <p class="sec-desc">Dudas resueltas por nuestros ingenieros colegiados.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Con qué frecuencia se deben recargar los extintores?<i data-lucide="chevron-down"></i></button>
+          <div class="faq-a"><p>Según la NTP 350.043, todo extintor portátil debe recargarse <strong>anualmente</strong>, independientemente de si se usó. Además, se requieren inspecciones visuales mensuales registradas en la tarjeta de control del equipo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Qué extintores son obligatorios para una cocina de restaurante?<i data-lucide="chevron-down"></i></button>
+          <div class="faq-a"><p>Es obligatorio un <strong>Extintor Clase K (Acetato de Potasio)</strong> de 6 litros para cocinas con freidoras o planchas de grasa. Este agente apaga el fuego por saponificación. En el comedor se requieren extintores PQS.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">¿Quién firma el certificado de luces de emergencia?<i data-lucide="chevron-down"></i></button>
+          <div class="faq-a"><p>Debe firmarlo un <strong>Ingeniero Electricista o Mecánico-Electricista colegiado y habilitado</strong> por el CIP (Colegio de Ingenieros del Perú). Es exigido en las fiscalizaciones ITSE distritales.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contacto">
+    <div class="container">
+      <div class="sec-header reveal">
+        <span class="sec-label"><i data-lucide="send" style="width:14px;height:14px;"></i> Contacto</span>
+        <h2 class="sec-title">Solicita tu Cotización</h2>
+        <p class="sec-desc">Un ingeniero especialista te responderá en menos de 24 horas.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info-card reveal">
+          <h3>Atención Inmediata</h3>
+          <p>¿Tienes una inspección programada esta semana? Comunícate por nuestros canales directos:</p>
+          <div class="contact-method">
+            <div class="contact-method-icon"><i data-lucide="phone"></i></div>
+            <div class="contact-method-text"><strong>Central Operativa</strong><a href="tel:+5114328242">+51 1 432-8242</a></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon"><i data-lucide="message-circle"></i></div>
+            <div class="contact-method-text"><strong>WhatsApp Comercial</strong><a href="https://wa.me/51987654321" target="_blank">+51 987 654 321</a></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon"><i data-lucide="mail"></i></div>
+            <div class="contact-method-text"><strong>Email de Ventas</strong><a href="mailto:contacto@leocal.pe">contacto@leocal.pe</a></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon"><i data-lucide="map-pin"></i></div>
+            <div class="contact-method-text"><strong>Ubicación</strong><span>Lima Metropolitana, Perú</span></div>
+          </div>
+        </div>
+        <div class="contact-form-card reveal">
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group"><label for="nombre">Nombre *</label><input type="text" class="form-control" id="nombre" required placeholder="Tu nombre"></div>
+              <div class="form-group"><label for="email">Email *</label><input type="email" class="form-control" id="email" required placeholder="tu@email.com"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="empresa">Empresa *</label><input type="text" class="form-control" id="empresa" required placeholder="Razón social"></div>
+              <div class="form-group"><label for="telefono">Teléfono *</label><input type="tel" class="form-control" id="telefono" required placeholder="987 654 321"></div>
+            </div>
+            <div class="form-group"><label for="sector">Giro Comercial</label>
+              <select class="form-control" id="sector">
+                <option value="restaurante">Restaurante / Cafetería</option>
+                <option value="corporativo" selected>Tienda / Oficina</option>
+                <option value="colegio">Establecimiento Educativo</option>
+                <option value="almacen">Almacén / Planta Industrial</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Equipos de Interés</label>
+              <div class="check-grid">
+                <label class="check-label"><input type="checkbox" name="srv" value="Extintores" checked> Venta de Extintores</label>
+                <label class="check-label"><input type="checkbox" name="srv" value="Recarga"> Recarga Certificada</label>
+                <label class="check-label"><input type="checkbox" name="srv" value="Señalización"> Señalética NTP</label>
+                <label class="check-label"><input type="checkbox" name="srv" value="Luces"> Luces & Certificados</label>
+              </div>
+            </div>
+            <div class="form-group"><label for="mensaje">Detalles Técnicos</label><textarea class="form-control" id="mensaje" placeholder="Metraje, urgencia, cantidad de extintores..."></textarea></div>
+            <button type="submit" class="btn btn-red" style="width:100%;">
+              <i data-lucide="send" style="width:16px;height:16px;"></i> Enviar Cotización por WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="nav-brand" style="margin-bottom:14px;font-size:1.3rem;">LEOCAL<span class="accent">.</span></div>
+          <p>Ingeniería contra incendios y auditorías de seguridad Defensa Civil ITSE. Protegemos comercios, colegios e industrias en todo Lima.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li><li><a href="#servicios">Servicios</a></li>
+            <li><a href="#sectores">Sectores</a></li><li><a href="#calculadora">Calculadora</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Productos</h4>
+          <ul>
+            <li><a href="#servicios">Extintores PQS</a></li><li><a href="#servicios">Extintores CO2</a></li>
+            <li><a href="#servicios">Extintor Clase K</a></li><li><a href="#servicios">Luces LED</a></li>
+            <li><a href="#servicios">Señalética</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="tel:+5114328242">+51 1 432-8242</a></li>
+            <li><a href="https://wa.me/51987654321" target="_blank">+51 987 654 321</a></li>
+            <li><a href="mailto:contacto@leocal.pe">contacto@leocal.pe</a></li>
+            <li>Lima Metropolitana, Perú</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 LEOCAL. Todos los derechos reservados.</p>
+        <div><a href="#">Privacidad</a><a href="#">Términos</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/51987654321?text=Hola%20LEOCAL,%20deseo%20cotizar%20equipos%20de%20seguridad" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <i data-lucide="message-circle"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    // Navbar scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+    // Burger
+    const burger = document.getElementById('burgerBtn');
+    const menu = document.getElementById('navMenu');
+    burger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      const icon = burger.querySelector('[data-lucide]');
+      icon.setAttribute('data-lucide', menu.classList.contains('open') ? 'x' : 'menu');
+      lucide.createIcons();
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      burger.querySelector('[data-lucide]').setAttribute('data-lucide', 'menu');
+      lucide.createIcons();
+    }));
+
+    // Sector tabs
+    function switchSector(id) {
+      document.querySelectorAll('.sector-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.sector-panel').forEach(p => p.classList.remove('active'));
+      const btn = [...document.querySelectorAll('.sector-tab')].find(b => b.getAttribute('onclick').includes(id));
+      if (btn) btn.classList.add('active');
+      const panel = document.getElementById('panel-' + id);
+      if (panel) panel.classList.add('active');
+    }
+
+    // Calculator
+    function runCalc() {
+      const sector = document.getElementById('calc-sector').value;
+      const area = parseFloat(document.getElementById('calc-area').value) || 0;
+      const pisos = parseInt(document.getElementById('calc-pisos').value) || 1;
+      if (area <= 0) return;
+
+      let ext = '', luces = '', brig = '';
+      let sen = 'Señales fotoluminiscentes NTP 399.010: Evacuación, Salida, Extintores, Tablero Eléctrico y Zona Segura.';
+
+      if (sector === 'restaurante') {
+        const q = Math.max(1, Math.ceil(area / 120));
+        ext = `1 Clase K (6L) para cocina + ${q} PQS 6kg para el salón.`;
+        luces = `Mínimo ${Math.max(2, Math.ceil(area / 80) * pisos)} luces LED de encendido automático.`;
+        brig = 'Brigadas: Lucha contra incendios en cocinas y primeros auxilios.';
+      } else if (sector === 'comercio') {
+        const q = Math.max(1, Math.ceil(area / 100));
+        ext = `${q} PQS 6kg + ${Math.max(1, pisos)} CO2 5lb en tableros.`;
+        luces = `Mínimo ${Math.max(1, Math.ceil(area / 100) * pisos)} luces LED por planta.`;
+        brig = 'Brigadas: Evacuación ante sismos y primeros auxilios.';
+      } else if (sector === 'colegio') {
+        const q = Math.max(2, Math.ceil(area / 80));
+        ext = `${q} PQS 6kg en pasillos + 1 CO2 10lb en laboratorios.`;
+        luces = `Mínimo ${Math.max(2, Math.ceil(area / 60) * pisos)} luces LED en aulas y escaleras.`;
+        brig = 'Brigada escolar: Evacuación coordinada y primeros auxilios.';
+      } else if (sector === 'almacen') {
+        const q = Math.max(2, Math.ceil(area / 150));
+        ext = `${q} PQS 9kg + ${Math.max(1, Math.ceil(area / 300))} CO2 10lb para maquinaria.`;
+        luces = `Mínimo ${Math.max(2, Math.ceil(area / 120) * pisos)} luces LED industriales (4h autonomía).`;
+        brig = 'Brigada SSOMA: Lucha contra incendios y primeros auxilios industriales.';
+        sen = 'Señalización de alta luminosidad NTP + delimitación gráfica de tránsito de carga.';
+      }
+      const names = { restaurante: 'Restaurante / Cafetería', comercio: 'Tienda / Oficina', colegio: 'Centro Educativo', almacen: 'Almacén / Industrial' };
+      document.getElementById('crt-meta').textContent = `${names[sector].toUpperCase()}: ${area}m² (${pisos} PISO/S)`;
+      document.getElementById('crt-extintores').textContent = ext;
+      document.getElementById('crt-senales').textContent = sen;
+      document.getElementById('crt-luces').textContent = luces;
+      document.getElementById('crt-brigadas').textContent = brig;
+    }
+    runCalc();
+
+    function exportCalcToForm() {
+      const meta = document.getElementById('crt-meta').textContent;
+      const ext = document.getElementById('crt-extintores').textContent;
+      const luces = document.getElementById('crt-luces').textContent;
+      const brig = document.getElementById('crt-brigadas').textContent;
+      document.getElementById('mensaje').value = `[DIAGNÓSTICO EXPORTADO]\n• Local: ${meta}\n• Extintores: ${ext}\n• Luces: ${luces}\n• Brigadas: ${brig}`;
+      const cs = document.getElementById('calc-sector').value;
+      const fs = document.getElementById('sector');
+      if (cs === 'restaurante') fs.value = 'restaurante';
+      else if (cs === 'comercio') fs.value = 'corporativo';
+      else if (cs === 'colegio') fs.value = 'colegio';
+      else if (cs === 'almacen') fs.value = 'almacen';
+      document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // FAQ
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('active'); i.querySelector('.faq-a').style.maxHeight = null; });
+      if (!wasActive) { item.classList.add('active'); item.querySelector('.faq-a').style.maxHeight = item.querySelector('.faq-a').scrollHeight + 'px'; }
+      lucide.createIcons();
+    }
+
+    // Contact form → WhatsApp
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const n = document.getElementById('nombre').value.trim();
+      const em = document.getElementById('email').value.trim();
+      const emp = document.getElementById('empresa').value.trim();
+      const tel = document.getElementById('telefono').value.trim();
+      const sec = document.getElementById('sector').value;
+      const msg = document.getElementById('mensaje').value.trim();
+      const srvs = [...document.querySelectorAll('input[name="srv"]:checked')].map(c => c.value).join(', ');
+      const wa = encodeURIComponent(`🔥 *Cotización LEOCAL*\n\n*Cliente:* ${n}\n*Empresa:* ${emp}\n*Tel:* ${tel}\n*Email:* ${em}\n*Rubro:* ${sec}\n\n*Equipos:* ${srvs || 'N/A'}\n\n*Detalles:*\n${msg || 'Sin especificar.'}`);
+      window.open(`https://wa.me/51987654321?text=${wa}`, '_blank');
+      this.reset();
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => obs.observe(el));
+    }
+  </script>
+</body>
+</html>

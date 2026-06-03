@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Organización de bodas y eventos corporativos de lujo en Lima, Perú. Descubra nuestro portafolio de montajes, catering de alta cocina y alquiler de mobiliario.">
+  <title>Nayeli Eventos | Organización y Producción de Eventos de Lujo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- --- HEADER & NAVIGATION --- -->
+  <header class="dark-theme">
+    <div class="container">
+      <nav class="navbar" id="nav-wrapper">
+        <a href="index.html" class="logo" id="logo-link">
+          NAYELI EVENTOS
+          <span>luxury production</span>
+        </a>
+        
+        <ul class="nav-links" id="navbar-menu">
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="portafolio.html">Portafolio</a></li>
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="mobiliario.html">Mobiliario</a></li>
+          <li><a href="cotizar.html">Cotizar</a></li>
+          <li><a href="cotizar.html" class="btn btn-accent" style="padding: 8px 16px; font-size: 0.75rem;" id="nav-cta-btn">Diseñar Evento</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir panel de navegación">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- --- STYLE A HERO: FULLSCREEN IMMERSIVE --- -->
+  <section class="hero-luxury-home" id="home-hero" style="background-image: url('img/event_hero.png');">
+    <div class="hero-luxury-home-content">
+      <p>Bodas y Eventos Exclusivos</p>
+      <h1>Creamos Experiencias Memorables</h1>
+      <div class="thin-gold-line center"></div>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="cotizar.html" class="btn btn-accent" id="hero-quote-cta">Presupuestar en Línea</a>
+        <a href="portafolio.html" class="btn btn-outline-white" id="hero-gallery-cta">Ver Portafolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- PHILOSOPHY SECTION --- -->
+  <section class="section-padding" style="background-color: var(--bg-main);" id="philosophy">
+    <div class="container text-center">
+      <span class="badge" style="color: var(--accent); font-weight:600; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; display:block; margin-bottom: 20px;">Nuestra Promesa</span>
+      <h2 class="philosophical-quote">"El arte de la hospitalidad de lujo radica en la armonía absoluta entre el diseño del espacio, la propuesta gastronómica y el mobiliario que acoge a sus invitados."</h2>
+      <p style="font-size: 1.05rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.9;">
+        Nayeli Eventos ofrece un servicio integral premium en Lima, Perú. Planificamos y producimos eventos corporativos y sociales donde cada detalle, desde la cristalería hasta los toldos de gran envergadura y barras LED, es seleccionado con rigurosa finura.
+      </p>
+      <div class="thin-gold-line center" style="margin-top: 40px;"></div>
+    </div>
+  </section>
+
+  <!-- --- MAGAZINE SHORTCUTS (COLLAGE-LIKE DIRECT) --- -->
+  <section class="section-padding" style="background-color: var(--bg-alt); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);" id="shortcuts">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 60px;">
+        <span class="badge" style="color: var(--accent); font-weight:600; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase;">Explorar Servicios</span>
+        <h2 style="font-size: 2.8rem; margin-top: 12px; color: var(--primary);">Nuestros Tres Pilares de Producción</h2>
+      </div>
+
+      <div class="magazine-grid">
+        <!-- Card 1 -->
+        <div class="magazine-card" id="card-portafolio">
+          <div class="magazine-img-wrapper">
+            <img src="img/event_setup.png" alt="Detalles florales y cristalería de lujo sobre mesa en Nayeli Eventos">
+          </div>
+          <div class="magazine-content">
+            <h3>Montajes Exclusivos</h3>
+            <p>Explore nuestro portafolio de bodas de gala, aniversarios y recepciones corporativas reales organizadas en Lima.</p>
+            <a href="portafolio.html" class="magazine-link" id="link-portafolio">
+              Ver Galerías
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="magazine-card" id="card-catering">
+          <div class="magazine-img-wrapper">
+            <img src="img/catering_menu.png" alt="Emplatado gourmet de alta cocina peruana-fusión en catering Nayeli">
+          </div>
+          <div class="magazine-content">
+            <h3>Catering Gourmet</h3>
+            <p>Menús diseñados por nuestro Chef Ejecutivo que deleitan y sorprenden, fusionando la cocina peruana e internacional.</p>
+            <a href="catering.html" class="magazine-link" id="link-catering">
+              Explorar Menús
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="magazine-card" id="card-mobiliario">
+          <div class="magazine-img-wrapper">
+            <img src="img/furniture_chairs.png" alt="Sillas Tiffany y Crossback de diseño premium disponibles para alquiler">
+          </div>
+          <div class="magazine-content">
+            <h3>Mobiliario Premium</h3>
+            <p>Catálogo digital interactivo de sillas de diseño, barras LED, toldos estructurales y mesas exclusivas en stock.</p>
+            <a href="mobiliario.html" class="magazine-link" id="link-mobiliario">
+              Ver Mobiliario
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- SOCIAL PROOF ACCENT BLOCK --- -->
+  <section class="section-padding" style="background-color: var(--bg-main);" id="wedding-proof">
+    <div class="container text-center">
+      <span class="badge" style="color: var(--accent); font-weight:600; font-size:0.75rem; letter-spacing:0.2em; display:block; margin-bottom: 20px;">Testimonios Reales</span>
+      <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 24px;">La Confianza de Nuestros Clientes</h2>
+      <p style="font-family: var(--font-headings); font-size: 1.8rem; font-style: italic; max-width: 800px; margin: 0 auto 30px auto; color: var(--text-muted); line-height: 1.6;">
+        "El montaje de nuestra boda superó todo lo imaginado. La iluminación del toldo con las arañas de cristal y la finura de las mesas Crossback crearon una atmósfera de ensueño. La comida fue calificada como extraordinaria por todos."
+      </p>
+      <h4 style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: var(--primary);">Valeria & Giancarlo</h4>
+      <p style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px;">Boda Real en Hacienda Fundo Haras, Pachacámac</p>
+    </div>
+  </section>
+
+  <!-- --- BOTTOM CALL TO ACTION --- -->
+  <section class="section-padding text-center" style="background-color: var(--primary); color: white;" id="cta-section">
+    <div class="container">
+      <h2 style="color: white; font-size: 3rem; margin-bottom: 16px; font-weight:300;">Planifiquemos un Evento Espectacular</h2>
+      <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.05rem; max-width: 650px; margin: 0 auto 40px auto; line-height: 1.8;">Utilice nuestro cotizador en línea para recibir un rango de presupuesto estimado según sus preferencias de comensales, catering y mobiliario.</p>
+      <a href="cotizar.html" class="btn btn-accent" id="cta-accent-btn">Iniciar Cotización en Línea</a>
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            NAYELI EVENTOS
+            <span>luxury production</span>
+          </a>
+          <p>Organización integral de bodas, eventos sociales y corporativos en Lima, Perú. Producción de alta gama, catering y mobiliario exclusivo.</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Secciones</h4>
+          <ul class="footer-links">
+            <li><a href="portafolio.html">Galería de Montajes</a></li>
+            <li><a href="catering.html">Propuestas de Menús</a></li>
+            <li><a href="mobiliario.html">Catálogo de Mobiliario</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sede Administrativa</h4>
+          <ul class="footer-contact">
+            <li>
+              <span>Locación</span>
+              <span>Av. Primavera 1024, Oficina 502, Santiago de Surco, Lima, Perú</span>
+            </li>
+            <li>
+              <span>Coordinación</span>
+              <span>informes@nayelieventos.pe | (01) 789-4561 / 999 666 555</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nayeli Eventos. Todos los derechos reservados. Confidencialidad y rigurosidad logística.</p>
+        <p>Bodas &bull; Corporativos &bull; Mobiliario</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

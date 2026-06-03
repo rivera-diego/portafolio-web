@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinos Turísticos - Agencia Mercato</title>
+  <meta name="description" content="Detalle de itinerarios y reservas para Cusco y Máncora. Planes con todo incluido de la mano de guías oficiales certificados.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <span>Agencia</span> Mercato
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="destinos.html" class="active">Destinos</a></li>
+          <li><a href="fulldays.html">Full Days</a></li>
+          <li><a href="reservar.html">Reservar</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION - Style B: Asymmetric Collage -->
+  <section class="hero-travel-destinations">
+    <div class="container">
+      <div class="hero-travel-destinations-grid">
+        <div class="hero-travel-destinations-title">
+          <span class="badge badge-accent">Viajes a Medida</span>
+          <h1 style="margin-top: 15px;">Nuestros Paquetes <span>Nacionales</span></h1>
+          <p style="margin-top: 15px; color: var(--text-muted);">Sumérgete en la belleza histórica y natural de Perú. Te ofrecemos los dos destinos más cotizados del país con una planificación al milímetro y guías locales que transformarán tu viaje en una experiencia inigualable.</p>
+        </div>
+        <div class="hero-travel-destinations-collage">
+          <div class="dest-collage-img">
+            <img src="img/cusco_machupicchu.png" alt="Paisaje Cusco">
+          </div>
+          <div class="dest-collage-img">
+            <img src="img/mancora_beach.png" alt="Balneario de Máncora">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB SWITCHER & DETAIL PANELS -->
+  <section class="section-padding" style="background-color: var(--bg-alt);">
+    <div class="container">
+      <!-- Tabs Buttons -->
+      <div class="dest-tabs-buttons">
+        <button class="dest-tab-btn active" data-target="cusco-panel">Cusco Mágico (4D/3N)</button>
+        <button class="dest-tab-btn" data-target="mancora-panel">Máncora Relax (3D/2N)</button>
+      </div>
+
+      <!-- CUSCO PANEL -->
+      <div id="cusco-panel" class="dest-tab-panel active">
+        <div class="destination-detail-grid">
+          <div>
+            <h2 style="margin-bottom: 24px; font-size: 2.2rem; display: flex; align-items: center; gap: 12px;">
+              Cusco Mágico & Machu Picchu
+              <span class="badge badge-primary">S/ 1,200 por persona</span>
+            </h2>
+            <p style="margin-bottom: 32px; color: var(--text-muted);">Una inmersión cultural y arqueológica completa en el ombligo del mundo. Nos encargamos de todos los boletos turísticos, el tren panorámico a Machu Picchu, traslados privados y guiado especializado para que solo te preocupes de disfrutar la magia de los Andes.</p>
+            
+            <h3 style="margin-bottom: 20px; font-size: 1.4rem;">Itinerario Detallado (Paso a Paso)</h3>
+            <div class="itinerary-timeline">
+              <!-- Step 1 -->
+              <div class="itinerary-step active">
+                <div class="itinerary-step-header">
+                  <h4>Día 1: Bienvenida imperial y City Tour</h4>
+                  <span>Día 1</span>
+                </div>
+                <div class="itinerary-step-body">
+                  <p>Recepción en el aeropuerto de Cusco y traslado en transporte privado a tu hotel seleccionado. Tendrás la mañana libre para aclimatación. A las 2:00 PM iniciaremos el City Tour por la Catedral del Cusco, el Templo del Sol Qorikancha y los templos arqueológicos de Sacsayhuamán, Q'enqo y Puca Pucará.</p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="itinerary-step">
+                <div class="itinerary-step-header">
+                  <h4>Día 2: El esplendor del Valle Sagrado</h4>
+                  <span>Día 2</span>
+                </div>
+                <div class="itinerary-step-body">
+                  <p>A las 8:00 AM partiremos hacia Pisac para recorrer su mercado artesanal y su impresionante complejo en la montaña. Disfrutaremos de un almuerzo buffet de comida andina en Urubamba. Por la tarde, exploraremos la fortaleza incaica de Ollantaytambo antes de abordar el tren con destino a Aguas Calientes.</p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="itinerary-step">
+                <div class="itinerary-step-header">
+                  <h4>Día 3: El santuario histórico de Machu Picchu</h4>
+                  <span>Día 3</span>
+                </div>
+                <div class="itinerary-step-body">
+                  <p>¡El día esperado! Por la mañana temprano subiremos en bus Consettur hacia la ciudadela de Machu Picchu. Realizaremos un tour de 2.5 horas de la mano de un guía oficial de turismo. Tras el recorrido, almorzaremos en Aguas Calientes y tomaremos el tren de retorno a Ollantaytambo, culminando con traslado a tu hotel en Cusco.</p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="itinerary-step">
+                <div class="itinerary-step-header">
+                  <h4>Día 4: Despedida y retorno a Lima</h4>
+                  <span>Día 4</span>
+                </div>
+                <div class="itinerary-step-body">
+                  <p>Disfruta de tu desayuno incluido en el hotel. A la hora oportuna, nuestro transporte privado te recogerá del hotel para trasladarte de forma segura al aeropuerto Alejandro Velasco Astete de Cusco para abordar tu vuelo de regreso.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Panel Info & CTA -->
+          <div>
+            <div class="include-exclude-panel">
+              <h3>¿Qué incluye el paquete?</h3>
+              <ul class="inc-list">
+                <li>Traslados Aeropuerto - Hotel - Aeropuerto</li>
+                <li>3 noches de hotel 3 estrellas en Cusco</li>
+                <li>Desayunos incluidos en el hotel</li>
+                <li>Almuerzo buffet en el Valle Sagrado</li>
+                <li>Boleto Turístico del Cusco general</li>
+                <li>Ticket de Tren Cusco - Aguas Calientes (Ida/Vuelta)</li>
+                <li>Ticket de bus Consettur a Machu Picchu</li>
+                <li>Entrada oficial a Machu Picchu (Circuito clásico)</li>
+                <li>Guías titulados bilingües registrados en DIRCETUR</li>
+              </ul>
+
+              <h3 style="margin-top: 32px;">¿Qué no incluye?</h3>
+              <ul class="exc-list">
+                <li>Vuelos domésticos (Lima - Cusco - Lima)</li>
+                <li>Cenas y alimentación no detallada</li>
+                <li>Seguro médico de viaje</li>
+                <li>Propinas a guías y choferes</li>
+              </ul>
+
+              <div style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center;">
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;">¿Decidido a vivir la aventura? Asegura tu cupo en línea con nuestro sistema dinámico.</p>
+                <a href="reservar.html?tour=cusco" class="btn btn-accent" style="width: 100%;">Reservar Cusco ahora</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MANCORA PANEL -->
+      <div id="mancora-panel" class="dest-tab-panel">
+        <div class="destination-detail-grid">
+          <div>
+            <h2 style="margin-bottom: 24px; font-size: 2.2rem; display: flex; align-items: center; gap: 12px;">
+              Máncora Relax & Sol del Norte
+              <span class="badge badge-primary">S/ 950 por persona</span>
+            </h2>
+            <p style="margin-bottom: 32px; color: var(--text-muted);">Desconéctate en el paradisíaco balneario de Máncora, Piura. Disfruta de un clima soleado todo el año, playas de arena blanca, un excelente resort de descanso con piscina frente al océano, exquisitos mariscos frescos y el espectacular tour marino de nado con tortugas marinas.</p>
+            
+            <h3 style="margin-bottom: 20px; font-size: 1.4rem;">Itinerario Detallado (Paso a Paso)</h3>
+            <div class="itinerary-timeline">
+              <!-- Step 1 -->
+              <div class="itinerary-step active">
+                <div class="itinerary-step-header">
+                  <h4>Día 1: Llegada y relajo frente al mar</h4>
+                  <span>Día 1</span>
+                </div>
+                <div class="itinerary-step-body">
+                  <p>Recepción en el aeropuerto de Talara (o Piura) y traslado privado en minivan climatizada directo a tu resort seleccionado en la playa de Máncora. Registro de habitaciones y tarde libre para disfrutar de la piscina infinity del hotel, cócteles de bienvenida y la impresionante puesta de sol sobre el Pacífico.</p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="itinerary-step">
+                <div class="itinerary-step-header">
+                  <h4>Día 2: Nado con tortugas y atardecer norteño</h4>
+                  <span>Día 2</span>
+                </div>
+                <div class="itinerary-step-body">
+                  <p>A las 9:00 AM saldremos hacia la caleta El Ñuro. Abordaremos un bote turístico para nadar al lado de las majestuosas tortugas marinas verdes en su hábitat natural (incluye chaleco de seguridad y cámaras sumergibles). Por la tarde, realizaremos una caminata ligera o paseo a caballo opcional por las dunas de Pocitas.</p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="itinerary-step">
+                <div class="itinerary-step-header">
+                  <h4>Día 3: Despedida y retorno</h4>
+                  <span>Día 3</span>
+                </div>
+                <div class="itinerary-step-body">
+                  <p>Disfruta de una mañana libre para compras de artesanías locales, surfear las olas o un último baño de sol en la playa. A las 12:00 PM se realizará el check-out en el hotel y abordaremos la movilidad privada que nos conducirá de retorno al aeropuerto de salida.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Panel Info & CTA -->
+          <div>
+            <div class="include-exclude-panel">
+              <h3>¿Qué incluye el paquete?</h3>
+              <ul class="inc-list">
+                <li>Traslados Aeropuerto Talara - Hotel Máncora (Ida/Vuelta)</li>
+                <li>2 noches de hotel resort frente a la playa</li>
+                <li>Desayunos buffet frente al mar</li>
+                <li>Bote turístico y entradas en la caleta El Ñuro</li>
+                <li>Equipamiento de snorkel y chalecos salvavidas</li>
+                <li>Nado certificado con tortugas verdes</li>
+                <li>Sesión de fotos submarina de recuerdo</li>
+              </ul>
+
+              <h3 style="margin-top: 32px;">¿Qué no incluye?</h3>
+              <ul class="exc-list">
+                <li>Pasajes de avión o bus interprovincial</li>
+                <li>Almuerzos y cenas (no especificados)</li>
+                <li>Deportes de aventura motorizados (motos náuticas)</li>
+                <li>Propinas y souvenirs</li>
+              </ul>
+
+              <div style="margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center;">
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;">¿Decidido a vivir la aventura? Asegura tu cupo en línea con nuestro sistema dinámico.</p>
+                <a href="reservar.html?tour=mancora" class="btn btn-accent" style="width: 100%;">Reservar Máncora ahora</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color: var(--text-white); margin-bottom: 20px;">
+            <span>Agencia</span> Mercato
+          </a>
+          <p style="margin-top: 15px;">Tu socio de viajes de confianza en el Perú. Descubre Cusco, Máncora y los mejores paisajes cerca de Lima con guías certificados y una organización impecable.</p>
+          <p style="margin-top: 15px; font-size: 0.8rem; color: rgba(255,255,255,0.4);">RUC: 20601234567 | Registro MINCETUR N° 4562-2024</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="destinos.html">Destinos del Perú</a></li>
+            <li><a href="fulldays.html">Tours Full Day</a></li>
+            <li><a href="reservar.html">Reserva tu Cupo</a></li>
+            <li><a href="nosotros.html">Sobre Nosotros / Políticas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Nuestras Oficinas</h4>
+          <ul class="footer-contact">
+            <li>
+              <span>Sede Miraflores:</span>
+              <span>Av. Larco 456, Piso 3, Miraflores, Lima</span>
+            </li>
+            <li>
+              <span>Sede Centro de Lima:</span>
+              <span>Jr. de la Unión 789, Oficina 204, Lima 01</span>
+            </li>
+            <li>
+              <span>Contacto Directo:</span>
+              <span style="color: var(--accent); font-weight: 700;">+51 987 654 321</span>
+              <span>reservas@agenciamercato.pe</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agencia Mercato. Todos los derechos reservados. Registrado ante MINCETUR y PROMPERÚ.</p>
+        <p>Desarrollado con pasión por el turismo peruano.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

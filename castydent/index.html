@@ -1,0 +1,3397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CastyDent - Clínica Dental Boutique | Diseño de Sonrisa y Estética Avanzada</title>
+    <meta name="description" content="Descubre CastyDent, clínica dental boutique en Lima especializada en ortodoncia invisible, diseño de sonrisa digital e implantes de alta gama.">
+
+    <!-- Google Fonts: Lexend (Heading) & Source Sans 3 (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ===== DISEÑO DE SISTEMA Y VARIABLES ===== */
+        :root {
+            /* Estética Premium: Azul Teal de Lujo + Oro Champagne */
+            --teal-primary: #0D5C75;
+            --teal-dark: #073543;
+            --teal-light: #EBF5F8;
+            --gold-accent: #C5A880;
+            --gold-dark: #A58B65;
+            --gold-light: #F8F4EE;
+            --bg-soft: #F9FAFA;
+            --white: #FFFFFF;
+            
+            /* Textos */
+            --text-dark: #0A252E;
+            --text-gray: #4E6870;
+            --text-muted: #7E9AA3;
+            --text-light: #DFECEF;
+
+            /* Spacers */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 48px;
+            --spacing-2xl: 96px;
+
+            /* Efectos */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-lg: 32px;
+            --radius-md: 20px;
+            --radius-sm: 10px;
+            --radius-full: 9999px;
+            
+            --shadow-sm: 0 2px 4px rgba(10, 37, 46, 0.03);
+            --shadow-md: 0 12px 35px rgba(10, 37, 46, 0.06);
+            --shadow-lg: 0 24px 50px rgba(10, 37, 46, 0.1);
+            --shadow-gold: 0 8px 25px rgba(197, 168, 128, 0.25);
+            --shadow-teal: 0 8px 25px rgba(13, 92, 117, 0.25);
+            
+            --border-luxury: 1px solid rgba(197, 168, 128, 0.35);
+            --border-card: 1px solid rgba(226, 233, 235, 0.8);
+        }
+
+        /* ===== RESET & ESTILOS BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold-accent) var(--bg-soft);
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ===== TIPOGRAFÍA ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--text-dark);
+            letter-spacing: -0.01em;
+        }
+
+        h1 {
+            font-size: clamp(34px, 5.5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        p {
+            color: var(--text-gray);
+        }
+
+        /* ===== CONTENEDORES ===== */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* ===== SECCIONES ===== */
+        section {
+            padding: var(--spacing-2xl) 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto var(--spacing-2xl) auto;
+        }
+
+        .section-header .tag {
+            font-family: 'Lexend', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold-dark);
+            display: inline-block;
+            margin-bottom: 12px;
+            background-color: var(--gold-light);
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+            border: var(--border-luxury);
+        }
+
+        .section-header h2 {
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-gray);
+        }
+
+        .bg-soft {
+            background-color: var(--bg-soft);
+        }
+
+        .bg-teal-dark {
+            background: linear-gradient(135deg, var(--teal-dark) 0%, #051A21 100%);
+            color: var(--white);
+        }
+
+        .bg-teal-dark h2, .bg-teal-dark h3, .bg-teal-dark h4 {
+            color: var(--white);
+        }
+
+        .bg-teal-dark p {
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+
+        /* ===== BOTONES PREMIUM ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: var(--radius-full);
+            font-family: 'Lexend', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            gap: 10px;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--teal-primary);
+            color: var(--white);
+            box-shadow: var(--shadow-teal);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--teal-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(13, 92, 117, 0.35);
+        }
+
+        .btn-gold {
+            background-color: var(--gold-accent);
+            color: var(--white);
+            box-shadow: var(--shadow-gold);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(197, 168, 128, 0.4);
+        }
+
+        .btn-outline-gold {
+            background-color: transparent;
+            color: var(--gold-dark);
+            border: 2px solid var(--gold-accent);
+        }
+
+        .btn-outline-gold:hover {
+            background-color: var(--gold-accent);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-small {
+            padding: 10px 24px;
+            font-size: 13.5px;
+        }
+
+        /* ===== HEADER / NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 168, 128, 0.2);
+            border-radius: var(--radius-full);
+            z-index: 1000;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        nav.scrolled {
+            top: 12px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(197, 168, 128, 0.35);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 32px;
+        }
+
+        .nav-logo {
+            font-family: 'Lexend', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--teal-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--gold-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-family: 'Lexend', sans-serif;
+            font-size: 14.5px;
+            font-weight: 500;
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--teal-primary);
+            padding: 4px;
+            z-index: 1010;
+        }
+
+        /* ===== MENÚ LATERAL MÓVIL ===== */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(10, 37, 46, 0.5);
+            backdrop-filter: blur(8px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 100%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--white);
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+            padding: 96px 32px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            transition: var(--transition);
+            border-left: var(--border-luxury);
+        }
+
+        .mobile-menu.open {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .mobile-menu ul a {
+            font-family: 'Lexend', sans-serif;
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--gold-accent);
+        }
+
+        .mobile-menu-ctas {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: auto;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: var(--spacing-xl);
+            background: radial-gradient(circle at 10% 20%, rgba(197, 168, 128, 0.08) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(13, 92, 117, 0.05) 0%, transparent 50%), var(--bg-soft);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            font-family: 'Lexend', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .hero-tag i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--teal-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(197, 168, 128, 0.2);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 19px;
+            color: var(--text-gray);
+            margin: var(--spacing-md) 0 var(--spacing-lg) 0;
+            max-width: 600px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 36px;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            color: var(--teal-primary);
+            margin-bottom: 2px;
+        }
+
+        .stat-item p {
+            font-size: 13.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        /* Before/After Smile Slider Visuals */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .smile-slider-container {
+            width: 100%;
+            max-width: 440px;
+            aspect-ratio: 4/3;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: var(--border-luxury);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            user-select: none;
+        }
+
+        .slider-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .layer-before {
+            background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+            z-index: 1;
+        }
+
+        .layer-after {
+            background: linear-gradient(135deg, #E2F2F6 0%, #BEE2EB 100%);
+            z-index: 2;
+            width: 50%; /* Controlado por JS */
+            border-right: 3px solid var(--gold-accent);
+        }
+
+        /* Forzamos que el contenido del 'After' tenga el mismo tamaño fijo que el contenedor */
+        .layer-after-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 440px; /* Coincide con el max-width */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .smile-label {
+            position: absolute;
+            bottom: 16px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .layer-before .smile-label {
+            right: 16px;
+            background: rgba(15, 23, 42, 0.08);
+            color: var(--text-gray);
+        }
+
+        .layer-after-inner .smile-label {
+            left: 16px;
+            background: var(--teal-primary);
+            color: var(--white);
+            box-shadow: var(--shadow-teal);
+        }
+
+        /* SVG Dental Styling */
+        .teeth-svg {
+            width: 75%;
+            height: auto;
+        }
+
+        /* Rango de entrada invisible superpuesto */
+        .smile-range-input {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        /* Tirador/Handle visual flotante */
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%; /* Controlado por JS */
+            width: 36px;
+            height: 36px;
+            margin-top: auto;
+            margin-bottom: auto;
+            transform: translateX(-50%);
+            background-color: var(--white);
+            border: 2px solid var(--gold-accent);
+            border-radius: 50%;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            pointer-events: none;
+            color: var(--gold-dark);
+            transition: transform 0.2s ease;
+        }
+
+        .smile-slider-container:hover .slider-handle {
+            transform: translateX(-50%) scale(1.1);
+            background-color: var(--gold-light);
+        }
+
+        .slider-handle i {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Sparkles en el after */
+        .sparkle-svg {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            fill: var(--gold-accent);
+            color: var(--gold-accent);
+            animation: pulse-sparkle 2s infinite ease-in-out;
+        }
+
+        .sparkle-1 { top: 25%; right: 25%; animation-delay: 0.2s; }
+        .sparkle-2 { bottom: 30%; left: 30%; animation-delay: 0.8s; }
+
+        @keyframes pulse-sparkle {
+            0%, 100% { transform: scale(0.6); opacity: 0.4; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* ===== TRATAMIENTOS DINÁMICOS ===== */
+        .treatment-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .treatment-tab-btn {
+            font-family: 'Lexend', sans-serif;
+            font-size: 14.5px;
+            font-weight: 600;
+            padding: 12px 28px;
+            background: var(--white);
+            border: var(--border-card);
+            color: var(--text-gray);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .treatment-tab-btn:hover {
+            border-color: var(--gold-accent);
+            color: var(--teal-primary);
+        }
+
+        .treatment-tab-btn.active {
+            background-color: var(--teal-primary);
+            color: var(--white);
+            border-color: var(--teal-primary);
+            box-shadow: var(--shadow-teal);
+        }
+
+        .treatment-panel {
+            background-color: var(--white);
+            border: var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            display: none;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .treatment-panel.active {
+            display: grid;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .treatment-details h3 {
+            font-size: 28px;
+            color: var(--teal-primary);
+            margin-bottom: 12px;
+        }
+
+        .treatment-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: var(--spacing-md) 0 var(--spacing-lg) 0;
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .spec-box h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .spec-box p {
+            font-family: 'Lexend', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .treatment-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .treatment-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15px;
+        }
+
+        .treatment-bullets li i {
+            color: var(--gold-accent);
+            flex-shrink: 0;
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .treatment-visual {
+            background-color: var(--bg-soft);
+            border-radius: var(--radius-md);
+            border: var(--border-card);
+            padding: var(--spacing-lg);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            position: relative;
+        }
+
+        .treatment-visual-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: var(--radius-md);
+            background-color: var(--white);
+            color: var(--gold-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+            border: var(--border-luxury);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .treatment-visual-icon i {
+            width: 36px;
+            height: 36px;
+        }
+
+        /* ===== TEST DE SONRISA (SMILE QUIZ) ===== */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border: var(--border-luxury);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-container::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.1) 0%, transparent 75%);
+            border-radius: 50%;
+        }
+
+        .quiz-step {
+            display: none;
+        }
+
+        .quiz-step.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .quiz-progress {
+            display: flex;
+            gap: 8px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .progress-dot {
+            height: 6px;
+            flex-grow: 1;
+            background-color: var(--text-light);
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+        }
+
+        .progress-dot.active {
+            background-color: var(--teal-primary);
+        }
+
+        .quiz-question {
+            font-size: 22px;
+            margin-bottom: var(--spacing-lg);
+            color: var(--teal-primary);
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .quiz-option {
+            background-color: var(--bg-soft);
+            border: var(--border-card);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--gold-accent);
+            background-color: var(--white);
+            transform: translateX(4px);
+        }
+
+        .quiz-option.selected {
+            background-color: var(--teal-light);
+            border-color: var(--teal-primary);
+            color: var(--teal-primary);
+        }
+
+        .quiz-option-radio {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .quiz-option.selected .quiz-option-radio {
+            border-color: var(--teal-primary);
+            background-color: var(--teal-primary);
+        }
+
+        .quiz-option.selected .quiz-option-radio::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--spacing-lg);
+        }
+
+        /* Resultado del Quiz */
+        .quiz-result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        .result-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--gold-light);
+            color: var(--gold-accent);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-gold);
+            border: var(--border-luxury);
+        }
+
+        .result-badge i {
+            width: 36px;
+            height: 36px;
+        }
+
+        .quiz-result h3 {
+            font-size: 26px;
+            color: var(--teal-primary);
+            margin-bottom: 6px;
+        }
+
+        .result-description {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result-details {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            background-color: var(--bg-soft);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md) var(--spacing-lg);
+            max-width: 500px;
+            margin: 0 auto var(--spacing-xl) auto;
+            border: var(--border-card);
+        }
+
+        .result-detail-box h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .result-detail-box p {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        /* ===== AGENDADOR DE CITAS MULTI-PASO ===== */
+        .booker-grid {
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: var(--spacing-xl);
+            align-items: stretch;
+        }
+
+        .booker-steps-indicator {
+            background-color: var(--teal-dark);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .booker-indicator-step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            opacity: 0.5;
+            transition: var(--transition);
+        }
+
+        .booker-indicator-step.active {
+            opacity: 1;
+        }
+
+        .booker-indicator-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .booker-indicator-step.active .booker-indicator-num {
+            border-color: var(--gold-accent);
+            background-color: var(--gold-accent);
+            color: var(--white);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .booker-indicator-info h4 {
+            color: var(--white);
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .booker-indicator-info p {
+            color: var(--text-light);
+            font-size: 12px;
+            margin: 0;
+            opacity: 0.7;
+        }
+
+        .booker-card {
+            background-color: var(--white);
+            border: var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .booker-panel {
+            display: none;
+            flex-grow: 1;
+        }
+
+        .booker-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .booker-panel h3 {
+            color: var(--teal-primary);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .booker-panel h3 i {
+            color: var(--gold-accent);
+        }
+
+        /* Booker Paso 1: Servicios */
+        .booker-service-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .booker-service-card {
+            background-color: var(--bg-soft);
+            border: var(--border-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .booker-service-card:hover {
+            border-color: var(--gold-accent);
+            background-color: var(--white);
+        }
+
+        .booker-service-card.selected {
+            border-color: var(--teal-primary);
+            background-color: var(--teal-light);
+        }
+
+        .booker-service-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--white);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal-primary);
+            border: 1px solid rgba(226, 233, 235, 0.8);
+            flex-shrink: 0;
+        }
+
+        .booker-service-card.selected .booker-service-icon {
+            color: var(--white);
+            background-color: var(--teal-primary);
+        }
+
+        .booker-service-icon i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .booker-service-info h4 {
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .booker-service-info p {
+            font-size: 12.5px;
+            margin: 0;
+        }
+
+        /* Booker Paso 2: Doctores */
+        .booker-doctor-options {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .booker-doc-card {
+            background-color: var(--bg-soft);
+            border: var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: grid;
+            grid-template-columns: 60px 1fr auto;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .booker-doc-card:hover {
+            border-color: var(--gold-accent);
+            background-color: var(--white);
+        }
+
+        .booker-doc-card.selected {
+            border-color: var(--teal-primary);
+            background-color: var(--teal-light);
+        }
+
+        .booker-doc-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            border: 2px solid var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .booker-doc-card.selected .booker-doc-avatar {
+            background: var(--gold-accent);
+        }
+
+        .booker-doc-info h4 {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .booker-doc-info p {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .booker-doc-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+
+        .booker-doc-rating i {
+            width: 14px;
+            height: 14px;
+            fill: #FBBF24;
+            color: #FBBF24;
+        }
+
+        .booker-doc-select-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .booker-doc-card.selected .booker-doc-select-indicator {
+            border-color: var(--teal-primary);
+            background-color: var(--teal-primary);
+        }
+
+        .booker-doc-card.selected .booker-doc-select-indicator::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+
+        /* Booker Paso 3: Calendario y Horarios */
+        .booker-datetime-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 20px;
+        }
+
+        .booker-calendar-panel h4, .booker-time-panel h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .day-option {
+            background-color: var(--bg-soft);
+            border: var(--border-card);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .day-option:hover {
+            border-color: var(--gold-accent);
+            background-color: var(--white);
+        }
+
+        .day-option.selected {
+            border-color: var(--teal-primary);
+            background-color: var(--teal-light);
+            color: var(--teal-primary);
+        }
+
+        .day-option span {
+            display: block;
+        }
+
+        .day-name {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .day-option.selected .day-name {
+            color: var(--teal-primary);
+        }
+
+        .day-number {
+            font-family: 'Lexend', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .time-slots-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .time-slot {
+            background-color: var(--bg-soft);
+            border: var(--border-card);
+            border-radius: var(--radius-sm);
+            padding: 10px;
+            text-align: center;
+            font-family: 'Lexend', sans-serif;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .time-slot:hover {
+            border-color: var(--gold-accent);
+            background-color: var(--white);
+        }
+
+        .time-slot.selected {
+            border-color: var(--teal-primary);
+            background-color: var(--teal-primary);
+            color: var(--white);
+            box-shadow: var(--shadow-teal);
+        }
+
+        /* Booker Paso 4: Confirmación */
+        .summary-card {
+            background-color: var(--bg-soft);
+            border: var(--border-luxury);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .summary-row span:first-child {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .summary-row span:last-child {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Booker Navigation Buttons */
+        .booker-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        /* ===== FAQs BUSCABLES ===== */
+        .faq-search-wrapper {
+            max-width: 550px;
+            margin: 0 auto var(--spacing-xl) auto;
+            position: relative;
+        }
+
+        .faq-search-input {
+            width: 100%;
+            padding: 16px 24px 16px 52px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-soft);
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--text-dark);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-search-input:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-search-wrapper i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-accent);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-card {
+            background-color: var(--white);
+            border: var(--border-card);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-card:hover {
+            border-color: rgba(197, 168, 128, 0.4);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-card.active {
+            border-color: var(--gold-accent);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-header {
+            width: 100%;
+            padding: 22px 28px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: 'Lexend', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-header i {
+            width: 20px;
+            height: 20px;
+            color: var(--gold-accent);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .faq-card.active .faq-header i {
+            transform: rotate(180deg);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-body p {
+            padding: 0 28px 24px 28px;
+            margin: 0;
+            font-size: 15px;
+            color: var(--text-gray);
+            border-top: 1px solid rgba(226, 233, 235, 0.5);
+            padding-top: 16px;
+        }
+
+        .faq-no-results {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--text-muted);
+            display: none;
+        }
+
+        /* ===== TESTIMONIALS (VALORACIONES) ===== */
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .opinion-card {
+            background-color: var(--white);
+            border: var(--border-card);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .opinion-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(197, 168, 128, 0.3);
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+            color: #FBBF24;
+        }
+
+        .rating-stars i {
+            width: 16px;
+            height: 16px;
+            fill: #FBBF24;
+        }
+
+        .opinion-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .opinion-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .opinion-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: 'Lexend', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .opinion-info h4 {
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .opinion-info p {
+            font-size: 12.5px;
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        /* ===== PIE DE PÁGINA (FOOTER) ===== */
+        footer {
+            background-color: var(--teal-dark);
+            color: var(--white);
+            padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 15px;
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-col p {
+            font-size: 14.5px;
+            color: var(--text-light);
+            opacity: 0.75;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col ul a {
+            color: var(--text-light);
+            opacity: 0.75;
+            text-decoration: none;
+            font-size: 14.5px;
+            transition: var(--transition);
+        }
+
+        .footer-col ul a:hover {
+            color: var(--gold-accent);
+            opacity: 1;
+            padding-left: 4px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .social-link:hover {
+            background: var(--gold-accent);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .social-link i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact-info li {
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-light);
+            opacity: 0.8;
+            align-items: flex-start;
+        }
+
+        .footer-contact-info li i {
+            color: var(--gold-accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .footer-contact-info li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact-info li a:hover {
+            color: var(--gold-accent);
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            font-size: 13.5px;
+            color: var(--text-light);
+            opacity: 0.6;
+            margin: 0;
+        }
+
+        .footer-policy {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-policy a {
+            font-size: 13.5px;
+            color: var(--text-light);
+            opacity: 0.6;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-policy a:hover {
+            color: var(--gold-accent);
+            opacity: 1;
+        }
+
+        /* ===== BOTÓN FLOTANTE WHATSAPP ===== */
+        .whatsapp-float-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 99;
+            width: 56px;
+            height: 56px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+        }
+
+        .whatsapp-float-btn:hover {
+            transform: scale(1.08) translateY(-3px);
+            background-color: #20BA5A;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float-btn i {
+            width: 28px;
+            height: 28px;
+            color: var(--white);
+        }
+
+        /* ===== UTILITIES / REVEAL ANIMATIONS ===== */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--spacing-lg);
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .treatment-panel {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .treatment-visual {
+                order: -1;
+            }
+
+            .booker-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .booker-steps-indicator {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 16px;
+            }
+
+            .booker-indicator-step {
+                flex: 1 1 auto;
+                justify-content: center;
+            }
+
+            .footer-cols {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                top: 12px;
+                left: 12px;
+                right: 12px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .nav-cta .btn {
+                display: none;
+            }
+
+            .nav-container {
+                padding: 10px 16px;
+            }
+
+            .testimonials-slider {
+                grid-template-columns: 1fr;
+            }
+
+            .booker-service-options {
+                grid-template-columns: 1fr;
+            }
+
+            .booker-datetime-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .footer-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVEGACIÓN FLOTANTE (GLASSMORPHISM) ===== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                Casty<span>Dent</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#tratamientos">Tratamientos</a></li>
+                <li><a href="#test-sonrisa">Test Dental</a></li>
+                <li><a href="#reservar">Reservar Cita</a></li>
+                <li><a href="#opiniones">Opiniones</a></li>
+                <li><a href="#preguntas">Preguntas FAQ</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="#reservar" class="btn btn-primary btn-small">Reservar Online</a>
+                <button class="burger" aria-label="Menu principal" id="burgerBtn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MENÚ LATERAL MÓVIL ===== -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#tratamientos" onclick="toggleMobileMenu()">Tratamientos</a></li>
+            <li><a href="#test-sonrisa" onclick="toggleMobileMenu()">Test Dental</a></li>
+            <li><a href="#reservar" onclick="toggleMobileMenu()">Reservar Cita</a></li>
+            <li><a href="#opiniones" onclick="toggleMobileMenu()">Opiniones</a></li>
+            <li><a href="#preguntas" onclick="toggleMobileMenu()">Preguntas FAQ</a></li>
+        </ul>
+        <div class="mobile-menu-ctas">
+            <a href="#reservar" class="btn btn-primary" onclick="toggleMobileMenu()">Reservar Online</a>
+            <a href="https://wa.me/51987654321?text=Hola%20CastyDent,%20deseo%20agendar%20una%20consulta" target="_blank" class="btn btn-gold">
+                <i data-lucide="phone"></i> WhatsApp Dental
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-tag">
+                        <i data-lucide="award"></i> Odontología Estética Exclusiva en Lima
+                    </div>
+                    <h1>Rediseñamos Tu <span>Sonrisa</span> Con Tecnología De Vanguardia</h1>
+                    <p class="hero-subtitle">
+                        Clínica dental boutique especializada en diseño de sonrisa, ortodoncia invisible y estética dental avanzada. Redefiniendo el cuidado de tu boca en un entorno relajante y exclusivo.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#reservar" class="btn btn-primary btn-large">
+                            <i data-lucide="calendar"></i>
+                            Reservar Consulta
+                        </a>
+                        <a href="#test-sonrisa" class="btn btn-outline-gold btn-large">
+                            Test de Sonrisa
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>99%</h3>
+                            <p>Pacientes Felices</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10+</h3>
+                            <p>Años Rediseñando Sonrisas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5★</h3>
+                            <p>Calificaciones Clínicas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- Deslizador de Sonrisas Antes/Después interactivo -->
+                    <div class="smile-slider-container">
+                        <!-- Capa 1: Antes (Teeth layout gapped & slightly yellow) -->
+                        <div class="slider-layer layer-before">
+                            <svg class="teeth-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Encias -->
+                                <path d="M 50,40 Q 200,85 350,40" fill="none" stroke="#FFA2B4" stroke-width="26" stroke-linecap="round"/>
+                                <!-- Diente Central Izq (Desalineado) -->
+                                <rect x="166" y="55" width="28" height="52" rx="10" fill="#FDF7CC" transform="rotate(-6 180 81)"/>
+                                <!-- Diente Central Der (Separado y desalineado) -->
+                                <rect x="204" y="54" width="28" height="52" rx="10" fill="#FDF7CC" transform="rotate(4 218 80)"/>
+                                <!-- Lateral Izq -->
+                                <rect x="136" y="57" width="25" height="46" rx="9" fill="#FDF7CC" transform="rotate(-3 148 80)"/>
+                                <!-- Lateral Der -->
+                                <rect x="238" y="56" width="25" height="46" rx="9" fill="#FDF7CC" transform="rotate(5 250 79)"/>
+                                <!-- Canino Izq (Puntiagudo antes) -->
+                                <path d="M 108,58 L 128,58 L 126,98 L 117,105 L 108,98 Z" fill="#FDF7CC" transform="rotate(-2 118 80)"/>
+                                <!-- Canino Der -->
+                                <path d="M 268,58 L 288,58 L 288,98 L 279,105 L 270,98 Z" fill="#FDF7CC" transform="rotate(2 279 80)"/>
+                            </svg>
+                            <span class="smile-label">Antes</span>
+                        </div>
+
+                        <!-- Capa 2: Después (Teeth layout perfectly straight and white) -->
+                        <div class="slider-layer layer-after" id="sliderAfterLayer">
+                            <div class="layer-after-inner">
+                                <svg class="teeth-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Encias -->
+                                    <path d="M 50,40 Q 200,85 350,40" fill="none" stroke="#FF85A1" stroke-width="26" stroke-linecap="round"/>
+                                    <!-- Diente Central Izq (Perfecto) -->
+                                    <rect x="171" y="54" width="28" height="52" rx="10" fill="#FFFFFF"/>
+                                    <!-- Diente Central Der (Perfecto y junto) -->
+                                    <rect x="201" y="54" width="28" height="52" rx="10" fill="#FFFFFF"/>
+                                    <!-- Lateral Izq -->
+                                    <rect x="144" y="56" width="25" height="47" rx="9" fill="#FFFFFF"/>
+                                    <!-- Lateral Der -->
+                                    <rect x="231" y="56" width="25" height="47" rx="9" fill="#FFFFFF"/>
+                                    <!-- Canino Izq -->
+                                    <path d="M 118,58 L 138,58 L 138,98 L 128,103 L 118,98 Z" fill="#FFFFFF"/>
+                                    <!-- Canino Der -->
+                                    <path d="M 260,58 L 280,58 L 280,98 L 270,103 L 260,98 Z" fill="#FFFFFF"/>
+                                </svg>
+                                <span class="smile-label">Después</span>
+                                
+                                <!-- Destellos dorados en el después -->
+                                <svg class="sparkle-svg sparkle-1" viewBox="0 0 24 24"><path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z"/></svg>
+                                <svg class="sparkle-svg sparkle-2" viewBox="0 0 24 24"><path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z"/></svg>
+                            </div>
+                        </div>
+
+                        <!-- Tirador visual vertical -->
+                        <div class="slider-handle" id="sliderHandle">
+                            <i data-lucide="chevrons-left-right"></i>
+                        </div>
+
+                        <!-- Entrada de rango interactiva invisible -->
+                        <input type="range" class="smile-range-input" id="smileRange" min="0" max="100" value="50" aria-label="Deslizador antes y despues de sonrisa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPLORADOR DE TRATAMIENTOS (DINÁMICO) ===== -->
+    <section id="tratamientos" class="bg-soft">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <span class="tag">Especialidades</span>
+                <h2>Nuestros Tratamientos Destacados</h2>
+                <p>Equipados con tecnología odontológica avanzada para garantizar precisión, confort y resultados naturales.</p>
+            </div>
+
+            <!-- Botones de Pestaña -->
+            <div class="treatment-tabs reveal-element">
+                <button class="treatment-tab-btn active" onclick="showTreatment('ortodoncia')">
+                    <i data-lucide="align-horizontal-justify-center"></i> Ortodoncia Invisible
+                </button>
+                <button class="treatment-tab-btn" onclick="showTreatment('carillas')">
+                    <i data-lucide="sparkles"></i> Carillas Dentales
+                </button>
+                <button class="treatment-tab-btn" onclick="showTreatment('implantes')">
+                    <i data-lucide="anchor"></i> Implantes Dentales
+                </button>
+                <button class="treatment-tab-btn" onclick="showTreatment('preventiva')">
+                    <i data-lucide="heart-pulse"></i> Odontología Preventiva
+                </button>
+            </div>
+
+            <!-- Contenido de Pestañas -->
+            <div class="treatment-content-wrapper reveal-element">
+                
+                <!-- Ortodoncia Invisible (Invisalign) -->
+                <div class="treatment-panel active" id="treat-ortodoncia">
+                    <div class="treatment-details">
+                        <h3>Ortodoncia Invisible (Invisalign)</h3>
+                        <p>
+                            Alinea tu sonrisa de forma cómoda, discreta y completamente removible mediante alineadores transparentes hechos a medida por computadora.
+                        </p>
+                        <div class="treatment-specs">
+                            <div class="spec-box">
+                                <h4>Duración Estimada</h4>
+                                <p>6 a 18 meses</p>
+                            </div>
+                            <div class="spec-box">
+                                <h4>Comodidad</h4>
+                                <p>9.8 / 10 Excelente</p>
+                            </div>
+                        </div>
+                        <ul class="treatment-bullets">
+                            <li><i data-lucide="check"></i> Alineadores 100% transparentes e imperceptibles al hablar.</li>
+                            <li><i data-lucide="check"></i> Removibles para comer y mantener tu higiene de forma normal.</li>
+                            <li><i data-lucide="check"></i> Planificación digital 3D donde verás el resultado final antes de iniciar.</li>
+                        </ul>
+                        <a href="#reservar" class="btn btn-primary btn-small" onclick="selectSpecialtyAndDoctor('ortodoncia')">Agendar Evaluación Ortodoncia</a>
+                    </div>
+                    <div class="treatment-visual">
+                        <div class="treatment-visual-icon">
+                            <i data-lucide="align-horizontal-justify-center"></i>
+                        </div>
+                        <h4>Escáner Intraoral iTero®</h4>
+                        <p style="font-size: 14px; margin-top: var(--spacing-sm);">Digitalizamos tu boca en 3D en 3 minutos sin moldes de yeso incómodos.</p>
+                    </div>
+                </div>
+
+                <!-- Carillas Dentales -->
+                <div class="treatment-panel" id="treat-carillas">
+                    <div class="treatment-details">
+                        <h3>Carillas Dentales E-Max</h3>
+                        <p>
+                            Corrige la forma, el color, el tamaño y el alineamiento de tus dientes en solo 2 sesiones mediante finas láminas de porcelana de alta resistencia y apariencia natural.
+                        </p>
+                        <div class="treatment-specs">
+                            <div class="spec-box">
+                                <h4>Sesiones Necesarias</h4>
+                                <p>Solo 2 Citas</p>
+                            </div>
+                            <div class="spec-box">
+                                <h4>Garantía CastyDent</h4>
+                                <p>Hasta 10 años</p>
+                            </div>
+                        </div>
+                        <ul class="treatment-bullets">
+                            <li><i data-lucide="check"></i> Porcelana alemana E-Max de ultra alta definición y brillo.</li>
+                            <li><i data-lucide="check"></i> Desgaste dental mínimo o nulo gracias a carillas micro-delgadas.</li>
+                            <li><i data-lucide="check"></i> Diseño de Sonrisa Digital personalizado a tu fisonomía facial.</li>
+                        </ul>
+                        <a href="#reservar" class="btn btn-primary btn-small" onclick="selectSpecialtyAndDoctor('estetica')">Agendar Evaluación Carillas</a>
+                    </div>
+                    <div class="treatment-visual">
+                        <div class="treatment-visual-icon">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+                        <h4>Diseño de Sonrisa Digital (DSD)</h4>
+                        <p style="font-size: 14px; margin-top: var(--spacing-sm);">Diseñamos digitalmente tu sonrisa sobre tus fotos antes de confeccionar las carillas.</p>
+                    </div>
+                </div>
+
+                <!-- Implantes Dentales -->
+                <div class="treatment-panel" id="treat-implantes">
+                    <div class="treatment-details">
+                        <h3>Implantes Dentales Premium</h3>
+                        <p>
+                            Recupera la funcionalidad y estética de las piezas perdidas mediante raíces artificiales de titanio de alta biocompatibilidad y coronas de circonio personalizadas.
+                        </p>
+                        <div class="treatment-specs">
+                            <div class="spec-box">
+                                <h4>Tasa de Éxito</h4>
+                                <p>98.5% Clínico</p>
+                            </div>
+                            <div class="spec-box">
+                                <h4>Material Utilizado</h4>
+                                <p>Titanio Grado Médico</p>
+                            </div>
+                        </div>
+                        <ul class="treatment-bullets">
+                            <li><i data-lucide="check"></i> Procedimiento seguro y mínimamente invasivo con sedación consciente.</li>
+                            <li><i data-lucide="check"></i> Coronas confeccionadas por computadora con tecnología CAD/CAM.</li>
+                            <li><i data-lucide="check"></i> Solución permanente que previene la pérdida de hueso maxilar.</li>
+                        </ul>
+                        <a href="#reservar" class="btn btn-primary btn-small" onclick="selectSpecialtyAndDoctor('implantes')">Agendar Evaluación Implantes</a>
+                    </div>
+                    <div class="treatment-visual">
+                        <div class="treatment-visual-icon">
+                            <i data-lucide="anchor"></i>
+                        </div>
+                        <h4>Cirugía Guiada por Computadora</h4>
+                        <p style="font-size: 14px; margin-top: var(--spacing-sm);">Colocamos los implantes en la posición ideal planificada en base a tomografías 3D.</p>
+                    </div>
+                </div>
+
+                <!-- Odontología Preventiva -->
+                <div class="treatment-panel" id="treat-preventiva">
+                    <div class="treatment-details">
+                        <h3>Odontología Preventiva y Conservadora</h3>
+                        <p>
+                            Mantén una salud bucal impecable y previene enfermedades complejas a través de profilaxis guiadas, curaciones estéticas y revisiones regulares.
+                        </p>
+                        <div class="treatment-specs">
+                            <div class="spec-box">
+                                <h4>Frecuencia Recomendada</h4>
+                                <p>Cada 6 Meses</p>
+                            </div>
+                            <div class="spec-box">
+                                <h4>Enfoque Clínico</h4>
+                                <p>Mínima Invasión</p>
+                            </div>
+                        </div>
+                        <ul class="treatment-bullets">
+                            <li><i data-lucide="check"></i> Limpieza profunda con ultrasonido y pulido de manchas superficiales.</li>
+                            <li><i data-lucide="check"></i> Detección temprana de caries y tratamientos de curación con resinas estéticas invisibles.</li>
+                            <li><i data-lucide="check"></i> Educación en técnicas de cepillado y uso de hilo dental clínico.</li>
+                        </ul>
+                        <a href="#reservar" class="btn btn-primary btn-small" onclick="selectSpecialtyAndDoctor('preventiva')">Agendar Limpieza Dental</a>
+                    </div>
+                    <div class="treatment-visual">
+                        <div class="treatment-visual-icon">
+                            <i data-lucide="heart-pulse"></i>
+                        </div>
+                        <h4>Profilaxis Ultra-Soft</h4>
+                        <p style="font-size: 14px; margin-top: var(--spacing-sm);">Sistemas de limpieza con micro-aire y partículas suaves para evitar la sensibilidad dental.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEST DE SONRISA (SMILE QUIZ INTERACTIVO) ===== -->
+    <section id="test-sonrisa">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <span class="tag">Diagnóstico Digital</span>
+                <h2>Smile Quiz: Descubre tu Sonrisa Ideal</h2>
+                <p>Responde 3 preguntas sencillas y recibe una sugerencia clínica personalizada para embellecer y cuidar tu sonrisa.</p>
+            </div>
+
+            <!-- Tarjeta del Quiz -->
+            <div class="quiz-container reveal-element" id="quizContainer">
+                <!-- Indicador de pasos -->
+                <div class="quiz-progress">
+                    <div class="progress-dot active" id="quiz-dot-1"></div>
+                    <div class="progress-dot" id="quiz-dot-2"></div>
+                    <div class="progress-dot" id="quiz-dot-3"></div>
+                </div>
+
+                <!-- Paso 1 -->
+                <div class="quiz-step active" id="quiz-step-1">
+                    <h3 class="quiz-question">1. ¿Qué es lo que más te gustaría mejorar en tus dientes?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectQuizOption(1, 'A')">
+                            <span>Alinear mis dientes y corregir mordida de forma discreta</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                        <div class="quiz-option" onclick="selectQuizOption(1, 'B')">
+                            <span>Darles mayor blancura y brillo eliminando manchas</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                        <div class="quiz-option" onclick="selectQuizOption(1, 'C')">
+                            <span>Cambiar la forma de mis dientes y cerrar espacios rápido</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                        <div class="quiz-option" onclick="selectQuizOption(1, 'D')">
+                            <span>Reemplazar una o más piezas dentales perdidas de por vida</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="quiz-step" id="quiz-step-2">
+                    <h3 class="quiz-question">2. ¿Qué nivel de sensibilidad dental experimentas actualmente?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectQuizOption(2, 'A')">
+                            <span>Ninguna o muy leve con bebidas frías/calientes</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                        <div class="quiz-option" onclick="selectQuizOption(2, 'B')">
+                            <span>Moderada ocasional</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                        <div class="quiz-option" onclick="selectQuizOption(2, 'C')">
+                            <span>Alta sensibilidad regular en mi vida diaria</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="quiz-step" id="quiz-step-3">
+                    <h3 class="quiz-question">3. ¿Qué factor es el más importante para ti al iniciar tu tratamiento?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectQuizOption(3, 'A')">
+                            <span>Que sea un método lo más invisible y estético posible</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                        <div class="quiz-option" onclick="selectQuizOption(3, 'B')">
+                            <span>Que el tratamiento se complete en la menor cantidad de citas</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                        <div class="quiz-option" onclick="selectQuizOption(3, 'C')">
+                            <span>La máxima durabilidad y solidez de los materiales a largo plazo</span>
+                            <div class="quiz-option-radio"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navegación -->
+                <div class="quiz-navigation" id="quizNavigation">
+                    <button class="btn btn-outline-gold btn-small" id="quizBackBtn" onclick="prevQuizStep()" disabled style="opacity: 0.5;">
+                        <i data-lucide="chevron-left"></i> Anterior
+                    </button>
+                    <button class="btn btn-primary btn-small" id="quizNextBtn" onclick="nextQuizStep()" disabled style="opacity: 0.5;">
+                        Siguiente <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Panel de Resultados -->
+                <div class="quiz-result" id="quizResultPanel">
+                    <div class="result-badge">
+                        <i data-lucide="sparkles" id="result-icon"></i>
+                    </div>
+                    <h3 id="result-title">Ortodoncia Invisible Invisalign</h3>
+                    <p class="result-description" id="result-description">
+                        En base a tus respuestas, buscas alinear tus dientes con la máxima discreción y estética. Invisalign es el tratamiento ideal para ti.
+                    </p>
+                    <div class="result-details">
+                        <div class="result-detail-box">
+                            <h4>Tratamiento Sugerido</h4>
+                            <p id="result-meta-name">Invisalign Gold</p>
+                        </div>
+                        <div class="result-detail-box">
+                            <h4>Rango de Costo</h4>
+                            <p id="result-meta-cost">$$ Premium</p>
+                        </div>
+                        <div class="result-detail-box">
+                            <h4>Tiempo Recomendado</h4>
+                            <p id="result-meta-time">12 Meses aprox.</p>
+                        </div>
+                    </div>
+                    <div class="quiz-result-ctas" style="display: flex; justify-content: center; gap: 12px;">
+                        <button onclick="applyQuizResultToBooker()" class="btn btn-primary btn-small">Reservar Evaluación sobre esto</button>
+                        <button onclick="resetQuiz()" class="btn btn-outline-gold btn-small">Volver a realizar el Test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== AGENDADOR DE CITAS DE MÚLTIPLES PASOS (INTERACTIVO) ===== -->
+    <section id="reservar" class="bg-soft">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <span class="tag">Reserva Inteligente</span>
+                <h2>Agenda Tu Consulta Online</h2>
+                <p>Selecciona el servicio, el doctor y el horario que mejor se ajusten a tus necesidades de forma inmediata.</p>
+            </div>
+
+            <div class="booker-grid reveal-element">
+                <!-- Indicador lateral de pasos -->
+                <div class="booker-steps-indicator">
+                    <div class="booker-indicator-step active" id="booker-ind-1">
+                        <div class="booker-indicator-num">1</div>
+                        <div class="booker-indicator-info">
+                            <h4>Tratamiento</h4>
+                            <p>¿Qué necesitas cuidar?</p>
+                        </div>
+                    </div>
+
+                    <div class="booker-indicator-step" id="booker-ind-2">
+                        <div class="booker-indicator-num">2</div>
+                        <div class="booker-indicator-info">
+                            <h4>Especialista</h4>
+                            <p>Elige tu doctor</p>
+                        </div>
+                    </div>
+
+                    <div class="booker-indicator-step" id="booker-ind-3">
+                        <div class="booker-indicator-num">3</div>
+                        <div class="booker-indicator-info">
+                            <h4>Fecha y Hora</h4>
+                            <p>Elige el horario</p>
+                        </div>
+                    </div>
+
+                    <div class="booker-indicator-step" id="booker-ind-4">
+                        <div class="booker-indicator-num">4</div>
+                        <div class="booker-indicator-info">
+                            <h4>Confirmación</h4>
+                            <p>Completa tus datos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedor del agendador -->
+                <div class="booker-card" id="bookerCard">
+                    
+                    <!-- Panel Paso 1: Servicios -->
+                    <div class="booker-panel active" id="booker-step-1">
+                        <h3><i data-lucide="clipboard-list"></i> Selecciona la Especialidad</h3>
+                        <p style="margin-bottom: 20px;">Elige el tratamiento dental principal para tu consulta:</p>
+                        
+                        <div class="booker-service-options">
+                            <div class="booker-service-card" onclick="selectBookerService('estetica')">
+                                <div class="booker-service-icon"><i data-lucide="sparkles"></i></div>
+                                <div class="booker-service-info">
+                                    <h4>Estética y Carillas</h4>
+                                    <p>Diseño de Sonrisa Digital</p>
+                                </div>
+                            </div>
+                            <div class="booker-service-card" onclick="selectBookerService('ortodoncia')">
+                                <div class="booker-service-icon"><i data-lucide="align-horizontal-justify-center"></i></div>
+                                <div class="booker-service-info">
+                                    <h4>Ortodoncia Invisible</h4>
+                                    <p>Alineadores Invisalign</p>
+                                </div>
+                            </div>
+                            <div class="booker-service-card" onclick="selectBookerService('implantes')">
+                                <div class="booker-service-icon"><i data-lucide="anchor"></i></div>
+                                <div class="booker-service-info">
+                                    <h4>Implantes & Cirugía</h4>
+                                    <p>Reemplazo permanente</p>
+                                </div>
+                            </div>
+                            <div class="booker-service-card" onclick="selectBookerService('preventiva')">
+                                <div class="booker-service-icon"><i data-lucide="heart-pulse"></i></div>
+                                <div class="booker-service-info">
+                                    <h4>Odontología General</h4>
+                                    <p>Limpieza y curaciones</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel Paso 2: Doctores -->
+                    <div class="booker-panel" id="booker-step-2">
+                        <h3><i data-lucide="users"></i> Selecciona tu Especialista</h3>
+                        <p style="margin-bottom: 20px;">Cada especialista cuenta con amplia trayectoria en su rubro:</p>
+                        
+                        <div class="booker-doctor-options">
+                            <!-- Dr. Sebastián Casty -->
+                            <div class="booker-doc-card" onclick="selectBookerDoctor('dr-casty')">
+                                <div class="booker-doc-avatar">SC</div>
+                                <div class="booker-doc-info">
+                                    <h4>Dr. Sebastián Casty</h4>
+                                    <p>Implantología y Rehabilitación Oral</p>
+                                    <div class="booker-doc-rating">
+                                        <i data-lucide="star"></i> 4.9 (124 opiniones) • Director Clínico
+                                    </div>
+                                </div>
+                                <div class="booker-doc-select-indicator"></div>
+                            </div>
+
+                            <!-- Dra. Valeria Alva -->
+                            <div class="booker-doc-card" onclick="selectBookerDoctor('dra-alva')">
+                                <div class="booker-doc-avatar">VA</div>
+                                <div class="booker-doc-info">
+                                    <h4>Dra. Valeria Alva</h4>
+                                    <p>Ortodoncia Estética e Invisalign Gold Provider</p>
+                                    <div class="booker-doc-rating">
+                                        <i data-lucide="star"></i> 5.0 (98 opiniones) • Certificada
+                                    </div>
+                                </div>
+                                <div class="booker-doc-select-indicator"></div>
+                            </div>
+
+                            <!-- Dr. Felipe Méndez -->
+                            <div class="booker-doc-card" onclick="selectBookerDoctor('dr-mendez')">
+                                <div class="booker-doc-avatar">FM</div>
+                                <div class="booker-doc-info">
+                                    <h4>Dr. Felipe Méndez</h4>
+                                    <p>Odontología Preventiva y Diseño Digital</p>
+                                    <div class="booker-doc-rating">
+                                        <i data-lucide="star"></i> 4.8 (86 opiniones) • Especialista
+                                    </div>
+                                </div>
+                                <div class="booker-doc-select-indicator"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel Paso 3: Fecha y Hora -->
+                    <div class="booker-panel" id="booker-step-3">
+                        <h3><i data-lucide="calendar-range"></i> Elige Fecha y Horario</h3>
+                        <p style="margin-bottom: 20px;">Horarios disponibles para los siguientes días comerciales:</p>
+                        
+                        <div class="booker-datetime-container">
+                            <!-- Calendario simplificado -->
+                            <div class="booker-calendar-panel">
+                                <h4>Selecciona el Día</h4>
+                                <div class="days-grid" id="calendarDaysGrid">
+                                    <!-- Cargar días dinámicamente con JS -->
+                                </div>
+                            </div>
+
+                            <!-- Slots de horarios -->
+                            <div class="booker-time-panel">
+                                <h4>Horas Disponibles</h4>
+                                <div class="time-slots-grid">
+                                    <div class="time-slot" onclick="selectBookerTimeSlot(this)">09:00 AM</div>
+                                    <div class="time-slot" onclick="selectBookerTimeSlot(this)">10:30 AM</div>
+                                    <div class="time-slot" onclick="selectBookerTimeSlot(this)">12:00 PM</div>
+                                    <div class="time-slot" onclick="selectBookerTimeSlot(this)">03:00 PM</div>
+                                    <div class="time-slot" onclick="selectBookerTimeSlot(this)">04:30 PM</div>
+                                    <div class="time-slot" onclick="selectBookerTimeSlot(this)">06:00 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel Paso 4: Confirmación -->
+                    <div class="booker-panel" id="booker-step-4">
+                        <h3><i data-lucide="check-circle-2"></i> Confirmar Cita</h3>
+                        <p style="margin-bottom: 20px;">Revisa el resumen de tu cita dental boutique:</p>
+                        
+                        <div class="summary-card">
+                            <div class="summary-row">
+                                <span>Tratamiento:</span>
+                                <span id="summary-service-text">No seleccionado</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Especialista:</span>
+                                <span id="summary-doctor-text">No seleccionado</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Fecha de Consulta:</span>
+                                <span id="summary-date-text">No seleccionado</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Hora de Cita:</span>
+                                <span id="summary-time-text">No seleccionado</span>
+                            </div>
+                        </div>
+
+                        <!-- Formulario final -->
+                        <form id="bookerFinalForm" onsubmit="submitAppointment(event)">
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="booker-name">Nombre Completo *</label>
+                                    <input type="text" id="booker-name" required placeholder="Ej. Carlos Alva">
+                                </div>
+                                <div class="form-group">
+                                    <label for="booker-phone">WhatsApp / Teléfono *</label>
+                                    <input type="tel" id="booker-phone" required placeholder="Ej. 987654321">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="booker-email">Correo Electrónico *</label>
+                                <input type="email" id="booker-email" required placeholder="Ej. calva@correo.com">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Footer de navegación del Booker -->
+                    <div class="booker-footer">
+                        <button class="btn btn-outline-gold btn-small" id="bookerPrevBtn" onclick="prevBookerStep()" disabled style="opacity: 0.5;">
+                            <i data-lucide="chevron-left"></i> Atrás
+                        </button>
+                        <button class="btn btn-primary btn-small" id="bookerNextBtn" onclick="nextBookerStep()" disabled style="opacity: 0.5;">
+                            Siguiente <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS (VALORACIONES REALES) ===== -->
+    <section id="opiniones">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <span class="tag">Testimonios</span>
+                <h2>Qué Dicen Nuestros Pacientes</h2>
+                <p>Nuestra mayor recompensa es ver reflejada la confianza y felicidad en las sonrisas de quienes nos visitan.</p>
+            </div>
+
+            <div class="testimonials-grid reveal-element">
+                <!-- Testimonio 1 -->
+                <div class="opinion-card">
+                    <div class="rating-stars">
+                        <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                    </div>
+                    <p class="opinion-text">
+                        "El tratamiento Invisalign con la Dra. Valeria Alva superó todas mis expectativas. En solo 10 meses mis dientes quedaron perfectamente alineados y nadie notó que llevaba puestos los alineadores en mi trabajo. Una atención sumamente premium."
+                    </p>
+                    <div class="opinion-user">
+                        <div class="opinion-avatar">FM</div>
+                        <div class="opinion-info">
+                            <h4>Fernanda Mendieta</h4>
+                            <p>Diseñadora de Interiores</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="opinion-card">
+                    <div class="rating-stars">
+                        <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                    </div>
+                    <p class="opinion-text">
+                        "Estaba muy acomplejado por el tono oscuro de mis dientes. Me realicé un diseño de sonrisa con carillas de porcelana E-max con el Dr. Sebastián Casty. El resultado es increíblemente natural, el trato fue impecable y no sentí ningún dolor."
+                    </p>
+                    <div class="opinion-user">
+                        <div class="opinion-avatar">HG</div>
+                        <div class="opinion-info">
+                            <h4>Héctor Guerra</h4>
+                            <p>Consultor de Negocios</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="opinion-card">
+                    <div class="rating-stars">
+                        <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                    </div>
+                    <p class="opinion-text">
+                        "Le tengo fobia al dentista desde niña, pero el trato en CastyDent es completamente diferente. Sus instalaciones huelen a spa, usan tecnología ultra-soft de profilaxis y te explican todo en 3D con calma. Por fin voy feliz al dentista."
+                    </p>
+                    <div class="opinion-user">
+                        <div class="opinion-avatar">AS</div>
+                        <div class="opinion-info">
+                            <h4>Ana Sofía Silva</h4>
+                            <p>Directora Académica</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQs BUSCABLES (INTERACTIVO) ===== -->
+    <section id="preguntas" class="bg-soft">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <span class="tag">Preguntas Frecuentes</span>
+                <h2>Información y Dudas Médicas</h2>
+                <p>Filtra y encuentra respuestas rápidas sobre tratamientos dentales y el proceso de atención.</p>
+            </div>
+
+            <!-- Buscador Dinámico de FAQs -->
+            <div class="faq-search-wrapper reveal-element">
+                <i data-lucide="search"></i>
+                <input type="text" id="faqSearchInput" class="faq-search-input" placeholder="Buscar preguntas (ej. invisalign, carillas, dolor)..." oninput="filterFaqs()">
+            </div>
+
+            <!-- Lista de FAQs -->
+            <div class="faq-list reveal-element" id="faqList">
+                
+                <!-- FAQ 1 -->
+                <div class="faq-card" data-keywords="invisalign ortodoncia transparente alineadores duracion">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        ¿Cuánto tiempo dura el tratamiento con Invisalign?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-body">
+                        <p>
+                            El tratamiento promedio con ortodoncia invisible dura entre 6 y 18 meses, dependiendo de la complejidad del alineamiento dental. En la primera cita de escaneo digital 3D se genera un modelo por computadora que predice el número exacto de alineadores y el tiempo preciso en semanas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-card" data-keywords="carillas e-max porcelana duracion dolor desgaste">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        ¿Es dolorosa la colocación de carillas de porcelana?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-body">
+                        <p>
+                            Para nada. La colocación de carillas de porcelana es un proceso indoloro que se realiza bajo anestesia local o sedación consciente si el paciente lo prefiere. Además, gracias a las tecnologías de micro-carillas modernas, el desgaste del esmalte dental es mínimo, conservando la estructura del diente sano.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-card" data-keywords="implantes permanentes cirugia implante titanio corona">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        ¿Cuánto dura un implante dental de titanio?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-body">
+                        <p>
+                            Con una higiene bucal adecuada y visitas preventivas periódicas (cada 6 meses), los implantes dentales de titanio pueden durar de 20 años a toda la vida. La corona superior de circonio puede requerir ajustes o renovación después de 10 o 15 años por desgaste natural de masticación.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-card" data-keywords="metodos de pago financiamiento tarjeta cuotas seguro">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        ¿Ofrecen opciones de financiamiento para tratamientos de alta gama?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-body">
+                        <p>
+                            Sí. En CastyDent ofrecemos opciones de financiamiento directo sin intereses en tratamientos de ortodoncia invisible Invisalign y diseño de sonrisa. Además, aceptamos todas las tarjetas de crédito bancarias con opción de cuotas preferenciales y emitimos boletas/facturas aptas para reembolsos de seguros médicos privados.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FAQ no results message -->
+            <div class="faq-no-results" id="faqNoResults">
+                <i data-lucide="frown" style="width: 48px; height: 48px; margin-bottom: 12px; display: inline-block;"></i>
+                <p>No se encontraron preguntas que coincidan con tu búsqueda. Intenta con palabras clave como "dolor", "implantes" o "estética".</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-cols">
+                <!-- Info Castydent -->
+                <div class="footer-col">
+                    <h4 class="nav-logo" style="color: var(--white); margin-bottom: 20px;">
+                        Casty<span>Dent</span>
+                    </h4>
+                    <p>
+                        Clínica dental boutique en Lima dedicada a ofrecer una odontología de autor, altamente estética, personalizada y con los estándares más rigurosos de la tecnología clínica alemana.
+                    </p>
+                    <div class="social-row">
+                        <a href="#" class="social-link" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Especialidades -->
+                <div class="footer-col">
+                    <h4>Especialidades</h4>
+                    <ul>
+                        <li><a href="#tratamientos">Ortodoncia Invisible</a></li>
+                        <li><a href="#tratamientos">Carillas de Porcelana</a></li>
+                        <li><a href="#tratamientos">Implantes Dentales</a></li>
+                        <li><a href="#tratamientos">Odontología Preventiva</a></li>
+                        <li><a href="#tratamientos">Blanqueamiento Dental</a></li>
+                    </ul>
+                </div>
+
+                <!-- Enlaces Corporativos -->
+                <div class="footer-col">
+                    <h4>Clínica</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#tratamientos">Tratamientos</a></li>
+                        <li><a href="#test-sonrisa">Smile Quiz</a></li>
+                        <li><a href="#reservar">Reservar Cita</a></li>
+                        <li><a href="#preguntas">Preguntas FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Datos de contacto oficiales -->
+                <div class="footer-col">
+                    <h4>Ubicación y Contacto</h4>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <i data-lucide="map-pin"></i>
+                            <div>
+                                <strong style="display: block; color: var(--white);">Dirección Boutique:</strong>
+                                <span>Av. Santa Cruz 845, Miraflores, Lima, Perú</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i data-lucide="phone"></i>
+                            <div>
+                                <strong style="display: block; color: var(--white);">Central Telefónica:</strong>
+                                <a href="tel:+5116548790">+51 1 654-8790</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i data-lucide="mail"></i>
+                            <div>
+                                <strong style="display: block; color: var(--white);">Correo Oficial:</strong>
+                                <a href="mailto:citas@castydent.pe">citas@castydent.pe</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i data-lucide="clock"></i>
+                            <div>
+                                <strong style="display: block; color: var(--white);">Horario de Atención:</strong>
+                                <span>Lunes a Sábado: 9:00 AM a 8:00 PM</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 CastyDent. Todos los derechos reservados. Consultorio odontológico autorizado por MINSA y SUSALUD.</p>
+                <div class="footer-policy">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Libro de Reclamaciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BOTÓN FLOTANTE WHATSAPP ===== -->
+    <a href="https://wa.me/51987654321?text=Hola%20CastyDent,%20deseo%20información%20sobre%20citas%20de%20evaluación" 
+       target="_blank" 
+       class="whatsapp-float-btn" 
+       aria-label="Escribir por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <!-- ===== SCRIPTS DE INTERACTIVIDAD Y LÓGICA (VANILLA JS) ===== -->
+    <script>
+        // Inicializar Iconos Lucide
+        lucide.createIcons();
+
+        // 1. Efecto Scroll en Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Control del Menú Hamburguesa Móvil
+        const burgerBtn = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            mobileOverlay.classList.toggle('open');
+            
+            const icon = burgerBtn.querySelector('i');
+            if (mobileMenu.classList.contains('open')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons({ attrs: { class: 'lucide' } });
+        }
+
+        burgerBtn.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+
+        // 3. Control del Deslizador de Sonrisas Antes/Después (Smile Slider)
+        const smileRange = document.getElementById('smileRange');
+        const sliderAfterLayer = document.getElementById('sliderAfterLayer');
+        const sliderHandle = document.getElementById('sliderHandle');
+
+        smileRange.addEventListener('input', (e) => {
+            const val = e.target.value;
+            sliderAfterLayer.style.width = `${val}%`;
+            sliderHandle.style.left = `${val}%`;
+        });
+
+        // 4. Panel de Tratamientos (Pestañas Dinámicas)
+        function showTreatment(treatmentId) {
+            // Quitar clase activa de todos los botones de tratamientos
+            const tabButtons = document.querySelectorAll('.treatment-tab-btn');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Ocultar todos los paneles de tratamientos
+            const panels = document.querySelectorAll('.treatment-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            // Activar botón seleccionado
+            const selectedBtn = Array.from(tabButtons).find(btn => btn.getAttribute('onclick').includes(treatmentId));
+            if (selectedBtn) selectedBtn.classList.add('active');
+
+            // Activar panel seleccionado
+            const selectedPanel = document.getElementById(`treat-${treatmentId}`);
+            if (selectedPanel) selectedPanel.classList.add('active');
+        }
+
+        // 5. Smile Quiz (Lógica del Cuestionario)
+        let quizAnswers = { 1: '', 2: '', 3: '' };
+        let quizCurrentStep = 1;
+
+        function selectQuizOption(step, optionVal) {
+            // Guardar respuesta
+            quizAnswers[step] = optionVal;
+
+            // Desmarcar opciones anteriores en este paso
+            const stepEl = document.getElementById(`quiz-step-${step}`);
+            const options = stepEl.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+
+            // Marcar la seleccionada
+            const selectedOpt = Array.from(options).find(opt => opt.getAttribute('onclick').includes(`'${optionVal}'`));
+            if (selectedOpt) selectedOpt.classList.add('selected');
+
+            // Habilitar botón de continuar
+            const nextBtn = document.getElementById('quizNextBtn');
+            nextBtn.disabled = false;
+            nextBtn.style.opacity = '1';
+        }
+
+        function nextQuizStep() {
+            if (quizCurrentStep < 3) {
+                // Ir al siguiente paso
+                document.getElementById(`quiz-step-${quizCurrentStep}`).classList.remove('active');
+                document.getElementById(`quiz-dot-${quizCurrentStep}`).classList.remove('active');
+                
+                quizCurrentStep++;
+                
+                document.getElementById(`quiz-step-${quizCurrentStep}`).classList.add('active');
+                document.getElementById(`quiz-dot-${quizCurrentStep}`).classList.add('active');
+
+                // Configurar botón "Anterior"
+                const backBtn = document.getElementById('quizBackBtn');
+                backBtn.disabled = false;
+                backBtn.style.opacity = '1';
+
+                // Comprobar si ya se respondió el siguiente paso
+                const nextBtn = document.getElementById('quizNextBtn');
+                if (quizAnswers[quizCurrentStep]) {
+                    nextBtn.disabled = false;
+                    nextBtn.style.opacity = '1';
+                } else {
+                    nextBtn.disabled = true;
+                    nextBtn.style.opacity = '0.5';
+                }
+
+                if (quizCurrentStep === 3) {
+                    nextBtn.innerHTML = 'Ver Resultado <i data-lucide="sparkles"></i>';
+                    lucide.createIcons();
+                }
+            } else {
+                // Calcular y mostrar resultados
+                showQuizResult();
+            }
+        }
+
+        function prevQuizStep() {
+            if (quizCurrentStep > 1) {
+                document.getElementById(`quiz-step-${quizCurrentStep}`).classList.remove('active');
+                document.getElementById(`quiz-dot-${quizCurrentStep}`).classList.remove('active');
+                
+                quizCurrentStep--;
+                
+                document.getElementById(`quiz-step-${quizCurrentStep}`).classList.add('active');
+                document.getElementById(`quiz-dot-${quizCurrentStep}`).classList.add('active');
+
+                // Configurar botones
+                const nextBtn = document.getElementById('quizNextBtn');
+                nextBtn.disabled = false;
+                nextBtn.style.opacity = '1';
+                nextBtn.innerHTML = 'Siguiente <i data-lucide="chevron-right"></i>';
+                lucide.createIcons();
+
+                const backBtn = document.getElementById('quizBackBtn');
+                if (quizCurrentStep === 1) {
+                    backBtn.disabled = true;
+                    backBtn.style.opacity = '0.5';
+                }
+            }
+        }
+
+        function showQuizResult() {
+            // Ocultar pasos y navegación de botones
+            document.getElementById('quiz-step-3').classList.remove('active');
+            document.getElementById('quizNavigation').style.display = 'none';
+            document.querySelector('.quiz-progress').style.display = 'none';
+
+            // Lógica de recomendación según respuesta de la Pregunta 1
+            const ans1 = quizAnswers[1];
+            let title = '';
+            let desc = '';
+            let metaName = '';
+            let metaCost = '';
+            let metaTime = '';
+            let icon = 'sparkles';
+
+            if (ans1 === 'A') {
+                title = 'Ortodoncia Invisible Invisalign®';
+                desc = 'Buscas una alineación dental perfecta que pase desapercibida en tu entorno profesional y social. El sistema de alineadores Invisalign es ideal para ti, permitiéndote retirarlos para comer y cepillarte con normalidad.';
+                metaName = 'Invisalign System';
+                metaCost = '$$$ Exclusivo';
+                metaTime = '12 Meses aprox.';
+                icon = 'align-horizontal-justify-center';
+            } 
+            else if (ans1 === 'B') {
+                title = 'Blanqueamiento Dental Philips Zoom!®';
+                desc = 'Deseas recuperar el tono brillante natural de tus dientes reduciendo manchas causadas por café o el paso del tiempo. Nuestro blanqueamiento clínico Zoom con luz fría aclara hasta 8 tonos en una sola sesión de 45 minutos.';
+                metaName = 'Philips Zoom Laser';
+                metaCost = '$$ Premium';
+                metaTime = '1 Cita de 45 min';
+                icon = 'sun';
+            } 
+            else if (ans1 === 'C') {
+                title = 'Diseño de Sonrisa Digital y Carillas E-Max®';
+                desc = 'Buscas una transformación estética completa y veloz para corregir bordes desgastados, tamaño o ligeras imperfecciones de forma permanente. Las carillas alemanas E-Max brindan un acabado natural y brillo premium en solo 2 citas.';
+                metaName = 'Carillas E-Max';
+                metaCost = '$$$ Exclusivo';
+                metaTime = '2 Sesiones Clínicas';
+                icon = 'sparkles';
+            } 
+            else if (ans1 === 'D') {
+                title = 'Implantes Dentales Premium y Corona CAD/CAM';
+                desc = 'Para recuperar la salud ósea maxilar y la fuerza masticatoria con naturalidad absoluta, te recomendamos implantes de titanio grado médico con coronas cerámicas confeccionadas por computadora. Una solución para toda la vida.';
+                metaName = 'Implantes de Titanio';
+                metaCost = '$$$ Exclusivo';
+                metaTime = '3 a 6 meses';
+                icon = 'anchor';
+            }
+
+            // Inyectar datos en el panel
+            document.getElementById('result-title').textContent = title;
+            document.getElementById('result-description').textContent = desc;
+            document.getElementById('result-meta-name').textContent = metaName;
+            document.getElementById('result-meta-cost').textContent = metaCost;
+            document.getElementById('result-meta-time').textContent = metaTime;
+            
+            const resultIcon = document.getElementById('result-icon');
+            resultIcon.setAttribute('data-lucide', icon);
+            lucide.createIcons();
+
+            // Mostrar el panel de resultados
+            document.getElementById('quizResultPanel').classList.add('show');
+        }
+
+        function applyQuizResultToBooker() {
+            const ans1 = quizAnswers[1];
+            let bookerServiceKey = 'estetica';
+
+            if (ans1 === 'A') bookerServiceKey = 'ortodoncia';
+            else if (ans1 === 'B') bookerServiceKey = 'preventiva'; // Blanqueamiento se asocia a preventiva
+            else if (ans1 === 'C') bookerServiceKey = 'estetica';
+            else if (ans1 === 'D') bookerServiceKey = 'implantes';
+
+            selectBookerService(bookerServiceKey);
+
+            // Desplazar al booker
+            document.getElementById('reservar').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        function resetQuiz() {
+            // Limpiar respuestas
+            quizAnswers = { 1: '', 2: '', 3: '' };
+            quizCurrentStep = 1;
+
+            // Ocultar resultados
+            document.getElementById('quizResultPanel').classList.remove('show');
+
+            // Resetear clases de opciones
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+
+            // Habilitar paneles y botones
+            document.getElementById('quiz-step-1').classList.add('active');
+            document.getElementById('quiz-dot-1').classList.add('active');
+            document.getElementById('quiz-dot-2').classList.remove('active');
+            document.getElementById('quiz-dot-3').classList.remove('active');
+
+            const backBtn = document.getElementById('quizBackBtn');
+            backBtn.disabled = true;
+            backBtn.style.opacity = '0.5';
+
+            const nextBtn = document.getElementById('quizNextBtn');
+            nextBtn.disabled = true;
+            nextBtn.style.opacity = '0.5';
+            nextBtn.innerHTML = 'Siguiente <i data-lucide="chevron-right"></i>';
+            lucide.createIcons();
+
+            // Mostrar barras
+            document.getElementById('quizNavigation').style.display = 'flex';
+            document.querySelector('.quiz-progress').style.display = 'flex';
+        }
+
+        // 6. Agendador de Citas de Múltiples Pasos (Lógica)
+        let bookerStep = 1;
+        let selectedService = '';
+        let selectedDoctor = '';
+        let selectedDate = '';
+        let selectedTime = '';
+
+        // Nombres amigables para resumen
+        const serviceNames = {
+            estetica: 'Estética y Carillas Dentales',
+            ortodoncia: 'Ortodoncia Invisible (Invisalign)',
+            implantes: 'Implantes & Cirugía Oral',
+            preventiva: 'Odontología General / Limpieza'
+        };
+
+        const doctorNames = {
+            'dr-casty': 'Dr. Sebastián Casty (Implantología)',
+            'dra-alva': 'Dra. Valeria Alva (Ortodoncia)',
+            'dr-mendez': 'Dr. Felipe Méndez (Estética y Prevención)'
+        };
+
+        // Atajo desde secciones externas
+        function selectSpecialtyAndDoctor(serviceKey) {
+            selectBookerService(serviceKey);
+            // Si es ortodoncia va con dra alva por defecto
+            if (serviceKey === 'ortodoncia') selectBookerDoctor('dra-alva');
+            else if (serviceKey === 'implantes') selectBookerDoctor('dr-casty');
+            else selectBookerDoctor('dr-mendez');
+        }
+
+        function selectBookerService(serviceKey) {
+            selectedService = serviceKey;
+
+            // Marcar visualmente la tarjeta
+            const cards = document.querySelectorAll('.booker-service-card');
+            cards.forEach(card => card.classList.remove('selected'));
+
+            const selectedBtn = Array.from(cards).find(card => card.getAttribute('onclick').includes(`'${serviceKey}'`));
+            if (selectedBtn) selectedBtn.classList.add('selected');
+
+            // Habilitar botón Siguiente del booker
+            enableBookerNext(true);
+
+            // Cargar doctor recomendado por defecto si no ha elegido uno
+            if (!selectedDoctor) {
+                if (serviceKey === 'ortodoncia') selectBookerDoctor('dra-alva');
+                else if (serviceKey === 'implantes') selectBookerDoctor('dr-casty');
+                else selectBookerDoctor('dr-mendez');
+            }
+        }
+
+        function selectBookerDoctor(docKey) {
+            selectedDoctor = docKey;
+
+            const cards = document.querySelectorAll('.booker-doc-card');
+            cards.forEach(card => card.classList.remove('selected'));
+
+            const selectedBtn = Array.from(cards).find(card => card.getAttribute('onclick').includes(`'${docKey}'`));
+            if (selectedBtn) selectedBtn.classList.add('selected');
+
+            enableBookerNext(true);
+        }
+
+        function selectBookerDate(element, dateStr) {
+            selectedDate = dateStr;
+
+            const days = document.querySelectorAll('.day-option');
+            days.forEach(d => d.classList.remove('selected'));
+            element.classList.add('selected');
+
+            checkDateTimeValidity();
+        }
+
+        function selectBookerTimeSlot(element) {
+            selectedTime = element.textContent;
+
+            const slots = document.querySelectorAll('.time-slot');
+            slots.forEach(s => s.classList.remove('selected'));
+            element.classList.add('selected');
+
+            checkDateTimeValidity();
+        }
+
+        function checkDateTimeValidity() {
+            if (selectedDate && selectedTime) {
+                enableBookerNext(true);
+            } else {
+                enableBookerNext(false);
+            }
+        }
+
+        function enableBookerNext(status) {
+            const nextBtn = document.getElementById('bookerNextBtn');
+            if (status) {
+                nextBtn.disabled = false;
+                nextBtn.style.opacity = '1';
+            } else {
+                nextBtn.disabled = true;
+                nextBtn.style.opacity = '0.5';
+            }
+        }
+
+        function prevBookerStep() {
+            if (bookerStep > 1) {
+                document.getElementById(`booker-step-${bookerStep}`).classList.remove('active');
+                document.getElementById(`booker-ind-${bookerStep}`).classList.remove('active');
+                
+                bookerStep--;
+                
+                document.getElementById(`booker-step-${bookerStep}`).classList.add('active');
+                document.getElementById(`booker-ind-${bookerStep}`).classList.add('active');
+
+                // Configurar Botones
+                const nextBtn = document.getElementById('bookerNextBtn');
+                nextBtn.innerHTML = 'Siguiente <i data-lucide="chevron-right"></i>';
+                lucide.createIcons();
+                enableBookerNext(true);
+
+                if (bookerStep === 1) {
+                    const prevBtn = document.getElementById('bookerPrevBtn');
+                    prevBtn.disabled = true;
+                    prevBtn.style.opacity = '0.5';
+                }
+            }
+        }
+
+        function nextBookerStep() {
+            if (bookerStep < 4) {
+                document.getElementById(`booker-step-${bookerStep}`).classList.remove('active');
+                document.getElementById(`booker-ind-${bookerStep}`).classList.remove('active');
+                
+                bookerStep++;
+                
+                document.getElementById(`booker-step-${bookerStep}`).classList.add('active');
+                document.getElementById(`booker-ind-${bookerStep}`).classList.add('active');
+
+                // Configurar Botón Anterior
+                const prevBtn = document.getElementById('bookerPrevBtn');
+                prevBtn.disabled = false;
+                prevBtn.style.opacity = '1';
+
+                // Lógica de paso
+                if (bookerStep === 2) {
+                    // Validar si hay especialista seleccionado
+                    if (selectedDoctor) enableBookerNext(true);
+                    else enableBookerNext(false);
+                } 
+                else if (bookerStep === 3) {
+                    // Cargar calendario si es la primera vez
+                    renderBookerCalendar();
+                    checkDateTimeValidity();
+                } 
+                else if (bookerStep === 4) {
+                    // Generar Resumen
+                    document.getElementById('summary-service-text').textContent = serviceNames[selectedService] || 'No seleccionado';
+                    document.getElementById('summary-doctor-text').textContent = doctorNames[selectedDoctor] || 'No seleccionado';
+                    document.getElementById('summary-date-text').textContent = selectedDate || 'No seleccionado';
+                    document.getElementById('summary-time-text').textContent = selectedTime || 'No seleccionado';
+
+                    // Modificar botón de acción
+                    const nextBtn = document.getElementById('bookerNextBtn');
+                    nextBtn.innerHTML = 'Agendar por WhatsApp <i data-lucide="check"></i>';
+                    lucide.createIcons();
+                    enableBookerNext(true);
+                }
+            } else {
+                // Enviar formulario final
+                const form = document.getElementById('bookerFinalForm');
+                if (form.reportValidity()) {
+                    submitAppointment();
+                }
+            }
+        }
+
+        // Cargar días dinámicamente en el calendario (Lunes a Sábado siguientes)
+        function renderBookerCalendar() {
+            const grid = document.getElementById('calendarDaysGrid');
+            grid.innerHTML = '';
+
+            const dayNames = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+            const today = new Date();
+            let addedDays = 0;
+            let counter = 1;
+
+            while (addedDays < 6) {
+                const nextDate = new Date(today);
+                nextDate.setDate(today.getDate() + counter);
+                
+                // Excluimos domingos
+                if (nextDate.getDay() !== 0) {
+                    const dayName = dayNames[nextDate.getDay()];
+                    const dayNum = nextDate.getDate();
+                    const monthName = nextDate.toLocaleString('es-ES', { month: 'short' });
+                    const dateFullStr = `${dayName} ${dayNum} de ${monthName}`;
+
+                    const element = document.createElement('div');
+                    element.className = 'day-option';
+                    if (selectedDate === dateFullStr) element.className += ' selected';
+                    element.setAttribute('onclick', `selectBookerDate(this, '${dateFullStr}')`);
+                    
+                    element.innerHTML = `
+                        <span class="day-name">${dayName}</span>
+                        <span class="day-number">${dayNum}</span>
+                        <span style="font-size: 10px; text-transform: uppercase;">${monthName}</span>
+                    `;
+                    grid.appendChild(element);
+                    addedDays++;
+                }
+                counter++;
+            }
+        }
+
+        // Submit de la cita
+        function submitAppointment(event) {
+            if (event) event.preventDefault();
+
+            const name = document.getElementById('booker-name').value.trim();
+            const phone = document.getElementById('booker-phone').value.trim();
+            const email = document.getElementById('booker-email').value.trim();
+
+            if (!name || !phone || !email) {
+                alert('Por favor, completa todos los campos del formulario.');
+                return;
+            }
+
+            const messageText = `
+🦷 *Solicitud de Reserva - CastyDent*
+
+*Datos del Paciente:*
+• *Nombre:* ${name}
+• *WhatsApp:* ${phone}
+• *Correo:* ${email}
+
+*Detalles de la Cita:*
+• *Especialidad:* ${serviceNames[selectedService]}
+• *Especialista:* ${doctorNames[selectedDoctor]}
+• *Fecha:* ${selectedDate}
+• *Horario:* ${selectedTime}
+
+---
+Solicitud generada a través de la Reserva Inteligente CastyDent.
+            `.trim();
+
+            const whatsappNumber = '51987654321'; // WhatsApp Dental
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageText)}`;
+            
+            window.open(url, '_blank');
+            alert('¡Gracias por tu solicitud! Abre WhatsApp para confirmar la disponibilidad de tu horario con nuestra asistente boutique.');
+            
+            // Reset agendador
+            resetBooker();
+        }
+
+        function resetBooker() {
+            bookerStep = 1;
+            selectedService = '';
+            selectedDoctor = '';
+            selectedDate = '';
+            selectedTime = '';
+
+            // Quitar selecciones visuales
+            document.querySelectorAll('.booker-service-card').forEach(c => c.classList.remove('selected'));
+            document.querySelectorAll('.booker-doc-card').forEach(c => c.classList.remove('selected'));
+            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+
+            // Reset de inputs del formulario
+            document.getElementById('bookerFinalForm').reset();
+
+            // Volver al paso 1
+            const panels = document.querySelectorAll('.booker-panel');
+            panels.forEach(p => p.classList.remove('active'));
+            document.getElementById('booker-step-1').classList.add('active');
+
+            const indicators = document.querySelectorAll('.booker-indicator-step');
+            indicators.forEach(i => i.classList.remove('active'));
+            document.getElementById('booker-ind-1').classList.add('active');
+
+            const prevBtn = document.getElementById('bookerPrevBtn');
+            prevBtn.disabled = true;
+            prevBtn.style.opacity = '0.5';
+
+            const nextBtn = document.getElementById('bookerNextBtn');
+            nextBtn.disabled = true;
+            nextBtn.style.opacity = '0.5';
+            nextBtn.innerHTML = 'Siguiente <i data-lucide="chevron-right"></i>';
+            lucide.createIcons();
+        }
+
+        // 7. FAQs Buscables (Filtrado por JS)
+        function toggleFaq(button) {
+            const card = button.parentElement;
+            const isActive = card.classList.contains('active');
+            
+            // Cerrar todas
+            const allCards = document.querySelectorAll('.faq-card');
+            allCards.forEach(c => {
+                c.classList.remove('active');
+                c.querySelector('.faq-body').style.maxHeight = null;
+            });
+
+            // Si no estaba activa, abrirla
+            if (!isActive) {
+                card.classList.add('active');
+                const body = card.querySelector('.faq-body');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            }
+        }
+
+        function filterFaqs() {
+            const query = document.getElementById('faqSearchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.faq-card');
+            const noResults = document.getElementById('faqNoResults');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const questionText = card.querySelector('.faq-header').textContent.toLowerCase();
+
+                if (keywords.includes(query) || questionText.includes(query)) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                    // Si estaba activo, cerrarlo al ocultarlo
+                    card.classList.remove('active');
+                    card.querySelector('.faq-body').style.maxHeight = null;
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // 8. Animaciones al scroll (Intersection Observer)
+        const revealItems = document.querySelectorAll('.reveal-element');
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealItems.forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>

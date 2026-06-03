@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva tu Viaje - Agencia Mercato</title>
+  <meta name="description" content="Reserva tus cupos para Cusco, Máncora y Full Days de manera inmediata mediante nuestra pasarela de pago segura Culqi y PayPal.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="scrolled"> <!-- Force scrolled layout since there is no hero banner -->
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <span>Agencia</span> Mercato
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="destinos.html">Destinos</a></li>
+          <li><a href="fulldays.html">Full Days</a></li>
+          <li><a href="reservar.html" class="active">Reservar</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BLENDING DIRECT LAYOUT (No hero banner) -->
+  <main class="booking-direct-page">
+    <div class="container">
+      <div style="margin-bottom: 40px; text-align: center;">
+        <span class="badge badge-primary">Pasarela de Reservas</span>
+        <h1 style="font-size: 2.5rem; margin-top: 10px;">Completa tu Reserva en Línea</h1>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; margin-top: 10px;">Registra los datos de los pasajeros y efectúa tu pago de forma instantánea y 100% segura.</p>
+      </div>
+
+      <div class="booking-grid">
+        <!-- LEFT COLUMN: TRAVEL & PASSENGER DATA -->
+        <div class="booking-panel-card">
+          <h2 style="font-size: 1.5rem; margin-bottom: 8px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+            <span style="background-color: var(--primary); color: var(--text-white); width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem;">1</span>
+            Datos del Viajero Titular
+          </h2>
+          <p style="margin-bottom: 24px; font-size: 0.9rem; color: var(--text-light);">Define tu tour y registra los datos necesarios para emitir tus boletos electrónicos oficiales ante MINCETUR.</p>
+          
+          <form id="passenger-form">
+            <div class="form-group">
+              <label for="booking-tour">Paquete o Full Day Seleccionado</label>
+              <select id="booking-tour" class="form-control">
+                <option value="cusco">Cusco Mágico & Machu Picchu (4D/3N) - S/ 1,200</option>
+                <option value="mancora">Máncora Relax & Costa Norte (3D/2N) - S/ 950</option>
+                <option value="lunahuana">Full Day Lunahuaná Aventura - S/ 85</option>
+                <option value="paracas">Full Day Paracas, Ica & Huacachina - S/ 150</option>
+                <option value="churin">Full Day Churín & Baños Termales - S/ 90</option>
+              </select>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="travel-date">Fecha de Viaje</label>
+                <input type="date" id="travel-date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="passengers">Cantidad de Viajeros</label>
+                <input type="number" id="passengers" min="1" value="1" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="fullname">Nombre y Apellidos Completos</label>
+              <input type="text" id="fullname" class="form-control" placeholder="Como figura en tu documento oficial" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="document-id">Documento de Identidad (DNI/RUC/Pasaporte)</label>
+                <input type="text" id="document-id" class="form-control" placeholder="Ej: 70123456" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Teléfono Móvil (WhatsApp)</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Ej: +51 987 654 321" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico (donde enviaremos los boletos)</label>
+              <input type="email" id="email" class="form-control" placeholder="ejemplo@correo.com" required>
+            </div>
+          </form>
+
+          <!-- Cotizador Dinámico -->
+          <div style="margin-top: 32px; padding: 24px; background-color: var(--bg-alt); border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <strong style="display: block; font-family: var(--font-headings); font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Monto Total Estimado:</strong>
+              <span style="font-size: 0.8rem; color: var(--text-light);">Costo calculado en Moneda Nacional (S/)</span>
+            </div>
+            <span id="calc-total-price" style="font-family: var(--font-headings); font-size: 2.2rem; font-weight: 800; color: var(--accent-hover);">S/ 0</span>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: PAYMENT GATEWAY (CULQI/PAYPAY) -->
+        <div class="booking-panel-card">
+          <h2 style="font-size: 1.5rem; margin-bottom: 8px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+            <span style="background-color: var(--primary); color: var(--text-white); width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem;">2</span>
+            Pasarela de Pago Online
+          </h2>
+          <p style="margin-bottom: 24px; font-size: 0.9rem; color: var(--text-light);">Elige tu método de pago preferido. Procesamiento cifrado de alta seguridad.</p>
+
+          <div class="payment-tabs">
+            <button class="payment-tab-btn active" data-target="culqi-panel">Tarjeta Débito/Crédito (Culqi)</button>
+            <button class="payment-tab-btn" data-target="paypal-panel">PayPal / Tarjeta USD</button>
+          </div>
+
+          <!-- CULQI PANEL -->
+          <div id="culqi-panel" class="payment-panel active">
+            <div class="culqi-logo-text">
+              culqi<span>pago seguro</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Paga de forma segura con tarjetas Visa, Mastercard, American Express o Diners Club emitidas en Perú.</p>
+            
+            <form id="culqi-payment-form">
+              <div class="form-group">
+                <label for="card-number">Número de Tarjeta</label>
+                <input type="text" id="card-number" class="form-control" placeholder="4000 1234 5678 9010" maxlength="16" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="card-expiry">Fecha Vence (MM/AA)</label>
+                  <input type="text" id="card-expiry" class="form-control" placeholder="12/28" maxlength="5" required>
+                </div>
+                <div class="form-group">
+                  <label for="card-cvv">CVV</label>
+                  <input type="password" id="card-cvv" class="form-control" placeholder="123" maxlength="4" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 14px; margin-top: 15px;">Procesar Pago Soles</button>
+            </form>
+          </div>
+
+          <!-- PAYPAL PANEL -->
+          <div id="paypal-panel" class="payment-panel">
+            <div class="paypal-logo-text">
+              PayPal<span>Checkout</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">Ideal para turistas extranjeros. Puedes usar tu saldo de cuenta de PayPal o pagar con tu tarjeta asociada en dólares estadounidenses (USD) con conversión de tipo de cambio automática.</p>
+            
+            <form id="paypal-payment-form">
+              <div class="form-group">
+                <label for="paypal-email">Correo Electrónico de PayPal</label>
+                <input type="email" id="paypal-email" class="form-control" placeholder="usuario@paypal.com" required>
+              </div>
+
+              <button type="submit" class="btn btn-accent" style="width: 100%; font-size: 1.1rem; padding: 14px; margin-top: 15px;">Autorizar Pago con PayPal</button>
+            </form>
+          </div>
+
+          <!-- SECURITY SEALS -->
+          <div style="margin-top: 32px; border-top: 1px solid var(--border-color); padding-top: 24px; text-align: center;">
+            <p style="font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 12px;">Transacción Protegida</p>
+            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+              <span style="border: 1px solid var(--border-color); padding: 6px 12px; border-radius: var(--radius-sm); font-size: 0.7rem; font-weight: 700; background-color: var(--bg-alt); color: var(--text-muted);">Cifrado SSL 256 bits</span>
+              <span style="border: 1px solid var(--border-color); padding: 6px 12px; border-radius: var(--radius-sm); font-size: 0.7rem; font-weight: 700; background-color: var(--bg-alt); color: var(--text-muted);">PCI-DSS Compliant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color: var(--text-white); margin-bottom: 20px;">
+            <span>Agencia</span> Mercato
+          </a>
+          <p style="margin-top: 15px;">Tu socio de viajes de confianza en el Perú. Descubre Cusco, Máncora y los mejores paisajes cerca de Lima con guías certificados y una organización impecable.</p>
+          <p style="margin-top: 15px; font-size: 0.8rem; color: rgba(255,255,255,0.4);">RUC: 20601234567 | Registro MINCETUR N° 4562-2024</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="destinos.html">Destinos del Perú</a></li>
+            <li><a href="fulldays.html">Tours Full Day</a></li>
+            <li><a href="reservar.html">Reserva tu Cupo</a></li>
+            <li><a href="nosotros.html">Sobre Nosotros / Políticas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Nuestras Oficinas</h4>
+          <ul class="footer-contact">
+            <li>
+              <span>Sede Miraflores:</span>
+              <span>Av. Larco 456, Piso 3, Miraflores, Lima</span>
+            </li>
+            <li>
+              <span>Sede Centro de Lima:</span>
+              <span>Jr. de la Unión 789, Oficina 204, Lima 01</span>
+            </li>
+            <li>
+              <span>Contacto Directo:</span>
+              <span style="color: var(--accent); font-weight: 700;">+51 987 654 321</span>
+              <span>reservas@agenciamercato.pe</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agencia Mercato. Todos los derechos reservados. Registrado ante MINCETUR y PROMPERÚ.</p>
+        <p>Desarrollado con pasión por el turismo peruano.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

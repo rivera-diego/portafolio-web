@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diego Rivera — Diseño & Desarrollo Web a Medida</title>
+  <meta name="description" content="Desarrollo de páginas web profesionales, tiendas virtuales y landing pages para empresas, negocios y emprendedores. Diseño moderno, responsivo y a medida.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════ -->
+  <div class="nav-wrapper">
+    <nav class="nav-bar">
+      <a href="#" class="nav-logo">diego<span class="dot">.</span>dev</a>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+    <!-- Animated Grid Background -->
+    <div class="hero-grid-bg"></div>
+    <!-- Floating Orbs -->
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-greeting">// Hola, soy</p>
+        <h1 class="hero-name">
+          Diego <span class="neon-text">Rivera</span>
+        </h1>
+        <p class="hero-description">
+          Diseño y desarrollo <strong style="color: var(--neon-cyan);" id="typing-text">Páginas Web a Medida</strong><span class="typing-cursor"></span> para empresas, negocios, tiendas y emprendedores en Lima, Perú. Cada proyecto es único — desde tu marca hasta cada píxel.
+        </p>
+
+        <div class="hero-badges">
+          <span class="hero-badge">Frontend Dev</span>
+          <span class="hero-badge">UI / UX Design</span>
+          <span class="hero-badge">E-Commerce</span>
+          <span class="hero-badge">Landing Pages</span>
+          <span class="hero-badge">React / Vue / Astro</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#portafolio" class="btn btn-neon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Ver Portafolio
+          </a>
+          <a href="#contacto" class="btn btn-glass">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Hablemos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="section-block" id="servicios" style="background: var(--bg-deep);">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Servicios
+        </span>
+        <h2 class="section-title">Lo que puedo <span class="text-gradient-cyan">construir</span> para ti</h2>
+        <p class="section-subtitle">Soluciones web completas adaptadas a la necesidad real de tu negocio. Sin plantillas genéricas — todo es código propio.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="glass-card service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Web Corporativa</h3>
+          <p>Sitios institucionales que transmiten profesionalismo y confianza. Multi-página, responsivos y optimizados para SEO.</p>
+        </div>
+
+        <div class="glass-card service-card reveal">
+          <div class="service-icon" style="background: rgba(255, 0, 229, 0.06); border-color: rgba(255, 0, 229, 0.12);">
+            <svg viewBox="0 0 24 24" style="stroke: var(--neon-magenta);"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <h3>Tienda Virtual</h3>
+          <p>E-commerce con catálogo de productos, carrito de compras, pasarela de pagos y panel de gestión integrado.</p>
+        </div>
+
+        <div class="glass-card service-card reveal">
+          <div class="service-icon" style="background: rgba(0, 255, 136, 0.06); border-color: rgba(0, 255, 136, 0.12);">
+            <svg viewBox="0 0 24 24" style="stroke: var(--neon-green);"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Landing Page</h3>
+          <p>Páginas de aterrizaje de alta conversión diseñadas para captar leads, lanzar productos o promover campañas.</p>
+        </div>
+
+        <div class="glass-card service-card reveal">
+          <div class="service-icon" style="background: rgba(168, 85, 247, 0.06); border-color: rgba(168, 85, 247, 0.12);">
+            <svg viewBox="0 0 24 24" style="stroke: var(--neon-purple);"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3>Rediseño Web</h3>
+          <p>Modernización completa de sitios existentes. Nueva imagen, mejor UX, mejor rendimiento y adaptación móvil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROCESS SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="section-block" id="proceso" style="background: var(--bg-block);">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Proceso
+        </span>
+        <h2 class="section-title">Cómo <span class="text-gradient-magenta">trabajo</span></h2>
+        <p class="section-subtitle">Un flujo organizado y transparente. Siempre sabrás en qué etapa está tu proyecto.</p>
+      </div>
+
+      <div class="process-timeline reveal">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <h3>Briefing</h3>
+          <p>Conversamos sobre tu negocio, objetivos, público y competencia. Definimos alcance y propuesta.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h3>Diseño UI</h3>
+          <p>Creo mockups y prototipos visuales. Revisamos juntos los colores, tipografía y estructura hasta aprobarlo.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h3>Desarrollo</h3>
+          <p>Codifico el sitio con tecnologías modernas. Responsive, rápido y optimizado para buscadores.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <h3>Lanzamiento</h3>
+          <p>Publicamos tu web, configuramos dominio y hosting. Te capacito para que puedas gestionarlo tú mismo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PORTFOLIO SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="section-block" id="portafolio" style="background: var(--bg-deep);">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Portafolio
+        </span>
+        <h2 class="section-title">Proyectos <span class="text-gradient-cyan">reales</span></h2>
+        <p class="section-subtitle">Cada web fue diseñada con un estilo único y personalizado. Haz clic en cualquier proyecto para explorar la demo completa en vivo.</p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- 1. LEOCAL -->
+        <a href="leocal/index.html" target="_blank" class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-preview-bg preview-leocal">
+              <div class="preview-lines"></div>
+              <span class="preview-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-btn">Ver demo en vivo →</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-type">Seguridad Industrial</div>
+            <h3>LEOCAL</h3>
+            <p>Venta de extintores, certificación Defensa Civil y capacitaciones de seguridad.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Dark Mode</span>
+              <span class="portfolio-tag">Block-Based</span>
+              <span class="portfolio-tag">Single Page</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 2. DALYSTER -->
+        <a href="dalyster/index.html" target="_blank" class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-preview-bg preview-dalyster">
+              <div class="preview-lines"></div>
+              <span class="preview-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-btn">Ver demo en vivo →</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-type">Papelería & Novedades</div>
+            <h3>Dalyster</h3>
+            <p>Tienda de papelería kawaii, novedades y artículos de regalo con catálogo visual.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Kawaii</span>
+              <span class="portfolio-tag">Colorful</span>
+              <span class="portfolio-tag">Single Page</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3. CASTYDENT -->
+        <a href="castydent/index.html" target="_blank" class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-preview-bg preview-castydent">
+              <div class="preview-lines"></div>
+              <span class="preview-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-btn">Ver demo en vivo →</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-type">Clínica Dental</div>
+            <h3>CastyDent</h3>
+            <p>Clínica dental boutique con diseño de sonrisa, estética avanzada y sistema de citas.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Glassmorphism</span>
+              <span class="portfolio-tag">Elegant</span>
+              <span class="portfolio-tag">Single Page</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 4. CARVAJAL -->
+        <a href="carvajal/index.html" target="_blank" class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-preview-bg preview-carvajal">
+              <div class="preview-lines"></div>
+              <span class="preview-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-btn">Ver demo en vivo →</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-type">Inmobiliaria</div>
+            <h3>Carvajal</h3>
+            <p>Proyectos residenciales premium en Lima con galerías, planos y cotizador interactivo.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Multi-Page</span>
+              <span class="portfolio-tag">Gallery</span>
+              <span class="portfolio-tag">Premium</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 5. COPÉRNICO -->
+        <a href="copernico/index.html" target="_blank" class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-preview-bg preview-copernico">
+              <div class="preview-lines"></div>
+              <span class="preview-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-btn">Ver demo en vivo →</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-type">Centro de Capacitación</div>
+            <h3>Copérnico</h3>
+            <p>Instituto de carreras técnicas y cursos cortos: computación, gastronomía, barbería y más.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Multi-Page</span>
+              <span class="portfolio-tag">Educativo</span>
+              <span class="portfolio-tag">Moderno</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 6. GRUPO LETONA -->
+        <a href="grupo-letona/index.html" target="_blank" class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-preview-bg preview-letona">
+              <div class="preview-lines"></div>
+              <span class="preview-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-btn">Ver demo en vivo →</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-type">Asesoría Contable</div>
+            <h3>Grupo Letona</h3>
+            <p>Firma de asesoría tributaria, outsourcing contable y auditorías con blog de normativas SUNAT.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Corporativo</span>
+              <span class="portfolio-tag">Blog</span>
+              <span class="portfolio-tag">Multi-Page</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 7. NAYELI EVENTOS -->
+        <a href="nayeli-eventos/index.html" target="_blank" class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-preview-bg preview-nayeli">
+              <div class="preview-lines"></div>
+              <span class="preview-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-btn">Ver demo en vivo →</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-type">Eventos & Catering</div>
+            <h3>Nayeli Eventos</h3>
+            <p>Portafolio de alta gama con catálogo de mobiliario, menús de catering y cotizador integrado.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Luxury</span>
+              <span class="portfolio-tag">Catálogo</span>
+              <span class="portfolio-tag">Multi-Page</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 8. AGENCIA MERCATO -->
+        <a href="agencia-mercato/index.html" target="_blank" class="portfolio-card reveal">
+          <div class="portfolio-preview">
+            <div class="portfolio-preview-bg preview-mercato">
+              <div class="preview-lines"></div>
+              <span class="preview-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </span>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-btn">Ver demo en vivo →</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-type">Agencia de Turismo</div>
+            <h3>Agencia Mercato</h3>
+            <p>Plataforma de reservas con itinerarios, pasarela de pago Culqi/PayPal y sellos MINCETUR.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Reservas</span>
+              <span class="portfolio-tag">Pagos</span>
+              <span class="portfolio-tag">Multi-Page</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       STATS SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="section-block" style="background: var(--bg-block);">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="glass-card stat-card">
+          <div class="stat-number" data-count="8" data-suffix="+">0</div>
+          <div class="stat-label">Proyectos Entregados</div>
+        </div>
+        <div class="glass-card stat-card">
+          <div class="stat-number" data-count="100" data-suffix="%">0</div>
+          <div class="stat-label">Código Propio</div>
+        </div>
+        <div class="glass-card stat-card">
+          <div class="stat-number" data-count="5" data-suffix="+">0</div>
+          <div class="stat-label">Industrias Diferentes</div>
+        </div>
+        <div class="glass-card stat-card">
+          <div class="stat-number" data-count="24" data-suffix="/7">0</div>
+          <div class="stat-label">Soporte Continuo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PRICING SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="section-block" id="planes" style="background: var(--bg-deep);">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <span class="section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Planes
+        </span>
+        <h2 class="section-title">Inversión que <span class="text-gradient-cyan">vale</span> la pena</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Elige el plan que se ajuste a tus necesidades. Todos incluyen diseño responsivo, optimización SEO y soporte post-lanzamiento.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- PLAN BASICO -->
+        <div class="glass-card pricing-card reveal">
+          <div class="pricing-tier">Básico</div>
+          <div class="pricing-price"><span class="currency">S/</span> 800</div>
+          <p class="pricing-desc">Ideal para emprendedores que necesitan presencia digital profesional.</p>
+          <ul class="pricing-features">
+            <li>Landing Page (1 página)</li>
+            <li>Diseño responsivo mobile-first</li>
+            <li>Formulario de contacto</li>
+            <li>Integración con WhatsApp</li>
+            <li>Optimización SEO básica</li>
+            <li>Entrega en 7 días</li>
+          </ul>
+          <a href="#contacto" class="btn btn-glass" style="width: 100%;">Solicitar Cotización</a>
+        </div>
+
+        <!-- PLAN PRO -->
+        <div class="glass-card pricing-card featured reveal">
+          <div class="pricing-tier" style="color: var(--neon-magenta);">Profesional</div>
+          <div class="pricing-price"><span class="currency">S/</span> 2,500</div>
+          <p class="pricing-desc">Para negocios que necesitan una web completa, multipágina y con funcionalidades avanzadas.</p>
+          <ul class="pricing-features">
+            <li>Sitio multipágina (hasta 6 páginas)</li>
+            <li>Diseño UI/UX personalizado</li>
+            <li>Animaciones y micro-interacciones</li>
+            <li>Blog o sección de noticias</li>
+            <li>Google Analytics integrado</li>
+            <li>SEO avanzado on-page</li>
+            <li>Capacitación de uso incluida</li>
+            <li>Entrega en 15 días</li>
+          </ul>
+          <a href="#contacto" class="btn btn-neon" style="width: 100%;">Elegir Profesional</a>
+        </div>
+
+        <!-- PLAN PREMIUM -->
+        <div class="glass-card pricing-card reveal">
+          <div class="pricing-tier" style="color: var(--neon-green);">Premium</div>
+          <div class="pricing-price"><span class="currency">S/</span> 5,000</div>
+          <p class="pricing-desc">Solución empresarial completa con e-commerce, sistemas de reservas o plataformas interactivas.</p>
+          <ul class="pricing-features">
+            <li>Plataforma web completa (ilimitado)</li>
+            <li>E-commerce o sistema de reservas</li>
+            <li>Pasarela de pagos (Culqi/PayPal)</li>
+            <li>Panel de administración</li>
+            <li>Dominio + Hosting primer año</li>
+            <li>Certificado SSL incluido</li>
+            <li>Soporte prioritario 3 meses</li>
+            <li>Entrega en 30 días</li>
+          </ul>
+          <a href="#contacto" class="btn btn-glass" style="width: 100%; border-color: rgba(0,255,136,0.2); color: var(--neon-green);">Elegir Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="section-block" id="contacto" style="background: var(--bg-block);">
+    <div class="container">
+      <div class="reveal" style="text-align: center;">
+        <span class="section-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Contacto
+        </span>
+        <h2 class="section-title">¿Tienes un <span class="text-gradient-magenta">proyecto</span> en mente?</h2>
+        <p class="section-subtitle" style="margin: 0 auto;">Cuéntame sobre tu negocio y lo que necesitas. Te respondo en menos de 24 horas.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- LEFT: Info Card -->
+        <div class="glass-card contact-info-card reveal">
+          <h3>Conversemos</h3>
+          <p>Estoy disponible para nuevos proyectos. Ya sea una web corporativa, una tienda online o un rediseño completo — podemos hacerlo realidad.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>WhatsApp</strong>
+              <span>+51 987 654 321</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>Email</strong>
+              <span>contacto@diegorivera.dev</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <strong>Ubicación</strong>
+              <span>Lima, Perú (Remoto a nivel nacional)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form Card -->
+        <div class="glass-card contact-form-card reveal">
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Nombre Completo</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="tu@email.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-project">Tipo de Proyecto</label>
+              <select id="contact-project" class="form-control">
+                <option value="Web Corporativa">Web Corporativa</option>
+                <option value="Tienda Virtual">Tienda Virtual / E-Commerce</option>
+                <option value="Landing Page">Landing Page</option>
+                <option value="Rediseño Web">Rediseño Web</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Cuéntame sobre tu proyecto</label>
+              <textarea id="contact-message" class="form-control" placeholder="Describe tu negocio y qué necesitas..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-neon" style="width: 100%; padding: 16px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <a href="#" class="nav-logo">diego<span class="dot">.</span>dev</a>
+          <p>&copy; 2026 Diego Rivera. Diseño & Desarrollo Web a Medida.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

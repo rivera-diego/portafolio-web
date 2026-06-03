@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agencia Mercato - Turismo Receptivo e Interno en Perú</title>
+  <meta name="description" content="Agencia de turismo oficial registrada en MINCETUR. Paquetes a Cusco, Máncora y tours Full Day desde Lima a Paracas, Lunahuaná y Churín.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <span>Agencia</span> Mercato
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="destinos.html">Destinos</a></li>
+          <li><a href="fulldays.html">Full Days</a></li>
+          <li><a href="reservar.html">Reservar</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (Aurora UI Style) -->
+  <section class="hero-travel-home">
+    <div class="container">
+      <div class="hero-travel-home-grid">
+        <div class="hero-travel-home-content">
+          <span class="badge badge-accent">Agencia Autorizada MINCETUR</span>
+          <h1 style="margin-top: 15px;">Vuela Alto, Descubre <span>Perú</span></h1>
+          <p>Explora los destinos más impresionantes de nuestro país con la seguridad de una agencia formal basada en Miraflores y el Centro de Lima. Ofrecemos paquetes completos a Cusco, Máncora y los mejores Full Days saliendo desde Lima.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="reservar.html" class="btn btn-primary">Reservar Ahora</a>
+            <a href="destinos.html" class="btn btn-outline">Ver Destinos</a>
+          </div>
+        </div>
+        <div class="hero-travel-home-image" style="position: relative;">
+          <!-- Beautiful Floating Card Showcase -->
+          <div class="dest-collage-img" style="border-radius: var(--radius-lg); transform: rotate(-2deg); overflow: hidden; box-shadow: var(--shadow-lg);">
+            <img src="img/cusco_machupicchu.png" alt="Machu Picchu Cusco" style="width: 100%; height: 350px; object-fit: cover;">
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(11,37,53,0.9), transparent); padding: 24px; color: var(--text-white);">
+              <span class="badge badge-accent" style="margin-bottom: 8px;">Imperdible</span>
+              <h3 style="color: var(--text-white); font-size: 1.6rem; margin: 4px 0;">Cusco & Valle Sagrado</h3>
+              <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin: 0;">Siente la energía del Imperio Inca.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK SEARCH OVERLAY -->
+  <div class="container">
+    <div class="quick-search-wrapper">
+      <form class="quick-search-form" action="reservar.html" method="GET">
+        <div class="form-group">
+          <label for="quick-tour">Elige tu Destino</label>
+          <select name="tour" id="quick-tour" class="form-control">
+            <option value="cusco">Cusco Mágico (4D/3N)</option>
+            <option value="mancora">Máncora Relax (3D/2N)</option>
+            <option value="lunahuana">Full Day Lunahuaná</option>
+            <option value="paracas">Full Day Paracas</option>
+            <option value="churin">Full Day Churín</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quick-date">Fecha de Viaje</label>
+          <input type="date" name="date" id="quick-date" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="quick-passengers">Nro. de Viajeros</label>
+          <input type="number" name="passengers" id="quick-passengers" min="1" value="1" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-accent" style="height: 48px; width: 100%;">Buscar Aventura</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCREDITATIONS & TRUST BLOCK -->
+  <section class="accreditations-block section-padding" style="background-color: var(--bg-card); margin-top: 40px;">
+    <div class="container">
+      <div class="accreditations-flex">
+        <div class="acc-item">
+          <div class="mincetur-logo">MINCETUR</div>
+          <div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Agencia Registrada Nacional</h4>
+            <p>Contamos con el reconocimiento oficial del Ministerio de Comercio Exterior y Turismo para operar tours nacionales e internacionales con total formalidad.</p>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="promperu-logo">PROMPERÚ</div>
+          <div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 6px;">Promotores del Destino Perú</h4>
+            <p>Aliados en la difusión de la riqueza cultural, histórica y de aventura de nuestro país, asegurando altos estándares de satisfacción.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED TOURS & FULL DAYS SECTION -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 56px;">
+        <span class="badge badge-primary">Experiencias Destacadas</span>
+        <h2 style="font-size: 2.6rem; margin-top: 12px; margin-bottom: 16px;">Nuestros Destinos Favoritos</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">Elige entre nuestros paquetes de varios días en destinos mágicos de sol e historia, o desconéctate con un Full Day lleno de adrenalina desde Lima.</p>
+      </div>
+
+      <div class="destinations-grid">
+        <!-- Cusco Card -->
+        <div class="dest-card">
+          <div class="dest-img-box">
+            <img src="img/cusco_machupicchu.png" alt="Machu Picchu Cusco">
+            <span class="badge dest-tag">Paquete Completo</span>
+          </div>
+          <div class="dest-body">
+            <h3>Cusco Mágico & Machu Picchu</h3>
+            <p>Recorre la Plaza de Armas del Cusco, el Valle Sagrado de los Incas y maravíllate en la majestuosa ciudadela de Machu Picchu con todo incluido.</p>
+            <div class="dest-meta">
+              <span class="dest-duration">4 Días / 3 Noches</span>
+              <a href="destinos.html?tour=cusco" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;">Ver Detalle</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mancora Card -->
+        <div class="dest-card">
+          <div class="dest-img-box">
+            <img src="img/mancora_beach.png" alt="Playa de Mancora">
+            <span class="badge dest-tag">Sol y Playa</span>
+          </div>
+          <div class="dest-body">
+            <h3>Máncora Relax & Costa Norte</h3>
+            <p>Relájate frente al mar cálido de Piura, disfruta del sol todo el año, la gastronomía marina premium y los paseos en bote para nadar con tortugas gigantes.</p>
+            <div class="dest-meta">
+              <span class="dest-duration">3 Días / 2 Noches</span>
+              <a href="destinos.html?tour=mancora" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;">Ver Detalle</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paracas Card -->
+        <div class="dest-card">
+          <div class="dest-img-box">
+            <img src="img/paracas_islotas.png" alt="Islas Ballestas Paracas">
+            <span class="badge dest-tag">Full Day</span>
+          </div>
+          <div class="dest-body">
+            <h3>Full Day Paracas & Ica</h3>
+            <p>Navega hacia las Islas Ballestas para ver lobos marinos y pingüinos, visita los viñedos tradicionales y deslízate en sandboard en el oasis de la Huacachina.</p>
+            <div class="dest-meta">
+              <span class="dest-duration">Salidas Diarias</span>
+              <a href="fulldays.html?tour=paracas" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;">Ver Detalle</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lunahuana Card -->
+        <div class="dest-card">
+          <div class="dest-img-box">
+            <img src="img/lunahuana_rafting.png" alt="Rafting en Lunahuana">
+            <span class="badge dest-tag">Full Day</span>
+          </div>
+          <div class="dest-body">
+            <h3>Full Day Lunahuaná Aventura</h3>
+            <p>Siente la adrenalina del canotaje en el río Cañete, lánzate en canopy cruzando el valle y degusta los mejores vinos y piscos de la campiña sureña.</p>
+            <div class="dest-meta">
+              <span class="dest-duration">Salidas Diarias</span>
+              <a href="fulldays.html?tour=lunahuana" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.85rem;">Ver Detalle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES & WHY US SECTION -->
+  <section class="section-padding" style="background-color: var(--bg-alt); border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+        <div>
+          <span class="badge badge-primary">Garantía de Servicio</span>
+          <h2 style="font-size: 2.4rem; margin-top: 12px; margin-bottom: 20px;">Viaja Seguro con Agencia Mercato</h2>
+          <p style="margin-bottom: 24px;">Con oficinas en los distritos clave de Lima, garantizamos soporte continuo e inmediato para todas tus reservas turísticas. Nos enfocamos en ofrecer una experiencia libre de estrés.</p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px;">
+            <li style="display: flex; gap: 12px; align-items: flex-start;">
+              <span style="background-color: var(--primary-light); color: var(--primary-dark); border-radius: 50%; padding: 4px 10px; font-weight: 700; font-size: 0.9rem;">✓</span>
+              <div>
+                <strong style="display: block;">Ubicación Estratégica</strong>
+                <span style="font-size: 0.9rem; color: var(--text-muted);">Sedes de atención al cliente en Miraflores y el Centro de Lima para tu comodidad.</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;">
+              <span style="background-color: var(--primary-light); color: var(--primary-dark); border-radius: 50%; padding: 4px 10px; font-weight: 700; font-size: 0.9rem;">✓</span>
+              <div>
+                <strong style="display: block;">Guías Certificados por el MINCETUR</strong>
+                <span style="font-size: 0.9rem; color: var(--text-muted);">Acompañamiento por profesionales licenciados bilingües con amplio conocimiento local.</span>
+              </div>
+            </li>
+            <li style="display: flex; gap: 12px; align-items: flex-start;">
+              <span style="background-color: var(--primary-light); color: var(--primary-dark); border-radius: 50%; padding: 4px 10px; font-weight: 700; font-size: 0.9rem;">✓</span>
+              <div>
+                <strong style="display: block;">Políticas Transparentes</strong>
+                <span style="font-size: 0.9rem; color: var(--text-muted);">Cancelaciones flexibles y reprogramaciones sin costo adicional hasta con 48 horas de anticipación.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+          <h3 style="margin-bottom: 16px; font-size: 1.6rem;">¿Qué dicen nuestros viajeros?</h3>
+          <div style="border-left: 4px solid var(--accent); padding-left: 20px; margin-bottom: 24px;">
+            <p style="font-style: italic; color: var(--text-muted); font-size: 1rem; margin-bottom: 12px;">"El Full Day a Paracas fue una experiencia inolvidable. La puntualidad fue exacta saliendo desde Miraflores y los guías fueron de lo mejor. Recomiendo el paseo en los deslizadores."</p>
+            <strong style="font-family: var(--font-headings);">- Carlos Mendoza, Turista Nacional</strong>
+          </div>
+          <div style="border-left: 4px solid var(--accent); padding-left: 20px;">
+            <p style="font-style: italic; color: var(--text-muted); font-size: 1rem; margin-bottom: 12px;">"Reservamos el paquete de Cusco con Agencia Mercato desde el extranjero vía PayPal. Todo estuvo perfectamente coordinado: el tren a Machu Picchu, el hotel en Cusco y las guiadas particulares."</p>
+            <strong style="font-family: var(--font-headings);">- Sarah Jenkins, Turista Extranjera</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color: var(--text-white); margin-bottom: 20px;">
+            <span>Agencia</span> Mercato
+          </a>
+          <p style="margin-top: 15px;">Tu socio de viajes de confianza en el Perú. Descubre Cusco, Máncora y los mejores paisajes cerca de Lima con guías certificados y una organización impecable.</p>
+          <p style="margin-top: 15px; font-size: 0.8rem; color: rgba(255,255,255,0.4);">RUC: 20601234567 | Registro MINCETUR N° 4562-2024</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="destinos.html">Destinos del Perú</a></li>
+            <li><a href="fulldays.html">Tours Full Day</a></li>
+            <li><a href="reservar.html">Reserva tu Cupo</a></li>
+            <li><a href="nosotros.html">Sobre Nosotros / Políticas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Nuestras Oficinas</h4>
+          <ul class="footer-contact">
+            <li>
+              <span>Sede Miraflores:</span>
+              <span>Av. Larco 456, Piso 3, Miraflores, Lima</span>
+            </li>
+            <li>
+              <span>Sede Centro de Lima:</span>
+              <span>Jr. de la Unión 789, Oficina 204, Lima 01</span>
+            </li>
+            <li>
+              <span>Contacto Directo:</span>
+              <span style="color: var(--accent); font-weight: 700;">+51 987 654 321</span>
+              <span>reservas@agenciamercato.pe</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agencia Mercato. Todos los derechos reservados. Registrado ante MINCETUR y PROMPERÚ.</p>
+        <p>Desarrollado con pasión por el turismo peruano.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

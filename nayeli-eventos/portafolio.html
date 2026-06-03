@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore el portafolio de montajes y producciones de bodas y eventos de gala reales organizados por Nayeli Eventos en Lima, Perú.">
+  <title>Portafolio de Eventos Reales | Nayeli Eventos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- --- HEADER & NAVIGATION --- -->
+  <header class="light-theme">
+    <div class="container">
+      <nav class="navbar" id="nav-wrapper">
+        <a href="index.html" class="logo" id="logo-link">
+          NAYELI EVENTOS
+          <span>luxury production</span>
+        </a>
+        
+        <ul class="nav-links" id="navbar-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="portafolio.html" class="active">Portafolio</a></li>
+          <li><a href="catering.html">Catering</a></li>
+          <li><a href="mobiliario.html">Mobiliario</a></li>
+          <li><a href="cotizar.html">Cotizar</a></li>
+          <li><a href="cotizar.html" class="btn btn-accent" style="padding: 8px 16px; font-size: 0.75rem;" id="nav-cta-btn">Diseñar Evento</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir panel de navegación">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- --- STYLE B HERO: ASYMMETRIC COLLAGE GRID --- -->
+  <section class="hero-luxury-portfolio" id="portafolio-hero">
+    <div class="container">
+      <div class="hero-luxury-portfolio-grid">
+        <div class="hero-luxury-portfolio-title">
+          <span class="btn btn-primary" style="padding: 4px 12px; font-size: 0.7rem; pointer-events:none; border-radius: var(--radius-sm); margin-bottom: 20px; text-transform:uppercase;">Galería de Montajes</span>
+          <h1>Registros de Eventos Reales</h1>
+        </div>
+        <div class="hero-luxury-portfolio-collage">
+          <div class="collage-item"><img src="img/event_setup.png" alt="Detalle de copas de cristal en mesa principal"></div>
+          <div class="collage-item"><img src="img/event_hero.png" alt="Toldo de luces de gala al aire libre"></div>
+          <div class="collage-item"><img src="img/catering_menu.png" alt="Platillo gourmet de catering"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- PORTFOLIO GALLERY SECTION --- -->
+  <section class="section-padding" style="background-color: var(--bg-alt);" id="portfolio-gallery">
+    <div class="container">
+      
+      <!-- Category filters -->
+      <div class="portfolio-filters">
+        <button class="portfolio-filter-btn active" data-filter="all" id="btn-p-all">Todos los Eventos</button>
+        <button class="portfolio-filter-btn" data-filter="bodas" id="btn-p-bodas">Bodas de Gala</button>
+        <button class="portfolio-filter-btn" data-filter="corporativos" id="btn-p-corporativos">Corporativos & Aniversarios</button>
+        <button class="portfolio-filter-btn" data-filter="sociales" id="btn-p-sociales">Eventos Sociales</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="portfolio-grid" id="grid-portfolio">
+        
+        <!-- Card 1 -->
+        <div class="portfolio-card" data-category="bodas" id="card-event-1">
+          <div class="portfolio-card-img">
+            <img src="img/event_hero.png" alt="Montaje de boda de gala al aire libre bajo toldo estructural de luces doradas">
+          </div>
+          <div class="portfolio-card-info">
+            <span>Bodas</span>
+            <h3>Boda Real en Hacienda Haras</h3>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="portfolio-card" data-category="corporativos" id="card-event-2">
+          <div class="portfolio-card-img">
+            <img src="img/event_setup.png" alt="Montaje de cristalería y mesa de honor para cena corporativa en Lima">
+          </div>
+          <div class="portfolio-card-info">
+            <span>Corporativos</span>
+            <h3>Cena de Gala Anual Interbank</h3>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="portfolio-card" data-category="sociales" id="card-event-3">
+          <div class="portfolio-card-img">
+            <img src="img/event_setup.png" alt="Decoración de mesa presidencial con centros florales y velas en Cieneguilla">
+          </div>
+          <div class="portfolio-card-info">
+            <span>Sociales</span>
+            <h3>Aniversario Social en Cieneguilla</h3>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="portfolio-card" data-category="bodas" id="card-event-4">
+          <div class="portfolio-card-img">
+            <img src="img/event_setup.png" alt="Centros de mesa altos de rosas pastel y cristalería fina de bodas">
+          </div>
+          <div class="portfolio-card-info">
+            <span>Bodas</span>
+            <h3>Boda Rústica Chic en Pachacámac</h3>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="portfolio-card" data-category="corporativos" id="card-event-5">
+          <div class="portfolio-card-img">
+            <img src="img/event_hero.png" alt="Montaje de toldo transparente y barras LED iluminadas para cocktail corporativo">
+          </div>
+          <div class="portfolio-card-info">
+            <span>Corporativos</span>
+            <h3>Lanzamiento de Marca en San Isidro</h3>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="portfolio-card" data-category="sociales" id="card-event-6">
+          <div class="portfolio-card-img">
+            <img src="img/catering_menu.png" alt="Platillo de menú gourmet servido en cena social privada">
+          </div>
+          <div class="portfolio-card-info">
+            <span>Sociales</span>
+            <h3>Cena Privada de Cumpleaños</h3>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- LIGHTBOX MODAL --- -->
+  <div class="lightbox-modal" id="portfolio-lightbox">
+    <span class="lightbox-close">&times;</span>
+    <span class="lightbox-prev">&#10094;</span>
+    <span class="lightbox-next">&#10095;</span>
+    <div class="lightbox-content-box">
+      <img src="" alt="Lightbox Zoom" class="lightbox-img" id="modal-zoom-img">
+      <div class="lightbox-caption" id="modal-zoom-caption">Detalle</div>
+    </div>
+  </div>
+
+  <!-- --- FOOTER --- -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            NAYELI EVENTOS
+            <span>luxury production</span>
+          </a>
+          <p>Organización integral de bodas, eventos sociales y corporativos en Lima, Perú. Producción de alta gama, catering y mobiliario exclusivo.</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Secciones</h4>
+          <ul class="footer-links">
+            <li><a href="portafolio.html">Galería de Montajes</a></li>
+            <li><a href="catering.html">Propuestas de Menús</a></li>
+            <li><a href="mobiliario.html">Catálogo de Mobiliario</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sede Administrativa</h4>
+          <ul class="footer-contact">
+            <li>
+              <span>Locación</span>
+              <span>Av. Primavera 1024, Oficina 502, Santiago de Surco, Lima, Perú</span>
+            </li>
+            <li>
+              <span>Contacto</span>
+              <span>informes@nayelieventos.pe | (01) 789-4561 / 999 666 555</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nayeli Eventos. Todos los derechos reservados. Confidencialidad y rigurosidad logística.</p>
+        <p>Bodas &bull; Corporativos &bull; Mobiliario</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

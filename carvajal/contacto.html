@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Citas - Inmobiliaria Carvajal</title>
+    <meta name="description" content="Agende una visita a nuestras salas de venta o pilotos. Solicite cotizaciones para Edificio Alura, Residencial Bosque y Golf View.">
+
+    <!-- Google Fonts: Cinzel & Josefin Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Estilos de Lujo -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="padding-top: 100px;">
+
+    <!-- ===== HEADER / NAVEGACIÓN ===== -->
+    <header id="main-header" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                Carvajal<span>.</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="contacto.html" class="btn btn-accent btn-small">Agendar Visita</a>
+                <button class="burger" aria-label="Menu" id="burgerBtn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE DRAWER ===== -->
+    <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 16px;">
+            <a href="contacto.html" class="btn btn-accent">Agendar Visita</a>
+            <a href="tel:+5116548790" class="btn btn-outline" style="text-align: center;">Llamar Asesor</a>
+        </div>
+    </div>
+
+    <!-- ===== CONTACTO SECTION ===== -->
+    <section class="contact-section" style="border-bottom: none;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: var(--spacing-lg);">
+                <div class="section-header-text">
+                    <span class="tagline">Atención al Propietario</span>
+                    <h2>Agende una Asesoría</h2>
+                    <p>Visite nuestra sala de ventas o programe un recorrido en nuestros departamentos piloto.</p>
+                </div>
+            </div>
+
+            <div class="contact-layout">
+                <!-- Columna Izquierda: Información -->
+                <div class="contact-sidebar">
+                    <h3>Sala de Ventas Principal</h3>
+                    <p style="margin-bottom: 24px; color: var(--bg-light); opacity: 0.85;">
+                        Contamos con asesores comerciales especializados listos para brindarle información sobre planes de pago, financiamiento y acabados personalizados.
+                    </p>
+
+                    <ul class="contact-info-list">
+                        <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+                            <i data-lucide="map-pin" style="color: var(--accent); flex-shrink:0;"></i>
+                            <div>
+                                <strong style="display: block;">Dirección Central:</strong>
+                                <span>Av. La Paz 1040, Miraflores, Lima, Perú</span>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+                            <i data-lucide="phone" style="color: var(--accent); flex-shrink:0;"></i>
+                            <div>
+                                <strong style="display: block;">Teléfono Central:</strong>
+                                <a href="tel:+5116548790" style="color: inherit;">+51 1 654-8790</a>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 12px; margin-bottom: 16px;">
+                            <i data-lucide="message-circle" style="color: var(--accent); flex-shrink:0;"></i>
+                            <div>
+                                <strong style="display: block;">WhatsApp Inmobiliario:</strong>
+                                <a href="https://wa.me/51987654321" target="_blank" style="color: inherit;">+51 987 654 321</a>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 12px;">
+                            <i data-lucide="mail" style="color: var(--accent); flex-shrink:0;"></i>
+                            <div>
+                                <strong style="display: block;">Email de Ventas:</strong>
+                                <a href="mailto:ventas@carvajal.pe" style="color: inherit;">ventas@carvajal.pe</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna Derecha: Formulario -->
+                <div class="contact-form-container">
+                    <h3>Formulario de Reserva</h3>
+                    <p style="font-size: 14.5px; margin-bottom: 24px; color: var(--secondary);">Los campos marcados con asterisco (*) son obligatorios.</p>
+                    
+                    <form id="carvajalContactForm">
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="name">Nombre Completo *</label>
+                                <input type="text" id="name" required placeholder="Ej. Mariana Flores">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Teléfono / WhatsApp *</label>
+                                <input type="tel" id="phone" required placeholder="Ej. 987654321">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" required placeholder="Ej. mflores@correo.com">
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label for="proyecto">Proyecto de Interés *</label>
+                                <select id="proyecto" required>
+                                    <option value="alura">Edificio Alura (Miraflores)</option>
+                                    <option value="bosque">Residencial Bosque (San Isidro)</option>
+                                    <option value="golf">Golf View (Surco)</option>
+                                    <option value="otro">Otro proyecto / General</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="presupuesto">Inversión Estimada *</label>
+                                <select id="presupuesto" required>
+                                    <option value="bajo">Menos de $300,000</option>
+                                    <option value="medio" selected>$300,000 a $450,000</option>
+                                    <option value="alto">Más de $450,000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje / Consulta Especial</label>
+                            <textarea id="mensaje" placeholder="Indique si desea programar una videollamada, planos específicos o agendar visita física..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-accent" style="width: 100%;">
+                            <i data-lucide="send"></i> Enviar a WhatsApp Comercial
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PIE DE PÁGINA (FOOTER) ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4 class="logo" style="color: var(--white); margin-bottom: 20px; font-size: 26px;">
+                        Carvajal<span>.</span>
+                    </h4>
+                    <p>
+                        Desarrolladora inmobiliaria boutique enfocada en proyectos residenciales exclusivos de alta gama y diseño arquitectónico de autor en Lima, Perú.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Zonas de Obra</h4>
+                    <ul>
+                        <li><a href="proyectos.html?distrito=Miraflores">Miraflores</a></li>
+                        <li><a href="proyectos.html?distrito=San-Isidro">San Isidro</a></li>
+                        <li><a href="proyectos.html?distrito=Surco">Santiago de Surco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sede Miraflores</h4>
+                    <ul class="footer-contact-details">
+                        <li><strong>Dirección:</strong> Av. La Paz 1040, Miraflores, Lima</li>
+                        <li><strong>Teléfono:</strong> <a href="tel:+5116548790">+51 1 654-8790</a></li>
+                        <li><strong>WhatsApp:</strong> <a href="https://wa.me/51987654321" target="_blank">+51 987 654 321</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:ventas@carvajalinmobiliaria.pe">ventas@carvajal.pe</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Inmobiliaria Carvajal. Todos los derechos reservados. Miembro de la Asociación de Desarrolladores Inmobiliarios (ADI).</p>
+                <div class="footer-policy-links">
+                    <a href="#">Privacidad de Datos</a>
+                    <a href="#">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JS INTERACTIVO ===== -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cursos cortos y capacitaciones prácticas de 2 a 6 meses en Lima, Perú: Barbería, Manicura, Excel, Diseño de Globos y Diseño Gráfico en el Centro Copernico.">
+  <title>Cursos Cortos y Capacitaciones | Copernico</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- --- HEADER & NAVIGATION --- -->
+  <header>
+    <div class="container">
+      <nav class="navbar" id="main-navbar">
+        <a href="index.html" class="logo" id="nav-logo">
+          <div class="logo-icon">C</div>
+          <span>COPÉRNICO</span>
+        </a>
+        
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="carreras.html">Carreras</a></li>
+          <li><a href="cursos.html" class="active">Cursos Cortos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="contacto.html" class="btn btn-accent" id="nav-cta-btn" style="padding: 10px 20px; font-size: 0.9rem;">Pre-Inscríbete</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menú de navegación">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- --- SUB-HERO BANNER --- -->
+  <section class="sub-hero" id="cursos-subhero">
+    <div class="container sub-hero-container">
+      <h1>Cursos Cortos y Capacitaciones</h1>
+      <ul class="breadcrumbs">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="active">Cursos Cortos</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- --- COURSES SECTION --- -->
+  <section class="section-padding" id="cursos-list">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge badge-accent">Especializaciones Rápidas</span>
+        <h2>Nuestros Cursos Disponibles</h2>
+        <p>Aprende un oficio altamente remunerado o adquiere nuevas habilidades profesionales con nuestros programas prácticos mensuales. Filtrados por categorías para tu comodidad.</p>
+      </div>
+
+      <!-- Search & Filters Container -->
+      <div class="cursos-controls">
+        <div class="search-bar-wrapper">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" class="search-bar" placeholder="Buscar capacitación (ej: Excel, Barbería, Globos)..." aria-label="Buscar capacitación">
+        </div>
+        
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all" id="btn-filter-all">Todos los Cursos</button>
+          <button class="filter-btn" data-filter="estetica" id="btn-filter-estetica">Estética y Belleza</button>
+          <button class="filter-btn" data-filter="tecnologia" id="btn-filter-tecnologia">Tecnología y Ofimática</button>
+          <button class="filter-btn" data-filter="manualidades" id="btn-filter-manualidades">Creatividad y Oficios</button>
+        </div>
+      </div>
+
+      <!-- Courses Grid -->
+      <div class="cursos-grid" id="grid-courses">
+        
+        <!-- Curso 1: Excel Empresarial -->
+        <div class="curso-card" data-category="tecnologia" id="c-excel">
+          <div class="curso-img-wrapper">
+            <img src="img/informatics_lab.png" alt="Taller de Excel empresarial con estudiantes en computadoras">
+            <span class="badge curso-category" style="background-color: var(--primary);">Tecnología</span>
+          </div>
+          <div class="curso-body">
+            <h3>Excel Profesional y Empresarial</h3>
+            <p>Domina desde lo básico hasta tablas dinámicas, fórmulas complejas, macros y automatizaciones aplicadas a la administración, finanzas y negocios de Lima.</p>
+            
+            <div class="curso-info-row">
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>2 Meses (40 hrs)</span>
+              </div>
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Mañana / Tarde / Sábado</span>
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: 8px;">
+              <a href="contacto.html?course=excel" class="btn btn-outline" style="flex: 1;" id="btn-info-excel">Inscribirme</a>
+              <a href="https://api.whatsapp.com/send?phone=51999888777&text=Hola%20Copernico%2C%20deseo%20información%20sobre%20el%20curso%20de%20Excel%20Profesional." target="_blank" class="btn btn-whatsapp" style="padding: 10px;" aria-label="Enviar consulta de Excel por WhatsApp" id="btn-wa-excel">WA</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 2: Barbería y Estética Masculina -->
+        <div class="curso-card" data-category="estetica" id="c-barberia">
+          <div class="curso-img-wrapper">
+            <img src="img/beauty_academy.png" alt="Clase práctica de barbería en el taller de belleza de Copernico">
+            <span class="badge curso-category" style="background-color: var(--secondary);">Estética</span>
+          </div>
+          <div class="curso-body">
+            <h3>Barbería y Estética Masculina</h3>
+            <p>Curso práctico enfocado en técnicas de corte clásico y moderno, degrade (fade), diseño de barba, afeitado tradicional y técnicas avanzadas de barbería comercial.</p>
+            
+            <div class="curso-info-row">
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>3 Meses (72 hrs)</span>
+              </div>
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Tarde / Noche / Domingo</span>
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: 8px;">
+              <a href="contacto.html?course=barberia" class="btn btn-outline" style="flex: 1;" id="btn-info-barberia">Inscribirme</a>
+              <a href="https://api.whatsapp.com/send?phone=51999888777&text=Hola%20Copernico%2C%20deseo%20información%20sobre%20el%20curso%20de%20Barbería%20y%20Estética%20Masculina." target="_blank" class="btn btn-whatsapp" style="padding: 10px;" aria-label="Enviar consulta de Barbería por WhatsApp" id="btn-wa-barberia">WA</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 3: Diseño y Decoración con Globos -->
+        <div class="curso-card" data-category="manualidades" id="c-globos">
+          <div class="curso-img-wrapper">
+            <img src="img/globos_decoracion.png" alt="Taller práctico de diseño de arcos y decoración con globos de colores">
+            <span class="badge curso-category" style="background-color: var(--accent-hover); color: white;">Creatividad</span>
+          </div>
+          <div class="curso-body">
+            <h3>Diseño y Decoración con Globos</h3>
+            <p>Aprende a diseñar y montar decoraciones temáticas, arcos orgánicos, murales, y estructuras de globos de nivel profesional para eventos infantiles, corporativos y bodas.</p>
+            
+            <div class="curso-info-row">
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>1 Mes (24 hrs)</span>
+              </div>
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Mañana / Sábados</span>
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: 8px;">
+              <a href="contacto.html?course=globos" class="btn btn-outline" style="flex: 1;" id="btn-info-globos">Inscribirme</a>
+              <a href="https://api.whatsapp.com/send?phone=51999888777&text=Hola%20Copernico%2C%20deseo%20información%20sobre%20el%20curso%20de%20Diseño%20y%20Decoración%20con%20Globos." target="_blank" class="btn btn-whatsapp" style="padding: 10px;" aria-label="Enviar consulta de Globos por WhatsApp" id="btn-wa-globos">WA</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 4: Manicura y Uñas Acrílicas -->
+        <div class="curso-card" data-category="estetica" id="c-manicura">
+          <div class="curso-img-wrapper">
+            <img src="img/beauty_academy.png" alt="Clase de manicura y diseño de uñas acrílicas en el taller de estética">
+            <span class="badge curso-category" style="background-color: var(--secondary);">Estética</span>
+          </div>
+          <div class="curso-body">
+            <h3>Manicura y Uñas Acrílicas</h3>
+            <p>Aprende el cuidado de manos y pies, esmaltado semipermanente, esculpido de uñas acrílicas, gel, polygel y decoración Nail Art comercial desde cero.</p>
+            
+            <div class="curso-info-row">
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>2 Meses (48 hrs)</span>
+              </div>
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Mañana / Sábado / Domingo</span>
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: 8px;">
+              <a href="contacto.html?course=manicura" class="btn btn-outline" style="flex: 1;" id="btn-info-manicura">Inscribirme</a>
+              <a href="https://api.whatsapp.com/send?phone=51999888777&text=Hola%20Copernico%2C%20deseo%20información%20sobre%20el%20curso%20de%20Manicura%20y%20Uñas%20Acrílicas." target="_blank" class="btn btn-whatsapp" style="padding: 10px;" aria-label="Enviar consulta de Manicura por WhatsApp" id="btn-wa-manicura">WA</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 5: Computación Básica e Internet -->
+        <div class="curso-card" data-category="tecnologia" id="c-computacion-basica">
+          <div class="curso-img-wrapper">
+            <img src="img/informatics_lab.png" alt="Clase de computación básica con adultos aprendiendo a navegar por internet">
+            <span class="badge curso-category" style="background-color: var(--primary);">Tecnología</span>
+          </div>
+          <div class="curso-body">
+            <h3>Computación Básica e Internet</h3>
+            <p>Curso ideal para adultos y jóvenes sin conocimientos previos. Aprende a usar Windows, navegar en la web de forma segura, gestionar correos y herramientas colaborativas de Google Drive.</p>
+            
+            <div class="curso-info-row">
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>2 Meses (36 hrs)</span>
+              </div>
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Mañana / Tarde / Sábado</span>
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: 8px;">
+              <a href="contacto.html?course=computacion" class="btn btn-outline" style="flex: 1;" id="btn-info-computacion">Inscribirme</a>
+              <a href="https://api.whatsapp.com/send?phone=51999888777&text=Hola%20Copernico%2C%20deseo%20información%20sobre%20el%20curso%20de%20Computación%20Básica." target="_blank" class="btn btn-whatsapp" style="padding: 10px;" aria-label="Enviar consulta de Computación Básica por WhatsApp" id="btn-wa-computacion">WA</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 6: Diseño Gráfico Publicitario -->
+        <div class="curso-card" data-category="manualidades" id="c-dg">
+          <div class="curso-img-wrapper">
+            <img src="img/hero_banner.png" alt="Estudiante en su laptop diseñando un vector en illustrator">
+            <span class="badge curso-category" style="background-color: var(--accent-hover); color: white;">Creatividad</span>
+          </div>
+          <div class="curso-body">
+            <h3>Diseño Gráfico Publicitario</h3>
+            <p>Aprende los fundamentos del diseño visual y domina las herramientas estándar del sector: Adobe Photoshop, Illustrator e InDesign para crear logotipos, branding y post para redes.</p>
+            
+            <div class="curso-info-row">
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>4 Meses (80 hrs)</span>
+              </div>
+              <div class="c-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Tarde / Noche / Fin de Semana</span>
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: 8px;">
+              <a href="contacto.html?course=disenografico" class="btn btn-outline" style="flex: 1;" id="btn-info-dg">Inscribirme</a>
+              <a href="https://api.whatsapp.com/send?phone=51999888777&text=Hola%20Copernico%2C%20deseo%20información%20sobre%20el%20curso%20de%20Diseño%20Gráfico%20Publicitario." target="_blank" class="btn btn-whatsapp" style="padding: 10px;" aria-label="Enviar consulta de Diseño Gráfico por WhatsApp" id="btn-wa-dg">WA</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No Results Message -->
+      <div class="no-results" style="display: none;" id="search-no-results">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-light); margin-bottom: 16px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        <h3>No encontramos resultados</h3>
+        <p>Prueba buscando con palabras clave diferentes o selecciona otra categoría.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">C</div>
+            <span>COPÉRNICO</span>
+          </a>
+          <p>Instituto y Centro de Capacitación especializado en la enseñanza técnica y práctica. Formamos profesionales capacitados para el éxito en Lima, Perú.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook de Copérnico">FB</a>
+            <a href="#" aria-label="Instagram de Copérnico">IG</a>
+            <a href="#" aria-label="TikTok de Copérnico">TK</a>
+            <a href="#" aria-label="YouTube de Copérnico">YT</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Carreras</h3>
+          <ul class="footer-links">
+            <li><a href="carreras.html#gastronomia">Gastronomía</a></li>
+            <li><a href="carreras.html#computacion">Computación e Informática</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Cursos Cortos</h3>
+          <ul class="footer-links">
+            <li><a href="cursos.html?filter=estetica">Estética y Barbería</a></li>
+            <li><a href="cursos.html?filter=computacion">Ofimática y Diseño</a></li>
+            <li><a href="cursos.html?filter=manualidades">Decoración y Globos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contacto Sede</h3>
+          <ul class="footer-contact">
+            <li>
+              <span class="footer-contact-icon">📍</span>
+              <span>Av. Nicolás de Piérola 1245, Centro de Lima, Perú</span>
+            </li>
+            <li>
+              <span class="footer-contact-icon">📞</span>
+              <span>(01) 456-7890 / 999 888 777</span>
+            </li>
+            <li>
+              <span class="footer-contact-icon">✉</span>
+              <span>informes@copernico.edu.pe</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Instituto Copernico. Todos los derechos reservados. Desarrollado con excelencia técnica.</p>
+        <ul class="footer-bottom-links">
+          <li><a href="#">Políticas de Privacidad</a></li>
+          <li><a href="#">Términos de Servicio</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

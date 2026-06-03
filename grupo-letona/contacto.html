@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solicite una asesoría de diagnóstico fiscal y contable gratuita de 15 minutos vía Zoom con un socio senior de Grupo Letona.">
+  <title>Agendar Diagnóstico Gratuito | Grupo Letona</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- --- HEADER & NAVIGATION --- -->
+  <header class="light-theme">
+    <div class="container">
+      <nav class="navbar" id="nav-wrapper">
+        <a href="index.html" class="logo" id="logo-link">
+          <span>GRUPO LETONA</span>
+          <span class="logo-symbol">L</span>
+        </a>
+        
+        <ul class="nav-links" id="navbar-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="blog.html">Blog & SUNAT</a></li>
+          <li><a href="contacto.html" class="active">Agendar Diagnóstico</a></li>
+          <li><a href="contacto.html" class="btn btn-accent" style="padding: 8px 16px; font-size: 0.85rem;" id="nav-cta-btn">Asesoría Zoom</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="hamburger-menu" aria-label="Abrir panel de navegación">
+          <span style="background-color: var(--primary);"></span>
+          <span style="background-color: var(--primary);"></span>
+          <span style="background-color: var(--primary);"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- --- STYLE D: DIRECT CONTAINER (NO BANNER) --- -->
+  <section class="contact-direct-page" id="direct-booking-content">
+    <div class="container" style="padding-bottom: 80px;">
+      
+      <div class="booking-grid">
+        
+        <!-- Sidebar Info -->
+        <div class="booking-info-sidebar">
+          <h2>Diagnóstico Fiscal de 15 Minutos</h2>
+          <p>Identificamos las principales alertas tributarias y cuellos de botella contables de su corporación sin costos ni compromisos iniciales.</p>
+          
+          <ul class="booking-agenda-list" style="margin-bottom: 40px;">
+            <li>
+              <div class="agenda-num">1</div>
+              <div class="agenda-text">
+                <h4>Conexión Virtual Segura</h4>
+                <p>Sesión privada vía Zoom (15 Min) con un socio senior de impuestos.</p>
+              </div>
+            </li>
+            <li>
+              <div class="agenda-num">2</div>
+              <div class="agenda-text">
+                <h4>Revisión de Alertas SUNAT</h4>
+                <p>Análisis rápido de su estado de cumplimiento electrónico (SIRE y renta).</p>
+              </div>
+            </li>
+            <li>
+              <div class="agenda-num">3</div>
+              <div class="agenda-text">
+                <h4>Entregable Preliminar</h4>
+                <p>Hojas de ruta preliminares para mitigar multas u omisiones impositivas.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="img/consulting_zoom.png" alt="Asesor sénior de Grupo Letona realizando una sesión de consultoría virtual" style="opacity: 0.9; width: 100%;">
+          </div>
+        </div>
+
+        <!-- Form Area -->
+        <div class="booking-form-area">
+          <h3>Agendar Sesión de Zoom</h3>
+          <p>Complete los datos corporativos obligatorios (*) para asignar el socio de impuestos correspondiente.</p>
+          
+          <form id="booking-form">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullname">Representante legal *</label>
+                <input type="text" id="fullname" class="form-control" placeholder="Ej: Dr. Álvaro Letona" required>
+              </div>
+              <div class="form-group">
+                <label for="company">Nombre de la Empresa *</label>
+                <input type="text" id="company" class="form-control" placeholder="Ej: Inversiones Letona S.A.C." required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="ruc">RUC de la Empresa *</label>
+                <input type="text" id="ruc" class="form-control" placeholder="Ej: 20456789012" required pattern="[0-9]{11}" title="El RUC debe constar de 11 dígitos numéricos.">
+              </div>
+              <div class="form-group">
+                <label for="industry">Rubro / Sector *</label>
+                <input type="text" id="industry" class="form-control" placeholder="Ej: Manufactura, E-commerce, Retail" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="proposed-date">Fecha Propuesta *</label>
+                <input type="date" id="proposed-date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="proposed-time">Hora Sugerida *</label>
+                <input type="time" id="proposed-time" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="revenue">Rango de Facturación Anual Estimada</label>
+              <select id="revenue" class="form-control">
+                <option value="Menos de 1M PEN">Menor a S/ 1,000,000</option>
+                <option value="1M - 5M PEN">S/ 1,000,000 - S/ 5,000,000</option>
+                <option value="5M - 20M PEN">S/ 5,000,000 - S/ 20,000,000</option>
+                <option value="Más de 20M PEN">Mayor a S/ 20,000,000</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="comments">Situación Fiscal / Consulta Adicional</label>
+              <textarea id="comments" class="form-control" placeholder="Describa brevemente si tiene fiscalizaciones pendientes, inconsistencias en libros o desea reorganizar su planeamiento tributario..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-accent" style="width: 100%; border-radius: var(--radius-sm);" id="btn-submit-booking">
+              Confirmar Reserva vía WhatsApp
+            </button>
+          </form>
+        </div>
+
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span>GRUPO LETONA</span>
+            <span class="logo-symbol">L</span>
+          </a>
+          <p>Firma boutique de contabilidad ejecutiva, planeamiento fiscal y auditorías financieras. Protegemos y auditamos con rigor legal en Lima, Perú.</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul class="footer-links">
+            <li><a href="servicios.html#tributario">Planeamiento Tributario</a></li>
+            <li><a href="servicios.html#contable">Outsourcing Contable</a></li>
+            <li><a href="servicios.html#auditorias">Auditorías Fiscales</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sede San Isidro</h4>
+          <ul class="footer-contact">
+            <li>
+              <span>Ubicación</span>
+              <span>Av. Canaval y Moreyra 452, Oficina 902, San Isidro, Lima, Perú</span>
+            </li>
+            <li>
+              <span>Contacto</span>
+              <span>informes@grupo-letona.pe | (01) 678-9012</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Grupo Letona. Todos los derechos reservados. Confidencialidad y excelencia técnica.</p>
+        <p>Tributación &bull; Contabilidad &bull; Auditoría</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

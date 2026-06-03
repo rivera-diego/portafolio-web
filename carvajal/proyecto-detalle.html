@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edificio Alura - Miraflores | Inmobiliaria Carvajal</title>
+    <meta name="description" content="Detalle del Edificio Alura. Departamentos de lujo de 2 y 3 dormitorios frente a parque en Miraflores. Vea planos, precios y reserve visita.">
+
+    <!-- Google Fonts: Cinzel & Josefin Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Estilos de Lujo -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="padding-top: 100px;">
+
+    <!-- ===== HEADER / NAVEGACIÓN ===== -->
+    <header id="main-header" class="scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                Carvajal<span>.</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="contacto.html" class="btn btn-accent btn-small">Agendar Visita</a>
+                <button class="burger" aria-label="Menu" id="burgerBtn">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE DRAWER ===== -->
+    <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 16px;">
+            <a href="contacto.html" class="btn btn-accent">Agendar Visita</a>
+            <a href="tel:+5116548790" class="btn btn-outline" style="text-align: center;">Llamar Asesor</a>
+        </div>
+    </div>
+
+    <!-- ===== DETALLE DE PROYECTO ===== -->
+    <section class="project-detail-section" style="border-bottom: none; padding-bottom: 0;">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: var(--spacing-lg);">
+                <div class="section-header-text">
+                    <span class="tagline">Proyecto Destacado</span>
+                    <h2>Edificio Alura</h2>
+                    <p><i data-lucide="map-pin" style="width:16px; height:16px; display:inline-block; color:var(--accent); vertical-align:-2px;"></i> Av. Reducto 1420, Miraflores, Lima</p>
+                </div>
+            </div>
+
+            <div class="detail-layout">
+                <!-- Columna Izquierda: Galería de Renders -->
+                <div class="detail-gallery">
+                    <div class="img-container gallery-main">
+                        <img id="galleryMainImg" src="img/proyecto_hero.png" alt="Edificio Alura Fachada Principal">
+                    </div>
+                    <div class="gallery-thumbs">
+                        <img class="gallery-thumb active" src="img/proyecto_hero.png" alt="Render Fachada" onclick="switchGalleryImg(this)">
+                        <img class="gallery-thumb" src="img/living_interior.png" alt="Render Sala/Comedor" onclick="switchGalleryImg(this)">
+                        <img class="gallery-thumb" src="img/plano_flat.png" alt="Plano de Planta 2D" onclick="switchGalleryImg(this)">
+                        <img class="gallery-thumb" src="img/proyecto_hero.png" alt="Render Lobby" onclick="switchGalleryImg(this)">
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Ficha Técnica -->
+                <div class="detail-sidebar">
+                    <span class="tagline">Precios de Lanzamiento</span>
+                    <span class="price-tag">Desde $280,000</span>
+                    <p style="font-size: 14.5px; margin-bottom: var(--spacing-sm);">Financiado por el BCP. Edificio residencial de solo 14 departamentos.</p>
+                    
+                    <ul class="spec-list">
+                        <li class="spec-item">
+                            <span>Distrito</span>
+                            <span>Miraflores</span>
+                        </li>
+                        <li class="spec-item">
+                            <span>Áreas Disponibles</span>
+                            <span>85 m² a 160 m²</span>
+                        </li>
+                        <li class="spec-item">
+                            <span>Dormitorios</span>
+                            <span>2 y 3 Dormitorios</span>
+                        </li>
+                        <li class="spec-item">
+                            <span>Baños</span>
+                            <span>2.5 a 3.5 Baños</span>
+                        </li>
+                        <li class="spec-item">
+                            <span>Estado de Obra</span>
+                            <span>En Construcción</span>
+                        </li>
+                        <li class="spec-item">
+                            <span>Fecha de Entrega</span>
+                            <span>Diciembre 2026</span>
+                        </li>
+                    </ul>
+
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <a href="contacto.html?proyecto=alura" class="btn btn-accent" style="width: 100%;">Agendar Cita de Ventas</a>
+                        <a href="https://wa.me/51987654321?text=Hola%20Carvajal,%20deseo%20la%20ficha%20tecnica%20de%20Alura" target="_blank" class="btn btn-outline" style="width: 100%;">
+                            <i data-lucide="message-square"></i> Descargar Brochure
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SELECTOR INTERACTIVO DE PLANOS (TABS) ===== -->
+    <section class="plans-interactive bg-soft" id="planos">
+        <div class="container">
+            <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: var(--spacing-md);">
+                <div class="section-header-text">
+                    <span class="tagline">Distribuciones Disponibles</span>
+                    <h2>Planos y Tipologías</h2>
+                    <p>Diseño interior inteligente y funcional. Seleccione una tipología para ver su plano de planta.</p>
+                </div>
+            </div>
+
+            <div class="plan-viewer-container">
+                <!-- Tab Buttons -->
+                <div class="plan-tabs">
+                    <button class="plan-tab-btn active" onclick="switchPlanTab('flat1')">1 Dormitorio (Studio)</button>
+                    <button class="plan-tab-btn" onclick="switchPlanTab('flat2')">2 Dormitorios (Familiar)</button>
+                    <button class="plan-tab-btn" onclick="switchPlanTab('duplex')">3 Dormitorios (Duplex)</button>
+                </div>
+
+                <!-- Tab Contents -->
+                <!-- 1 Dormitorio -->
+                <div class="plan-content active" id="plan-flat1">
+                    <div class="plan-image-box">
+                        <img src="img/plano_flat.png" alt="Plano 1 Dormitorio - CastyDent">
+                    </div>
+                    <div class="plan-details">
+                        <span class="tagline">Tipología Flat A</span>
+                        <h4>Flat Studio 55 m²</h4>
+                        <p style="margin-bottom: var(--spacing-sm);">Ideal para solteros o parejas. Cuenta con un dormitorio principal con walk-in closet, baño incorporado, kitchenette integrado, área de lavandería compacta y un amplio balcón social con vista a la calle.</p>
+                        <ul class="spec-list" style="margin-bottom: 20px;">
+                            <li class="spec-item"><span>Área Techada</span><span>55 m²</span></li>
+                            <li class="spec-item"><span>Estacionamiento</span><span>1 incluido</span></li>
+                            <li class="spec-item"><span>Precio de Lista</span><span>Desde $165,000</span></li>
+                        </ul>
+                        <a href="contacto.html?proyecto=alura&tipo=1dorm" class="btn btn-accent btn-small">Cotizar Tipología A</a>
+                    </div>
+                </div>
+
+                <!-- 2 Dormitorios -->
+                <div class="plan-content" id="plan-flat2">
+                    <div class="plan-image-box">
+                        <!-- Reutilizamos el mismo plano generado para demostracion -->
+                        <img src="img/plano_flat.png" alt="Plano 2 Dormitorios">
+                    </div>
+                    <div class="plan-details">
+                        <span class="tagline">Tipología Flat B</span>
+                        <h4>Flat Familiar 85 m²</h4>
+                        <p style="margin-bottom: var(--spacing-sm);">Excelente distribución espacial. Dormitorio principal con baño privado y walk-in closet, dormitorio secundario amplio con baño exterior completo, sala-comedor conectada a terraza y baño de visitas.</p>
+                        <ul class="spec-list" style="margin-bottom: 20px;">
+                            <li class="spec-item"><span>Área Techada</span><span>85 m²</span></li>
+                            <li class="spec-item"><span>Estacionamientos</span><span>2 incluidos (lineal)</span></li>
+                            <li class="spec-item"><span>Precio de Lista</span><span>Desde $280,000</span></li>
+                        </ul>
+                        <a href="contacto.html?proyecto=alura&tipo=2dorm" class="btn btn-accent btn-small">Cotizar Tipología B</a>
+                    </div>
+                </div>
+
+                <!-- 3 Dormitorios -->
+                <div class="plan-content" id="plan-duplex">
+                    <div class="plan-image-box">
+                        <img src="img/plano_flat.png" alt="Plano 3 Dormitorios">
+                    </div>
+                    <div class="plan-details">
+                        <span class="tagline">Tipología Duplex C</span>
+                        <h4>Duplex Familiar 160 m²</h4>
+                        <p style="margin-bottom: var(--spacing-sm);">Distribución de dos niveles. Primer nivel: Sala de estar, comedor de diario, amplia cocina cerrada, área de servicio completa y terraza principal. Segundo nivel: 3 dormitorios (principal con baño y walk-in closet).</p>
+                        <ul class="spec-list" style="margin-bottom: 20px;">
+                            <li class="spec-item"><span>Área Techada</span><span>160 m²</span></li>
+                            <li class="spec-item"><span>Estacionamientos</span><span>2 paralelos + depósito</span></li>
+                            <li class="spec-item"><span>Precio de Lista</span><span>Desde $490,000</span></li>
+                        </ul>
+                        <a href="contacto.html?proyecto=alura&tipo=duplex" class="btn btn-accent btn-small">Cotizar Tipología C</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ENTORNOS / MAPA MOCK ===== -->
+    <section class="location-section">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <div class="section-header-text">
+                    <span class="tagline">Conectividad</span>
+                    <h2>Ubicación Privilegiada</h2>
+                    <p>Ubicado en Av. Reducto, a pasos del Parque Reducto, centros comerciales de Larco y los mejores cafés de Miraflores.</p>
+                </div>
+            </div>
+
+            <!-- Visual Mockup de Google Maps en Estética Minimalista -->
+            <div style="background-color: var(--primary); color: var(--white); padding: 48px; text-align: center; border: 1px solid var(--border);">
+                <i data-lucide="map" style="width: 48px; height: 48px; color: var(--accent); margin-bottom: 16px; display: inline-block;"></i>
+                <h3 style="color: var(--white); margin-bottom: 8px;">Ubicación Estratégica en Miraflores</h3>
+                <p style="color: var(--bg-light); max-width: 600px; margin: 0 auto 24px auto; opacity: 0.8;">
+                    A poca distancia del Malecón de la Reserva, Larcomar, Supermercados Wong, y restaurantes de prestigio.
+                </p>
+                <a href="https://maps.google.com/?q=Av.+Reducto+1420,+Miraflores" target="_blank" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">Ver en Google Maps</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PIE DE PÁGINA (FOOTER) ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4 class="logo" style="color: var(--white); margin-bottom: 20px; font-size: 26px;">
+                        Carvajal<span>.</span>
+                    </h4>
+                    <p>
+                        Desarrolladora inmobiliaria boutique enfocada en proyectos residenciales exclusivos de alta gama y diseño arquitectónico de autor en Lima, Perú.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="proyectos.html">Proyectos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Zonas de Obra</h4>
+                    <ul>
+                        <li><a href="proyectos.html?distrito=Miraflores">Miraflores</a></li>
+                        <li><a href="proyectos.html?distrito=San-Isidro">San Isidro</a></li>
+                        <li><a href="proyectos.html?distrito=Surco">Santiago de Surco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sede Miraflores</h4>
+                    <ul class="footer-contact-details">
+                        <li><strong>Dirección:</strong> Av. La Paz 1040, Miraflores, Lima</li>
+                        <li><strong>Teléfono:</strong> <a href="tel:+5116548790">+51 1 654-8790</a></li>
+                        <li><strong>WhatsApp:</strong> <a href="https://wa.me/51987654321" target="_blank">+51 987 654 321</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:ventas@carvajalinmobiliaria.pe">ventas@carvajal.pe</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Inmobiliaria Carvajal. Todos los derechos reservados. Miembro de la Asociación de Desarrolladores Inmobiliarios (ADI).</p>
+                <div class="footer-policy-links">
+                    <a href="#">Privacidad de Datos</a>
+                    <a href="#">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JS INTERACTIVO ===== -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>
