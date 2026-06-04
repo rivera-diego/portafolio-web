@@ -589,6 +589,20 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(`https://wa.me/51987654321?text=${waMsg}`, '_blank');
   }
 
+  // ─── HUD Clock Ticker ───
+  const clockEl = document.getElementById('nav-clock');
+  if (clockEl) {
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
+
   // Initialize configurator price calculations
   calculatePrice();
 });
