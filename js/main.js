@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'contact':
         logTerminalLine('Información de Contacto:<br>' +
           '- WhatsApp: <span class="neon-green">+51 987 654 321</span><br>' +
-          '- Email: <span class="neon-cyan">contacto@diegorivera.dev</span><br>' +
+          '- Email: <span class="neon-cyan">contacto@diegorivera.tech</span><br>' +
           '- Lima, Perú.');
         break;
       case 'clear':

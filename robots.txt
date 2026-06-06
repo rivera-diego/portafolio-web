@@ -1,0 +1,7 @@
+# https://www.diegorivera.tech/ robots.txt
+User-agent: *
+Allow: /
+Disallow: /.agent/
+Disallow: /.git/
+
+Sitemap: https://www.diegorivera.tech/sitemap.xml
