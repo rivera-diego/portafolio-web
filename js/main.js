@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `💬 Mensaje:\n${message}`
       );
 
-      window.open(`https://wa.me/51987654321?text=${waMsg}`, '_blank');
+      window.open(`https://wa.me/51988233246?text=${waMsg}`, '_blank');
 
       alert('¡Mensaje preparado! Se abrirá WhatsApp para enviar tu consulta directamente.');
       contactForm.reset();
@@ -411,8 +411,8 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
       case 'contact':
         logTerminalLine('Información de Contacto:<br>' +
-          '- WhatsApp: <span class="neon-green">+51 987 654 321</span><br>' +
-          '- Email: <span class="neon-cyan">contacto@diegorivera.tech</span><br>' +
+          '- WhatsApp: <span class="neon-green">+51 988 233 246</span><br>' +
+          '- Email: <span class="neon-cyan">ds.diegorivera@gmail.com</span><br>' +
           '- Lima, Perú.');
         break;
       case 'clear':
@@ -436,38 +436,174 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Services / Web Configurator Widget ───
-  let configState = {
-    webType: 'landing',
-    basePrice: 800,
-    pagesCount: 1,
-    addons: []
+  // ─── Tabs Switcher for Pricing ───
+  window.switchPricingTab = function(tab) {
+    const devGrid = document.getElementById('pricing-dev-grid');
+    const maintGrid = document.getElementById('pricing-maint-grid');
+    const btnDev = document.getElementById('tab-dev');
+    const btnMaint = document.getElementById('tab-maint');
+
+    if (tab === 'dev') {
+      if (devGrid) devGrid.style.display = 'grid';
+      if (maintGrid) maintGrid.style.display = 'none';
+      if (btnDev) btnDev.classList.add('active');
+      if (btnMaint) btnMaint.classList.remove('active');
+    } else {
+      if (devGrid) devGrid.style.display = 'none';
+      if (maintGrid) maintGrid.style.display = 'grid';
+      if (btnDev) btnDev.classList.remove('active');
+      if (btnMaint) btnMaint.classList.add('active');
+    }
   };
 
-  window.selectWebType = function(type, basePrice) {
+  // ─── Services / Web Configurator Widget ───
+  const basePrices = {
+    std: {
+      landing: 300,
+      corporativa: 600,
+      ecommerce: 1200,
+      sistema: 3000
+    },
+    pro: {
+      landing: 600,
+      corporativa: 1300,
+      ecommerce: 2500,
+      sistema: 5500
+    }
+  };
+
+  // ─── Services / Web Configurator Widget ───
+  let configState = {
+    level: 'pro', // 'std' or 'pro'
+    webType: 'landing',
+    basePrice: 600,
+    pagesCount: 0,
+    addons: [],
+    maintPrice: 0
+  };
+
+  window.switchPricingLevel = function(level) {
+    configState.level = level;
+    
+    // 1. Sync Pricing Cards Level Toggle UI
+    const toggleContainer = document.getElementById('pricing-level-toggle');
+    const labelStd = document.getElementById('level-label-std');
+    const labelPro = document.getElementById('level-label-pro');
+    
+    if (level === 'pro') {
+      if (toggleContainer) {
+        toggleContainer.classList.add('pro-active');
+        toggleContainer.classList.remove('std-active');
+      }
+      if (labelPro) labelPro.classList.add('active');
+      if (labelStd) labelStd.classList.remove('active');
+    } else {
+      if (toggleContainer) {
+        toggleContainer.classList.add('std-active');
+        toggleContainer.classList.remove('pro-active');
+      }
+      if (labelStd) labelStd.classList.add('active');
+      if (labelPro) labelPro.classList.remove('active');
+    }
+
+    // 2. Update Pricing Cards Content (prices, descriptions, features)
+    const devGrid = document.getElementById('pricing-dev-grid');
+    if (devGrid) {
+      const cards = devGrid.querySelectorAll('.pricing-card');
+      cards.forEach(card => {
+        const priceAmountEl = card.querySelector('.price-amount');
+        const descEl = card.querySelector('.pricing-desc');
+        const featuresStd = card.querySelector('.pricing-features-std');
+        const featuresPro = card.querySelector('.pricing-features-pro');
+        
+        if (level === 'pro') {
+          const pricePro = card.getAttribute('data-price-pro');
+          const descPro = card.getAttribute('data-desc-pro');
+          if (priceAmountEl) priceAmountEl.textContent = pricePro;
+          if (descEl) descEl.textContent = descPro;
+          if (featuresStd) featuresStd.style.display = 'none';
+          if (featuresPro) featuresPro.style.display = 'block';
+        } else {
+          const priceStd = card.getAttribute('data-price-std');
+          const descStd = card.getAttribute('data-desc-std');
+          if (priceAmountEl) priceAmountEl.textContent = priceStd;
+          if (descEl) descEl.textContent = descStd;
+          if (featuresStd) featuresStd.style.display = 'block';
+          if (featuresPro) featuresPro.style.display = 'none';
+        }
+      });
+    }
+
+    // 3. Sync Configurator Level Options UI
+    document.querySelectorAll('[id^="config-level-"]').forEach(el => el.classList.remove('active'));
+    const configLevelActive = document.getElementById(`config-level-${level}`);
+    if (configLevelActive) configLevelActive.classList.add('active');
+
+    // 4. Update Configurator base prices in UI
+    const basePricesLvl = basePrices[level];
+    Object.keys(basePricesLvl).forEach(type => {
+      const priceSpan = document.getElementById(`base-price-${type}`);
+      if (priceSpan) {
+        priceSpan.textContent = `S/ ${basePricesLvl[type].toLocaleString()}`;
+      }
+    });
+
+    // 5. Update internal configurator state & recalculate
+    configState.basePrice = basePricesLvl[configState.webType];
+    calculatePrice();
+  };
+
+  window.togglePricingLevel = function() {
+    const nextLevel = configState.level === 'pro' ? 'std' : 'pro';
+    switchPricingLevel(nextLevel);
+  };
+
+  window.selectConfigLevel = function(level) {
+    switchPricingLevel(level);
+  };
+
+  window.selectWebType = function(type) {
     configState.webType = type;
-    configState.basePrice = basePrice;
+    configState.basePrice = basePrices[configState.level][type];
     
     // Update active visual class
-    document.querySelectorAll('.config-option').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('[id^="type-"]').forEach(el => el.classList.remove('active'));
     
     const activeEl = document.getElementById(`type-${type}`);
     if (activeEl) activeEl.classList.add('active');
 
-    // Reset range slider max/value if needed
+    // Reset range slider max/value
     const slider = document.getElementById('config-pages');
+    const sliderLabel = document.getElementById('slider-label');
+    const sliderTicks = document.getElementById('slider-ticks');
+
     if (slider) {
+      slider.value = 0;
+      slider.min = 0;
+      slider.max = 10;
+      
       if (type === 'landing') {
-        slider.value = 1;
-        slider.max = 1; // landing is usually 1 page
-        slider.disabled = true;
-      } else {
-        slider.disabled = false;
-        slider.max = 15;
-        if (type === 'corporativa' && slider.value === '1') slider.value = 4;
-        if (type === 'ecommerce' && slider.value === '1') slider.value = 6;
+        if (sliderLabel) sliderLabel.textContent = '3. Secciones Adicionales (Base incluye 5-6)';
+        if (sliderTicks) {
+          sliderTicks.innerHTML = '<span>0</span><span>3</span><span>6</span><span>10</span>';
+        }
+      } else if (type === 'corporativa') {
+        if (sliderLabel) sliderLabel.textContent = '3. Páginas Adicionales (Base incluye 5)';
+        if (sliderTicks) {
+          sliderTicks.innerHTML = '<span>0</span><span>3</span><span>6</span><span>10</span>';
+        }
+      } else if (type === 'ecommerce') {
+        if (sliderLabel) sliderLabel.textContent = '3. Páginas/Productos Adicionales (Base incluye 5)';
+        if (sliderTicks) {
+          sliderTicks.innerHTML = '<span>0</span><span>3</span><span>6</span><span>10</span>';
+        }
+      } else if (type === 'sistema') {
+        if (sliderLabel) sliderLabel.textContent = '3. Módulos / Vistas Adicionales (Base incluye 3)';
+        if (sliderTicks) {
+          sliderTicks.innerHTML = '<span>0</span><span>3</span><span>6</span><span>10</span>';
+        }
       }
-      updatePages(slider.value);
+      updatePages(0);
     }
     calculatePrice();
   }
@@ -476,33 +612,54 @@ document.addEventListener('DOMContentLoaded', () => {
     configState.pagesCount = parseInt(val, 10);
     const pagesLabel = document.getElementById('pages-val');
     if (pagesLabel) {
-      pagesLabel.textContent = `${val} ${val === '1' ? 'página' : 'páginas'}`;
+      let suffix = 'extra';
+      if (configState.webType === 'landing') {
+        suffix = val === '1' ? 'sección extra' : 'secciones extra';
+      } else if (configState.webType === 'sistema') {
+        suffix = val === '1' ? 'módulo extra' : 'módulos extra';
+      } else {
+        suffix = val === '1' ? 'página extra' : 'páginas extra';
+      }
+      pagesLabel.textContent = `${val} ${suffix}`;
     }
     calculatePrice();
   }
 
   window.calculatePrice = function() {
-    let total = configState.basePrice;
+    let projectTotal = configState.basePrice;
     
-    // Pages calculation (Landing is base 800. Corporativa/Ecommerce base includes a set number of pages)
-    let basePagesIncluded = 1;
-    if (configState.webType === 'corporativa') basePagesIncluded = 6;
-    if (configState.webType === 'ecommerce') basePagesIncluded = 10;
-    
-    if (configState.pagesCount > basePagesIncluded) {
-      const extraPages = configState.pagesCount - basePagesIncluded;
-      total += extraPages * 150;
+    // Extra pages/sections calculation depending on Level & WebType
+    let extraCostPerUnit = 200; // default pro corporativa/ecommerce
+    if (configState.level === 'std') {
+      if (configState.webType === 'landing') {
+        extraCostPerUnit = 80;
+      } else if (configState.webType === 'sistema') {
+        extraCostPerUnit = 150;
+      } else {
+        extraCostPerUnit = 100;
+      }
+    } else { // pro level
+      if (configState.webType === 'landing') {
+        extraCostPerUnit = 150;
+      } else if (configState.webType === 'sistema') {
+        extraCostPerUnit = 300;
+      } else {
+        extraCostPerUnit = 200;
+      }
     }
+    
+    projectTotal += configState.pagesCount * extraCostPerUnit;
 
     // Addons calculation
     let addonsTotal = 0;
     let selectedAddonsCount = 0;
     
     const checkboxes = [
-      { id: 'feature-dark', name: 'Dark/Light Mode' },
-      { id: 'feature-seo', name: 'SEO Premium' },
-      { id: 'feature-payment', name: 'Pasarela Pagos' },
-      { id: 'feature-admin', name: 'Panel Admin' },
+      { id: 'feature-dark', name: 'Diseño Dark Mode' },
+      { id: 'feature-seo', name: 'Optimización SEO' },
+      { id: 'feature-whatsapp-catalog', name: 'Catálogo WhatsApp' },
+      { id: 'feature-cms', name: 'Panel CMS / Administrable' },
+      { id: 'feature-payment', name: 'Pasarela de Pagos' },
       { id: 'feature-anim', name: 'Animaciones 3D' }
     ];
 
@@ -514,57 +671,119 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    total += addonsTotal;
+    projectTotal += addonsTotal;
 
-    // Render price and details
+    // Monthly maintenance selection
+    let maintCost = 0;
+    const maintRadios = document.getElementsByName('config-maint');
+    maintRadios.forEach(radio => {
+      if (radio.checked) {
+        maintCost = parseInt(radio.value, 10);
+      }
+    });
+    configState.maintPrice = maintCost;
+
+    // Render price breakdown
+    const projectTotalEl = document.getElementById('configurator-project-total');
+    if (projectTotalEl) projectTotalEl.textContent = `S/ ${projectTotal.toLocaleString()}`;
+
+    const maintLine = document.getElementById('maint-price-line');
+    const maintTotalEl = document.getElementById('configurator-maint-total');
+    if (maintCost > 0) {
+      if (maintLine) maintLine.style.display = 'flex';
+      if (maintTotalEl) maintTotalEl.textContent = `S/ ${maintCost} / mes`;
+    } else {
+      if (maintLine) maintLine.style.display = 'none';
+    }
+
     const totalEl = document.getElementById('configurator-total');
-    if (totalEl) totalEl.textContent = `S/ ${total.toLocaleString()}`;
+    if (totalEl) {
+      if (maintCost > 0) {
+        totalEl.innerHTML = `S/ ${projectTotal.toLocaleString()} <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: normal;">+ S/ ${maintCost}/mes</span>`;
+      } else {
+        totalEl.textContent = `S/ ${projectTotal.toLocaleString()}`;
+      }
+    }
 
+    const summaryLevel = document.getElementById('summary-level');
     const summaryType = document.getElementById('summary-web-type');
     const summaryPages = document.getElementById('summary-pages');
     const summaryFeatures = document.getElementById('summary-features');
+    const summaryMaint = document.getElementById('summary-maint');
+
+    const levelNames = {
+      std: 'Estándar',
+      pro: 'Premium (Código Puro)'
+    };
 
     const typeNames = {
       landing: 'Landing Page',
       corporativa: 'Web Corporativa',
-      ecommerce: 'Tienda Virtual / E-Commerce'
+      ecommerce: 'Tienda Virtual',
+      sistema: 'Sistema a Medida'
     };
 
-    if (summaryType) summaryType.textContent = typeNames[configState.webType];
-    if (summaryPages) {
-      let extra = configState.pagesCount - basePagesIncluded;
-      summaryPages.textContent = `${configState.pagesCount} (${extra > 0 ? '+' + extra + ' extra' : 'incluidas'})`;
+    if (summaryLevel) {
+      summaryLevel.textContent = levelNames[configState.level];
+      if (configState.level === 'pro') {
+        summaryLevel.style.color = 'var(--neon-magenta)';
+      } else {
+        summaryLevel.style.color = 'var(--text-primary)';
+      }
     }
+
+    if (summaryType) summaryType.textContent = typeNames[configState.webType];
+    
+    if (summaryPages) {
+      let unit = 'páginas';
+      if (configState.webType === 'landing') unit = 'secciones';
+      if (configState.webType === 'sistema') unit = 'módulos';
+      summaryPages.textContent = `${configState.pagesCount} ${unit} extra`;
+    }
+    
     if (summaryFeatures) summaryFeatures.textContent = selectedAddonsCount;
+    
+    if (summaryMaint) {
+      if (maintCost === 80) {
+        summaryMaint.textContent = 'Esencial (S/ 80/mes)';
+      } else if (maintCost === 200) {
+        summaryMaint.textContent = 'Avanzado (S/ 200/mes)';
+      } else {
+        summaryMaint.textContent = 'Ninguno';
+      }
+    }
 
     // Progress bar fill
     const progressFill = document.getElementById('price-progress');
     if (progressFill) {
-      // Scale from S/ 800 to S/ 8000
-      const percentage = Math.min(((total - 800) / 7200) * 100 + 15, 100);
+      // Scale from S/ 300 to S/ 10,000
+      const percentage = Math.min(((projectTotal - 300) / 9700) * 100 + 10, 100);
       progressFill.style.width = `${percentage}%`;
     }
   }
 
-  // Send configurator state to Whatsapp
+  // Send configurator state to WhatsApp
   window.sendConfigToWhatsapp = function() {
-    let basePagesIncluded = 1;
-    if (configState.webType === 'corporativa') basePagesIncluded = 6;
-    if (configState.webType === 'ecommerce') basePagesIncluded = 10;
-    
+    const levelNames = {
+      std: 'Estándar (Económico)',
+      pro: 'Premium (Código Puro)'
+    };
+
     const typeNames = {
       landing: 'Landing Page',
       corporativa: 'Web Corporativa',
-      ecommerce: 'Tienda Virtual / E-Commerce'
+      ecommerce: 'Tienda Virtual / E-commerce',
+      sistema: 'Sistema a Medida'
     };
 
     let addonsList = [];
     const checkboxes = [
       { id: 'feature-dark', name: 'Soporte Dark Mode' },
-      { id: 'feature-seo', name: 'SEO Premium' },
+      { id: 'feature-seo', name: 'SEO Profesional' },
+      { id: 'feature-whatsapp-catalog', name: 'Catálogo WhatsApp' },
+      { id: 'feature-cms', name: 'Panel CMS / Administrable' },
       { id: 'feature-payment', name: 'Pasarela de Pagos' },
-      { id: 'feature-admin', name: 'Panel de Administración' },
-      { id: 'feature-anim', name: 'Animaciones 3D Premium' }
+      { id: 'feature-anim', name: 'Animaciones 3D' }
     ];
 
     checkboxes.forEach(cb => {
@@ -574,19 +793,79 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const totalEl = document.getElementById('configurator-total').textContent;
+    const projectTotalText = document.getElementById('configurator-project-total').textContent;
+    
+    let maintText = 'Ninguno';
+    if (configState.maintPrice === 80) {
+      maintText = 'Plan Esencial (S/ 80/mes)';
+    } else if (configState.maintPrice === 200) {
+      maintText = 'Plan Avanzado (S/ 200/mes)';
+    }
+
+    let unit = 'páginas';
+    if (configState.webType === 'landing') unit = 'secciones';
+    if (configState.webType === 'sistema') unit = 'módulos';
 
     const waMsg = encodeURIComponent(
       `¡Hola Diego! 👋\n\n` +
-      `He cotizado mi página web ideal en el configurador de tu portafolio:\n\n` +
+      `He configurado una propuesta web en tu portafolio:\n\n` +
+      `⚙️ *Nivel de Acabado:* ${levelNames[configState.level]}\n` +
       `💻 *Tipo de Web:* ${typeNames[configState.webType]}\n` +
-      `📄 *Páginas/Secciones:* ${configState.pagesCount}\n` +
-      `🔌 *Características Adicionales:* ${addonsList.length > 0 ? addonsList.join(', ') : 'Ninguna'}\n\n` +
-      `💵 *Inversión Estimada:* ${totalEl}\n\n` +
-      `¿Me podrías brindar más detalles o programar una reunión? ¡Muchas gracias!`
+      `📄 *Adicionales en Plan:* ${configState.pagesCount} ${unit} extra\n` +
+      `🔌 *Características Seleccionadas:* ${addonsList.length > 0 ? addonsList.join(', ') : 'Ninguna'}\n` +
+      `🛠️ *Soporte Mensual:* ${maintText}\n\n` +
+      `💵 *Costo Estimado Proyecto:* ${projectTotalText} (Pago único)\n` +
+      `⚙️ *Costo Soporte:* ${configState.maintPrice > 0 ? 'S/ ' + configState.maintPrice + '/mes' : 'Sin soporte contratado'}\n\n` +
+      `📝 *Condiciones Comerciales Aceptadas:*\n` +
+      `- Pago: 50% de adelanto / 50% contra entrega de conformidad.\n` +
+      `- Hosting/Dominio a cuenta del cliente.\n` +
+      `- Incluye 2 rondas de modificaciones gratuitas.\n\n` +
+      `¿Me podrías brindar más detalles o agendar una llamada breve? ¡Gracias!`
     );
 
-    window.open(`https://wa.me/51987654321?text=${waMsg}`, '_blank');
+    window.open(`https://wa.me/51988233246?text=${waMsg}`, '_blank');
+  }
+
+  // Custom Select Dropdown logic for contact form
+  const selectWrapper = document.getElementById('custom-select-project-wrapper');
+  if (selectWrapper) {
+    const trigger = document.getElementById('custom-select-project-trigger');
+    const triggerText = trigger.querySelector('.custom-select-trigger-text');
+    const optionsContainer = document.getElementById('custom-select-project-options');
+    const optionsList = optionsContainer.querySelectorAll('.custom-select-option');
+    const hiddenInput = document.getElementById('contact-project');
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      selectWrapper.classList.toggle('open');
+    });
+
+    optionsList.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const value = opt.getAttribute('data-value');
+        
+        // Update trigger text & input value
+        triggerText.textContent = value;
+        hiddenInput.value = value;
+
+        // Update active class
+        optionsList.forEach(el => el.classList.remove('active'));
+        opt.classList.add('active');
+
+        // Close dropdown
+        selectWrapper.classList.remove('open');
+        
+        // Trigger change event
+        const event = new Event('change');
+        hiddenInput.dispatchEvent(event);
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+      selectWrapper.classList.remove('open');
+    });
   }
 
   // ─── HUD Clock Ticker ───

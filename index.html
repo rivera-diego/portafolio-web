@@ -37,7 +37,8 @@
     "name": "Diego Rivera — Diseño & Desarrollo Web a Medida",
     "image": "https://www.diegorivera.tech/img/services_corporate.png",
     "url": "https://www.diegorivera.tech/",
-    "telephone": "+51987654321",
+    "telephone": "+51988233246",
+    "email": "ds.diegorivera@gmail.com",
     "priceRange": "PEN",
     "address": {
       "@type": "PostalAddress",
@@ -65,7 +66,10 @@
     },
     "sameAs": [
       "https://github.com/tu-usuario",
-      "https://www.linkedin.com/in/tu-perfil"
+      "https://www.instagram.com/ing.diegorivera/",
+      "https://www.facebook.com/profile.php?id=61590360582928",
+      "https://www.tiktok.com/@ingdiego.rivera",
+      "https://www.linkedin.com/in/diegoriverapicoy/"
     ]
   }
   </script>
@@ -78,7 +82,7 @@
   <div class="nav-wrapper">
     <nav class="nav-bar">
       <div class="nav-left">
-        <a href="#" class="nav-logo">diego<span class="dot">.</span>dev</a>
+        <a href="#" class="nav-logo">diego<span class="dot">.</span>tech</a>
         <span class="nav-status-tag">// SYS_STATUS: <span class="text-neon-green font-bold text-shadow-green">ACTIVE</span></span>
       </div>
       
@@ -665,89 +669,227 @@
       <div class="reveal" style="text-align: center;">
         <span class="section-label">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          Planes
+          Planes & Tarifas
         </span>
         <h2 class="section-title">Inversión que <span class="text-gradient-cyan">vale</span> la pena</h2>
-        <p class="section-subtitle" style="margin: 0 auto;">Elige el plan que se ajuste a tus necesidades. Todos incluyen diseño responsivo, optimización SEO y soporte post-lanzamiento.</p>
+        <p class="section-subtitle" style="margin: 0 auto; max-width: 750px;">
+          Desarrollo a medida con <strong>Código Puro</strong> (sin plantillas pesadas de WordPress) para garantizar la velocidad máxima, seguridad y el mejor SEO de tu web.
+        </p>
       </div>
 
-      <div class="pricing-grid">
-        <!-- PLAN BASICO -->
-        <div class="glass-card pricing-card reveal">
-          <div class="pricing-tier">Básico</div>
-          <div class="pricing-price"><span class="currency">S/</span> 800</div>
-          <p class="pricing-desc">Ideal para emprendedores que necesitan presencia digital profesional.</p>
-          <ul class="pricing-features">
-            <li>Landing Page (1 página)</li>
-            <li>Diseño responsivo mobile-first</li>
+      <!-- Selector de Pestañas (Tabs) -->
+      <div class="pricing-tabs-wrapper reveal">
+        <button class="pricing-tab-btn active" id="tab-dev" onclick="switchPricingTab('dev')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Desarrollo de Páginas Web
+        </button>
+        <button class="pricing-tab-btn" id="tab-maint" onclick="switchPricingTab('maint')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Soporte & Mantenimiento
+        </button>
+      </div>
+
+      <!-- Toggle de Nivel: Estándar / Premium -->
+      <div class="pricing-level-toggle reveal pro-active" id="pricing-level-toggle">
+        <span class="level-label" id="level-label-std" onclick="selectConfigLevel('std')">Estándar</span>
+        <button class="level-switch" id="level-switch" onclick="togglePricingLevel()" aria-label="Cambiar entre Estándar y Premium">
+          <span class="level-switch-thumb"></span>
+        </button>
+        <span class="level-label active" id="level-label-pro" onclick="selectConfigLevel('pro')">Premium · Código Puro</span>
+      </div>
+
+      <!-- GRID DE DESARROLLO (Activo por defecto) -->
+      <div class="pricing-grid active" id="pricing-dev-grid">
+        <!-- PLAN LANDING -->
+        <div class="glass-card pricing-card reveal"
+             data-price-std="300" data-price-pro="600"
+             data-desc-std="Página simple de un solo producto o servicio, diseño funcional y limpio."
+             data-desc-pro="Landing optimizada para conversión con código puro, velocidad máxima y SEO técnico.">
+          <div class="pricing-tier">Landing Page</div>
+          <div class="pricing-price"><span class="currency">S/</span> <span class="price-amount">600</span></div>
+          <p class="pricing-desc">Landing optimizada para conversión con código puro, velocidad máxima y SEO técnico.</p>
+          <ul class="pricing-features pricing-features-std" style="display: none;">
+            <li>1 sola página (scroll continuo)</li>
+            <li>Diseño funcional responsive</li>
+            <li>Formulario de contacto básico</li>
+            <li>Botón de WhatsApp directo</li>
+            <li>Hosting gratuito (Netlify/Vercel)</li>
+            <li>Entrega en 5 días hábiles</li>
+          </ul>
+          <ul class="pricing-features pricing-features-pro">
+            <li>1 URL con hasta 6 secciones optimizadas</li>
+            <li>Código puro (Astro / Vanilla JS)</li>
+            <li>Formulario Serverless integrado</li>
+            <li>Diseño UI/UX de alta conversión</li>
+            <li>SEO técnico on-page incluido</li>
+            <li>Velocidad de carga ultra-rápida</li>
+            <li>Entrega en 7 días hábiles</li>
+          </ul>
+          <a href="#contacto" class="btn btn-glass" style="width: 100%;">Solicitar Landing</a>
+        </div>
+
+        <!-- PLAN CORPORATIVO -->
+        <div class="glass-card pricing-card featured reveal"
+             data-price-std="600" data-price-pro="1,300"
+             data-desc-std="Sitio web institucional multipágina con diseño profesional y navegación clara."
+             data-desc-pro="Web corporativa premium con UI/UX personalizado, SEO avanzado y componentes reutilizables.">
+          <div class="pricing-tier" style="color: var(--neon-magenta);">Web Corporativa</div>
+          <div class="pricing-price"><span class="currency">S/</span> <span class="price-amount">1,300</span></div>
+          <p class="pricing-desc">Web corporativa premium con UI/UX personalizado, SEO avanzado y componentes reutilizables.</p>
+          <ul class="pricing-features pricing-features-std" style="display: none;">
+            <li>Hasta 5 páginas estándar</li>
+            <li>Diseño profesional responsive</li>
             <li>Formulario de contacto</li>
-            <li>Integración con WhatsApp</li>
-            <li>Optimización SEO básica</li>
-            <li>Entrega en 7 días</li>
+            <li>Google Maps integrado</li>
+            <li>Galería de imágenes básica</li>
+            <li>Entrega en 10 días hábiles</li>
           </ul>
-          <a href="#contacto" class="btn btn-glass" style="width: 100%;">Solicitar Cotización</a>
-        </div>
-
-        <!-- PLAN PRO -->
-        <div class="glass-card pricing-card featured reveal">
-          <div class="pricing-tier" style="color: var(--neon-magenta);">Profesional</div>
-          <div class="pricing-price"><span class="currency">S/</span> 2,500</div>
-          <p class="pricing-desc">Para negocios que necesitan una web completa, multipágina y con funcionalidades avanzadas.</p>
-          <ul class="pricing-features">
-            <li>Sitio multipágina (hasta 6 páginas)</li>
-            <li>Diseño UI/UX personalizado</li>
+          <ul class="pricing-features pricing-features-pro">
+            <li>Hasta 5 páginas con rutas independientes</li>
+            <li>Diseño UI/UX completamente personalizado</li>
+            <li>Optimización SEO técnica on-page</li>
+            <li>Google Analytics & Google Maps</li>
+            <li>Componentes de código reutilizables</li>
             <li>Animaciones y micro-interacciones</li>
-            <li>Blog o sección de noticias</li>
-            <li>Google Analytics integrado</li>
-            <li>SEO avanzado on-page</li>
-            <li>Capacitación de uso incluida</li>
-            <li>Entrega en 15 días</li>
+            <li>Entrega en 15 días hábiles</li>
           </ul>
-          <a href="#contacto" class="btn btn-neon" style="width: 100%;">Elegir Profesional</a>
+          <a href="#contacto" class="btn btn-neon" style="width: 100%;">Elegir Corporativa</a>
         </div>
 
-        <!-- PLAN PREMIUM -->
-        <div class="glass-card pricing-card reveal">
-          <div class="pricing-tier" style="color: var(--neon-green);">Premium</div>
-          <div class="pricing-price"><span class="currency">S/</span> 5,000</div>
-          <p class="pricing-desc">Solución empresarial completa con e-commerce, sistemas de reservas o plataformas interactivas.</p>
-          <ul class="pricing-features">
-            <li>Plataforma web completa (ilimitado)</li>
-            <li>E-commerce o sistema de reservas</li>
-            <li>Pasarela de pagos (Culqi/PayPal)</li>
-            <li>Panel de administración</li>
-            <li>Dominio + Hosting primer año</li>
-            <li>Certificado SSL incluido</li>
-            <li>Soporte prioritario 3 meses</li>
-            <li>Entrega en 30 días</li>
+        <!-- PLAN E-COMMERCE -->
+        <div class="glass-card pricing-card reveal"
+             data-price-std="1,200" data-price-pro="2,500"
+             data-desc-std="Tienda online funcional con catálogo de productos y carrito de compras integrado."
+             data-desc-pro="E-commerce premium de alto rendimiento, código propio, pasarela de pagos y panel CMS.">
+          <div class="pricing-tier" style="color: var(--neon-green);">Tienda Virtual</div>
+          <div class="pricing-price"><span class="currency">S/</span> <span class="price-amount">2,500</span></div>
+          <p class="pricing-desc">E-commerce premium de alto rendimiento, código propio, pasarela de pagos y panel CMS.</p>
+          <ul class="pricing-features pricing-features-std" style="display: none;">
+            <li>Catálogo de productos básico</li>
+            <li>Carrito de compras funcional</li>
+            <li>Integración de pagos estándar</li>
+            <li>Diseño responsive</li>
+            <li>Gestión de pedidos básica</li>
+            <li>Entrega en 20 días hábiles</li>
           </ul>
-          <a href="#contacto" class="btn btn-glass" style="width: 100%; border-color: rgba(0,255,136,0.2); color: var(--neon-green);">Elegir Premium</a>
+          <ul class="pricing-features pricing-features-pro">
+            <li>Catálogo auto-administrable CMS</li>
+            <li>Carrito de compras interactivo</li>
+            <li>Pasarela de pagos (Visa, Culqi, PayPal)</li>
+            <li>Panel de administración integrado</li>
+            <li>Gestión de stock e inventario</li>
+            <li>Código propio y certificado SSL</li>
+            <li>Entrega en 25 a 30 días hábiles</li>
+          </ul>
+          <a href="#contacto" class="btn btn-glass" style="width: 100%; border-color: rgba(0,255,136,0.2); color: var(--neon-green);">Elegir Tienda</a>
+        </div>
+
+        <!-- PLAN SISTEMAS -->
+        <div class="glass-card pricing-card reveal"
+             data-price-std="3,000" data-price-pro="5,500"
+             data-desc-std="Sistema web empresarial con dashboard, gestión de usuarios y reportes."
+             data-desc-pro="Plataforma web escalable con arquitectura personalizada, API REST y seguridad avanzada.">
+          <div class="pricing-tier" style="color: var(--neon-cyan);">Sistemas & MVPs</div>
+          <div class="pricing-price"><span class="currency">Desde S/</span> <span class="price-amount">5,500</span></div>
+          <p class="pricing-desc">Plataforma web escalable con arquitectura personalizada, API REST y seguridad avanzada.</p>
+          <ul class="pricing-features pricing-features-std" style="display: none;">
+            <li>Dashboard profesional</li>
+            <li>Gestión de usuarios y roles</li>
+            <li>Reportes y estadísticas</li>
+            <li>Base de datos relacional</li>
+            <li>Diseño funcional responsive</li>
+            <li>Cotización bajo requerimientos</li>
+          </ul>
+          <ul class="pricing-features pricing-features-pro">
+            <li>Arquitectura de software personalizada</li>
+            <li>Bases de datos relacionales / NoSQL</li>
+            <li>Panel de control y dashboard interactivo</li>
+            <li>Roles de usuarios y login seguro</li>
+            <li>Integraciones y API REST personalizadas</li>
+            <li>Optimización avanzada de procesos</li>
+            <li>Cotización bajo requerimientos</li>
+          </ul>
+          <a href="#contacto" class="btn btn-glass" style="width: 100%; border-color: rgba(0,240,255,0.2); color: var(--neon-cyan);">Consultar Cotización</a>
+        </div>
+      </div>
+
+      <!-- GRID DE MANTENIMIENTO (Oculto por defecto) -->
+      <div class="pricing-grid" id="pricing-maint-grid" style="display: none; max-width: 900px; margin: 48px auto 0;">
+        <!-- PLAN MANTENIMIENTO A -->
+        <div class="glass-card pricing-card reveal" style="width: 100%;">
+          <div class="pricing-tier">Soporte Esencial</div>
+          <div class="pricing-price"><span class="currency">S/</span> 80 <span class="maint-period">/mes</span></div>
+          <p class="pricing-desc">Mantenimiento técnico preventivo para garantizar que tu web siga rápida, limpia y segura.</p>
+          <ul class="pricing-features">
+            <li>Monitoreo de caídas del servidor (Uptime)</li>
+            <li>Copias de seguridad mensuales (Backups)</li>
+            <li>Actualización de librerías y dependencias</li>
+            <li>Limpieza de caché y optimización de base de datos</li>
+            <li>Soporte técnico por correo electrónico</li>
+            <li>Corrección de bugs críticos de código</li>
+          </ul>
+          <a href="#contacto" class="btn btn-glass" style="width: 100%;">Elegir Plan S/ 80</a>
+        </div>
+
+        <!-- PLAN MANTENIMIENTO B -->
+        <div class="glass-card pricing-card featured reveal" style="width: 100%;">
+          <div class="pricing-tier" style="color: var(--neon-magenta);">Soporte Avanzado</div>
+          <div class="pricing-price"><span class="currency">S/</span> 200 <span class="maint-period">/mes</span></div>
+          <p class="pricing-desc">Soporte integral técnico y de diseño para negocios en crecimiento que requieren cambios constantes.</p>
+          <ul class="pricing-features">
+            <li>Todo lo incluido en el Plan Esencial (S/ 80)</li>
+            <li>Hasta 3 horas mensuales de cambios estructurales</li>
+            <li>Actualización de textos, imágenes y banners</li>
+            <li>Creación de nuevas secciones sencillas</li>
+            <li>Soporte prioritario vía WhatsApp/Llamada</li>
+            <li>Horas de desarrollo mensuales (no acumulables)</li>
+          </ul>
+          <a href="#contacto" class="btn btn-neon" style="width: 100%;">Elegir Plan S/ 200</a>
         </div>
       </div>
 
       <!-- COTIZADOR INTERACTIVO -->
       <div class="configurator-wrapper reveal">
         <h3 class="configurator-title">// CONFIGURADOR DE PROYECTO WEB</h3>
-        <p class="configurator-desc">Configura tu página web ideal y calcula una cotización estimada al instante. ¡Puedes enviar esta propuesta directamente a mi WhatsApp!</p>
+        <p class="configurator-desc">Configura tu página ideal y calcula una cotización mínima estimada al instante. ¡Puedes enviar tu propuesta directamente a mi WhatsApp!</p>
         
         <div class="configurator-grid">
           <!-- Opciones (Izquierda) -->
           <div class="configurator-options">
+            <!-- Nivel de Acabado / Calidad -->
+            <div class="config-group">
+              <label class="config-label">1. Nivel de Acabado & Calidad</label>
+              <div class="config-select-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="config-option" id="config-level-std" onclick="selectConfigLevel('std')">
+                  <h4>Estándar (Económico)</h4>
+                  <p>Webs rápidas e institucionales</p>
+                </div>
+                <div class="config-option active" id="config-level-pro" onclick="selectConfigLevel('pro')">
+                  <h4>Premium (Código Puro)</h4>
+                  <p>A medida, velocidad ultra, SEO técnico</p>
+                </div>
+              </div>
+            </div>
+
             <!-- Tipo de Web -->
             <div class="config-group">
-              <label class="config-label">1. Tipo de Proyecto Web</label>
+              <label class="config-label">2. Tipo de Proyecto Web</label>
               <div class="config-select-grid">
-                <div class="config-option active" id="type-landing" onclick="selectWebType('landing', 800)">
+                <div class="config-option active" id="type-landing" onclick="selectWebType('landing')">
                   <h4>Landing Page</h4>
-                  <p>Base: S/ 800</p>
+                  <p>Base: <span id="base-price-landing">S/ 600</span></p>
                 </div>
-                <div class="config-option" id="type-corporativa" onclick="selectWebType('corporativa', 2000)">
+                <div class="config-option" id="type-corporativa" onclick="selectWebType('corporativa')">
                   <h4>Web Corporativa</h4>
-                  <p>Base: S/ 2,000</p>
+                  <p>Base: <span id="base-price-corporativa">S/ 1,300</span></p>
                 </div>
-                <div class="config-option" id="type-ecommerce" onclick="selectWebType('ecommerce', 4500)">
+                <div class="config-option" id="type-ecommerce" onclick="selectWebType('ecommerce')">
                   <h4>Tienda Virtual</h4>
-                  <p>Base: S/ 4,500</p>
+                  <p>Base: <span id="base-price-ecommerce">S/ 2,500</span></p>
+                </div>
+                <div class="config-option" id="type-sistema" onclick="selectWebType('sistema')">
+                  <h4>Sistema a Medida</h4>
+                  <p>Base: <span id="base-price-sistema">S/ 5,500</span></p>
                 </div>
               </div>
             </div>
@@ -755,46 +897,73 @@
             <!-- Cantidad de Secciones (Slider) -->
             <div class="config-group">
               <div class="config-flex-label">
-                <label class="config-label">2. Número de Páginas / Secciones</label>
-                <span class="config-val" id="pages-val">1 página</span>
+                <label class="config-label" id="slider-label">3. Secciones Adicionales (Base incluye 6)</label>
+                <span class="config-val" id="pages-val">0 secciones extra</span>
               </div>
-              <input type="range" id="config-pages" min="1" max="15" value="1" oninput="updatePages(this.value)">
-              <div class="slider-ticks">
-                <span>1</span>
-                <span>5</span>
+              <input type="range" id="config-pages" min="0" max="10" value="0" oninput="updatePages(this.value)">
+              <div class="slider-ticks" id="slider-ticks">
+                <span>0</span>
+                <span>3</span>
+                <span>6</span>
                 <span>10</span>
-                <span>15</span>
               </div>
             </div>
 
             <!-- Adicionales (Checkboxes) -->
             <div class="config-group">
-              <label class="config-label">3. Características Adicionales</label>
+              <label class="config-label">4. Características Adicionales</label>
               <div class="config-checkbox-list">
                 <label class="config-checkbox-item">
                   <input type="checkbox" id="feature-dark" value="250" onchange="calculatePrice()">
                   <span class="custom-checkbox"></span>
-                  <span class="checkbox-text">Soporte Dark Mode / Light Mode (+S/ 250)</span>
+                  <span class="checkbox-text">Diseño Dark Mode / Light Mode (+S/ 250)</span>
                 </label>
                 <label class="config-checkbox-item">
                   <input type="checkbox" id="feature-seo" value="400" onchange="calculatePrice()">
                   <span class="custom-checkbox"></span>
-                  <span class="checkbox-text">SEO Posicionamiento Avanzado (+S/ 400)</span>
+                  <span class="checkbox-text">Optimización SEO Profesional Avanzada (+S/ 400)</span>
                 </label>
                 <label class="config-checkbox-item">
-                  <input type="checkbox" id="feature-payment" value="600" onchange="calculatePrice()">
+                  <input type="checkbox" id="feature-whatsapp-catalog" value="500" onchange="calculatePrice()">
                   <span class="custom-checkbox"></span>
-                  <span class="checkbox-text">Pasarela de Pagos (Visa/PayPal/Culqi) (+S/ 600)</span>
+                  <span class="checkbox-text">Catálogo Digital con Pedidos a WhatsApp (+S/ 500)</span>
                 </label>
                 <label class="config-checkbox-item">
-                  <input type="checkbox" id="feature-admin" value="800" onchange="calculatePrice()">
+                  <input type="checkbox" id="feature-cms" value="700" onchange="calculatePrice()">
                   <span class="custom-checkbox"></span>
-                  <span class="checkbox-text">Panel de Administración de Contenidos (+S/ 800)</span>
+                  <span class="checkbox-text">Panel Autoadministrable / CMS de Contenidos (+S/ 700)</span>
+                </label>
+                <label class="config-checkbox-item">
+                  <input type="checkbox" id="feature-payment" value="800" onchange="calculatePrice()">
+                  <span class="custom-checkbox"></span>
+                  <span class="checkbox-text">Integración Pasarela de Pagos (Visa/PayPal/Culqi) (+S/ 800)</span>
                 </label>
                 <label class="config-checkbox-item">
                   <input type="checkbox" id="feature-anim" value="350" onchange="calculatePrice()">
                   <span class="custom-checkbox"></span>
                   <span class="checkbox-text">Animaciones y Efectos 3D Premium (+S/ 350)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Soporte Mensual (Radio Selector) -->
+            <div class="config-group">
+              <label class="config-label">5. Plan de Soporte Mensual (Opcional)</label>
+              <div class="config-maint-grid">
+                <label class="config-radio-item">
+                  <input type="radio" name="config-maint" value="0" checked onchange="calculatePrice()">
+                  <span class="custom-radio"></span>
+                  <span class="radio-text">Sin Mantenimiento</span>
+                </label>
+                <label class="config-radio-item">
+                  <input type="radio" name="config-maint" value="80" onchange="calculatePrice()">
+                  <span class="custom-radio"></span>
+                  <span class="radio-text">Esencial (+S/ 80/mes)</span>
+                </label>
+                <label class="config-radio-item">
+                  <input type="radio" name="config-maint" value="200" onchange="calculatePrice()">
+                  <span class="custom-radio"></span>
+                  <span class="radio-text">Avanzado (+S/ 200/mes)</span>
                 </label>
               </div>
             </div>
@@ -807,27 +976,43 @@
               
               <div class="summary-details">
                 <div class="summary-line">
+                  <span>Nivel de Acabado:</span>
+                  <strong id="summary-level">Premium</strong>
+                </div>
+                <div class="summary-line">
                   <span>Tipo de Web:</span>
                   <strong id="summary-web-type">Landing Page</strong>
                 </div>
                 <div class="summary-line">
-                  <span>Páginas adicionales:</span>
+                  <span>Extras en el Plan:</span>
                   <strong id="summary-pages">0</strong>
                 </div>
                 <div class="summary-line">
-                  <span>Adicionales seleccionados:</span>
+                  <span>Adicionales:</span>
                   <strong id="summary-features">0</strong>
+                </div>
+                <div class="summary-line">
+                  <span>Soporte Técnico:</span>
+                  <strong id="summary-maint">Ninguno</strong>
                 </div>
               </div>
               
               <div class="price-breakdown">
+                <div class="price-line">
+                  <span>Costo Proyecto (Pago Único):</span>
+                  <span class="price-subval" id="configurator-project-total">S/ 500</span>
+                </div>
+                <div class="price-line" id="maint-price-line" style="display: none;">
+                  <span>Soporte Mensual:</span>
+                  <span class="price-subval" id="configurator-maint-total">S/ 0 / mes</span>
+                </div>
                 <div class="price-total">
-                  <span>Inversión Estimada:</span>
-                  <span class="price-val" id="configurator-total">S/ 800</span>
+                  <span>Inversión Estimada (Desde):</span>
+                  <span class="price-val" id="configurator-total">S/ 500</span>
                 </div>
                 <!-- Barra de carga neón -->
                 <div class="neon-progress-bar">
-                  <div class="progress-fill" id="price-progress" style="width: 15%;"></div>
+                  <div class="progress-fill" id="price-progress" style="width: 10%;"></div>
                 </div>
               </div>
               
@@ -835,6 +1020,38 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 Enviar Presupuesto a WhatsApp
               </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Líneas Rojas / Términos de Servicio -->
+        <div class="commercial-terms">
+          <div class="term-item">
+            <span class="term-icon">💳</span>
+            <div class="term-text">
+              <strong>Forma de Pago</strong>
+              <span>50% de adelanto para iniciar el proyecto y 50% restante contra conformidad.</span>
+            </div>
+          </div>
+          <div class="term-item">
+            <span class="term-icon">☁️</span>
+            <div class="term-text">
+              <strong>Hosting y Dominio</strong>
+              <span>A cargo del cliente. La configuración técnica y apuntamiento de DNS es 100% gratuita.</span>
+            </div>
+          </div>
+          <div class="term-item">
+            <span class="term-icon">🔄</span>
+            <div class="term-text">
+              <strong>Garantía de Cambios</strong>
+              <span>El precio base incluye hasta 2 rondas de modificaciones sobre el diseño maquetado.</span>
+            </div>
+          </div>
+          <div class="term-item">
+            <span class="term-icon">📝</span>
+            <div class="term-text">
+              <strong>Contenidos</strong>
+              <span>El cliente provee textos (copy), logos e imágenes de alta calidad para maquetación.</span>
             </div>
           </div>
         </div>
@@ -868,7 +1085,7 @@
             </div>
             <div class="contact-detail-text">
               <strong>WhatsApp</strong>
-              <span>+51 987 654 321</span>
+              <span><a href="https://wa.me/51988233246" target="_blank" style="color: inherit; text-decoration: none;">+51 988 233 246</a></span>
             </div>
           </div>
 
@@ -878,7 +1095,7 @@
             </div>
             <div class="contact-detail-text">
               <strong>Email</strong>
-              <span>contacto@diegorivera.tech</span>
+              <span><a href="mailto:ds.diegorivera@gmail.com" style="color: inherit; text-decoration: none;">ds.diegorivera@gmail.com</a></span>
             </div>
           </div>
 
@@ -889,6 +1106,25 @@
             <div class="contact-detail-text">
               <strong>Ubicación</strong>
               <span>Lima, Perú (Remoto a nivel nacional)</span>
+            </div>
+          </div>
+
+          <!-- Redes Sociales -->
+          <div class="contact-social-networks" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+            <h4 style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--neon-cyan); margin-bottom: 16px;">// REDES SOCIALES</h4>
+            <div class="social-links-grid">
+              <a href="https://www.instagram.com/ing.diegorivera/" target="_blank" class="social-link-item" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61590360582928" target="_blank" class="social-link-item" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@ingdiego.rivera" target="_blank" class="social-link-item" aria-label="TikTok">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" class="social-link-item" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -909,13 +1145,21 @@
 
             <div class="form-group">
               <label for="contact-project">Tipo de Proyecto</label>
-              <select id="contact-project" class="form-control">
-                <option value="Web Corporativa">Web Corporativa</option>
-                <option value="Tienda Virtual">Tienda Virtual / E-Commerce</option>
-                <option value="Landing Page">Landing Page</option>
-                <option value="Rediseño Web">Rediseño Web</option>
-                <option value="Otro">Otro</option>
-              </select>
+              <div class="custom-select-wrapper" id="custom-select-project-wrapper">
+                <div class="custom-select-trigger" id="custom-select-project-trigger">
+                  <span class="custom-select-trigger-text">Web Corporativa</span>
+                  <svg class="custom-select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="custom-select-options" id="custom-select-project-options">
+                  <div class="custom-select-option active" data-value="Web Corporativa">Web Corporativa</div>
+                  <div class="custom-select-option" data-value="Tienda Virtual">Tienda Virtual / E-Commerce</div>
+                  <div class="custom-select-option" data-value="Landing Page">Landing Page</div>
+                  <div class="custom-select-option" data-value="Sistema a Medida / Web App">Sistema a Medida / Web App</div>
+                  <div class="custom-select-option" data-value="Mantenimiento & Soporte">Mantenimiento & Soporte</div>
+                  <div class="custom-select-option" data-value="Otro">Otro</div>
+                </div>
+                <input type="hidden" id="contact-project" name="project_type" value="Web Corporativa">
+              </div>
             </div>
 
             <div class="form-group">
@@ -940,7 +1184,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-left">
-          <a href="#" class="nav-logo">diego<span class="dot">.</span>dev</a>
+          <a href="#" class="nav-logo">diego<span class="dot">.</span>tech</a>
           <p>&copy; 2026 Diego Rivera. Diseño & Desarrollo Web a Medida.</p>
         </div>
         <ul class="footer-links">
