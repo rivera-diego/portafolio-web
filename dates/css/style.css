@@ -1,0 +1,259 @@
+:root {
+  --pink-50: #fff0f5;
+  --pink-100: #ffe0ec;
+  --pink-300: #ff9ec3;
+  --pink-400: #ff7eb3;
+  --pink-500: #ff5fa2;
+  --pink-600: #f43f8e;
+  --purple: #b06ab3;
+  --ink: #6b2447;
+  --white: #ffffff;
+  --shadow: 0 20px 50px rgba(244, 63, 142, 0.25);
+  --radius: 28px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, #ffd1e3 0%, #ffe9f3 40%, #f4d4ff 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Corazones flotantes */
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.heart {
+  position: absolute;
+  bottom: -40px;
+  font-size: 22px;
+  opacity: 0.7;
+  animation: floatUp linear forwards;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
+  10%  { opacity: 0.8; }
+  100% { transform: translateY(-110vh) rotate(360deg) scale(1.3); opacity: 0; }
+}
+
+/* Escenario y tarjetas */
+.stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  display: grid;
+}
+
+.card {
+  grid-area: 1 / 1;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 42px 30px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(24px) scale(0.96);
+  transition: opacity .5s ease, transform .5s ease, visibility .5s;
+}
+.card.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.card__emoji {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 14px;
+  animation: pop .6s ease backwards;
+}
+@keyframes pop {
+  0% { transform: scale(0) rotate(-20deg); }
+  70% { transform: scale(1.2) rotate(8deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.card__title {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--pink-600);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.card__text {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 26px;
+  line-height: 1.5;
+}
+.card__text strong { color: var(--pink-600); font-weight: 600; }
+
+.card__love {
+  margin: 18px 0 24px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--purple);
+}
+
+/* Botones */
+.btn-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  min-height: 60px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 32px;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.btn--yes {
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink-400), var(--pink-600));
+  box-shadow: 0 10px 24px rgba(244, 63, 142, 0.4);
+}
+.btn--yes:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 14px 30px rgba(244,63,142,.5); }
+.btn--yes:active { transform: scale(.98); }
+
+.btn--yes:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  box-shadow: none;
+  filter: grayscale(.3);
+}
+.btn--yes:disabled:hover { transform: none; }
+
+.btn--no {
+  color: var(--pink-600);
+  background: #fff;
+  border: 2px solid var(--pink-300);
+}
+
+/* El botón No se desliza suavemente (movimiento controlado por JS con transform) */
+.btn--no {
+  will-change: transform;
+}
+
+/* Campos de día y hora */
+.field { text-align: left; margin-bottom: 18px; }
+.field__label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--pink-600);
+}
+.field__input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 14px 16px;
+  border: 2px solid var(--pink-100);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.field__input:focus {
+  border-color: var(--pink-400);
+  box-shadow: 0 0 0 4px rgba(255, 126, 179, .25);
+}
+
+.hint {
+  margin-top: 12px;
+  font-size: .85rem;
+  color: var(--purple);
+  font-weight: 300;
+}
+
+/* Grid de comida */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 26px;
+}
+.food {
+  font-family: inherit;
+  background: #fff;
+  border: 2px solid var(--pink-100);
+  border-radius: 18px;
+  padding: 16px 8px;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+.food span {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.food:hover { transform: translateY(-4px); border-color: var(--pink-300); }
+.food.selected {
+  background: linear-gradient(135deg, var(--pink-100), #fff);
+  border-color: var(--pink-500);
+  box-shadow: 0 8px 20px rgba(244,63,142,.25);
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* Resumen final */
+.summary {
+  background: linear-gradient(135deg, #fff, var(--pink-50));
+  border: 2px dashed var(--pink-300);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px 0 6px;
+  text-align: left;
+}
+.summary__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 1.02rem;
+  border-bottom: 1px dashed var(--pink-100);
+}
+.summary__row:last-child { border-bottom: none; }
+.summary__row b { color: var(--pink-600); font-weight: 600; }
+
+@media (max-width: 480px) {
+  .card { padding: 34px 22px; }
+  .food-grid { grid-template-columns: repeat(2, 1fr); }
+  .btn { width: 100%; }
+  .btn--no { width: auto; }
+}

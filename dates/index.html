@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Una cita conmigo? 💕</title>
+  <meta name="description" content="Una invitación muy especial para ti 💕" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Corazones flotantes de fondo -->
+  <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
+
+  <main class="stage">
+
+    <!-- PASO 1: La gran pregunta -->
+    <section class="card is-active" data-step="1">
+      <div class="card__emoji">💌</div>
+      <h1 class="card__title">¿Quieres tener una cita conmigo?</h1>
+      <p class="card__text">Piénsalo bien... aunque ya sé tu respuesta 😏</p>
+      <div class="btn-row" id="askRow">
+        <button class="btn btn--yes" id="btnYes">Sí, claro 💖</button>
+        <button class="btn btn--no" id="btnNo">No 🙈</button>
+      </div>
+    </section>
+
+    <!-- PASO 2: Reacción -->
+    <section class="card" data-step="2">
+      <div class="card__emoji">🥹</div>
+      <h1 class="card__title">No esperaba que dijeras que sí...</h1>
+      <p class="card__text">Me hiciste el día entero ✨ Ok, sigamos entonces 💕</p>
+      <button class="btn btn--yes" data-next>Siguiente →</button>
+    </section>
+
+    <!-- PASO 3: Día y hora -->
+    <section class="card" data-step="3">
+      <div class="card__emoji">📅</div>
+      <h1 class="card__title">Entonces... ¿estás libre?</h1>
+      <p class="card__text">Elige el día y la hora perfecta para nosotros 🕰️</p>
+
+      <div class="field">
+        <label class="field__label" for="datePick">El día 💗</label>
+        <input type="date" id="datePick" class="field__input" />
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="timePick">La hora ⏰</label>
+        <input type="time" id="timePick" class="field__input" />
+      </div>
+
+      <button class="btn btn--yes" id="btnDay" data-next disabled>Ok, ese día sí puedo 😍</button>
+      <p class="hint" id="dayHint">Elige día y hora para continuar</p>
+    </section>
+
+    <!-- PASO 4: Comida -->
+    <section class="card" data-step="4">
+      <div class="card__emoji">🍽️</div>
+      <h1 class="card__title">¿Qué quieres comer?</h1>
+      <p class="card__text">Elige tu antojo, yo invito 😘</p>
+
+      <div class="food-grid" id="foodGrid">
+        <button class="food" data-food="Pizza 🍕">🍕<span>Pizza</span></button>
+        <button class="food" data-food="Makis 🍣">🍣<span>Makis</span></button>
+        <button class="food" data-food="Hamburguesa 🍔">🍔<span>Hamburguesa</span></button>
+        <button class="food" data-food="Pollo a la brasa 🍗">🍗<span>Pollo a la brasa</span></button>
+        <button class="food" data-food="Chifa 🥡">🥡<span>Chifa</span></button>
+        <button class="food" data-food="Starbucks ☕">☕<span>Starbucks</span></button>
+      </div>
+
+      <button class="btn btn--yes" id="btnFood" data-next disabled>Listo, eso quiero 💞</button>
+    </section>
+
+    <!-- PASO 5: Mensaje final -->
+    <section class="card card--final" data-step="5">
+      <div class="card__emoji">💝</div>
+      <h1 class="card__title">Gracias por decir que no 😜</h1>
+      <p class="card__text">Es broma... gracias por decir que <strong>SÍ</strong> 💕<br />Nos vemos en la hora planeada y el día acordado.</p>
+
+      <div class="summary" id="summary"></div>
+
+      <p class="card__love">Te espero con muchas ganas... ¡no faltes! 🥰💐</p>
+      <button class="btn btn--yes" id="btnRestart">Volver a empezar 🔁</button>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
