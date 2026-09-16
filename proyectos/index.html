@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos técnicos — Diego Rivera</title>
+  <meta name="description" content="Proyectos de software de Diego Rivera: plataformas full stack, APIs, aplicaciones móviles, sistemas empresariales y pipelines de datos.">
+  <link rel="canonical" href="https://www.diegorivera.tech/proyectos/">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/portfolio.css">
+  <script defer src="../js/portfolio.js"></script>
+</head>
+<body class="portfolio-page">
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Navegación principal">
+      <div class="site-nav__identity">
+        <a class="site-nav__brand" href="../index.html" aria-label="Diego Rivera, inicio">diego<span>.</span>tech</a>
+        <span class="site-nav__status">// focus: <strong>software</strong></span>
+      </div>
+      <ul class="site-nav__links" id="site-menu">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="index.html" aria-current="page">Proyectos</a></li>
+        <li><a href="../sobre-mi/index.html">Sobre mí</a></li>
+        <li><a href="../cv/index.html">CV</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="site-nav__contact" href="../index.html#contacto">Contactar</a>
+        <button class="site-nav__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="portfolio-main">
+    <section class="page-hero">
+      <div class="container page-hero__grid">
+        <div class="page-hero__copy reveal">
+          <span class="kicker">technical portfolio / 2026</span>
+          <h1>Construyo sistemas que conectan <span class="accent">producto, datos e infraestructura.</span></h1>
+          <p class="page-hero__lead">
+            Soy Diego Rivera, desarrollador de software orientado a Full Stack y Backend. Creo aplicaciones web, APIs, soluciones móviles y automatizaciones con un flujo de trabajo asistido por IA, validando cada resultado y manteniendo la responsabilidad sobre las decisiones técnicas.
+          </p>
+          <div class="page-hero__actions">
+            <a class="button button--primary" href="#proyectos-principales">Explorar proyectos <span aria-hidden="true">→</span></a>
+            <a class="button button--secondary" href="../sobre-mi/index.html">Conocer mi perfil</a>
+          </div>
+          <div class="hero-meta" aria-label="Resumen profesional">
+            <div class="hero-meta__item">
+              <span class="hero-meta__label">Base</span>
+              <span class="hero-meta__value">Lima, Perú</span>
+            </div>
+            <div class="hero-meta__item">
+              <span class="hero-meta__label">Construyo con</span>
+              <span class="hero-meta__value">Código + IA</span>
+            </div>
+            <div class="hero-meta__item">
+              <span class="hero-meta__label">Siguiente etapa</span>
+              <span class="hero-meta__value">DevOps / Cloud</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal-panel reveal" aria-label="Resumen técnico">
+          <div class="terminal-panel__header">
+            <div class="terminal-panel__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="terminal-panel__title">diego@dev: ~/projects</span>
+            <span class="terminal-panel__status">[ONLINE]</span>
+          </div>
+          <div class="terminal-panel__body">
+            <div class="terminal-line"><span class="muted">$</span> cat <span class="cyan">profile.focus</span></div>
+            <div class="terminal-tree">
+              <span>full-stack / backend systems</span>
+              <span>REST APIs + relational data</span>
+              <span>Linux + automation + deployment</span>
+              <span>AI-assisted engineering workflow</span>
+            </div>
+            <div class="terminal-line"><span class="muted">$</span> status --projects</div>
+            <div class="terminal-line"><span class="green">4</span> systems documented · <span class="magenta">3</span> ecosystems · <span class="cyan">∞</span> iterations</div>
+            <div class="terminal-line"><span class="muted">$</span> echo <span class="yellow">"build, verify, explain"</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="proyectos-principales">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-heading__copy">
+            <span class="section-kicker">01 / systems</span>
+            <h2>Proyectos principales</h2>
+            <p>Los repositorios relacionados se presentan como sistemas completos. Cada caso explica el problema, la arquitectura, la evidencia disponible y los límites actuales.</p>
+          </div>
+          <div class="project-filter" role="group" aria-label="Filtrar proyectos">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+            <button class="filter-button" type="button" data-filter="fullstack" aria-pressed="false">Full Stack</button>
+            <button class="filter-button" type="button" data-filter="backend" aria-pressed="false">Backend</button>
+            <button class="filter-button" type="button" data-filter="data" aria-pressed="false">Datos</button>
+            <button class="filter-button" type="button" data-filter="desktop" aria-pressed="false">Escritorio</button>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal" data-category="fullstack backend">
+            <div class="project-card__visual">
+              <div class="project-visual">
+                <div class="project-visual__top"><span>system / 01</span><span class="project-visual__signal">deployed web</span></div>
+                <div class="project-visual__nodes" aria-label="API, web, móvil y base de datos">
+                  <span class="project-node">web</span>
+                  <span class="project-connector" aria-hidden="true"></span>
+                  <span class="project-node project-node--accent">API</span>
+                  <span class="project-connector" aria-hidden="true"></span>
+                  <span class="project-node project-node--green">mobile</span>
+                </div>
+                <div class="project-visual__footer"><span>Node / Next / React Native</span><span class="project-visual__code">parking.sys</span></div>
+              </div>
+            </div>
+            <div class="project-card__content">
+              <span class="project-card__eyebrow">Plataforma web · móvil · API</span>
+              <h3>Parking Management Platform</h3>
+              <p>Ecosistema para gestionar estacionamientos, espacios, reservas, ocupaciones, pagos, comprobantes y notificaciones desde clientes web y móvil conectados a una API común.</p>
+              <span class="status">Demo web disponible</span>
+              <div class="project-card__tags">
+                <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Next.js</span><span class="tag">React Native</span><span class="tag">Supabase</span><span class="tag">JWT</span>
+              </div>
+              <div class="project-card__links">
+                <a href="parking-management/index.html">Ver caso de estudio →</a>
+                <a href="https://front-web-parking.vercel.app" target="_blank" rel="noopener noreferrer">Demo web ↗</a>
+                <a href="https://github.com/rivera-diego/api-nodejs-parking" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="fullstack backend">
+            <div class="project-card__visual">
+              <div class="project-visual project-visual--support">
+                <div class="project-visual__top"><span>system / 02</span><span class="project-visual__signal">demo mode</span></div>
+                <div class="project-visual__nodes" aria-label="Usuario, API y tickets">
+                  <span class="project-node">user</span>
+                  <span class="project-connector" aria-hidden="true"></span>
+                  <span class="project-node project-node--accent">tickets</span>
+                  <span class="project-connector" aria-hidden="true"></span>
+                  <span class="project-node project-node--green">API</span>
+                </div>
+                <div class="project-visual__footer"><span>Next.js / TypeScript</span><span class="project-visual__code">support.db</span></div>
+              </div>
+            </div>
+            <div class="project-card__content">
+              <span class="project-card__eyebrow">Aplicación full stack</span>
+              <h3>Support Ticket Manager</h3>
+              <p>Demo de gestión de incidencias con autenticación, creación y consulta de tickets, detalle con comentarios y una base preparada para migrar de JSON local a PostgreSQL.</p>
+              <span class="status status--warning">Demo funcional · persistencia JSON</span>
+              <div class="project-card__tags">
+                <span class="tag">Next.js 15</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">PostgreSQL opcional</span>
+              </div>
+              <div class="project-card__links">
+                <a href="support-ticket-manager/index.html">Ver caso de estudio →</a>
+                <a href="https://support-ticket-manager.vercel.app" target="_blank" rel="noopener noreferrer">Demo ↗</a>
+                <a href="https://github.com/rivera-diego/support-ticket-manager" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="fullstack backend desktop">
+            <div class="project-card__visual">
+              <div class="project-visual project-visual--sales">
+                <div class="project-visual__top"><span>system / 03</span><span class="project-visual__signal">local system</span></div>
+                <div class="project-visual__nodes" aria-label="API, web, escritorio y SQL Server">
+                  <span class="project-node project-node--green">API</span>
+                  <span class="project-connector" aria-hidden="true"></span>
+                  <span class="project-node">web</span>
+                  <span class="project-connector" aria-hidden="true"></span>
+                  <span class="project-node project-node--yellow">POS</span>
+                </div>
+                <div class="project-visual__footer"><span>.NET / React / WinForms</span><span class="project-visual__code">yerias.biz</span></div>
+              </div>
+            </div>
+            <div class="project-card__content">
+              <span class="project-card__eyebrow">Web · API · escritorio</span>
+              <h3>Sistema de Ventas Ferretería Yerias</h3>
+              <p>Ecosistema empresarial para inventario, compras, ventas, usuarios, comprobantes y reportes, con API .NET, cliente React y punto de venta Windows Forms.</p>
+              <span class="status status--muted">Sin demo pública · evidencia local</span>
+              <div class="project-card__tags">
+                <span class="tag">C#</span><span class="tag">.NET 5</span><span class="tag">EF Core</span><span class="tag">React</span><span class="tag">SQL Server</span><span class="tag">WinForms</span>
+              </div>
+              <div class="project-card__links">
+                <a href="sistema-ventas-yerias/index.html">Ver caso de estudio →</a>
+                <a href="https://github.com/rivera-diego/Net5-System-Sales-Yerias-RestAPI" target="_blank" rel="noopener noreferrer">API ↗</a>
+                <a href="https://github.com/rivera-diego/React-System-Sales-Yerias-Web" target="_blank" rel="noopener noreferrer">Web ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="data backend">
+            <div class="project-card__visual">
+              <div class="project-visual project-visual--data">
+                <div class="project-visual__top"><span>system / 04</span><span class="project-visual__signal">pipeline</span></div>
+                <div class="project-visual__nodes" aria-label="Fuente, ETL, base de datos y dashboard">
+                  <span class="project-node project-node--yellow">source</span>
+                  <span class="project-connector" aria-hidden="true"></span>
+                  <span class="project-node project-node--accent">ETL</span>
+                  <span class="project-connector" aria-hidden="true"></span>
+                  <span class="project-node project-node--green">BI</span>
+                </div>
+                <div class="project-visual__footer"><span>Python / PostgreSQL / Streamlit</span><span class="project-visual__code">lima.data</span></div>
+              </div>
+            </div>
+            <div class="project-card__content">
+              <span class="project-card__eyebrow">ETL · calidad · análisis</span>
+              <h3>Lima Real Estate Pipeline</h3>
+              <p>Pipeline reproducible para transformar datos inmobiliarios, aplicar reglas de calidad, cargar un modelo dimensional y exponer resultados mediante un dashboard interactivo.</p>
+              <span class="status status--warning">Dashboard Streamlit · demo por validar</span>
+              <div class="project-card__tags">
+                <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">Streamlit</span><span class="tag">Plotly</span>
+              </div>
+              <div class="project-card__links">
+                <a href="lima-real-estate-pipeline/index.html">Ver caso de estudio →</a>
+                <a href="https://github.com/rivera-diego/lima-real-estate-pipeline" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="exploraciones">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-heading__copy">
+            <span class="section-kicker">02 / explorations</span>
+            <h2>Más proyectos y experimentos</h2>
+            <p>Repositorios secundarios que muestran amplitud técnica. Se activan según la vacante: Java, móvil, Linux, Rust o prototipado rápido.</p>
+          </div>
+        </div>
+        <div class="secondary-grid">
+          <article class="secondary-card reveal">
+            <span class="secondary-card__type">backend / Java</span>
+            <h3>Spring Boot Cinema API</h3>
+            <p>API REST con Spring Boot, JPA, MySQL, Spring Security y control de acceso por roles.</p>
+            <a href="https://github.com/rivera-diego/SpringBoot-ApiREST-Cinema" target="_blank" rel="noopener noreferrer">Abrir repositorio ↗</a>
+          </article>
+          <article class="secondary-card reveal">
+            <span class="secondary-card__type">mobile / Firebase</span>
+            <h3>Kotlin Firebase Space App</h3>
+            <p>Aplicación Android con Kotlin, consumo de API, Retrofit, Room y servicios Firebase.</p>
+            <a href="https://github.com/rivera-diego/KotlinFirebaseSpaceApp" target="_blank" rel="noopener noreferrer">Abrir repositorio ↗</a>
+          </article>
+          <article class="secondary-card reveal">
+            <span class="secondary-card__type">systems / Rust</span>
+            <h3>Diri Daemon</h3>
+            <p>Herramienta para Niri con Rust, IPC local, gestión de ventanas y automatización del entorno Linux.</p>
+            <a href="https://github.com/rivera-diego/diri" target="_blank" rel="noopener noreferrer">Abrir repositorio ↗</a>
+          </article>
+          <article class="secondary-card reveal">
+            <span class="secondary-card__type">education / desktop</span>
+            <h3>Proyecto Certificador</h3>
+            <p>Sistema educativo en Java Swing con MySQL, MVC/DAO, roles, participación y reportes.</p>
+            <a href="https://github.com/rivera-diego/ProyectoCertificador" target="_blank" rel="noopener noreferrer">Abrir repositorio ↗</a>
+          </article>
+          <article class="secondary-card reveal">
+            <span class="secondary-card__type">web / Firebase</span>
+            <h3>Dental Appointment App</h3>
+            <p>Prototipo de agenda dental con React, Tailwind, autenticación y flujo de reserva.</p>
+            <a href="https://dental-appointment-app-gray.vercel.app" target="_blank" rel="noopener noreferrer">Ver demo ↗</a>
+          </article>
+          <article class="secondary-card reveal">
+            <span class="secondary-card__type">linux / automation</span>
+            <h3>Hyprland Scripts</h3>
+            <p>Scripts Shell para personalizar, automatizar y operar diariamente un entorno Wayland.</p>
+            <a href="https://github.com/rivera-diego/my-hyprland-scripts" target="_blank" rel="noopener noreferrer">Abrir repositorio ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="callout reveal">
+          <div>
+            <h3>¿Buscas una vista más visual?</h3>
+            <p>Las demos comerciales actuales siguen disponibles en la portada original. La sección técnica se concentra en arquitectura, decisiones y evidencia de ingeniería.</p>
+          </div>
+          <a class="button button--secondary" href="../index.html#portafolio">Ver demos web <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span class="site-footer__copy">© <span data-current-year>2026</span> Diego Rivera · Software Developer</span>
+      <nav class="site-footer__links" aria-label="Enlaces del pie de página">
+        <a href="../sobre-mi/index.html">Sobre mí</a>
+        <a href="../cv/index.html">CV</a>
+        <a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

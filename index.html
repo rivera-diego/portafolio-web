@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- SEO General -->
   <title>Diego Rivera — Diseño & Desarrollo Web a Medida</title>
   <meta name="description" content="Desarrollo de páginas web profesionales, tiendas virtuales y landing pages para empresas, negocios y emprendedores en Lima, Perú. Diseño moderno, responsivo y a medida.">
@@ -25,8 +25,8 @@
   <meta property="twitter:image" content="https://www.diegorivera.tech/img/services_corporate.png">
 
   <!-- Favicon / Icons -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Datos Estructurados JSON-LD (SEO Local y Profesional) -->
@@ -37,8 +37,8 @@
     "name": "Diego Rivera — Diseño & Desarrollo Web a Medida",
     "image": "https://www.diegorivera.tech/img/services_corporate.png",
     "url": "https://www.diegorivera.tech/",
-    "telephone": "+51988233246",
-    "email": "ds.diegorivera@gmail.com",
+    "telephone": "+51945902833",
+    "email": "08diegorivera@gmail.com",
     "priceRange": "PEN",
     "address": {
       "@type": "PostalAddress",
@@ -65,7 +65,7 @@
       "closes": "19:00"
     },
     "sameAs": [
-      "https://github.com/tu-usuario",
+      "https://github.com/rivera-diego",
       "https://www.instagram.com/ing.diegorivera/",
       "https://www.facebook.com/profile.php?id=61590360582928",
       "https://www.tiktok.com/@ingdiego.rivera",
@@ -85,12 +85,13 @@
         <a href="#" class="nav-logo">diego<span class="dot">.</span>tech</a>
         <span class="nav-status-tag">// SYS_STATUS: <span class="text-neon-green font-bold text-shadow-green">ACTIVE</span></span>
       </div>
-      
-      <ul class="nav-links">
+
+      <ul class="nav-links" id="site-menu">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#proceso">Proceso</a></li>
-        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="proyectos/index.html">Proyectos</a></li>
+        <li><a href="#portafolio">Demos web</a></li>
         <li><a href="#planes">Planes</a></li>
         <li><a href="#contacto" class="nav-cta">Contactar</a></li>
       </ul>
@@ -99,8 +100,8 @@
         <span class="nav-clock" id="nav-clock">00:00:00</span>
         <span class="nav-location-tag">PE_LIMA</span>
       </div>
-      
-      <button class="menu-toggle" aria-label="Abrir menú">
+
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
         <span></span>
         <span></span>
         <span></span>
@@ -114,10 +115,10 @@
   <section class="hero" id="inicio">
     <!-- Interactive Canvas Particle Background -->
     <canvas id="hero-canvas"></canvas>
-    
+
     <!-- Animated Grid Background -->
     <div class="hero-grid-bg"></div>
-    
+
     <!-- Floating Orbs -->
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
@@ -156,9 +157,9 @@
         </div>
 
         <div class="hero-actions">
-          <a href="#portafolio" class="btn btn-neon">
+          <a href="proyectos/index.html" class="btn btn-neon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            Ver Demos
+            Ver proyectos técnicos
           </a>
           <a href="#contacto" class="btn btn-glass">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -324,7 +325,7 @@
             <path d="M 50,50 L 150,50 M 200,50 L 400,50 M 450,50 L 650,50 M 700,50 L 950,50" stroke="var(--neon-cyan)" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
             <!-- Animated Laser Beam -->
             <path class="laser-beam" d="M 50,50 L 950,50" stroke="url(#laser-gradient)" stroke-width="3" stroke-linecap="round" />
-            
+
             <defs>
               <linearGradient id="laser-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="var(--neon-cyan)" stop-opacity="0" />
@@ -367,10 +368,10 @@
       <div class="reveal">
         <span class="section-label">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          Portafolio
+          Demos web
         </span>
-        <h2 class="section-title">Proyectos <span class="text-gradient-cyan">reales</span></h2>
-        <p class="section-subtitle">Cada web fue diseñada con un estilo único y personalizado. Haz clic en cualquier proyecto para explorar la demo completa en vivo.</p>
+        <h2 class="section-title">Trabajos <span class="text-gradient-cyan">visuales</span></h2>
+        <p class="section-subtitle">Explora una selección de demos comerciales creadas para distintos sectores. Los proyectos de ingeniería y sistemas están documentados en el portafolio técnico.</p>
       </div>
 
       <div class="portfolio-grid">
@@ -852,7 +853,7 @@
       <div class="configurator-wrapper reveal">
         <h3 class="configurator-title">// CONFIGURADOR DE PROYECTO WEB</h3>
         <p class="configurator-desc">Configura tu página ideal y calcula una cotización mínima estimada al instante. ¡Puedes enviar tu propuesta directamente a mi WhatsApp!</p>
-        
+
         <div class="configurator-grid">
           <!-- Opciones (Izquierda) -->
           <div class="configurator-options">
@@ -893,7 +894,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Cantidad de Secciones (Slider) -->
             <div class="config-group">
               <div class="config-flex-label">
@@ -968,12 +969,12 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Resumen de Costos (Derecha) -->
           <div class="configurator-summary">
             <div class="summary-card">
               <h4>Resumen del Proyecto</h4>
-              
+
               <div class="summary-details">
                 <div class="summary-line">
                   <span>Nivel de Acabado:</span>
@@ -996,7 +997,7 @@
                   <strong id="summary-maint">Ninguno</strong>
                 </div>
               </div>
-              
+
               <div class="price-breakdown">
                 <div class="price-line">
                   <span>Costo Proyecto (Pago Único):</span>
@@ -1015,7 +1016,7 @@
                   <div class="progress-fill" id="price-progress" style="width: 10%;"></div>
                 </div>
               </div>
-              
+
               <button onclick="sendConfigToWhatsapp()" class="btn btn-neon" style="width: 100%; justify-content: center; padding: 16px;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 Enviar Presupuesto a WhatsApp
@@ -1085,7 +1086,7 @@
             </div>
             <div class="contact-detail-text">
               <strong>WhatsApp</strong>
-              <span><a href="https://wa.me/51988233246" target="_blank" style="color: inherit; text-decoration: none;">+51 988 233 246</a></span>
+              <span><a href="https://wa.me/51945902833" target="_blank" style="color: inherit; text-decoration: none;">+51 945 902 833</a></span>
             </div>
           </div>
 
@@ -1095,7 +1096,7 @@
             </div>
             <div class="contact-detail-text">
               <strong>Email</strong>
-              <span><a href="mailto:ds.diegorivera@gmail.com" style="color: inherit; text-decoration: none;">ds.diegorivera@gmail.com</a></span>
+              <span><a href="mailto:08diegorivera@gmail.com" style="color: inherit; text-decoration: none;">08diegorivera@gmail.com</a></span>
             </div>
           </div>
 
@@ -1188,8 +1189,10 @@
           <p>&copy; 2026 Diego Rivera. Diseño & Desarrollo Web a Medida.</p>
         </div>
         <ul class="footer-links">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="proyectos/index.html">Proyectos técnicos</a></li>
+          <li><a href="#portafolio">Demos web</a></li>
+          <li><a href="sobre-mi/index.html">Sobre mí</a></li>
+          <li><a href="cv/index.html">CV</a></li>
           <li><a href="#planes">Planes</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>

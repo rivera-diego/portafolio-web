@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Ventas Ferretería Yerias — Caso de estudio</title>
+  <meta name="description" content="Caso de estudio del Sistema de Ventas Ferretería Yerias: API .NET, cliente web React y aplicación de escritorio Windows Forms.">
+  <link rel="canonical" href="https://www.diegorivera.tech/proyectos/sistema-ventas-yerias/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../css/portfolio.css">
+  <script defer src="../../js/portfolio.js"></script>
+</head>
+<body class="portfolio-page">
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Navegación principal">
+      <div class="site-nav__identity">
+        <a class="site-nav__brand" href="../../index.html" aria-label="Diego Rivera, inicio">diego<span>.</span>tech</a>
+        <span class="site-nav__status">// case: <strong>yerias.biz</strong></span>
+      </div>
+      <ul class="site-nav__links" id="site-menu">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../index.html" aria-current="page">Proyectos</a></li>
+        <li><a href="../../sobre-mi/index.html">Sobre mí</a></li>
+        <li><a href="../../cv/index.html">CV</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="site-nav__contact" href="../../index.html#contacto">Contactar</a>
+        <button class="site-nav__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="portfolio-main">
+    <section class="case-hero">
+      <div class="container case-hero__grid">
+        <div class="reveal">
+          <span class="kicker">case study / system 03</span>
+          <h1>Ferretería Yerias <span class="gradient-text">Sales System</span></h1>
+          <p class="case-hero__lead">Sistema empresarial compuesto por API, cliente web y aplicación de escritorio para inventario, compras, ventas, usuarios, comprobantes y reportes.</p>
+          <div class="case-hero__meta">
+            <span class="status status--muted">Sin demo pública · evidencia local</span>
+            <span class="tag">C# / .NET</span>
+            <span class="tag">React</span>
+            <span class="tag">SQL Server</span>
+          </div>
+          <div class="inline-actions">
+            <a class="button button--primary" href="https://github.com/rivera-diego/Net5-System-Sales-Yerias-RestAPI" target="_blank" rel="noopener noreferrer">Ver API <span aria-hidden="true">↗</span></a>
+            <a class="button button--secondary" href="https://github.com/rivera-diego/React-System-Sales-Yerias-Web" target="_blank" rel="noopener noreferrer">Ver cliente web <span aria-hidden="true">↗</span></a>
+            <a class="button button--ghost" href="../index.html">← Volver a proyectos</a>
+          </div>
+        </div>
+        <div class="case-visual reveal" aria-label="Diagrama visual del sistema de ventas Yerias">
+          <div class="case-visual__header"><span>architecture / yerias.biz</span><span class="status status--muted">local system</span></div>
+          <div class="case-visual__body">
+            <div class="architecture-diagram">
+              <div class="architecture-node">WEB<br>React</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--main">API<br>.NET 5</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--yellow">SQL<br>Server</div>
+              <div class="architecture-node architecture-node--green">POS<br>WinForms</div>
+              <div class="architecture-line architecture-line--vertical" aria-hidden="true"></div>
+              <div class="architecture-node">EF Core<br>JWT</div>
+              <div class="architecture-node architecture-node--green">Reports<br>PDF</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container case-layout">
+        <aside class="case-aside reveal">
+          <div class="case-aside__label">Contenido</div>
+          <ul class="case-aside__list">
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#solucion">Módulos</a></li>
+            <li><a href="#arquitectura">Arquitectura</a></li>
+            <li><a href="#decisiones">Decisiones</a></li>
+            <li><a href="#ia">IA aplicada</a></li>
+            <li><a href="#validacion">Evidencia</a></li>
+            <li><a href="#siguiente">Roadmap</a></li>
+          </ul>
+        </aside>
+
+        <article class="case-content">
+          <section class="case-section reveal" id="contexto">
+            <span class="section-kicker">01 / contexto</span>
+            <h2>Un sistema de negocio visto desde tres superficies</h2>
+            <p>Ferretería Yerias representa un escenario empresarial con operaciones conectadas: productos y categorías, proveedores, compras, inventario, ventas, comprobantes y usuarios. El reto era llevar la misma información de negocio a una interfaz web y a un punto de venta de escritorio.</p>
+            <div class="metric-grid">
+              <div class="metric"><strong>3</strong><span>repositorios del ecosistema</span></div>
+              <div class="metric"><strong>2</strong><span>clientes: web y escritorio</span></div>
+              <div class="metric"><strong>1</strong><span>modelo relacional en SQL Server</span></div>
+            </div>
+            <h3>Usuarios y alcance</h3>
+            <p>El sistema está orientado a personal de ventas, almacén, administración y usuarios con distintos roles. El cliente web facilita la gestión y los reportes; la aplicación Windows Forms concentra el flujo de punto de venta y operaciones locales.</p>
+          </section>
+
+          <section class="case-section reveal" id="solucion">
+            <span class="section-kicker">02 / solución</span>
+            <h2>Módulos que reflejan el flujo comercial</h2>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Catálogo e inventario</h3><p>Productos, categorías, marcas, proveedores y control de stock para mantener la operación organizada.</p></div>
+              <div class="glow-panel"><h3>Compras y ventas</h3><p>Registro de compras, carrito/punto de venta y emisión de comprobantes con detalle de líneas.</p></div>
+              <div class="glow-panel"><h3>Usuarios y roles</h3><p>Autenticación y autorización para separar responsabilidades dentro de la solución empresarial.</p></div>
+              <div class="glow-panel"><h3>Reportes</h3><p>Consultas y reportes de ventas, incluido filtrado por rango de fechas en la aplicación de escritorio.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="arquitectura">
+            <span class="section-kicker">03 / arquitectura</span>
+            <h2>Integración web y desktop alrededor del dominio</h2>
+            <p>El ecosistema contiene una API .NET para el cliente React y una aplicación WinForms que trabaja con Entity Framework y SQL Server. Esta diferencia de integración es importante: no se presenta la aplicación de escritorio como si fuera simplemente otro frontend HTTP.</p>
+            <pre class="code-block"><span class="cyan">React Web Client</span>       React + TypeScript + MUI
+          │
+          └── Axios → <span class="magenta">.NET 5 Web API</span>
+                              │
+                              ├── EF Core / JWT / Swagger
+                              │
+                              └── <span class="yellow">SQL Server</span>
+
+<span class="green">Windows Forms POS</span>       .NET Framework 4.7.2 + EF6
+          │
+          └── acceso local al modelo relacional y operaciones de venta</pre>
+            <div class="tag-list">
+              <span class="tag">C#</span><span class="tag">.NET 5</span><span class="tag">ASP.NET</span><span class="tag">Entity Framework</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">MUI</span><span class="tag">WinForms</span><span class="tag">SQL Server</span>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="decisiones">
+            <span class="section-kicker">04 / decisiones</span>
+            <h2>Decisiones y aprendizajes de integración</h2>
+            <ul>
+              <li>Separar API y cliente web permite aplicar una arquitectura cliente-servidor con documentación Swagger.</li>
+              <li>El modelo de entidades y migraciones facilita representar operaciones comerciales relacionadas y reportables.</li>
+              <li>La aplicación de escritorio resuelve el escenario de punto de venta local, donde la experiencia operativa es distinta a la del panel web.</li>
+              <li>El caso evidencia el costo de mantener lógica acoplada a interfaces distintas y sirve como base para una futura separación de dominio y servicios.</li>
+            </ul>
+            <h3>Mi participación</h3>
+            <p>Construí y conecté las piezas del ecosistema de ventas, trabajando el backend, el cliente web y la aplicación de escritorio como partes de una misma solución de negocio.</p>
+          </section>
+
+          <section class="case-section reveal" id="ia">
+            <span class="section-kicker">05 / workflow</span>
+            <h2>IA aplicada sin ocultar el trabajo de diseño</h2>
+            <p>La IA se utilizó como apoyo para comprender requisitos, explorar componentes, resolver errores y acelerar documentación. La lógica de negocio, el modelado de entidades, la integración de clientes y la validación de los flujos requirieron revisión técnica y pruebas propias.</p>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Traducción de negocio</h3><p>El trabajo parte de operaciones concretas —comprar, vender, controlar stock y reportar— antes de elegir la interfaz.</p></div>
+              <div class="glow-panel"><h3>Estado de la evidencia</h3><p>No atribuyo a este repositorio un prompt público específico ni porcentajes de código generado; la comunicación se mantiene en el nivel de workflow asistido.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="validacion">
+            <span class="section-kicker">06 / evidencia</span>
+            <h2>Qué puede revisar un reclutador</h2>
+            <ul>
+              <li>La API documenta endpoints, entidades, seguridad JWT y acceso Swagger.</li>
+              <li>El cliente web contiene módulos de catálogo, ventas, compras, usuarios y reportes.</li>
+              <li>El repositorio de escritorio contiene formularios de login, productos, ventas, búsquedas y reportes.</li>
+              <li>No existe actualmente una demo pública desplegada; la evidencia visual recomendada es una captura del dashboard, el flujo POS, un reporte y el diagrama de arquitectura.</li>
+              <li>El sistema debe ejecutarse en un entorno local con SQL Server y las herramientas .NET correspondientes.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="siguiente">
+            <span class="section-kicker">07 / roadmap</span>
+            <h2>Hacia un sistema más fácil de desplegar</h2>
+            <p>La siguiente mejora sería extraer la lógica de dominio a servicios desacoplados, agregar pruebas automatizadas, actualizar la API a una versión moderna de .NET y preparar una demo controlada con datos ficticios para mostrar el producto sin depender de un SQL Server local.</p>
+            <div class="inline-actions">
+              <a class="button button--secondary" href="https://github.com/rivera-diego/WindowsForm-System-Sales" target="_blank" rel="noopener noreferrer">Cliente escritorio ↗</a>
+              <a class="button button--ghost" href="../index.html">← Ver todos los proyectos</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span class="site-footer__copy">© <span data-current-year>2026</span> Diego Rivera · Ferretería Yerias</span>
+      <nav class="site-footer__links" aria-label="Enlaces del pie de página">
+        <a href="../index.html">Proyectos</a>
+        <a href="../../sobre-mi/index.html">Sobre mí</a>
+        <a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

@@ -3,5 +3,6 @@ User-agent: *
 Allow: /
 Disallow: /.agent/
 Disallow: /.git/
+Disallow: /Informacion_General.md
 
 Sitemap: https://www.diegorivera.tech/sitemap.xml

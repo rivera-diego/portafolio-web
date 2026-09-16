@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+      const isMenuOpen = navLinks.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
       const spans = menuToggle.querySelectorAll('span');
       if (navLinks.classList.contains('active')) {
         spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
         const spans = menuToggle.querySelectorAll('span');
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';
@@ -178,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `💬 Mensaje:\n${message}`
       );
 
-      window.open(`https://wa.me/51988233246?text=${waMsg}`, '_blank');
+      window.open(`https://wa.me/51945902833?text=${waMsg}`, '_blank');
 
       alert('¡Mensaje preparado! Se abrirá WhatsApp para enviar tu consulta directamente.');
       contactForm.reset();
@@ -294,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render loop
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // Update & Draw particles
       particles.forEach(p => {
         p.update();
@@ -373,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.runTerminalCmd = function(command) {
     if (!command) return;
     command = command.trim().toLowerCase();
-    
+
     // Log prompt input
     logTerminalLine(`&gt; ${command}`, 'neon-cyan font-bold');
 
@@ -411,8 +413,8 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
       case 'contact':
         logTerminalLine('Información de Contacto:<br>' +
-          '- WhatsApp: <span class="neon-green">+51 988 233 246</span><br>' +
-          '- Email: <span class="neon-cyan">ds.diegorivera@gmail.com</span><br>' +
+          '- WhatsApp: <span class="neon-green">+51 945 902 833</span><br>' +
+          '- Email: <span class="neon-cyan">08diegorivera@gmail.com</span><br>' +
           '- Lima, Perú.');
         break;
       case 'clear':
@@ -484,12 +486,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.switchPricingLevel = function(level) {
     configState.level = level;
-    
+
     // 1. Sync Pricing Cards Level Toggle UI
     const toggleContainer = document.getElementById('pricing-level-toggle');
     const labelStd = document.getElementById('level-label-std');
     const labelPro = document.getElementById('level-label-pro');
-    
+
     if (level === 'pro') {
       if (toggleContainer) {
         toggleContainer.classList.add('pro-active');
@@ -515,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const descEl = card.querySelector('.pricing-desc');
         const featuresStd = card.querySelector('.pricing-features-std');
         const featuresPro = card.querySelector('.pricing-features-pro');
-        
+
         if (level === 'pro') {
           const pricePro = card.getAttribute('data-price-pro');
           const descPro = card.getAttribute('data-desc-pro');
@@ -565,10 +567,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.selectWebType = function(type) {
     configState.webType = type;
     configState.basePrice = basePrices[configState.level][type];
-    
+
     // Update active visual class
     document.querySelectorAll('[id^="type-"]').forEach(el => el.classList.remove('active'));
-    
+
     const activeEl = document.getElementById(`type-${type}`);
     if (activeEl) activeEl.classList.add('active');
 
@@ -581,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
       slider.value = 0;
       slider.min = 0;
       slider.max = 10;
-      
+
       if (type === 'landing') {
         if (sliderLabel) sliderLabel.textContent = '3. Secciones Adicionales (Base incluye 5-6)';
         if (sliderTicks) {
@@ -627,7 +629,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.calculatePrice = function() {
     let projectTotal = configState.basePrice;
-    
+
     // Extra pages/sections calculation depending on Level & WebType
     let extraCostPerUnit = 200; // default pro corporativa/ecommerce
     if (configState.level === 'std') {
@@ -647,13 +649,13 @@ document.addEventListener('DOMContentLoaded', () => {
         extraCostPerUnit = 200;
       }
     }
-    
+
     projectTotal += configState.pagesCount * extraCostPerUnit;
 
     // Addons calculation
     let addonsTotal = 0;
     let selectedAddonsCount = 0;
-    
+
     const checkboxes = [
       { id: 'feature-dark', name: 'Diseño Dark Mode' },
       { id: 'feature-seo', name: 'Optimización SEO' },
@@ -733,16 +735,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (summaryType) summaryType.textContent = typeNames[configState.webType];
-    
+
     if (summaryPages) {
       let unit = 'páginas';
       if (configState.webType === 'landing') unit = 'secciones';
       if (configState.webType === 'sistema') unit = 'módulos';
       summaryPages.textContent = `${configState.pagesCount} ${unit} extra`;
     }
-    
+
     if (summaryFeatures) summaryFeatures.textContent = selectedAddonsCount;
-    
+
     if (summaryMaint) {
       if (maintCost === 80) {
         summaryMaint.textContent = 'Esencial (S/ 80/mes)';
@@ -794,7 +796,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const projectTotalText = document.getElementById('configurator-project-total').textContent;
-    
+
     let maintText = 'Ninguno';
     if (configState.maintPrice === 80) {
       maintText = 'Plan Esencial (S/ 80/mes)';
@@ -823,7 +825,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `¿Me podrías brindar más detalles o agendar una llamada breve? ¡Gracias!`
     );
 
-    window.open(`https://wa.me/51988233246?text=${waMsg}`, '_blank');
+    window.open(`https://wa.me/51945902833?text=${waMsg}`, '_blank');
   }
 
   // Custom Select Dropdown logic for contact form
@@ -844,7 +846,7 @@ document.addEventListener('DOMContentLoaded', () => {
       opt.addEventListener('click', (e) => {
         e.stopPropagation();
         const value = opt.getAttribute('data-value');
-        
+
         // Update trigger text & input value
         triggerText.textContent = value;
         hiddenInput.value = value;
@@ -855,7 +857,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close dropdown
         selectWrapper.classList.remove('open');
-        
+
         // Trigger change event
         const event = new Event('change');
         hiddenInput.dispatchEvent(event);

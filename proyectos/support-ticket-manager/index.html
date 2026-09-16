@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Ticket Manager — Caso de estudio</title>
+  <meta name="description" content="Caso de estudio de Support Ticket Manager, una demo full stack para registrar y consultar incidencias de soporte.">
+  <link rel="canonical" href="https://www.diegorivera.tech/proyectos/support-ticket-manager/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../css/portfolio.css">
+  <script defer src="../../js/portfolio.js"></script>
+</head>
+<body class="portfolio-page">
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Navegación principal">
+      <div class="site-nav__identity">
+        <a class="site-nav__brand" href="../../index.html" aria-label="Diego Rivera, inicio">diego<span>.</span>tech</a>
+        <span class="site-nav__status">// case: <strong>support.db</strong></span>
+      </div>
+      <ul class="site-nav__links" id="site-menu">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../index.html" aria-current="page">Proyectos</a></li>
+        <li><a href="../../sobre-mi/index.html">Sobre mí</a></li>
+        <li><a href="../../cv/index.html">CV</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="site-nav__contact" href="../../index.html#contacto">Contactar</a>
+        <button class="site-nav__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="portfolio-main">
+    <section class="case-hero">
+      <div class="container case-hero__grid">
+        <div class="reveal">
+          <span class="kicker">case study / system 02</span>
+          <h1>Support Ticket <span class="gradient-text">Manager</span></h1>
+          <p class="case-hero__lead">Demo full stack para registrar y consultar incidencias de soporte, con una ruta clara desde el reporte del usuario hasta el seguimiento del ticket.</p>
+          <div class="case-hero__meta">
+            <span class="status status--warning">Demo funcional · JSON local</span>
+            <span class="tag">Next.js 15</span>
+            <span class="tag">TypeScript</span>
+          </div>
+          <div class="inline-actions">
+            <a class="button button--primary" href="https://support-ticket-manager.vercel.app" target="_blank" rel="noopener noreferrer">Abrir demo <span aria-hidden="true">↗</span></a>
+            <a class="button button--secondary" href="https://github.com/rivera-diego/support-ticket-manager" target="_blank" rel="noopener noreferrer">Ver repositorio <span aria-hidden="true">↗</span></a>
+            <a class="button button--ghost" href="../index.html">← Volver a proyectos</a>
+          </div>
+        </div>
+        <div class="case-visual reveal" aria-label="Diagrama visual de Support Ticket Manager">
+          <div class="case-visual__header"><span>architecture / support.db</span><span class="status status--warning">demo mode</span></div>
+          <div class="case-visual__body">
+            <div class="architecture-diagram">
+              <div class="architecture-node">LOGIN<br>Next.js</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--main">TICKETS<br>API routes</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--green">DETAIL<br>comments</div>
+              <div class="architecture-node architecture-node--yellow">JSON<br>mock db</div>
+              <div class="architecture-line architecture-line--vertical" aria-hidden="true"></div>
+              <div class="architecture-node">PostgreSQL<br>optional</div>
+              <div class="architecture-node architecture-node--green">Vercel<br>demo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container case-layout">
+        <aside class="case-aside reveal">
+          <div class="case-aside__label">Contenido</div>
+          <ul class="case-aside__list">
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#solucion">Flujo</a></li>
+            <li><a href="#arquitectura">Arquitectura</a></li>
+            <li><a href="#decisiones">Decisiones</a></li>
+            <li><a href="#ia">IA aplicada</a></li>
+            <li><a href="#validacion">Límites</a></li>
+            <li><a href="#siguiente">Roadmap</a></li>
+          </ul>
+        </aside>
+
+        <article class="case-content">
+          <section class="case-section reveal" id="contexto">
+            <span class="section-kicker">01 / contexto</span>
+            <h2>Un flujo de soporte que puede entenderse de principio a fin</h2>
+            <p>La aplicación nace de una necesidad cercana a mi experiencia en soporte técnico: registrar incidencias, conservar el contexto del problema y permitir que el usuario consulte el estado de su solicitud sin depender de mensajes dispersos.</p>
+            <div class="metric-grid">
+              <div class="metric"><strong>1</strong><span>flujo central: crear y consultar tickets</span></div>
+              <div class="metric"><strong>2</strong><span>modos de persistencia documentados</span></div>
+              <div class="metric"><strong>0</strong><span>dependencias externas para iniciar la demo local</span></div>
+            </div>
+            <h3>Usuarios y alcance</h3>
+            <p>El usuario puede iniciar sesión, consultar sus tickets, crear una incidencia y revisar el detalle con su historial. Existe un perfil administrativo de demostración en los datos, pero la interfaz todavía no implementa un panel administrativo con permisos diferenciados.</p>
+          </section>
+
+          <section class="case-section reveal" id="solucion">
+            <span class="section-kicker">02 / solución</span>
+            <h2>Una demo funcional antes de conectar servicios externos</h2>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Autenticación de demo</h3><p>Login, registro y cierre de sesión para recorrer el producto sin configurar una infraestructura externa.</p></div>
+              <div class="glow-panel"><h3>Tickets</h3><p>Creación, listado y consulta del detalle de incidencias con categoría, prioridad, estado y descripción.</p></div>
+              <div class="glow-panel"><h3>Historial</h3><p>El detalle de un ticket puede mostrar comentarios y eventos almacenados en el modelo de prueba.</p></div>
+              <div class="glow-panel"><h3>Evolución preparada</h3><p>El repositorio incluye esquema y conexión opcional para migrar la persistencia hacia PostgreSQL/Supabase.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="arquitectura">
+            <span class="section-kicker">03 / arquitectura</span>
+            <h2>La persistencia local hace reproducible el primer recorrido</h2>
+            <p>El modo predeterminado usa un archivo JSON y funciones de acceso local. Las API Routes aíslan al frontend del almacenamiento y permiten sustituir el adaptador sin rediseñar todas las pantallas.</p>
+            <pre class="code-block"><span class="cyan">Next.js App Router</span>   login / dashboard / ticket detail
+          │
+          ├── React + TypeScript + Tailwind + Radix UI
+          │
+<span class="magenta">API Routes</span>             auth / tickets / comments
+          │
+          ├── <span class="yellow">lib/mock-db.ts</span>  →  data/mock-data.json
+          │
+          └── <span class="green">lib/db.ts</span>        →  PostgreSQL opcional
+
+<span class="muted">Deployment:</span> Vercel demo · no se garantiza persistencia del JSON en serverless</pre>
+            <div class="tag-list">
+              <span class="tag">Next.js 15</span><span class="tag">React 19</span><span class="tag">TypeScript 5</span><span class="tag">Tailwind CSS</span><span class="tag">Radix UI</span><span class="tag">API Routes</span><span class="tag">PostgreSQL</span>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="decisiones">
+            <span class="section-kicker">04 / decisiones</span>
+            <h2>Decisiones técnicas y límites explícitos</h2>
+            <ul>
+              <li>El modo JSON reduce la fricción para revisar el producto y ejecutar la demo sin credenciales de servicios externos.</li>
+              <li>La documentación mantiene separado el modo demostrativo de la alternativa PostgreSQL, evitando confundir configuración con migración terminada.</li>
+              <li>La UI se centra en el recorrido esencial de soporte, en lugar de simular un sistema empresarial que todavía no tiene sus permisos implementados.</li>
+              <li>La sesión actual usa localStorage y es suficiente para la demostración, pero requiere cookies seguras o un proveedor de identidad antes de producción.</li>
+            </ul>
+            <h3>Mi participación</h3>
+            <p>Diseñé y construí el flujo de la aplicación, sus pantallas y API Routes, y documenté la ruta de evolución hacia PostgreSQL con las diferencias que todavía deben resolverse.</p>
+          </section>
+
+          <section class="case-section reveal" id="ia">
+            <span class="section-kicker">05 / workflow</span>
+            <h2>IA aplicada con revisión del resultado</h2>
+            <p>El proyecto forma parte de mi flujo de desarrollo asistido por IA: descomposición del requerimiento, exploración de componentes, implementación, depuración y documentación. No presento el sistema como código generado automáticamente ni atribuyo a este repositorio una instrucción de Copilot versionada que no está publicada aquí.</p>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Iteración rápida</h3><p>La IA ayuda a comparar alternativas y reducir el tiempo entre una idea de producto y un flujo navegable.</p></div>
+              <div class="glow-panel"><h3>Validación humana</h3><p>Las rutas, estados, mensajes y límites se revisan en ejecución; las decisiones de seguridad no se delegan al modelo.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="validacion">
+            <span class="section-kicker">06 / evidencia</span>
+            <h2>Qué demuestra hoy y qué no</h2>
+            <ul>
+              <li>La demo pública permite recorrer login, dashboard, creación y consulta de tickets.</li>
+              <li>El README describe las rutas de API y la estructura necesaria para el modo JSON y PostgreSQL.</li>
+              <li>El repositorio no debe presentarse todavía como un sistema productivo con autorización server-side completa.</li>
+              <li>El workflow de GitHub Actions publicado es manual y está orientado a corregir el seguimiento de archivos; no es evidencia de CI/CD completo.</li>
+              <li>La persistencia en JSON no es confiable para cambios permanentes en un despliegue serverless.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="siguiente">
+            <span class="section-kicker">07 / roadmap</span>
+            <h2>Convertir la demo en una aplicación operable</h2>
+            <p>El siguiente paso es migrar las rutas a PostgreSQL, proteger sesiones y permisos en el servidor, implementar el panel administrativo real, añadir comentarios desde la interfaz, filtros, asignación de técnicos y pruebas de integración.</p>
+            <div class="inline-actions">
+              <a class="button button--secondary" href="https://support-ticket-manager.vercel.app" target="_blank" rel="noopener noreferrer">Revisar demo ↗</a>
+              <a class="button button--ghost" href="../index.html">← Ver todos los proyectos</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span class="site-footer__copy">© <span data-current-year>2026</span> Diego Rivera · Support Ticket Manager</span>
+      <nav class="site-footer__links" aria-label="Enlaces del pie de página">
+        <a href="../index.html">Proyectos</a>
+        <a href="../../sobre-mi/index.html">Sobre mí</a>
+        <a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

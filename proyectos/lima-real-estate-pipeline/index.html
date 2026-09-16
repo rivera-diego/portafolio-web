@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lima Real Estate Pipeline — Caso de estudio</title>
+  <meta name="description" content="Caso de estudio de un pipeline de datos inmobiliarios en Lima con Python, PostgreSQL, modelo dimensional, calidad de datos y Streamlit.">
+  <link rel="canonical" href="https://www.diegorivera.tech/proyectos/lima-real-estate-pipeline/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../css/portfolio.css">
+  <script defer src="../../js/portfolio.js"></script>
+</head>
+<body class="portfolio-page">
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Navegación principal">
+      <div class="site-nav__identity">
+        <a class="site-nav__brand" href="../../index.html" aria-label="Diego Rivera, inicio">diego<span>.</span>tech</a>
+        <span class="site-nav__status">// case: <strong>lima.data</strong></span>
+      </div>
+      <ul class="site-nav__links" id="site-menu">
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../index.html" aria-current="page">Proyectos</a></li>
+        <li><a href="../../sobre-mi/index.html">Sobre mí</a></li>
+        <li><a href="../../cv/index.html">CV</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="site-nav__contact" href="../../index.html#contacto">Contactar</a>
+        <button class="site-nav__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="portfolio-main">
+    <section class="case-hero">
+      <div class="container case-hero__grid">
+        <div class="reveal">
+          <span class="kicker">case study / system 04</span>
+          <h1>Lima Real Estate <span class="gradient-text">Pipeline</span></h1>
+          <p class="case-hero__lead">Pipeline reproducible para transformar datos inmobiliarios públicos, aplicar controles de calidad, cargarlos en un modelo dimensional y comunicar hallazgos mediante un dashboard.</p>
+          <div class="case-hero__meta">
+            <span class="status status--warning">Dashboard Streamlit · demo por validar</span>
+            <span class="tag">Python</span>
+            <span class="tag">ETL</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+          <div class="inline-actions">
+            <a class="button button--primary" href="https://github.com/rivera-diego/lima-real-estate-pipeline" target="_blank" rel="noopener noreferrer">Ver repositorio <span aria-hidden="true">↗</span></a>
+            <a class="button button--secondary" href="https://lima-real-estate-pipeline.streamlit.app/" target="_blank" rel="noopener noreferrer">Intentar dashboard <span aria-hidden="true">↗</span></a>
+            <a class="button button--ghost" href="../index.html">← Volver a proyectos</a>
+          </div>
+        </div>
+        <div class="case-visual reveal" aria-label="Diagrama visual del pipeline de datos">
+          <div class="case-visual__header"><span>architecture / lima.data</span><span class="status status--warning">pipeline</span></div>
+          <div class="case-visual__body">
+            <div class="architecture-diagram">
+              <div class="architecture-node architecture-node--yellow">PUBLIC<br>SOURCE</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--main">PYTHON<br>ETL</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--green">DASHBOARD<br>Streamlit</div>
+              <div class="architecture-node">QUALITY<br>IQR</div>
+              <div class="architecture-line architecture-line--vertical" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--green">STAR<br>SCHEMA</div>
+              <div class="architecture-node architecture-node--yellow">PLOTLY<br>insights</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container case-layout">
+        <aside class="case-aside reveal">
+          <div class="case-aside__label">Contenido</div>
+          <ul class="case-aside__list">
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#solucion">Pipeline</a></li>
+            <li><a href="#arquitectura">Arquitectura</a></li>
+            <li><a href="#calidad">Calidad</a></li>
+            <li><a href="#ia">IA aplicada</a></li>
+            <li><a href="#validacion">Evidencia</a></li>
+            <li><a href="#siguiente">Roadmap</a></li>
+          </ul>
+        </aside>
+
+        <article class="case-content">
+          <section class="case-section reveal" id="contexto">
+            <span class="section-kicker">01 / contexto</span>
+            <h2>Convertir anuncios dispersos en preguntas analizables</h2>
+            <p>El mercado inmobiliario de Lima contiene información distribuida en anuncios públicos y formatos difíciles de analizar directamente. El proyecto busca construir un flujo completo —desde la extracción hasta la visualización— para responder preguntas sobre precios, distritos, tipos de propiedad y características de la oferta.</p>
+            <div class="metric-grid">
+              <div class="metric"><strong>4</strong><span>capas: extracción, ETL, datos y dashboard</span></div>
+              <div class="metric"><strong>IQR</strong><span>regla estadística para marcar outliers</span></div>
+              <div class="metric"><strong>UPSERT</strong><span>carga repetible sin duplicados</span></div>
+            </div>
+            <h3>Usuarios y alcance</h3>
+            <p>Está pensado como proyecto de portafolio y análisis: una persona técnica puede revisar el pipeline y una persona de negocio puede explorar resultados agregados mediante filtros y gráficos.</p>
+          </section>
+
+          <section class="case-section reveal" id="solucion">
+            <span class="section-kicker">02 / pipeline</span>
+            <h2>Del dato público al insight de negocio</h2>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Extracción</h3><p>Obtención de información pública y parseo de estructuras embebidas para crear una capa de trabajo reproducible.</p></div>
+              <div class="glow-panel"><h3>Transformación</h3><p>Aplanamiento de estructuras, normalización de precios y características, y preparación de tablas analíticas.</p></div>
+              <div class="glow-panel"><h3>Almacenamiento</h3><p>PostgreSQL con dimensiones y hechos para consultar propiedades, ubicaciones, anunciantes y métricas.</p></div>
+              <div class="glow-panel"><h3>Visualización</h3><p>Dashboard Streamlit/Plotly con rankings, distribución, mapa, tipos de propiedad y filtros cruzados.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="arquitectura">
+            <span class="section-kicker">03 / arquitectura</span>
+            <h2>Un modelo dimensional para análisis reproducible</h2>
+            <p>La separación de capas permite transformar y analizar sin distribuir los datos crudos ni acoplar el dashboard a una captura específica. El repositorio público conserva el código de transformación, el esquema, resultados agregados y el notebook de análisis.</p>
+            <pre class="code-block"><span class="yellow">public listings</span>
+      │
+      ▼
+<span class="cyan">Python extraction / parsing</span>
+      │
+      ▼
+<span class="magenta">transform + quality rules</span>
+      │
+      ├── valid rows / flagged outliers
+      │
+      ▼
+<span class="green">PostgreSQL Star Schema</span>
+      │
+      ▼
+<span class="cyan">Streamlit + Plotly dashboard</span>
+
+<span class="muted">Published repository:</span> aggregated data + ETL + schema + analysis</pre>
+            <div class="tag-list">
+              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Requests</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Jupyter</span>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="calidad">
+            <span class="section-kicker">04 / data quality</span>
+            <h2>Marcar problemas sin borrar la historia</h2>
+            <p>Una decisión importante fue no eliminar automáticamente los precios atípicos. El pipeline calcula límites mediante IQR, agrega una bandera de validez y hace que las consultas analíticas utilicen únicamente registros marcados como válidos. Así se conserva la trazabilidad de lo observado y se evita presentar errores de origen como conclusiones de mercado.</p>
+            <ul>
+              <li>La carga mediante UPSERT permite ejecutar el proceso más de una vez sin duplicar entidades.</li>
+              <li>El modelo dimensional separa dimensiones de ubicación y anunciante de la tabla de hechos.</li>
+              <li>El repositorio no incluye datos crudos ni el código de recolección automatizada completo; publica resultados agregados y capas de análisis.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="ia">
+            <span class="section-kicker">05 / workflow</span>
+            <h2>Planificación técnica asistida por IA</h2>
+            <p>Este repositorio contiene un prompt de planificación técnica versionado en `.github/prompts/plan-urbaniaDatos.prompt.md`. La IA se utilizó para estructurar el plan, explorar decisiones y acelerar documentación; la selección del modelo de datos, reglas de calidad y validación de resultados fueron revisadas manualmente.</p>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Antes del código</h3><p>La planificación ayudó a separar extracción, transformación, almacenamiento, análisis y publicación.</p></div>
+              <div class="glow-panel"><h3>Después del código</h3><p>Los resultados se validaron con consultas, métricas agregadas y revisión del comportamiento de filtros del dashboard.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="validacion">
+            <span class="section-kicker">06 / evidencia</span>
+            <h2>Resultados visibles y estado de la demo</h2>
+            <ul>
+              <li>El README documenta hallazgos agregados sobre precios, distritos, tipos de propiedad y distribución de características.</li>
+              <li>El repositorio incluye `schema.sql`, `load_db.py`, `app.py`, notebook, CSV agregados y un GIF del dashboard.</li>
+              <li>Existe un enlace a Streamlit, pero la disponibilidad pública debe verificarse antes de presentarlo como demo confiable.</li>
+              <li>La documentación mantiene el alcance académico y evita publicar los datos crudos de la fuente original.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="siguiente">
+            <span class="section-kicker">07 / roadmap</span>
+            <h2>Hacer el pipeline más fácil de reproducir</h2>
+            <p>La siguiente etapa es recuperar una demo estable, añadir validaciones automatizadas de esquema y calidad, documentar un dataset pequeño de prueba y separar con claridad el modo de análisis local del modo de visualización pública.</p>
+            <div class="inline-actions">
+              <a class="button button--secondary" href="https://lima-real-estate-pipeline.streamlit.app/" target="_blank" rel="noopener noreferrer">Intentar dashboard ↗</a>
+              <a class="button button--ghost" href="../index.html">← Ver todos los proyectos</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span class="site-footer__copy">© <span data-current-year>2026</span> Diego Rivera · Lima Real Estate Pipeline</span>
+      <nav class="site-footer__links" aria-label="Enlaces del pie de página">
+        <a href="../index.html">Proyectos</a>
+        <a href="../../sobre-mi/index.html">Sobre mí</a>
+        <a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
