@@ -2,1693 +2,603 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>ERP Simplificado — Prototipo Interactivo VICA</title>
-  <style>
-    :root {
-      --color-vender: #15803d;
-      --color-vender-bg: #dcfce7;
-      --color-stock: #1d4ed8;
-      --color-stock-bg: #dbeafe;
-      --color-caja: #334155;
-      --color-caja-bg: #f1f5f9;
-      --color-anular: #b91c1c;
-      --color-anular-bg: #fee2e2;
-      --text-dark: #0f172a;
-      --border-gray: #cbd5e1;
-      --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      background-color: #0b1329;
-      color: var(--text-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 10px;
-    }
-
-    /* Top Bar de Demostración */
-    .demo-bar {
-      width: 100%;
-      max-width: 520px;
-      background: #1e293b;
-      color: #f8fafc;
-      padding: 10px 14px;
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      font-size: 13px;
-    }
-
-    .demo-bar select {
-      background: #334155;
-      color: #fff;
-      border: 1px solid #475569;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    /* Dispositivo Contenedor */
-    .device-container {
-      width: 100%;
-      max-width: 500px;
-      background: #ffffff;
-      border-radius: 24px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-      border: 6px solid #1e293b;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      height: 820px;
-      position: relative;
-    }
-
-    /* Header del Sistema */
-    header {
-      background: #0f172a;
-      color: #ffffff;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .store-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      background: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-    }
-
-    .store-name {
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .role-badge {
-      background: #334155;
-      color: #94a3b8;
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    /* Main Content Area */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      background: #f8fafc;
-      overflow-y: auto;
-      padding: 14px;
-    }
-
-    /* VISTA 1: INICIO CUADRANTE V.I.C.A. */
-    .vica-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 14px;
-      flex: 1;
-      min-height: 540px;
-    }
-
-    .vica-card {
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px 12px;
-      text-align: center;
-      cursor: pointer;
-      user-select: none;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-      border: 3px solid transparent;
-      box-shadow: var(--shadow-card);
-    }
-
-    .vica-card:active {
-      transform: scale(0.96);
-    }
-
-    .vica-letter {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      font-weight: 900;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .vica-title {
-      font-size: 19px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      letter-spacing: 0.5px;
-    }
-
-    .vica-subtitle {
-      font-size: 12px;
-      font-weight: 500;
-      opacity: 0.85;
-      line-height: 1.2;
-    }
-
-    .card-v {
-      background: var(--color-vender-bg);
-      border-color: #86efac;
-      color: var(--color-vender);
-    }
-    .card-v .vica-letter {
-      background: var(--color-vender);
-      color: #fff;
-    }
-
-    .card-i {
-      background: var(--color-stock-bg);
-      border-color: #93c5fd;
-      color: var(--color-stock);
-    }
-    .card-i .vica-letter {
-      background: var(--color-stock);
-      color: #fff;
-    }
-
-    .card-c {
-      background: var(--color-caja-bg);
-      border-color: #cbd5e1;
-      color: var(--color-caja);
-    }
-    .card-c .vica-letter {
-      background: var(--color-caja);
-      color: #fff;
-    }
-
-    .card-a {
-      background: var(--color-anular-bg);
-      border-color: #fca5a5;
-      color: var(--color-anular);
-    }
-    .card-a .vica-letter {
-      background: var(--color-anular);
-      color: #fff;
-    }
-
-    .mnemonic-helper {
-      margin-top: 12px;
-      background: #ffffff;
-      border: 1px dashed #cbd5e1;
-      border-radius: 12px;
-      padding: 10px 14px;
-      text-align: center;
-      font-size: 13px;
-      color: #64748b;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-
-    /* VISTAS SECUNDARIAS */
-    .view-screen {
-      display: none;
-      flex-direction: column;
-      flex: 1;
-      animation: fadeIn 0.15s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .view-screen.active {
-      display: flex;
-    }
-
-    .screen-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e2e8f0;
-      flex-shrink: 0;
-    }
-
-    .btn-back {
-      background: #e2e8f0;
-      color: #1e293b;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .screen-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    /* Barra de Búsqueda y Filtros */
-    .search-scanner-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-      flex-shrink: 0;
-    }
-
-    .btn-scanner {
-      background: #0284c7;
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    .search-input {
-      flex: 1;
-      padding: 10px 12px;
-      font-size: 14px;
-      border: 2px solid #cbd5e1;
-      border-radius: 10px;
-      outline: none;
-    }
-
-    .search-input:focus {
-      border-color: #0284c7;
-    }
-
-    /* Categorías Pills */
-    .category-pills {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 8px;
-      flex-shrink: 0;
-    }
-
-    .category-pills::-webkit-scrollbar {
-      display: none;
-    }
-
-    .cat-pill {
-      background: #e2e8f0;
-      color: #475569;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .cat-pill.active {
-      background: #0f172a;
-      color: #fff;
-    }
-
-    /* Grilla de Productos en Venta */
-    .products-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 8px;
-      margin-bottom: 10px;
-      max-height: 190px;
-      overflow-y: auto;
-      padding-right: 4px;
-      flex-shrink: 0;
-    }
-
-    .product-btn {
-      background: #fff;
-      border: 2px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 10px 8px;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 70px;
-    }
-
-    .product-btn:active {
-      background: #e0f2fe;
-      border-color: #38bdf8;
-    }
-
-    .prod-name {
-      font-size: 13px;
-      font-weight: 700;
-      color: #1e293b;
-      line-height: 1.2;
-    }
-
-    .prod-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-    }
-
-    .prod-price {
-      font-size: 15px;
-      font-weight: 800;
-      color: #15803d;
-    }
-
-    .prod-stock-tag {
-      font-size: 11px;
-      font-weight: 600;
-      color: #64748b;
-    }
-
-    /* Carrito */
-    .cart-box {
-      background: #fff;
-      border: 2px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 10px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 10px;
-      min-height: 110px;
-      overflow: hidden;
-    }
-
-    .cart-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: #64748b;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 6px 0;
-      border-bottom: 1px solid #f1f5f9;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .cart-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-qty {
-      width: 26px;
-      height: 26px;
-      border-radius: 6px;
-      border: 1px solid #cbd5e1;
-      background: #f8fafc;
-      font-weight: 800;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .cart-empty {
-      text-align: center;
-      color: #94a3b8;
-      font-size: 13px;
-      margin-top: 20px;
-    }
-
-    .total-banner {
-      background: #0f172a;
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      flex-shrink: 0;
-    }
-
-    .total-label {
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .total-amount {
-      font-size: 24px;
-      font-weight: 900;
-      color: #4ade80;
-    }
-
-    .pay-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .btn-pay {
-      border: none;
-      padding: 14px 10px;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      color: #fff;
-      box-shadow: var(--shadow-card);
-    }
-
-    .btn-pay:active {
-      transform: scale(0.97);
-    }
-
-    .btn-pay-cash {
-      background: #15803d;
-    }
-
-    .btn-pay-yape {
-      background: #6d28d9;
-    }
-
-    /* TABLA / LISTA DE INVENTARIO */
-    .inventory-stats-bar {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 8px;
-      margin-bottom: 10px;
-      flex-shrink: 0;
-    }
-
-    .stat-box {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 8px;
-      text-align: center;
-    }
-
-    .stat-num {
-      font-size: 16px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    .stat-label {
-      font-size: 10px;
-      color: #64748b;
-      font-weight: 600;
-    }
-
-    .inventory-list {
-      flex: 1;
-      overflow-y: auto;
-      background: #fff;
-      border: 2px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 8px;
-    }
-
-    .inv-item-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 8px;
-      border-bottom: 1px solid #f1f5f9;
-      cursor: pointer;
-      transition: background 0.1s;
-    }
-
-    .inv-item-row:hover {
-      background: #f8fafc;
-    }
-
-    .inv-info {
-      flex: 1;
-      padding-right: 8px;
-    }
-
-    .inv-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: #1e293b;
-    }
-
-    .inv-code {
-      font-size: 11px;
-      color: #64748b;
-    }
-
-    .inv-badge {
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 800;
-      text-align: center;
-      min-width: 75px;
-    }
-
-    .badge-ok {
-      background: #dcfce7;
-      color: #15803d;
-    }
-
-    .badge-low {
-      background: #fef9c3;
-      color: #854d0e;
-    }
-
-    .badge-empty {
-      background: #fee2e2;
-      color: #b91c1c;
-    }
-
-    /* Modal de Detalle de Stock */
-    .stock-detail-card {
-      background: #eff6ff;
-      border: 2px solid #3b82f6;
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 12px;
-      text-align: center;
-      display: none;
-      animation: fadeIn 0.15s;
-    }
-
-    .stock-detail-card.active {
-      display: block;
-    }
-
-    /* ============================================================ */
-    /* MODAL DE PREVISUALIZACIÓN DE TICKET TÉRMICO REALISTA        */
-    /* ============================================================ */
-    .modal-overlay {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(15, 23, 42, 0.88);
-      z-index: 50;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 14px;
-    }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .receipt-container {
-      background: #ffffff;
-      width: 100%;
-      max-width: 320px;
-      border-radius: 6px;
-      padding: 18px 14px;
-      font-family: "Courier New", Courier, monospace;
-      color: #111;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    /* Efecto de borde dentado de papel ticket */
-    .receipt-container::before {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: radial-gradient(circle, transparent, transparent 50%, #fff 50%, #fff 100%);
-      background-size: 10px 10px;
-    }
-
-    .receipt-header {
-      text-align: center;
-      border-bottom: 1px dashed #222;
-      padding-bottom: 8px;
-      margin-bottom: 8px;
-      font-size: 12px;
-      line-height: 1.3;
-    }
-
-    .receipt-header h3 {
-      font-size: 14px;
-      font-weight: 900;
-      margin-bottom: 2px;
-    }
-
-    .receipt-body {
-      font-size: 12px;
-      line-height: 1.4;
-      margin-bottom: 8px;
-      overflow-y: auto;
-      max-height: 280px;
-    }
-
-    .receipt-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 3px;
-    }
-
-    .receipt-divider {
-      border-bottom: 1px dashed #222;
-      margin: 8px 0;
-    }
-
-    .receipt-total-block {
-      border-top: 1px dashed #222;
-      padding-top: 6px;
-      font-size: 14px;
-      font-weight: 900;
-    }
-
-    .simulated-qr {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 10px 0 4px 0;
-    }
-
-    .qr-box {
-      width: 80px;
-      height: 80px;
-      border: 2px solid #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 800;
-      background: repeating-linear-gradient(45deg, #000, #000 3px, #fff 3px, #fff 6px);
-    }
-
-    .receipt-actions {
-      margin-top: 10px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn-receipt-action {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .btn-receipt-close {
-      background: #15803d;
-      color: #fff;
-    }
-
-    .btn-receipt-secondary {
-      background: #e2e8f0;
-      color: #1e293b;
-    }
-
-    /* CAJA */
-    .cash-summary-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 14px;
-    }
-
-    .cash-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #f1f5f9;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .cash-total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 12px;
-      font-size: 19px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    /* ANULAR */
-    .void-item-card {
-      background: #fff;
-      border: 2px solid #fecaca;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .btn-void-action {
-      background: #b91c1c;
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    /* ASESOR */
-    .advisor-modal {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0f172a;
-      color: #fff;
-      z-index: 60;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    .advisor-modal.active {
-      display: block;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ERP Simplificado — Prototipo interactivo V.I.C.A.</title>
+  <meta name="description" content="Prototipo navegable de un ERP simplificado para comerciantes: cuatro botones fijos (Vender, Inventario, Caja, Anular) sobre el motor de Facturalo Pro9.">
+  <!-- Prototipo de trabajo interno: se excluye de buscadores -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b1329">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#demo">Saltar a la demo</a>
 
-  <!-- Barra de control del prototipo -->
-  <div class="demo-bar">
-    <span>💡 <b>Prototipo Interactivo VICA</b></span>
-    <select id="modeSelector" onchange="toggleAdvisorMode()">
-      <option value="merchant">Modo Comerciante (Pantalla Limpia)</option>
-      <option value="advisor">Modo Asesor (Facturalo Pro9 Completo)</option>
-    </select>
-  </div>
+  <!-- ============================================================ -->
+  <!-- ENCABEZADO DE LA PÁGINA DE PRESENTACIÓN                      -->
+  <!-- ============================================================ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#top">
+        <span class="brand__mark" aria-hidden="true">
+          <span class="v"></span><span class="i"></span><span class="c"></span><span class="a"></span>
+        </span>
+        <span class="brand__text">
+          <strong>ERP Simplificado</strong>
+          <small>Prototipo para comerciantes</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Secciones">
+        <a href="#demo">Demo</a>
+        <a href="#concepto">Concepto</a>
+        <a href="#arquitectura">Arquitectura</a>
+        <a href="#cronograma">Cronograma</a>
+      </nav>
+      <span class="phase-chip"><span class="phase-chip__dot" aria-hidden="true"></span>Prototipo UI/UX · Fase 3</span>
+    </div>
+  </header>
 
-  <!-- Dispositivo Celular / Tablet -->
-  <div class="device-container">
-    
-    <!-- Encabezado -->
-    <header>
-      <div class="store-badge">
-        <span class="status-dot"></span>
-        <span class="store-name">CONFECCIONES GAMARRA</span>
-      </div>
-      <span class="role-badge" id="roleBadgeText">MODO VENDEDOR</span>
-    </header>
-
-    <!-- Contenido Principal -->
-    <main>
-
-      <!-- ========================================== -->
-      <!-- PANTALLA PRINCIPAL: CUADRANTE V.I.C.A.     -->
-      <!-- ========================================== -->
-      <section id="screen-vica" class="view-screen active">
-        <div class="vica-grid">
-          
-          <!-- 🟢 V: VENDER -->
-          <div class="vica-card card-v" onclick="navigateTo('screen-vender')">
-            <div class="vica-letter">V</div>
-            <div class="vica-title">VENDER</div>
-            <div class="vica-subtitle">Nueva Boleta / Cobro rápido</div>
-          </div>
-
-          <!-- 🔵 I: INVENTARIO -->
-          <div class="vica-card card-i" onclick="navigateTo('screen-inventario')">
-            <div class="vica-letter">I</div>
-            <div class="vica-title">INVENTARIO</div>
-            <div class="vica-subtitle">Consultar stock y catálogo</div>
-          </div>
-
-          <!-- ⚪ C: CAJA -->
-          <div class="vica-card card-c" onclick="navigateTo('screen-caja')">
-            <div class="vica-letter">C</div>
-            <div class="vica-title">CAJA DEL DÍA</div>
-            <div class="vica-subtitle">¿Cuánto vendí hoy?</div>
-          </div>
-
-          <!-- 🔴 A: ANULAR -->
-          <div class="vica-card card-a" onclick="navigateTo('screen-anular')">
-            <div class="vica-letter">A</div>
-            <div class="vica-title">ANULAR</div>
-            <div class="vica-subtitle">Corregir error / Devolución</div>
-          </div>
-
-        </div>
-
-        <div class="mnemonic-helper">
-          Mnemotecnia: <b>V</b>ender (Verde) • <b>I</b>nventario (Azul) • <b>C</b>aja (Plomo) • <b>A</b>nular (Rojo)
-        </div>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- PANTALLA 1: FLUJO DE VENTA RÁPIDA (🟢 V)   -->
-      <!-- ========================================== -->
-      <section id="screen-vender" class="view-screen">
-        <div class="screen-header">
-          <button class="btn-back" onclick="navigateTo('screen-vica')">← INICIO</button>
-          <span class="screen-title">🟢 NUEVA VENTA</span>
-        </div>
-
-        <!-- Buscador y Escáner -->
-        <div class="search-scanner-bar">
-          <input type="text" id="productSearchInput" class="search-input" placeholder="Buscar prenda o código..." onkeyup="filterProductsForSale()">
-          <button class="btn-scanner" onclick="simulateBarcodeScan()">📷 ESCANEAR</button>
-        </div>
-
-        <!-- Filtros por Categoría -->
-        <div class="category-pills">
-          <button class="cat-pill active" onclick="setSaleCategory('TODOS', this)">Todos (28)</button>
-          <button class="cat-pill" onclick="setSaleCategory('POLOS', this)">Polos</button>
-          <button class="cat-pill" onclick="setSaleCategory('JEANS', this)">Jeans</button>
-          <button class="cat-pill" onclick="setSaleCategory('CASACAS', this)">Casacas</button>
-          <button class="cat-pill" onclick="setSaleCategory('CAMISAS', this)">Camisas</button>
-          <button class="cat-pill" onclick="setSaleCategory('ACCESORIOS', this)">Accesorios</button>
-        </div>
-
-        <!-- Catálogo de Productos -->
-        <div class="products-grid" id="productsGrid"></div>
-
-        <!-- Carrito -->
-        <div class="cart-box">
-          <div class="cart-title">PRODUCTOS POR COBRAR</div>
-          <div class="cart-items" id="cartItemsList">
-            <div class="cart-empty">Toque productos arriba o escanee</div>
-          </div>
-        </div>
-
-        <!-- Total -->
-        <div class="total-banner">
-          <span class="total-label">TOTAL:</span>
-          <span class="total-amount" id="cartTotalDisplay">S/ 0.00</span>
-        </div>
-
-        <!-- Cobro -->
-        <div class="pay-actions">
-          <button class="btn-pay btn-pay-cash" onclick="processPayment('EFECTIVO')">
-            <span>💵 COBRAR</span>
-            <small>EFECTIVO</small>
-          </button>
-          <button class="btn-pay btn-pay-yape" onclick="processPayment('YAPE / PLIN')">
-            <span>📱 COBRAR</span>
-            <small>YAPE / PLIN</small>
-          </button>
-        </div>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- PANTALLA 2: CONSULTA DE INVENTARIO (🔵 I)  -->
-      <!-- ========================================== -->
-      <section id="screen-inventario" class="view-screen">
-        <div class="screen-header">
-          <button class="btn-back" onclick="navigateTo('screen-vica')">← INICIO</button>
-          <span class="screen-title">🔵 INVENTARIO Y STOCK</span>
-        </div>
-
-        <!-- Estadísticas Rápidas -->
-        <div class="inventory-stats-bar">
-          <div class="stat-box">
-            <div class="stat-num" id="totalItemsCount">28</div>
-            <div class="stat-label">PRODUCTOS</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num" id="totalStockCount" style="color:#1d4ed8;">582</div>
-            <div class="stat-label">UNID. TOTALES</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num" id="lowStockCount" style="color:#b91c1c;">3</div>
-            <div class="stat-label">STOCK BAJO</div>
-          </div>
-        </div>
-
-        <!-- Buscador -->
-        <div class="search-scanner-bar">
-          <input type="text" id="inventorySearchInput" class="search-input" placeholder="Filtrar por nombre o código..." onkeyup="filterInventoryList()">
-          <button class="btn-scanner" onclick="simulateBarcodeScanInventory()">📷 ESCANEAR</button>
-        </div>
-
-        <!-- Filtros Categoría -->
-        <div class="category-pills">
-          <button class="cat-pill active" onclick="setInventoryCategory('TODOS', this)">Todos</button>
-          <button class="cat-pill" onclick="setInventoryCategory('POLOS', this)">Polos</button>
-          <button class="cat-pill" onclick="setInventoryCategory('JEANS', this)">Jeans</button>
-          <button class="cat-pill" onclick="setInventoryCategory('CASACAS', this)">Casacas</button>
-          <button class="cat-pill" onclick="setInventoryCategory('CAMISAS', this)">Camisas</button>
-          <button class="cat-pill" onclick="setInventoryCategory('ACCESORIOS', this)">Accesorios</button>
-        </div>
-
-        <!-- Detalle destacado al tocar un ítem -->
-        <div id="stockDetailCard" class="stock-detail-card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-            <span id="detailCode" style="font-size:11px; font-weight:700; color:#3b82f6;">CÓDIGO: POL-001</span>
-            <button onclick="closeStockDetail()" style="background:none; border:none; font-size:16px; cursor:pointer;">✖</button>
-          </div>
-          <h3 id="detailName" style="font-size:16px; color:#1e293b;">Polo Algodón 20/1 Cuello Redondo</h3>
-          <div id="detailQty" style="font-size:48px; font-weight:900; color:#1d4ed8; line-height:1; margin:8px 0;">45</div>
-          <div style="font-size:12px; font-weight:700; color:#64748b;">UNIDADES DISPONIBLES EN TIENDA</div>
-          <div id="detailPrice" style="font-size:16px; font-weight:800; color:#15803d; margin:8px 0;">Precio: S/ 20.00</div>
-          <button class="btn-back" style="width:100%; justify-content:center; background:#15803d; color:#fff; padding:10px; border-radius:8px;" onclick="addDetailItemToSale()">
-            🟢 AGREGAR A LA VENTA DIRECTA
-          </button>
-        </div>
-
-        <!-- Lista Completa de Productos -->
-        <div class="inventory-list" id="inventoryItemsList"></div>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- PANTALLA 3: CAJA DEL DÍA (⚪ C)            -->
-      <!-- ========================================== -->
-      <section id="screen-caja" class="view-screen">
-        <div class="screen-header">
-          <button class="btn-back" onclick="navigateTo('screen-vica')">← INICIO</button>
-          <span class="screen-title">⚪ MI CAJA DE HOY</span>
-        </div>
-
-        <div class="cash-summary-card">
-          <div class="cash-row">
-            <span>💵 Efectivo en mano:</span>
-            <span id="cashTotalCash">S/ 0.00</span>
-          </div>
-          <div class="cash-row">
-            <span>📱 Yape / Plin recibidos:</span>
-            <span id="cashTotalYape">S/ 0.00</span>
-          </div>
-          <div class="cash-row">
-            <span>🧾 Comprobantes emitidos:</span>
-            <span id="cashTotalVouchers">0 boletas</span>
-          </div>
-          <div class="cash-total-row">
-            <span>TOTAL VENDIDO HOY:</span>
-            <span id="cashGrandTotal" style="color:#15803d;">S/ 0.00</span>
-          </div>
-        </div>
-
-        <button class="btn-back" style="width: 100%; justify-content: center; background:#334155; color:#fff; padding: 14px;" onclick="showCashClosingTicket()">
-          🖨️ IMPRIMIR CIERRE EN TICKET
-        </button>
-      </section>
-
-      <!-- ========================================== -->
-      <!-- PANTALLA 4: ANULAR VENTA (🔴 A)            -->
-      <!-- ========================================== -->
-      <section id="screen-anular" class="view-screen">
-        <div class="screen-header">
-          <button class="btn-back" onclick="navigateTo('screen-vica')">← INICIO</button>
-          <span class="screen-title">🔴 ANULAR VENTA</span>
-        </div>
-
-        <p style="font-size: 13px; color: #64748b; margin-bottom: 12px; font-weight: 600;">
-          Seleccione la venta que desea anular. El stock regresará automáticamente al inventario:
-        </p>
-
-        <div id="voidSalesList"></div>
-      </section>
-
-    </main>
+  <main id="top">
 
     <!-- ============================================================ -->
-    <!-- PREVISUALIZACIÓN DE TICKET TÉRMICO (BOLETA O CIERRE DE CAJA) -->
+    <!-- HERO + DEMO INTERACTIVA                                      -->
     <!-- ============================================================ -->
-    <div id="ticketModal" class="modal-overlay">
-      <div class="receipt-container">
-        
-        <div class="receipt-header" id="receiptHeader">
-          <h3>CONFECCIONES GAMARRA S.A.C.</h3>
-          <p>RUC: 20601234567</p>
-          <p>Jr. Gamarra 1050, Galería San Pedro Tda. 204</p>
-          <p>La Victoria - Lima</p>
-          <div class="receipt-divider"></div>
-          <b id="receiptDocTitle" style="font-size:13px;">BOLETA ELECTRÓNICA B001-1004</b>
-        </div>
+    <section class="hero" id="demo" data-device="phone" aria-labelledby="hero-title">
+      <div class="hero__inner">
 
-        <div class="receipt-body" id="receiptBody">
-          <!-- Detalle dinámico -->
-        </div>
+        <div class="hero__copy">
+          <p class="eyebrow">Prototipo interactivo · Modo Comerciante</p>
+          <h1 id="hero-title">Un ERP que se entiende al primer toque</h1>
+          <p class="lead">
+            Interfaz para comerciantes de 55 a 65+ años con la regla <strong>V.I.C.A.</strong>:
+            cuatro botones grandes que nunca cambian de lugar, construida sobre el motor tributario de Facturalo Pro9.
+          </p>
+          <ul class="vica-chips" aria-label="Regla V.I.C.A.">
+            <li class="vica-chip vica-chip--v"><b>V</b>Vender</li>
+            <li class="vica-chip vica-chip--i"><b>I</b>Inventario</li>
+            <li class="vica-chip vica-chip--c"><b>C</b>Caja</li>
+            <li class="vica-chip vica-chip--a"><b>A</b>Anular</li>
+          </ul>
 
-        <div class="receipt-divider"></div>
-
-        <div class="receipt-total-block" id="receiptTotalBlock">
-          <div class="receipt-row">
-            <span>TOTAL A PAGAR:</span>
-            <span id="receiptTotalVal">S/ 0.00</span>
+          <div class="hero__controls">
+            <div class="control control--device">
+              <span class="control__label" id="deviceLabel">Ver en</span>
+              <div class="segmented" role="group" aria-labelledby="deviceLabel">
+                <button type="button" class="segmented__btn" data-action="set-device" data-device="phone" aria-pressed="true">📱 Celular</button>
+                <button type="button" class="segmented__btn" data-action="set-device" data-device="tablet" aria-pressed="false">📲 Tablet</button>
+              </div>
+            </div>
+            <div class="control">
+              <span class="control__label" id="modeLabel">Perfil</span>
+              <div class="segmented" role="group" aria-labelledby="modeLabel">
+                <button type="button" class="segmented__btn" data-action="set-mode" data-mode="merchant" aria-pressed="true">Comerciante</button>
+                <button type="button" class="segmented__btn" data-action="set-mode" data-mode="advisor" aria-pressed="false">Asesor (Pro9)</button>
+              </div>
+            </div>
+            <button type="button" class="btn-reset" data-action="reset-demo">↺ Reiniciar demo</button>
           </div>
         </div>
 
-        <!-- Código QR simulado de SUNAT -->
-        <div class="simulated-qr" id="receiptQrArea">
-          <div class="qr-box">QR SUNAT</div>
-          <small style="font-size:10px; color:#555; margin-top:4px;">Representación impresa oficial</small>
-        </div>
+        <aside class="hero__tour" aria-labelledby="tourTitle">
+          <h2 class="tour-title" id="tourTitle">Recorrido de la demo</h2>
+          <p class="tour-hint">Elija una pantalla o toque directamente el prototipo.</p>
+          <ol class="tour" id="tourList"></ol>
+        </aside>
 
-        <!-- Botones de Acción -->
-        <div class="receipt-actions">
-          <button class="btn-receipt-action btn-receipt-close" id="btnReceiptPrimary" onclick="closeTicketModal()">
-            ✅ LISTO / CERRAR
-          </button>
+        <div class="hero__stage">
+          <div class="stage">
+            <div class="device is-phone" id="device" role="region" aria-label="Prototipo interactivo: pantalla del comerciante">
+
+              <!-- Barra de estado simulada (solo en el marco de celular/tablet) -->
+              <div class="device__statusbar" aria-hidden="true">
+                <span id="deviceClock">09:41</span>
+                <span class="device__camera"></span>
+                <span class="device__icons">
+                  <svg width="18" height="12" viewBox="0 0 18 12" focusable="false"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+                  <span>4G</span>
+                  <svg width="27" height="12" viewBox="0 0 27 12" focusable="false"><rect x="0.75" y="0.75" width="22" height="10.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5"/><rect x="24" y="4" width="2.5" height="4" rx="1"/></svg>
+                </span>
+              </div>
+
+              <div class="app" id="app">
+
+                <!-- Encabezado del sistema -->
+                <div class="app-header">
+                  <div class="store-badge">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span class="store-name">CONFECCIONES GAMARRA</span>
+                  </div>
+                  <span class="role-badge" id="roleBadgeText">MODO VENDEDOR</span>
+                </div>
+
+                <div class="app-main" id="appMain">
+
+                  <!-- ========================================== -->
+                  <!-- INICIO: CUADRANTE V.I.C.A.                 -->
+                  <!-- ========================================== -->
+                  <section id="screen-vica" class="view-screen active" aria-label="Inicio: cuadrante V.I.C.A.">
+                    <div class="vica-grid">
+                      <button type="button" class="vica-card card-v" data-action="nav" data-target="screen-vender">
+                        <span class="vica-letter" aria-hidden="true">V</span>
+                        <span class="vica-title">VENDER</span>
+                        <span class="vica-subtitle">Nueva boleta / cobro rápido</span>
+                      </button>
+                      <button type="button" class="vica-card card-i" data-action="nav" data-target="screen-inventario">
+                        <span class="vica-letter" aria-hidden="true">I</span>
+                        <span class="vica-title">INVENTARIO</span>
+                        <span class="vica-subtitle">Consultar stock y catálogo</span>
+                      </button>
+                      <button type="button" class="vica-card card-c" data-action="nav" data-target="screen-caja">
+                        <span class="vica-letter" aria-hidden="true">C</span>
+                        <span class="vica-title">CAJA DEL DÍA</span>
+                        <span class="vica-subtitle">¿Cuánto vendí hoy?</span>
+                      </button>
+                      <button type="button" class="vica-card card-a" data-action="nav" data-target="screen-anular">
+                        <span class="vica-letter" aria-hidden="true">A</span>
+                        <span class="vica-title">ANULAR</span>
+                        <span class="vica-subtitle">Corregir error / devolución</span>
+                      </button>
+                    </div>
+                    <p class="mnemonic-helper">
+                      Mnemotecnia: <b>V</b>ender (verde) • <b>I</b>nventario (azul) • <b>C</b>aja (plomo) • <b>A</b>nular (rojo)
+                    </p>
+                  </section>
+
+                  <!-- ========================================== -->
+                  <!-- V: VENTA RÁPIDA                            -->
+                  <!-- ========================================== -->
+                  <section id="screen-vender" class="view-screen" aria-label="Nueva venta">
+                    <div class="screen-header">
+                      <button type="button" class="btn-back" data-action="nav" data-target="screen-vica">← INICIO</button>
+                      <h3 class="screen-title">🟢 NUEVA VENTA</h3>
+                    </div>
+
+                    <div class="sale-layout">
+                      <div class="sale-catalog">
+                        <div class="search-scanner-bar">
+                          <label class="sr-only" for="productSearchInput">Buscar producto</label>
+                          <input type="search" id="productSearchInput" class="search-input" placeholder="Buscar prenda o código..." autocomplete="off">
+                          <button type="button" class="btn-scanner" data-action="scan-sale">📷 ESCANEAR</button>
+                        </div>
+                        <div class="category-pills" id="saleCategoryPills" role="group" aria-label="Filtrar productos por categoría"></div>
+                        <div class="products-grid" id="productsGrid"></div>
+                      </div>
+
+                      <div class="sale-summary">
+                        <div class="cart-box">
+                          <div class="cart-title">Productos por cobrar</div>
+                          <div class="cart-items" id="cartItemsList">
+                            <p class="cart-empty">Toque un producto o escanee su código</p>
+                          </div>
+                        </div>
+                        <div class="total-banner">
+                          <span class="total-label">Total:</span>
+                          <span class="total-amount" id="cartTotalDisplay" aria-live="polite">S/ 0.00</span>
+                        </div>
+                        <div class="pay-actions">
+                          <button type="button" class="btn-pay btn-pay-cash" data-action="pay" data-method="EFECTIVO" aria-disabled="true">
+                            <span>💵 COBRAR</span><small>EFECTIVO</small>
+                          </button>
+                          <button type="button" class="btn-pay btn-pay-yape" data-action="pay" data-method="YAPE / PLIN" aria-disabled="true">
+                            <span>📱 COBRAR</span><small>YAPE / PLIN</small>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- ========================================== -->
+                  <!-- I: CONSULTA DE INVENTARIO                  -->
+                  <!-- ========================================== -->
+                  <section id="screen-inventario" class="view-screen" aria-label="Inventario y stock">
+                    <div class="screen-header">
+                      <button type="button" class="btn-back" data-action="nav" data-target="screen-vica">← INICIO</button>
+                      <h3 class="screen-title">🔵 INVENTARIO Y STOCK</h3>
+                    </div>
+
+                    <div class="inventory-stats-bar">
+                      <div class="stat-box">
+                        <div class="stat-num" id="totalItemsCount">28</div>
+                        <div class="stat-label">PRODUCTOS</div>
+                      </div>
+                      <div class="stat-box">
+                        <div class="stat-num stat-num--blue" id="totalStockCount">0</div>
+                        <div class="stat-label">UNID. TOTALES</div>
+                      </div>
+                      <div class="stat-box">
+                        <div class="stat-num stat-num--red" id="lowStockCount">0</div>
+                        <div class="stat-label">STOCK BAJO</div>
+                      </div>
+                    </div>
+
+                    <div class="search-scanner-bar">
+                      <label class="sr-only" for="inventorySearchInput">Filtrar inventario</label>
+                      <input type="search" id="inventorySearchInput" class="search-input" placeholder="Filtrar por nombre o código..." autocomplete="off">
+                      <button type="button" class="btn-scanner" data-action="scan-inv">📷 ESCANEAR</button>
+                    </div>
+                    <div class="category-pills" id="invCategoryPills" role="group" aria-label="Filtrar inventario por categoría"></div>
+
+                    <div class="inv-layout">
+                      <!-- Detalle destacado (en tablet queda fijo a la derecha) -->
+                      <div class="stock-detail-card" id="stockDetailCard" aria-live="polite">
+                        <div class="detail-empty">
+                          <span class="detail-empty__icon" aria-hidden="true">📦</span>
+                          <p>Toque un producto o escanee su código para ver el stock en grande.</p>
+                        </div>
+                        <div class="detail-content">
+                          <div class="detail-top">
+                            <span class="detail-code" id="detailCode">CÓDIGO</span>
+                            <button type="button" class="detail-close" data-action="close-detail" aria-label="Cerrar detalle">✖</button>
+                          </div>
+                          <h4 class="detail-name" id="detailName">Producto</h4>
+                          <div class="detail-qty" id="detailQty">0</div>
+                          <div class="detail-qty-label">UNIDADES DISPONIBLES EN TIENDA</div>
+                          <div class="detail-price" id="detailPrice">Precio de venta</div>
+                          <button type="button" class="btn-detail-add" id="detailAddBtn" data-action="detail-to-sale">🟢 AGREGAR A LA VENTA</button>
+                        </div>
+                      </div>
+
+                      <div class="inventory-list" id="inventoryItemsList"></div>
+                    </div>
+                  </section>
+
+                  <!-- ========================================== -->
+                  <!-- C: CAJA DEL DÍA                            -->
+                  <!-- ========================================== -->
+                  <section id="screen-caja" class="view-screen" aria-label="Caja del día">
+                    <div class="screen-header">
+                      <button type="button" class="btn-back" data-action="nav" data-target="screen-vica">← INICIO</button>
+                      <h3 class="screen-title">⚪ MI CAJA DE HOY</h3>
+                    </div>
+
+                    <div class="cash-layout">
+                      <div class="cash-summary-card">
+                        <div class="cash-row"><span>💵 Efectivo en mano</span><span id="cashTotalCash">S/ 0.00</span></div>
+                        <div class="cash-row"><span>📱 Yape / Plin recibidos</span><span id="cashTotalYape">S/ 0.00</span></div>
+                        <div class="cash-row"><span>🧾 Comprobantes emitidos</span><span id="cashTotalVouchers">0 boletas</span></div>
+                        <div class="cash-total-row"><span>TOTAL VENDIDO HOY</span><span id="cashGrandTotal">S/ 0.00</span></div>
+                      </div>
+                      <button type="button" class="btn-block btn-block--dark" data-action="print-cash">🖨️ IMPRIMIR CIERRE EN TICKET</button>
+                    </div>
+                  </section>
+
+                  <!-- ========================================== -->
+                  <!-- A: ANULAR VENTA                            -->
+                  <!-- ========================================== -->
+                  <section id="screen-anular" class="view-screen" aria-label="Anular venta">
+                    <div class="screen-header">
+                      <button type="button" class="btn-back" data-action="nav" data-target="screen-vica">← INICIO</button>
+                      <h3 class="screen-title">🔴 ANULAR VENTA</h3>
+                    </div>
+                    <p class="screen-note">Se muestran las últimas 3 ventas del día. Al anular, el stock regresa solo al inventario.</p>
+                    <div class="void-list" id="voidSalesList"></div>
+                  </section>
+
+                </div>
+
+                <!-- ========================================== -->
+                <!-- TICKET TÉRMICO (BOLETA O CIERRE DE CAJA)   -->
+                <!-- ========================================== -->
+                <div id="ticketModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="receiptDocTitle" hidden>
+                  <div class="modal-stack">
+                    <div class="sale-success" id="saleSuccess">
+                      <strong>¡VENTA REGISTRADA!</strong>
+                      <span>Boleta emitida · ticket enviado a la impresora</span>
+                    </div>
+                    <div class="receipt-container">
+                      <!-- El papel se desplaza por dentro si no cabe; el botón queda siempre visible -->
+                      <div class="receipt-paper">
+                        <div class="receipt-header">
+                          <h4>CONFECCIONES GAMARRA S.A.C.</h4>
+                          <p>RUC: 20601234567</p>
+                          <p>Jr. Gamarra 1050, Galería San Pedro Tda. 204</p>
+                          <p>La Victoria - Lima</p>
+                          <div class="receipt-divider"></div>
+                          <b id="receiptDocTitle" class="receipt-doc-title">BOLETA ELECTRÓNICA</b>
+                        </div>
+                        <div class="receipt-body" id="receiptBody"></div>
+                        <div class="receipt-total-block">
+                          <div class="receipt-row">
+                            <span>TOTAL A PAGAR:</span>
+                            <span id="receiptTotalVal">S/ 0.00</span>
+                          </div>
+                        </div>
+                        <div class="simulated-qr" id="receiptQrArea">
+                          <div class="qr-box"><span>QR SUNAT</span></div>
+                          <small>Representación impresa oficial</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="receipt-actions">
+                      <button type="button" class="btn-receipt-action btn-receipt-close" id="btnReceiptPrimary" data-action="close-receipt">✅ LISTO</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- CONFIRMACIÓN DE ANULACIÓN (1 toque)        -->
+                <!-- ========================================== -->
+                <div id="voidModal" class="modal-overlay" role="alertdialog" aria-modal="true" aria-labelledby="voidModalTitle" aria-describedby="voidModalText" hidden>
+                  <div class="modal-stack">
+                    <div class="confirm-card">
+                      <div class="confirm-icon" aria-hidden="true">A</div>
+                      <h4 id="voidModalTitle">¿Anular esta venta?</h4>
+                      <p id="voidModalText"></p>
+                      <ul class="confirm-effects">
+                        <li>Se emite la nota de crédito</li>
+                        <li>Los productos vuelven al stock</li>
+                        <li>Se descuenta de la caja del día</li>
+                      </ul>
+                      <div class="confirm-actions">
+                        <button type="button" class="btn-confirm btn-confirm--no" id="voidCancelBtn" data-action="void-cancel">NO, VOLVER</button>
+                        <button type="button" class="btn-confirm btn-confirm--yes" data-action="void-confirm">SÍ, ANULAR</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- MODO ASESOR (FACTURALO PRO9)               -->
+                <!-- ========================================== -->
+                <div id="advisorModal" class="advisor-modal" hidden>
+                  <div class="advisor-head">
+                    <h4>🛠️ Panel Asesor (Facturalo Pro9)</h4>
+                    <button type="button" class="btn-advisor-exit" data-action="set-mode" data-mode="merchant">Salir del modo asesor</button>
+                  </div>
+                  <p class="advisor-intro">
+                    Vista técnica para soporte y administración. El comerciante nunca interactúa con esta pantalla para evitar confusiones.
+                  </p>
+                  <div class="advisor-grid">
+                    <div class="advisor-card">
+                      <h5>⚙️ Certificados y SUNAT</h5>
+                      <p>Certificado digital vigente · Estado PSE: conectado</p>
+                    </div>
+                    <div class="advisor-card">
+                      <h5>📊 Carga masiva de Excel</h5>
+                      <p><span id="advisorProductCount">28</span> productos activos sincronizados con la base de datos MariaDB</p>
+                    </div>
+                    <div class="advisor-card">
+                      <h5>🧾 Reportes tributarios</h5>
+                      <p>Reportes de ventas e impuestos para el contador</p>
+                    </div>
+                    <div class="advisor-card">
+                      <h5>🔑 Multiempresa y membresías</h5>
+                      <p>Tenant: gamarra.facturador.pe · Plan beta 15 días</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Avisos breves dentro del dispositivo -->
+                <div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+          <p class="stage__caption" id="stageCaption">Vista celular · datos ficticios de una tienda en Gamarra</p>
         </div>
 
       </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONCEPTO                                                     -->
+    <!-- ============================================================ -->
+    <section class="section" id="concepto" aria-labelledby="concepto-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Concepto</p>
+          <h2 id="concepto-title">Diseñado para quien no quiere aprender un sistema</h2>
+          <p class="section-lead">
+            Comerciantes independientes de 55 a 65+ años (galerías, Gamarra, importadoras, bodegas y ferreterías)
+            que usan WhatsApp y Yape a diario, pero le temen al ERP tradicional.
+          </p>
+        </header>
+
+        <div class="compare">
+          <article class="compare-card compare-card--before">
+            <span class="compare-card__tag">Antes</span>
+            <h3>ERP tradicional</h3>
+            <ul class="check-list check-list--x">
+              <li>Ventanas que abren otras ventanas (popups anidados)</li>
+              <li>Jerga técnica: asientos, afectación tributaria, percepciones</li>
+              <li>Miedo a equivocarse o a “malograr el sistema”</li>
+            </ul>
+          </article>
+
+          <article class="compare-card compare-card--after">
+            <span class="compare-card__tag">Ahora</span>
+            <h3>Modo Comerciante V.I.C.A.</h3>
+            <ul class="check-list">
+              <li>Cuatro botones fijos con color y letra</li>
+              <li>Lenguaje de mostrador: vender, caja, anular</li>
+              <li>Máximo 2 toques por operación, sin datos contables</li>
+            </ul>
+          </article>
+
+          <article class="rule-card">
+            <div class="mini-vica" aria-hidden="true">
+              <span class="v">V</span><span class="i">I</span><span class="c">C</span><span class="a">A</span>
+            </div>
+            <h3>Regla de oro</h3>
+            <p>
+              Los 4 botones nunca cambian de posición ni se ocultan. El comerciante sabe dónde tocar,
+              igual que en un cajero automático o en el teclado de su teléfono.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ARQUITECTURA                                                 -->
+    <!-- ============================================================ -->
+    <section class="section section--alt" id="arquitectura" aria-labelledby="arq-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Arquitectura</p>
+          <h2 id="arq-title">Dos capas sobre el mismo motor</h2>
+          <p class="section-lead">
+            La lógica fiscal de Facturalo Pro9 no se modifica: la nueva interfaz consume su API.
+            El comerciante nunca ve el panel completo.
+          </p>
+        </header>
+
+        <div class="arch">
+          <div class="arch__core">
+            <span class="arch__label">Backend</span>
+            <h3>Facturalo Pro9</h3>
+            <ul class="arch__pills">
+              <li>Motor SUNAT</li>
+              <li>MariaDB</li>
+              <li>Multiempresa</li>
+              <li>API REST</li>
+            </ul>
+          </div>
+
+          <div class="arch__layers">
+            <article class="arch__layer arch__layer--merchant">
+              <span class="arch__label">Capa 1</span>
+              <h3>Modo Comerciante</h3>
+              <p class="arch__who">Dueño o empleado del local</p>
+              <ul>
+                <li>4 botones gigantes (V.I.C.A.)</li>
+                <li>Sin menús ni opciones técnicas</li>
+                <li>Celular o tablet, con ticketera y escáner</li>
+              </ul>
+            </article>
+            <article class="arch__layer arch__layer--advisor">
+              <span class="arch__label">Capa 2</span>
+              <h3>Modo Asesor</h3>
+              <p class="arch__who">Equipo técnico de soporte</p>
+              <ul>
+                <li>Configuración SUNAT y certificados digitales</li>
+                <li>Carga masiva de catálogo desde Excel</li>
+                <li>Reportes tributarios y gestión de membresías</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="tech-grid">
+          <article class="tech-card">
+            <h3>Endpoints previstos</h3>
+            <table class="endpoint-table">
+              <caption class="sr-only">Endpoints de la API de Pro9 que usará cada pantalla</caption>
+              <thead>
+                <tr><th scope="col">Pantalla</th><th scope="col">Endpoint</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="tag tag--v" aria-hidden="true">V</span>Emitir boleta o factura</td><td><code>POST /api/documents</code></td></tr>
+                <tr><td><span class="tag tag--i" aria-hidden="true">I</span>Stock y código de barras</td><td><code>GET /api/items</code></td></tr>
+                <tr><td><span class="tag tag--c" aria-hidden="true">C</span>Caja del día</td><td><code>GET /api/cash</code></td></tr>
+                <tr><td><span class="tag tag--a" aria-hidden="true">A</span>Anulación y nota de crédito</td><td><code>POST /api/documents/anulation</code></td></tr>
+              </tbody>
+            </table>
+            <p class="tech-note">Rutas previstas; se validarán contra el código fuente de Pro9 durante el análisis técnico.</p>
+          </article>
+
+          <article class="tech-card">
+            <h3>Hardware de bajo costo</h3>
+            <ul class="hw-list">
+              <li>
+                <span class="hw-icon" aria-hidden="true">📱</span>
+                <div><b>Celular Android o tablet de 8" / 10"</b><small>No requiere computadora</small></div>
+              </li>
+              <li>
+                <span class="hw-icon" aria-hidden="true">🖨️</span>
+                <div><b>Ticketera térmica Bluetooth de 58 / 80 mm</b><small>Impresión con comandos ESC/POS</small></div>
+              </li>
+              <li>
+                <span class="hw-icon" aria-hidden="true">📷</span>
+                <div><b>Cámara del celular o lector USB / Bluetooth</b><small>Lectura de códigos con html5-qrcode</small></div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CRONOGRAMA                                                   -->
+    <!-- ============================================================ -->
+    <section class="section" id="cronograma" aria-labelledby="crono-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker">Cronograma</p>
+          <h2 id="crono-title">Dónde estamos</h2>
+          <p class="section-lead">
+            Versión beta el <strong>20 de octubre</strong> y 15 días de pruebas con comerciantes reales hasta el <strong>4 de noviembre</strong>.
+          </p>
+        </header>
+
+        <!-- El estado (pasado / en curso) se calcula con la fecha del día en js/main.js -->
+        <ol class="timeline" id="timeline">
+          <li class="tl-item" data-start="2026-10-05" data-end="2026-10-07">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-date">05–07 oct</span>
+            <b class="tl-title">Fase 1 · Evaluación y selección</b>
+            <span class="tl-desc">Demos, comparativa de mercado y elección del código base</span>
+          </li>
+          <li class="tl-item" data-start="2026-10-08" data-end="2026-10-11">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-date">08–11 oct</span>
+            <b class="tl-title">Fase 2 · Entorno y análisis de código</b>
+            <span class="tl-desc">Instalación local, base de datos de prueba y mapa de módulos</span>
+          </li>
+          <li class="tl-item" data-start="2026-10-12" data-end="2026-10-14">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-date">12–14 oct</span>
+            <b class="tl-title">Fase 3 · Rediseño <span class="nowrap">UI/UX</span></b>
+            <span class="tl-desc">Flujos de máximo 2 pasos, mnemotecnias y roles</span>
+            <span class="tl-flag">Este prototipo</span>
+          </li>
+          <li class="tl-item" data-start="2026-10-15" data-end="2026-10-20">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-date">15–20 oct</span>
+            <b class="tl-title">Fase 4 · Implementación beta</b>
+            <span class="tl-desc">Venta, stock, anulación, ticketera, lector y responsive</span>
+          </li>
+          <li class="tl-item tl-item--milestone" data-start="2026-10-20" data-end="2026-10-20">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-date">20 oct</span>
+            <b class="tl-title">Hito · Entrega de la beta</b>
+            <span class="tl-desc">Versión funcional y guía rápida de 1 página</span>
+          </li>
+          <li class="tl-item" data-start="2026-10-21" data-end="2026-11-04">
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-date">21 oct – 04 nov</span>
+            <b class="tl-title">Etapa 2 · Pruebas en campo</b>
+            <span class="tl-desc">Uso real con comerciantes piloto, feedback e iteraciones</span>
+          </li>
+        </ol>
+
+        <div class="next-steps">
+          <h3>Próximos pasos del prototipo</h3>
+          <ol class="steps">
+            <li class="step step--done">
+              <span class="step__num" aria-hidden="true">✓</span>
+              <div><b>Maqueta navegable</b><small>Lista: es esta página, en celular y tablet.</small></div>
+            </li>
+            <li class="step">
+              <span class="step__num" aria-hidden="true">2</span>
+              <div><b>Validar el esquema</b><small>Revisar la regla V.I.C.A. y las 5 pantallas con la coordinación del proyecto.</small></div>
+            </li>
+            <li class="step">
+              <span class="step__num" aria-hidden="true">3</span>
+              <div><b>Conectar con Pro9</b><small>Enlazar las pantallas a los endpoints locales cuando se libere el repositorio.</small></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><strong>ERP Simplificado para Comerciantes</strong> · Prototipo de interfaz (Fase 3 UI/UX) · Beta: 20 oct 2026</p>
+      <p>Preparado por Diego · Área Técnica · Datos ficticios con fines de demostración</p>
     </div>
+  </footer>
 
-    <!-- ========================================== -->
-    <!-- MODAL MODO ASESOR (FACTURALO PRO9)         -->
-    <!-- ========================================== -->
-    <div id="advisorModal" class="advisor-modal">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <h2>🛠️ Panel Asesor (Facturalo Pro9)</h2>
-        <button onclick="exitAdvisorMode()" style="background:#ef4444; color:#fff; border:none; padding:8px 12px; border-radius:6px; font-weight:700; cursor:pointer;">Cerrar Modo Asesor</button>
-      </div>
-      <p style="color:#94a3b8; font-size:13px; margin-bottom:16px;">
-        Esta vista técnica es la que maneja el equipo de soporte o administración. El comerciante nunca interactúa con esta pantalla para evitar confusiones.
-      </p>
-      
-      <div style="background:#1e293b; padding:12px; border-radius:10px; margin-bottom:10px;">
-        <h4 style="color:#38bdf8;">⚙️ Certificados y SUNAT</h4>
-        <p style="font-size:12px; color:#cbd5e1;">Certificado Digital Vigente | Estado PSE: Conectado</p>
-      </div>
-
-      <div style="background:#1e293b; padding:12px; border-radius:10px; margin-bottom:10px;">
-        <h4 style="color:#38bdf8;">📊 Sincronización Masiva</h4>
-        <p style="font-size:12px; color:#cbd5e1;">28 productos activos sincronizados con base de datos MariaDB.</p>
-      </div>
-
-      <div style="background:#1e293b; padding:12px; border-radius:10px; margin-bottom:10px;">
-        <h4 style="color:#38bdf8;">🔑 Multitenant (Empresas)</h4>
-        <p style="font-size:12px; color:#cbd5e1;">Tenant: gamarra.facturador.pe | Plan Beta 15 días</p>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    // CATÁLOGO DE 28 PRODUCTOS
-    const inventory = [
-      // POLOS
-      { id: 1, name: "Polo Algodón 20/1 Cuello Redondo", category: "POLOS", price: 20.00, stock: 45, code: "POL-001" },
-      { id: 2, name: "Polo Pique Cuello Camisero", category: "POLOS", price: 32.00, stock: 28, code: "POL-002" },
-      { id: 3, name: "Polo Manga Larga Algodón", category: "POLOS", price: 25.00, stock: 18, code: "POL-003" },
-      { id: 4, name: "Polo Boxy Fit Oversize", category: "POLOS", price: 30.00, stock: 35, code: "POL-004" },
-      { id: 5, name: "Polo Dama Cuello V Estampado", category: "POLOS", price: 22.00, stock: 4, code: "POL-005" },
-
-      // JEANS
-      { id: 6, name: "Pantalón Jean Clásico Azul T.30", category: "JEANS", price: 48.00, stock: 22, code: "JEA-010" },
-      { id: 7, name: "Pantalón Jean Clásico Azul T.32", category: "JEANS", price: 48.00, stock: 26, code: "JEA-011" },
-      { id: 8, name: "Pantalón Jean Clásico Azul T.34", category: "JEANS", price: 48.00, stock: 15, code: "JEA-012" },
-      { id: 9, name: "Pantalón Jean Negro Slim Fit T.32", category: "JEANS", price: 52.00, stock: 3, code: "JEA-013" },
-      { id: 10, name: "Pantalón Cargo Drill Beige T.32", category: "JEANS", price: 55.00, stock: 19, code: "JEA-014" },
-      { id: 11, name: "Jogger Algodón Rustico Plomo", category: "JEANS", price: 38.00, stock: 30, code: "JEA-015" },
-
-      // CASACAS
-      { id: 12, name: "Casaca Térmica Polar con Cierre", category: "CASACAS", price: 75.00, stock: 14, code: "CAS-020" },
-      { id: 13, name: "Casaca Cortaviento Impermeable", category: "CASACAS", price: 65.00, stock: 20, code: "CAS-021" },
-      { id: 14, name: "Casaca Jean Clásica con Chiporro", category: "CASACAS", price: 95.00, stock: 2, code: "CAS-022" },
-      { id: 15, name: "Polera Capucha Algodón Franela", category: "CASACAS", price: 50.00, stock: 32, code: "CAS-023" },
-      { id: 16, name: "Chompa Cuello Jorge Chávez", category: "CASACAS", price: 45.00, stock: 11, code: "CAS-024" },
-
-      // CAMISAS
-      { id: 17, name: "Camisa Vestir Manga Larga Blanca", category: "CAMISAS", price: 42.00, stock: 25, code: "CAM-030" },
-      { id: 18, name: "Camisa Cuadros Casual Franela", category: "CAMISAS", price: 40.00, stock: 17, code: "CAM-031" },
-      { id: 19, name: "Camisa Lino Verano Manga Corta", category: "CAMISAS", price: 45.00, stock: 21, code: "CAM-032" },
-      { id: 20, name: "Camisa Denim Urbana Talla M", category: "CAMISAS", price: 50.00, stock: 8, code: "CAM-033" },
-
-      // ACCESORIOS
-      { id: 21, name: "Gorro Lana Tejido Polar", category: "ACCESORIOS", price: 15.00, stock: 40, code: "ACC-040" },
-      { id: 22, name: "Gorra Urbana con Visera Curva", category: "ACCESORIOS", price: 20.00, stock: 30, code: "ACC-041" },
-      { id: 23, name: "Correa Cuero Sintético Negro", category: "ACCESORIOS", price: 18.00, stock: 25, code: "ACC-042" },
-      { id: 24, name: "Billetera Hombre Cuero Vacuno", category: "ACCESORIOS", price: 28.00, stock: 12, code: "ACC-043" },
-      { id: 25, name: "Medias Algodón Pack x 3", category: "ACCESORIOS", price: 12.00, stock: 55, code: "ACC-044" },
-      { id: 26, name: "Bufanda Tejida Clásica", category: "ACCESORIOS", price: 22.00, stock: 16, code: "ACC-045" },
-      { id: 27, name: "Mochila Lona Reforzada 25L", category: "ACCESORIOS", price: 65.00, stock: 7, code: "ACC-046" },
-      { id: 28, name: "Morral Bandolera Compacto", category: "ACCESORIOS", price: 35.00, stock: 14, code: "ACC-047" }
-    ];
-
-    let currentSaleCategory = 'TODOS';
-    let currentInvCategory = 'TODOS';
-    let cart = [];
-    let selectedDetailItem = inventory[0];
-    let isSaleTicket = true;
-
-    // HISTORIAL DE LA MAÑANA
-    let salesHistory = [
-      {
-        voucher: "B001-1003",
-        time: "11:20",
-        method: "YAPE / PLIN",
-        items: [
-          { name: "Casaca Térmica Polar con Cierre", qty: 2, price: 75.00 },
-          { name: "Gorro Lana Tejido Polar", qty: 1, price: 15.00 }
-        ],
-        total: 165.00
-      },
-      {
-        voucher: "B001-1002",
-        time: "10:45",
-        method: "EFECTIVO",
-        items: [
-          { name: "Pantalón Jean Clásico Azul T.32", qty: 1, price: 48.00 }
-        ],
-        total: 48.00
-      },
-      {
-        voucher: "B001-1001",
-        time: "09:30",
-        method: "EFECTIVO",
-        items: [
-          { name: "Polo Algodón 20/1 Cuello Redondo", qty: 3, price: 20.00 },
-          { name: "Medias Algodón Pack x 3", qty: 2, price: 12.00 }
-        ],
-        total: 84.00
-      }
-    ];
-
-    let currentVoucherCounter = 1004;
-
-    // NAVEGACIÓN ENTRE PANTALLAS
-    function navigateTo(screenId) {
-      document.querySelectorAll('.view-screen').forEach(s => s.classList.remove('active'));
-      document.getElementById(screenId).classList.add('active');
-
-      if (screenId === 'screen-vender') {
-        renderProductsForSale();
-        renderCart();
-      } else if (screenId === 'screen-inventario') {
-        renderInventoryList();
-        updateInventoryStats();
-      } else if (screenId === 'screen-caja') {
-        updateCashView();
-      } else if (screenId === 'screen-anular') {
-        renderVoidSales();
-      }
-    }
-
-    // --- PANTALLA VENTA ---
-    function setSaleCategory(cat, btn) {
-      currentSaleCategory = cat;
-      document.querySelectorAll('#screen-vender .cat-pill').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderProductsForSale();
-    }
-
-    function renderProductsForSale() {
-      const q = document.getElementById('productSearchInput').value.toLowerCase();
-      const grid = document.getElementById('productsGrid');
-      grid.innerHTML = '';
-
-      let list = inventory.filter(item => {
-        const matchesCat = (currentSaleCategory === 'TODOS' || item.category === currentSaleCategory);
-        const matchesQuery = item.name.toLowerCase().includes(q) || item.code.toLowerCase().includes(q);
-        return matchesCat && matchesQuery;
-      });
-
-      if (list.length === 0) {
-        grid.innerHTML = `<div style="grid-column:1/3; text-align:center; color:#94a3b8; padding:20px;">No hay productos con este filtro.</div>`;
-        return;
-      }
-
-      list.forEach(item => {
-        const btn = document.createElement('div');
-        btn.className = 'product-btn';
-        btn.onclick = () => addToCart(item);
-        btn.innerHTML = `
-          <div class="prod-name">${item.name}</div>
-          <div class="prod-meta">
-            <span class="prod-price">S/ ${item.price.toFixed(2)}</span>
-            <span class="prod-stock-tag">${item.stock} disp.</span>
-          </div>
-        `;
-        grid.appendChild(btn);
-      });
-    }
-
-    function filterProductsForSale() {
-      renderProductsForSale();
-    }
-
-    function simulateBarcodeScan() {
-      const randomItem = inventory[Math.floor(Math.random() * inventory.length)];
-      addToCart(randomItem);
-      showTemporaryToast(`📷 Escaneado: [${randomItem.code}] ${randomItem.name}`);
-    }
-
-    function showTemporaryToast(msg) {
-      const existing = document.getElementById('tempToast');
-      if (existing) existing.remove();
-
-      const toast = document.createElement('div');
-      toast.id = 'tempToast';
-      toast.innerText = msg;
-      toast.style.cssText = `
-        position: fixed;
-        bottom: 25px;
-        background: #0f172a;
-        color: #fff;
-        padding: 10px 18px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: 700;
-        z-index: 100;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      `;
-      document.body.appendChild(toast);
-      setTimeout(() => toast.remove(), 2500);
-    }
-
-    function addToCart(item) {
-      const existing = cart.find(c => c.id === item.id);
-      if (existing) {
-        existing.qty++;
-      } else {
-        cart.push({ ...item, qty: 1 });
-      }
-      renderCart();
-    }
-
-    function changeQty(id, delta) {
-      const idx = cart.findIndex(c => c.id === id);
-      if (idx !== -1) {
-        cart[idx].qty += delta;
-        if (cart[idx].qty <= 0) {
-          cart.splice(idx, 1);
-        }
-      }
-      renderCart();
-    }
-
-    function renderCart() {
-      const list = document.getElementById('cartItemsList');
-      const totalDisplay = document.getElementById('cartTotalDisplay');
-      
-      if (cart.length === 0) {
-        list.innerHTML = `<div class="cart-empty">Toque productos arriba o escanee</div>`;
-        totalDisplay.innerText = "S/ 0.00";
-        return;
-      }
-
-      list.innerHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        const subtotal = item.price * item.qty;
-        total += subtotal;
-        const row = document.createElement('div');
-        row.className = 'cart-item';
-        row.innerHTML = `
-          <div>
-            <span>${item.name}</span><br>
-            <small style="color:#64748b;">S/ ${item.price.toFixed(2)} c/u</small>
-          </div>
-          <div class="cart-controls">
-            <button class="btn-qty" onclick="changeQty(${item.id}, -1)">−</button>
-            <span>${item.qty}</span>
-            <button class="btn-qty" onclick="changeQty(${item.id}, 1)">+</button>
-            <span style="font-weight:700; width:65px; text-align:right;">S/ ${subtotal.toFixed(2)}</span>
-          </div>
-        `;
-        list.appendChild(row);
-      });
-
-      totalDisplay.innerText = `S/ ${total.toFixed(2)}`;
-    }
-
-    function processPayment(method) {
-      if (cart.length === 0) {
-        alert("Seleccione al menos un producto para cobrar.");
-        return;
-      }
-
-      let total = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
-      
-      const sale = {
-        voucher: `B001-${currentVoucherCounter++}`,
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        date: new Date().toLocaleDateString('es-PE'),
-        method: method,
-        items: [...cart],
-        total: total
-      };
-
-      // Descontar inventario
-      cart.forEach(cartItem => {
-        const invItem = inventory.find(i => i.id === cartItem.id);
-        if (invItem) invItem.stock -= cartItem.qty;
-      });
-
-      salesHistory.unshift(sale);
-      showSaleReceiptPreview(sale);
-    }
-
-    // --- PREVISUALIZACIÓN DE TICKET DE VENTA (BOLETA) ---
-    function showSaleReceiptPreview(sale) {
-      isSaleTicket = true;
-      document.getElementById('receiptDocTitle').innerText = `BOLETA ELECTRÓNICA ${sale.voucher}`;
-      document.getElementById('receiptQrArea').style.display = 'flex';
-      
-      const opGravada = (sale.total / 1.18).toFixed(2);
-      const igv = (sale.total - opGravada).toFixed(2);
-
-      let bodyHtml = `
-        <div class="receipt-row" style="font-size:11px; color:#444;">
-          <span>FECHA: ${sale.date || 'HOY'}</span>
-          <span>HORA: ${sale.time}</span>
-        </div>
-        <div class="receipt-row" style="font-size:11px; color:#444;">
-          <span>TIPO PAGO:</span>
-          <b>${sale.method}</b>
-        </div>
-        <div class="receipt-divider"></div>
-        <div class="receipt-row" style="font-weight:700; font-size:11px; margin-bottom:4px;">
-          <span>CANT / DESCRIPCIÓN</span>
-          <span>IMPORTE</span>
-        </div>
-      `;
-
-      sale.items.forEach(it => {
-        bodyHtml += `
-          <div class="receipt-row">
-            <span>${it.qty}x ${it.name}</span>
-            <span>S/ ${(it.price * it.qty).toFixed(2)}</span>
-          </div>
-        `;
-      });
-
-      bodyHtml += `
-        <div class="receipt-divider"></div>
-        <div class="receipt-row" style="font-size:11px;">
-          <span>OP. GRAVADA (18%):</span>
-          <span>S/ ${opGravada}</span>
-        </div>
-        <div class="receipt-row" style="font-size:11px;">
-          <span>IGV:</span>
-          <span>S/ ${igv}</span>
-        </div>
-      `;
-
-      document.getElementById('receiptBody').innerHTML = bodyHtml;
-      document.getElementById('receiptTotalVal').innerText = `S/ ${sale.total.toFixed(2)}`;
-      document.getElementById('btnReceiptPrimary').innerText = "✅ LISTO (NUEVA VENTA)";
-      
-      document.getElementById('ticketModal').classList.add('active');
-    }
-
-    // --- PREVISUALIZACIÓN DE TICKET DE CIERRE DE CAJA ---
-    function showCashClosingTicket() {
-      isSaleTicket = false;
-      document.getElementById('receiptDocTitle').innerText = "CORTE / CIERRE DIARIO DE CAJA";
-      document.getElementById('receiptQrArea').style.display = 'none';
-
-      let cashTotal = 0;
-      let yapeTotal = 0;
-      salesHistory.forEach(s => {
-        if (s.method === 'EFECTIVO') cashTotal += s.total;
-        else yapeTotal += s.total;
-      });
-
-      const grandTotal = cashTotal + yapeTotal;
-      const count = salesHistory.length;
-      const now = new Date();
-
-      let bodyHtml = `
-        <div class="receipt-row" style="font-size:11px;">
-          <span>FECHA CIERRE:</span>
-          <span>${now.toLocaleDateString('es-PE')}</span>
-        </div>
-        <div class="receipt-row" style="font-size:11px;">
-          <span>HORA CIERRE:</span>
-          <span>${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-        </div>
-        <div class="receipt-row" style="font-size:11px;">
-          <span>CAJERO:</span>
-          <span>TURNO MAÑANA</span>
-        </div>
-        <div class="receipt-divider"></div>
-        <div style="font-weight:700; font-size:12px; margin-bottom:6px;">RESUMEN DE INGRESOS:</div>
-        <div class="receipt-row">
-          <span>💵 Efectivo en Gaveta:</span>
-          <span>S/ ${cashTotal.toFixed(2)}</span>
-        </div>
-        <div class="receipt-row">
-          <span>📱 Yape / Plin Confirmados:</span>
-          <span>S/ ${yapeTotal.toFixed(2)}</span>
-        </div>
-        <div class="receipt-divider"></div>
-        <div class="receipt-row">
-          <span>Comprobantes Emitidos:</span>
-          <span>${count} boletas</span>
-        </div>
-        <div class="receipt-row">
-          <span>Comprobantes Anulados:</span>
-          <span>0 notas de crédito</span>
-        </div>
-        <div class="receipt-divider"></div>
-        <p style="text-align:center; font-size:11px; margin-top:6px; color:#333;">
-          --- CUADRE CONFORME ---
-        </p>
-      `;
-
-      document.getElementById('receiptBody').innerHTML = bodyHtml;
-      document.getElementById('receiptTotalVal').innerText = `S/ ${grandTotal.toFixed(2)}`;
-      document.getElementById('btnReceiptPrimary').innerText = "CERRAR PREVISUALIZACIÓN";
-      
-      document.getElementById('ticketModal').classList.add('active');
-    }
-
-    function closeTicketModal() {
-      document.getElementById('ticketModal').classList.remove('active');
-      if (isSaleTicket) {
-        cart = [];
-        renderCart();
-        navigateTo('screen-vica');
-      }
-    }
-
-    // --- PANTALLA INVENTARIO COMPLETA ---
-    function setInventoryCategory(cat, btn) {
-      currentInvCategory = cat;
-      document.querySelectorAll('#screen-inventario .cat-pill').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderInventoryList();
-    }
-
-    function updateInventoryStats() {
-      const totalItems = inventory.length;
-      const totalUnits = inventory.reduce((sum, i) => sum + i.stock, 0);
-      const lowCount = inventory.filter(i => i.stock <= 5).length;
-
-      document.getElementById('totalItemsCount').innerText = totalItems;
-      document.getElementById('totalStockCount').innerText = totalUnits;
-      document.getElementById('lowStockCount').innerText = lowCount;
-    }
-
-    function renderInventoryList() {
-      const q = document.getElementById('inventorySearchInput').value.toLowerCase();
-      const container = document.getElementById('inventoryItemsList');
-      container.innerHTML = '';
-
-      let list = inventory.filter(item => {
-        const matchesCat = (currentInvCategory === 'TODOS' || item.category === currentInvCategory);
-        const matchesQuery = item.name.toLowerCase().includes(q) || item.code.toLowerCase().includes(q);
-        return matchesCat && matchesQuery;
-      });
-
-      if (list.length === 0) {
-        container.innerHTML = `<div style="text-align:center; color:#94a3b8; padding:30px;">No se encontraron productos.</div>`;
-        return;
-      }
-
-      list.forEach(item => {
-        let badgeClass = 'badge-ok';
-        let badgeText = `${item.stock} unid.`;
-
-        if (item.stock === 0) {
-          badgeClass = 'badge-empty';
-          badgeText = 'AGOTADO';
-        } else if (item.stock <= 5) {
-          badgeClass = 'badge-low';
-          badgeText = `⚠️ ${item.stock} unid.`;
-        }
-
-        const row = document.createElement('div');
-        row.className = 'inv-item-row';
-        row.onclick = () => showStockDetail(item);
-        row.innerHTML = `
-          <div class="inv-info">
-            <div class="inv-name">${item.name}</div>
-            <div class="inv-code">${item.code} • S/ ${item.price.toFixed(2)}</div>
-          </div>
-          <div class="inv-badge ${badgeClass}">${badgeText}</div>
-        `;
-        container.appendChild(row);
-      });
-    }
-
-    function filterInventoryList() {
-      renderInventoryList();
-    }
-
-    function showStockDetail(item) {
-      selectedDetailItem = item;
-      document.getElementById('detailCode').innerText = `CÓDIGO: ${item.code}`;
-      document.getElementById('detailName').innerText = item.name;
-      document.getElementById('detailQty').innerText = item.stock;
-      document.getElementById('detailPrice').innerText = `Precio de Venta: S/ ${item.price.toFixed(2)}`;
-      
-      const card = document.getElementById('stockDetailCard');
-      card.classList.add('active');
-      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    function closeStockDetail() {
-      document.getElementById('stockDetailCard').classList.remove('active');
-    }
-
-    function addDetailItemToSale() {
-      addToCart(selectedDetailItem);
-      navigateTo('screen-vender');
-    }
-
-    function simulateBarcodeScanInventory() {
-      const randomItem = inventory[Math.floor(Math.random() * inventory.length)];
-      showStockDetail(randomItem);
-      showTemporaryToast(`📷 Código escaneado: [${randomItem.code}]`);
-    }
-
-    // --- PANTALLA CAJA ---
-    function updateCashView() {
-      let cashTotal = 0;
-      let yapeTotal = 0;
-      let count = salesHistory.length;
-
-      salesHistory.forEach(s => {
-        if (s.method === 'EFECTIVO') cashTotal += s.total;
-        else yapeTotal += s.total;
-      });
-
-      document.getElementById('cashTotalCash').innerText = `S/ ${cashTotal.toFixed(2)}`;
-      document.getElementById('cashTotalYape').innerText = `S/ ${yapeTotal.toFixed(2)}`;
-      document.getElementById('cashTotalVouchers').innerText = `${count} boletas`;
-      document.getElementById('cashGrandTotal').innerText = `S/ ${(cashTotal + yapeTotal).toFixed(2)}`;
-    }
-
-    // --- PANTALLA ANULAR ---
-    function renderVoidSales() {
-      const container = document.getElementById('voidSalesList');
-      if (salesHistory.length === 0) {
-        container.innerHTML = `<p style="text-align:center; color:#94a3b8; margin-top:20px;">No hay ventas registradas hoy para anular.</p>`;
-        return;
-      }
-
-      container.innerHTML = '';
-      salesHistory.slice(0, 4).forEach((s, index) => {
-        const card = document.createElement('div');
-        card.className = 'void-item-card';
-        card.innerHTML = `
-          <div>
-            <b style="font-size:14px;">${s.voucher}</b> - <span>${s.time}</span><br>
-            <small style="color:#64748b;">${s.items.map(i => `${i.qty}x ${i.name}`).join(', ')}</small><br>
-            <b style="color:#15803d; font-size:15px;">S/ ${s.total.toFixed(2)}</b> (${s.method})
-          </div>
-          <button class="btn-void-action" onclick="confirmVoidSale(${index})">🔴 ANULAR</button>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    function confirmVoidSale(index) {
-      const sale = salesHistory[index];
-      if (confirm(`¿Está seguro de ANULAR la venta ${sale.voucher} por S/ ${sale.total.toFixed(2)}?\nEl stock regresará al inventario y se emitirá Nota de Crédito.`)) {
-        sale.items.forEach(item => {
-          const inv = inventory.find(i => i.id === item.id || i.name === item.name);
-          if (inv) inv.stock += item.qty;
-        });
-        salesHistory.splice(index, 1);
-        showTemporaryToast(`✅ Venta ${sale.voucher} anulada`);
-        renderVoidSales();
-      }
-    }
-
-    // --- MODO ASESOR ---
-    function toggleAdvisorMode() {
-      const mode = document.getElementById('modeSelector').value;
-      if (mode === 'advisor') {
-        document.getElementById('advisorModal').classList.add('active');
-        document.getElementById('roleBadgeText').innerText = 'MODO ASESOR TÉCNICO';
-      } else {
-        exitAdvisorMode();
-      }
-    }
-
-    function exitAdvisorMode() {
-      document.getElementById('advisorModal').classList.remove('active');
-      document.getElementById('modeSelector').value = 'merchant';
-      document.getElementById('roleBadgeText').innerText = 'MODO VENDEDOR';
-    }
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
