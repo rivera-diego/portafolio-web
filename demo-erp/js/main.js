@@ -227,7 +227,12 @@
     const target = document.getElementById(screenId);
     if (!target || !target.classList.contains('view-screen')) return;
     state.screen = screenId;
+    dom.app.dataset.screen = screenId; // el CSS de PC oculta el menú lateral en Inicio
     $$('.view-screen', dom.app).forEach((screen) => screen.classList.toggle('active', screen === target));
+    $$('.app-rail [data-target]', dom.app).forEach((btn) => {
+      if (btn.dataset.target === screenId) btn.setAttribute('aria-current', 'page');
+      else btn.removeAttribute('aria-current');
+    });
     dom.appMain.scrollTop = 0;
 
     if (screenId === 'screen-vender') { renderProducts(); renderCart(); }
@@ -514,7 +519,7 @@
     renderCart();
     if (goHome) {
       navigateTo('screen-vica');
-      $('.card-v', dom.app).focus({ preventScroll: true });
+      $('#screen-vica .card-v', dom.app).focus({ preventScroll: true });
     }
   }
 
@@ -665,18 +670,20 @@
     updateTour();
   }
 
+  const DEVICE_CAPTIONS = {
+    phone: 'Vista celular · datos ficticios de una tienda en Gamarra',
+    tablet: 'Vista tablet horizontal · datos ficticios de una tienda en Gamarra',
+    pc: 'Vista PC en el navegador · menú V.I.C.A. fijo a la izquierda · datos ficticios',
+  };
+
   function setDevice(device, { reveal = false } = {}) {
-    state.device = device === 'tablet' ? 'tablet' : 'phone';
-    const isTablet = state.device === 'tablet';
+    state.device = DEVICE_CAPTIONS[device] ? device : 'phone';
     dom.hero.dataset.device = state.device;
-    dom.device.classList.toggle('is-tablet', isTablet);
-    dom.device.classList.toggle('is-phone', !isTablet);
+    ['phone', 'tablet', 'pc'].forEach((d) => dom.device.classList.toggle(`is-${d}`, d === state.device));
     $$('[data-action="set-device"]').forEach((btn) => {
       btn.setAttribute('aria-pressed', String(btn.dataset.device === state.device));
     });
-    dom.stageCaption.textContent = isTablet
-      ? 'Vista tablet horizontal · datos ficticios de una tienda en Gamarra'
-      : 'Vista celular · datos ficticios de una tienda en Gamarra';
+    dom.stageCaption.textContent = DEVICE_CAPTIONS[state.device];
     if (reveal) requestAnimationFrame(revealDevice);
   }
 
@@ -791,11 +798,16 @@
     else if (state.mode === 'advisor') setMode('merchant');
   });
 
-  // La vista tablet solo existe desde 800 px de ancho; si la ventana se achica, vuelve a celular
+  // Cada vista solo existe donde cabe: tablet desde 800 px y PC desde 1200 px de ventana.
+  // Si la ventana se achica, se baja a la vista más grande que todavía entra.
   const tabletQuery = window.matchMedia('(min-width: 800px)');
-  tabletQuery.addEventListener('change', () => {
-    if (!tabletQuery.matches && state.device === 'tablet') setDevice('phone');
-  });
+  const pcQuery = window.matchMedia('(min-width: 1200px)');
+  function enforceDeviceFit() {
+    if (state.device === 'pc' && !pcQuery.matches) setDevice(tabletQuery.matches ? 'tablet' : 'phone');
+    else if (state.device === 'tablet' && !tabletQuery.matches) setDevice('phone');
+  }
+  tabletQuery.addEventListener('change', enforceDeviceFit);
+  pcQuery.addEventListener('change', enforceDeviceFit);
 
   function tickClock() { dom.clock.textContent = clockTime(); }
 

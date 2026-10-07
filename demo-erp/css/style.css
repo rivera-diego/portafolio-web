@@ -186,6 +186,7 @@ ul, ol { list-style: none; }
   font-size: 14px; font-weight: 700;
 }
 .btn-reset:hover { background: rgba(148, 163, 184, .14); }
+.btn-open-app { display: inline-flex; align-items: center; text-decoration: none; }
 
 /* 5. RECORRIDO (narración sincronizada con la demo) ------------------------------ */
 .tour-title { color: #94a3b8; font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
@@ -254,6 +255,21 @@ ul, ol { list-style: none; }
 }
 .device__statusbar { display: none; }
 
+/* Barra de ventana de navegador (vista PC) */
+.device__windowbar {
+  flex-shrink: 0;
+  height: 40px; padding: 0 14px;
+  display: none; grid-template-columns: 1fr minmax(0, 520px) 1fr; align-items: center; gap: 14px;
+  border-bottom: 1px solid #0f172a;
+  background: #1e293b; color: #cbd5e1;
+  font-family: var(--app-font); font-size: 13px; font-weight: 600;
+}
+.wb-dots { display: flex; gap: 7px; }
+.wb-dots span { width: 12px; height: 12px; border-radius: 50%; background: #ef4444; }
+.wb-dots span:nth-child(2) { background: #f59e0b; }
+.wb-dots span:nth-child(3) { background: #22c55e; }
+.wb-title { overflow: hidden; padding: 5px 12px; border-radius: 8px; background: #0f172a; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+
 /* 7. APP — BASE (CELULAR) ---------------------------------------------------------- */
 .app {
   position: relative;
@@ -275,9 +291,16 @@ ul, ol { list-style: none; }
 .status-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; }
 .store-name { overflow: hidden; font-size: 15px; font-weight: 700; letter-spacing: .3px; text-overflow: ellipsis; white-space: nowrap; }
 .role-badge { flex-shrink: 0; padding: 4px 8px; border-radius: 6px; background: #334155; color: #cbd5e1; font-size: 11px; font-weight: 700; }
+.app-header__end { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
+/* Enlace de vuelta a la presentación: solo en el modo app a pantalla completa */
+.app-exit { display: none; padding: 4px 8px; border: 1px solid #334155; border-radius: 6px; color: #cbd5e1; font-size: 11px; font-weight: 700; text-decoration: none; }
+.app-exit:hover { background: #1e293b; color: #fff; }
+
+/* Cuerpo: menú lateral (solo PC) + contenido */
+.app-body { flex: 1; min-height: 0; display: flex; }
 
 .app-main {
-  flex: 1; min-height: 0;
+  flex: 1; min-height: 0; min-width: 0;
   display: flex; flex-direction: column;
   padding: 14px;
   overflow-y: auto;
@@ -337,6 +360,35 @@ ul, ol { list-style: none; }
   background: #fff; color: #475569;
   font-size: 13px; font-weight: 600; text-align: center;
 }
+
+/* Menú lateral V.I.C.A. (oculto salvo en PC, ver sección 8b) */
+.app-rail {
+  flex: 0 0 260px;
+  display: none; flex-direction: column; gap: 14px;
+  padding: 20px 16px;
+  overflow-y: auto;
+  border-right: 1px solid #e2e8f0;
+  background: #fff;
+}
+.rail-home { min-height: 48px; border: 0; border-radius: 12px; background: #e2e8f0; color: #1e293b; font-size: 15px; font-weight: 800; }
+.rail-home:hover { background: #cbd5e1; }
+.rail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rail-btn {
+  aspect-ratio: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  border: 3px solid transparent; border-radius: 16px;
+  font-size: 12.5px; font-weight: 800; letter-spacing: .3px;
+  box-shadow: var(--shadow-card);
+}
+.rail-btn:hover { box-shadow: 0 10px 18px -6px rgba(0, 0, 0, .18); }
+.rail-btn:active { transform: scale(.96); }
+.rail-btn[aria-current="page"] { box-shadow: 0 0 0 3px #fff, 0 0 0 6px currentColor; }
+.rail-letter { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: #fff; font-size: 22px; font-weight: 900; }
+.rail-btn.card-v .rail-letter { background: var(--color-vender); }
+.rail-btn.card-i .rail-letter { background: var(--color-stock); }
+.rail-btn.card-c .rail-letter { background: var(--color-caja); }
+.rail-btn.card-a .rail-letter { background: var(--color-anular); }
+.rail-hint { margin-top: auto; color: #64748b; font-size: 12.5px; font-weight: 600; text-align: center; }
 
 /* Encabezado de cada pantalla */
 .screen-header {
@@ -616,6 +668,26 @@ ul, ol { list-style: none; }
   .cash-total-row { font-size: 22px; }
 
   .advisor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* 8b. APP — PC (desde 1100 px de ancho de la propia app) -------------------------------
+   Menú V.I.C.A. fijo a la izquierda en todas las pantallas internas; en Inicio se ve el
+   cuadrante grande, así los 4 botones nunca desaparecen ni cambian de orden. */
+@container app (min-width: 1100px) {
+  .app-header { padding: 14px 28px; }
+  .app-rail { display: flex; }
+  .app[data-screen="screen-vica"] .app-rail { display: none; }
+  .app-main { padding: 24px 28px; }
+
+  .screen-header .btn-back { display: none; }   /* el menú lateral reemplaza al botón de volver */
+  .screen-title { text-align: left; }
+
+  .vica-grid, .mnemonic-helper { width: 100%; max-width: 1100px; margin-inline: auto; }
+
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  .sale-summary { flex-basis: 380px; }
+  .inv-layout { grid-template-columns: minmax(0, 1fr) 380px; }
+  .advisor-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* 9. MODALES Y AVISOS (dentro del dispositivo) ----------------------------------------- */
@@ -910,7 +982,7 @@ ul, ol { list-style: none; }
 /* Marco de tablet (horizontal) desde 800 px */
 @media (min-width: 800px) {
   .device.is-tablet {
-    width: 100%; max-width: 1180px;
+    width: 100%; max-width: 1080px;   /* tope: así la tablet nunca entra al diseño de PC */
     height: clamp(560px, calc(100vh - 170px), 820px);
     height: clamp(560px, calc(100dvh - 170px), 820px);
     border-width: 14px; border-radius: 32px;
@@ -943,6 +1015,29 @@ ul, ol { list-style: none; }
   .hero[data-device="tablet"] .lead { font-size: 1rem; }
   .hero[data-device="tablet"] .hero__tour { max-width: none; justify-self: stretch; }
   .hero[data-device="tablet"] .hero__stage { position: sticky; top: calc(var(--header-h) + 20px); }
+
+  /* PC: ventana de navegador a todo el ancho; texto y recorrido arriba */
+  .device.is-pc {
+    width: 100%; max-width: 1480px;
+    height: clamp(600px, calc(100vh - 150px), 900px);
+    height: clamp(600px, calc(100dvh - 150px), 900px);
+    border: 1px solid #334155; border-radius: 14px;
+  }
+  .device.is-pc .device__statusbar { display: none; }
+  .device.is-pc .device__windowbar { display: grid; }
+  .hero[data-device="pc"] .hero__inner {
+    max-width: 1520px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "copy tour" "stage stage";
+    column-gap: 48px; row-gap: 40px;
+    align-items: start;
+  }
+  .hero[data-device="pc"] .hero__tour { max-width: none; justify-self: stretch; }
+}
+
+/* La opción PC solo aparece donde cabe de verdad (≥ 1200 px de ventana) */
+@media (max-width: 1199px) {
+  .segmented__btn[data-device="pc"] { display: none; }
 }
 
 /* Monitores amplios: celular al centro, texto a la izquierda y recorrido a la derecha */
@@ -1035,3 +1130,27 @@ ul, ol { list-style: none; }
     transition-duration: .01ms !important;
   }
 }
+
+/* 14. MODO APP A PANTALLA COMPLETA (?modo=app) ------------------------------------------
+   Sin presentación ni marco: la app ocupa la ventana y se adapta sola a celular,
+   tablet o PC según el ancho real (opción B). Se usa #device para ganar a las reglas del marco. */
+html.app-only, html.app-only body { height: 100%; overflow: hidden; background: #0f172a; }
+.app-only .skip-link,
+.app-only .site-header,
+.app-only .hero__copy,
+.app-only .hero__tour,
+.app-only .stage__caption,
+.app-only .section,
+.app-only .site-footer { display: none !important; }
+.app-only #demo { background: none; }
+.app-only #demo .hero__inner { max-width: none; padding: 0; display: block; }
+.app-only #demo .hero__stage { position: static; margin: 0; }
+.app-only .stage::before { display: none; }
+.app-only #device {
+  width: 100%; max-width: none;
+  height: 100vh; height: 100dvh; min-height: 0;
+  border: 0; border-radius: 0; box-shadow: none;
+}
+.app-only #device .device__statusbar,
+.app-only #device .device__windowbar { display: none; }
+.app-only .app-exit { display: inline-block; }

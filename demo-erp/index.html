@@ -10,6 +10,10 @@
   <meta name="theme-color" content="#0b1329">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <!-- ?modo=app muestra solo la aplicación a pantalla completa (sin presentación). Va aquí para evitar un parpadeo. -->
+  <script>
+    if (new URLSearchParams(location.search).get('modo') === 'app') document.documentElement.classList.add('app-only');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#demo">Saltar a la demo</a>
@@ -66,6 +70,7 @@
               <div class="segmented" role="group" aria-labelledby="deviceLabel">
                 <button type="button" class="segmented__btn" data-action="set-device" data-device="phone" aria-pressed="true">📱 Celular</button>
                 <button type="button" class="segmented__btn" data-action="set-device" data-device="tablet" aria-pressed="false">📲 Tablet</button>
+                <button type="button" class="segmented__btn" data-action="set-device" data-device="pc" aria-pressed="false">🖥️ PC</button>
               </div>
             </div>
             <div class="control">
@@ -76,6 +81,7 @@
               </div>
             </div>
             <button type="button" class="btn-reset" data-action="reset-demo">↺ Reiniciar demo</button>
+            <a class="btn-reset btn-open-app" href="?modo=app" target="_blank" rel="noopener">↗ Abrir como app</a>
           </div>
         </div>
 
@@ -100,7 +106,13 @@
                 </span>
               </div>
 
-              <div class="app" id="app">
+              <!-- Barra de ventana del navegador (solo en la vista PC) -->
+              <div class="device__windowbar" aria-hidden="true">
+                <span class="wb-dots"><span></span><span></span><span></span></span>
+                <span class="wb-title">Modo Comerciante · Confecciones Gamarra</span>
+              </div>
+
+              <div class="app" id="app" data-screen="screen-vica">
 
                 <!-- Encabezado del sistema -->
                 <div class="app-header">
@@ -108,8 +120,24 @@
                     <span class="status-dot" aria-hidden="true"></span>
                     <span class="store-name">CONFECCIONES GAMARRA</span>
                   </div>
-                  <span class="role-badge" id="roleBadgeText">MODO VENDEDOR</span>
+                  <div class="app-header__end">
+                    <span class="role-badge" id="roleBadgeText">MODO VENDEDOR</span>
+                    <a class="app-exit" href="./">↩ Presentación</a>
+                  </div>
                 </div>
+
+                <div class="app-body">
+                <!-- Menú lateral V.I.C.A. (solo en PC): mismos 4 botones y misma posición 2 × 2 -->
+                <nav class="app-rail" aria-label="Menú V.I.C.A.">
+                  <button type="button" class="rail-home" data-action="nav" data-target="screen-vica">⌂ INICIO</button>
+                  <div class="rail-grid">
+                    <button type="button" class="rail-btn card-v" data-action="nav" data-target="screen-vender"><span class="rail-letter" aria-hidden="true">V</span>VENDER</button>
+                    <button type="button" class="rail-btn card-i" data-action="nav" data-target="screen-inventario"><span class="rail-letter" aria-hidden="true">I</span>INVENTARIO</button>
+                    <button type="button" class="rail-btn card-c" data-action="nav" data-target="screen-caja"><span class="rail-letter" aria-hidden="true">C</span>CAJA</button>
+                    <button type="button" class="rail-btn card-a" data-action="nav" data-target="screen-anular"><span class="rail-letter" aria-hidden="true">A</span>ANULAR</button>
+                  </div>
+                  <p class="rail-hint">Los 4 botones siempre en el mismo lugar</p>
+                </nav>
 
                 <div class="app-main" id="appMain">
 
@@ -274,6 +302,7 @@
                     <div class="void-list" id="voidSalesList"></div>
                   </section>
 
+                </div>
                 </div>
 
                 <!-- ========================================== -->
@@ -462,7 +491,7 @@
               <ul>
                 <li>4 botones gigantes (V.I.C.A.)</li>
                 <li>Sin menús ni opciones técnicas</li>
-                <li>Celular o tablet, con ticketera y escáner</li>
+                <li>Celular, tablet o PC del mostrador, con ticketera y escáner</li>
               </ul>
             </article>
             <article class="arch__layer arch__layer--advisor">
@@ -576,7 +605,7 @@
           <ol class="steps">
             <li class="step step--done">
               <span class="step__num" aria-hidden="true">✓</span>
-              <div><b>Maqueta navegable</b><small>Lista: es esta página, en celular y tablet.</small></div>
+              <div><b>Maqueta navegable</b><small>Lista: es esta página, en celular, tablet y PC.</small></div>
             </li>
             <li class="step">
               <span class="step__num" aria-hidden="true">2</span>
