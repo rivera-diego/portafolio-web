@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
-  <title id="title">Diego Rivera</title>
-  <desc id="desc">Monograma DR en estilo neon</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#00f0ff"/>
-      <stop offset="1" stop-color="#a855f7"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="16" fill="#06060c"/>
-  <path d="M16 46V18h13c8 0 13 5 13 14s-5 14-13 14H16Zm8-7h5c3.8 0 6-2.3 6-7s-2.2-7-6-7h-5v14Z" fill="url(#bg)"/>
-  <path d="M39 18h8.5C54 18 57 22 57 32s-3 14-9.5 14H39l5-7h3c1.4 0 2-1.9 2-7s-.6-7-2-7h-3l-5-7Z" fill="#ff00e5" opacity=".92"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title"><title id="title">Diego Rivera</title><rect width="64" height="64" fill="#121210"/><path d="M13 17h10c10 0 16 5 16 15s-6 15-16 15H13zm6 5v20h4c7 0 10-3 10-10s-3-10-10-10z" fill="#ede9df"/><path d="M39 17h7c9 0 13 4 13 10 0 5-2 8-6 10l8 10h-8L41 31h5c5 0 7-1 7-4s-2-5-7-5h-7z" fill="#d58f6b"/></svg>

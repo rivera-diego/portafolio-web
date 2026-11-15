@@ -3,3 +3,6 @@ Informacion_General.md
 
 # Local/editor artifacts.
 .DS_Store
+
+# Local design review archive.
+.impeccable/
