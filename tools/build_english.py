@@ -35,14 +35,13 @@ def spanish_url(source):
 
 
 def switcher(source, english):
-    es, en = spanish_url(source), ROUTES[source]
+    target = spanish_url(source) if english else ROUTES[source]
+    language = 'es' if english else 'en'
+    label = 'Cambiar a español' if english else 'Switch to English'
     return ('<!-- language-switcher:start -->'
-            '<div class="language-switcher" role="group" aria-label="' +
-            ('Language' if english else 'Idioma') + '">'
-            f'<a href="{es}" lang="es" hreflang="es" aria-label="Español"' +
-            (' aria-current="true"' if not english else '') + '>ES</a>'
-            f'<a href="{en}" lang="en" hreflang="en" aria-label="English"' +
-            (' aria-current="true"' if english else '') + '>EN</a></div>'
+            '<div class="language-switcher">'
+            f'<a href="{target}" lang="{language}" hreflang="{language}" '
+            f'aria-label="{label}" title="{label}">{language.upper()}</a></div>'
             '<!-- language-switcher:end -->')
 
 

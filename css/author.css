@@ -76,10 +76,9 @@ html.motion-off::view-transition-group(*),html.motion-off::view-transition-old(*
 .studio-hero + .studio-about{border-top:0}
 
 /* Visible language links work without JavaScript and preserve page context. */
-.language-switcher{display:flex;align-items:center;gap:2px;font:11px/1.4 var(--mono)}
-.language-switcher a{display:grid;place-items:center;min-width:28px;min-height:40px;text-decoration:none;color:var(--muted)}
-.language-switcher a[aria-current=true]{color:var(--ink);text-decoration:underline;text-underline-offset:6px}
-.language-switcher a:hover{color:var(--accent)}
+.language-switcher{display:flex;align-items:center;margin-inline-end:4px;font:11px/1.4 var(--mono)}
+.language-switcher a{display:grid;place-items:center;min-width:42px;min-height:42px;border:1px solid var(--line-soft);text-decoration:none;color:var(--ink)}
+.language-switcher a:hover{color:var(--accent);border-color:var(--accent)}
 @media(max-width:1000px) and (min-width:701px){.site-nav{gap:18px}.site-nav__links{gap:16px}}
-@media(max-width:380px){.site-nav__brand{font-size:12px;gap:8px}.site-nav__brand:before{width:14px;height:14px}.site-nav{gap:8px}.site-nav__actions{gap:6px}.language-switcher a{min-width:25px}}
+@media(max-width:380px){.site-nav__brand{font-size:12px;gap:8px}.site-nav__brand:before{width:14px;height:14px}.site-nav{gap:8px}}
 @media print{.language-switcher{display:none}}

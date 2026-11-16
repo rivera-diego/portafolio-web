@@ -12,7 +12,7 @@ El portafolio se publica como HTML estático en dos idiomas. El español conserv
 
 El generador usa únicamente la biblioteca estándar de Python. Se detiene ante textos nuevos sin entrada en el diccionario para evitar publicar traducciones incompletas. Las páginas inglesas y `js/services.en.js` son archivos generados; no editarlos directamente. Las anotaciones de idioma y el selector se regeneran sin duplicarse.
 
-El selector ES / EN es un par de enlaces accesibles, mantiene el proyecto actual y conserva la sección cuando JavaScript está disponible. La dirección elegida determina el idioma durante la navegación. No hay redirecciones automáticas basadas en ubicación o idioma del navegador.
+El selector muestra un único enlace al idioma alternativo: EN en las páginas españolas y ES en las inglesas. Su etiqueta accesible y ayuda emergente indican el cambio de idioma. Mantiene el proyecto actual y conserva la sección cuando JavaScript está disponible. La dirección elegida determina el idioma durante la navegación. No hay redirecciones automáticas basadas en ubicación o idioma del navegador.
 
 Cada pareja tiene `hreflang` recíproco, `x-default` hacia español y una URL canónica propia. El sitemap incluye los dos idiomas. La propiedad de dominio de Search Console y los DNS existentes siguen siendo válidos; no hace falta una propiedad adicional para `/en/`.
 
