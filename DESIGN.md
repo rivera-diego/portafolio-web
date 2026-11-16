@@ -78,3 +78,7 @@ Las versiones inglesas se generan mediante `tools/build_english.py` y los diccio
 ## Contacto e iconos
 
 Contacto combina una introducción con retrato, un panel de correo prioritario y tres canales: WhatsApp, LinkedIn y GitHub. Las redes adicionales conservan acceso secundario. Los iconos lineales se comparten desde `img/contact-icons.svg`, con `currentColor`, sin dependencias externas. Se usan también en portada, CV, perfil, Servicios y los pies de página. Los iconos decorativos están ocultos a lectores de pantalla; los enlaces conservan texto o un nombre accesible. El botón de copiar correo aparece solo si el navegador admite el portapapeles y anuncia el resultado sin abrir aplicaciones externas.
+
+La rejilla de Contacto declara áreas para introducción, correo y redes. Introducción y correo se alinean arriba en escritorio; a 900 px o menos se apilan. Las columnas usan `minmax(0, 1fr)` para no forzar el ancho por el contenido.
+
+Los recursos CSS, JS y el archivo de iconos llevan una versión de contenido generada con `tools/build_english.py`. La publicación responde con hasta cuatro horas de caché para CSS: reutilizar una URL sin versión mezclaba el HTML nuevo de Contacto con la rejilla anterior y desarmaba las tarjetas. Se comprobó que las URLs versionadas cargan los estilos vigentes aun conservando la caché anterior.

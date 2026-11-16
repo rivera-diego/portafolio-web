@@ -10,6 +10,8 @@ El portafolio se publica como HTML estático en dos idiomas. El español conserv
 4. Ejecutar `python3 tools/build_english.py` desde la raíz del repositorio.
 5. Incluir los HTML españoles, los archivos generados en `en/`, `js/services.en.js` y el sitemap en el commit.
 
+Ejecutar también el generador después de modificar estilos, scripts o los iconos compartidos. Añade una versión calculada a partir del contenido a las direcciones de CSS, JS y `contact-icons.svg`. Así, el navegador descarga el recurso actualizado aunque conserve una versión anterior en caché. Los archivos conservan su nombre y las URLs solo cambian cuando cambia su contenido.
+
 El generador usa únicamente la biblioteca estándar de Python. Se detiene ante textos nuevos sin entrada en el diccionario para evitar publicar traducciones incompletas. Las páginas inglesas y `js/services.en.js` son archivos generados; no editarlos directamente. Las anotaciones de idioma y el selector se regeneran sin duplicarse.
 
 El selector muestra un único enlace al idioma alternativo: EN en las páginas españolas y ES en las inglesas. Su etiqueta accesible y ayuda emergente indican el cambio de idioma. Mantiene el proyecto actual y conserva la sección cuando JavaScript está disponible. La dirección elegida determina el idioma durante la navegación. No hay redirecciones automáticas basadas en ubicación o idioma del navegador.
