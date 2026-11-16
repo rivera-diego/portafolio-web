@@ -52,7 +52,7 @@ Los visuales de proyectos son diagramas SVG conceptuales, identificados como tal
 - Un campo de píxeles cobre responde al ratón sobre la portada: proximidad, desplazamiento y retorno suave. El canvas deja de dibujar cuando se estabiliza o sale de pantalla.
 - Las cintas recorren el nudo en unos 23 segundos, con ondulaciones locales y sin giro global de la figura. Se dibuja a un máximo de 30 fotogramas por segundo y densidad de píxeles limitada a 1.5. Se detiene fuera de pantalla, cuando la pestaña se oculta o se activa la pausa. En dispositivos táctiles también fluye; con movimiento reducido muestra una posición fija. La imagen de respaldo mantiene una inclinación leve con el ratón.
 - Trazos animados al pasar por los proyectos; no hay carruseles automáticos ni contenido dependiente del scroll.
-- El botón de pausa de la cabecera guarda la preferencia local. Se respeta `prefers-reduced-motion`; en táctil el campo es estático.
+- El control de animaciones del pie de página guarda la preferencia local. Se respeta `prefers-reduced-motion`; en táctil el campo es estático.
 - El cursor nativo permanece visible. Los enlaces tienen foco visible; el menú móvil admite Escape y devuelve el foco. Sin JavaScript, el contenido y la navegación siguen disponibles.
 
 ## Criterios para cambios futuros
@@ -71,6 +71,6 @@ Astro puede ser útil en una futura reorganización para compartir plantillas y 
 
 ## Idiomas
 
-La cabecera incluye ES / EN como enlaces visibles con el idioma activo subrayado. El grupo conserva tamaños compactos y se adapta hasta 320 px sin desplazar el nombre ni el menú móvil. El cambio lleva a la misma página en el otro idioma y conserva el fragmento de sección si está presente. Los nombres accesibles del menú, la pausa y los anuncios de filtros siguen el idioma de la página.
+La cabecera incluye Inicio, Proyectos, Sobre mí, CV y Contacto, con la página activa señalada. Contacto tiene una página propia en `/contacto/` y `/en/contact/`; la navegación no vuelve a la portada para desplazarse. El idioma se muestra como un único enlace de texto al idioma alternativo (EN o ES), separado de la navegación por una línea discreta en escritorio. El control de animaciones está en el pie con texto explícito. El encabezado se adapta hasta 320 px sin desplazar el nombre ni el menú móvil. El cambio lleva a la misma página en el otro idioma y conserva el fragmento de sección si está presente. Los nombres accesibles del menú, la pausa y los anuncios de filtros siguen el idioma de la página.
 
 Las versiones inglesas se generan mediante `tools/build_english.py` y los diccionarios revisados de `i18n/`. Consultar `i18n/README.md` antes de editar contenido. Las demos de clientes conservan su idioma original y están identificadas como tales.

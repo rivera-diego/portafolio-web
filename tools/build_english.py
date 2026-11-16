@@ -20,6 +20,7 @@ ROUTES = {
     'proyectos/index.html': '/en/projects/',
     'sobre-mi/index.html': '/en/about/',
     'cv/index.html': '/en/resume/',
+    'contacto/index.html': '/en/contact/',
     'proyectos/parking-management/index.html': '/en/projects/parking-management/',
     'proyectos/support-ticket-manager/index.html': '/en/projects/support-ticket-manager/',
     'proyectos/sistema-ventas-yerias/index.html': '/en/projects/sistema-ventas-yerias/',

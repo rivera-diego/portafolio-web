@@ -16,4 +16,4 @@ El selector muestra un único enlace al idioma alternativo: EN en las páginas e
 
 Cada pareja tiene `hreflang` recíproco, `x-default` hacia español y una URL canónica propia. El sitemap incluye los dos idiomas. La propiedad de dominio de Search Console y los DNS existentes siguen siendo válidos; no hace falta una propiedad adicional para `/en/`.
 
-La portada, perfil, CV, índice de proyectos, cuatro casos de estudio y Servicios tienen versión inglesa. Las demos de clientes conservan su contenido original; sus enlaces se identifican como contenido en español. Los importes siguen expresados en soles peruanos (S/), sin conversión monetaria.
+La portada, perfil, CV, índice de proyectos, cuatro casos de estudio, Contacto y Servicios tienen versión inglesa. Las demos de clientes conservan su contenido original; sus enlaces se identifican como contenido en español. Los importes siguen expresados en soles peruanos (S/), sin conversión monetaria.

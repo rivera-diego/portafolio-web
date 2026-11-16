@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   motionButton.hidden = false;
   motionButton.className = 'motion-toggle';
   motionButton.type = 'button';
-  if (!motionButton.isConnected) document.querySelector('.site-nav__actions')?.prepend(motionButton);
+  if (!motionButton.isConnected) document.querySelector('.site-footer__links')?.append(motionButton);
   function syncMotion() {
     document.documentElement.classList.toggle('motion-off', motionOff);
     document.dispatchEvent(new Event('portfolio:motion'));
@@ -53,6 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     motionButton.innerHTML = motionOff
       ? '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>'
       : '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>';
+    const motionText = document.createElement('span');
+    motionText.textContent = motionOff ? label('Activar animaciones', 'Enable animations') : label('Pausar animaciones', 'Pause animations');
+    motionButton.append(motionText);
   }
   syncMotion();
   motionButton.addEventListener('click', () => {
