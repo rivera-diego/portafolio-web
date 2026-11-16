@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#10110f">
+  <title>Lima Real Estate Pipeline — Case study</title>
+  <meta name="description" content="Case study of a Lima real estate data pipeline with Python, PostgreSQL, dimensional modeling, data quality and Streamlit.">
+  <link rel="canonical" href="https://darivo.dev/en/projects/lima-real-estate-pipeline/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/author.css">
+  <script defer src="/js/author.js"></script>
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('portfolio-motion')==='off')document.documentElement.classList.add('motion-off')}catch{}</script><link rel="preload" href="/fonts/studio-mono-latin.woff2" as="font" type="font/woff2" crossorigin><!-- language-alternates:start -->
+<link rel="alternate" hreflang="es" href="https://darivo.dev/proyectos/lima-real-estate-pipeline/">
+<link rel="alternate" hreflang="en" href="https://darivo.dev/en/projects/lima-real-estate-pipeline/">
+<link rel="alternate" hreflang="x-default" href="https://darivo.dev/proyectos/lima-real-estate-pipeline/">
+<!-- language-alternates:end -->
+</head>
+<body class="portfolio-page"><a class="skip-link" href="#contenido">Skip to content</a>
+  <header class="site-header"><nav class="site-nav container" aria-label="Main navigation">
+      <a class="site-nav__brand" href="/en/" aria-label="Diego Rivera, home">Diego Rivera</a>
+      <div class="site-nav__status">QA automation engineer at NTT DATA<br>Exploring DevOps and AI</div>
+      <ul class="site-nav__links" id="site-menu"><li><a href="/en/projects/" aria-current="page">Projects</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/resume/">Resume</a></li><li><a href="/en/#contacto">Contact</a></li></ul>
+      <div class="site-nav__actions"><!-- language-switcher:start --><div class="language-switcher" role="group" aria-label="Language"><a href="/proyectos/lima-real-estate-pipeline/" lang="es" hreflang="es" aria-label="Español">ES</a><a href="/en/projects/lima-real-estate-pipeline/" lang="en" hreflang="en" aria-label="English" aria-current="true">EN</a></div><!-- language-switcher:end --><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause motion effects" hidden><svg class="icon" viewbox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button><button class="site-nav__toggle" type="button" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </nav></header>
+
+  <main id="contenido" class="portfolio-main">
+    <section class="case-hero">
+      <div class="container case-hero__grid">
+        <div class="reveal">
+          <span class="kicker">case study / system 04</span>
+          <h1>Lima Real Estate <span class="gradient-text">Pipeline</span></h1>
+          <p class="case-hero__lead">A reproducible pipeline for transforming public real estate data, applying quality checks, loading a dimensional model and communicating findings through a dashboard.</p>
+          <div class="case-hero__meta">
+            <span class="status status--warning">Streamlit dashboard · demo pending validation</span>
+            <span class="tag">Python</span>
+            <span class="tag">ETL</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+          <div class="inline-actions">
+            <a class="button button--primary" href="https://github.com/rivera-diego/lima-real-estate-pipeline" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">↗</span></a>
+            <a class="button button--secondary" href="https://lima-real-estate-pipeline.streamlit.app/" target="_blank" rel="noopener noreferrer">Try dashboard <span aria-hidden="true">↗</span></a>
+            <a class="button button--ghost" href="/en/projects/">← Back to projects</a>
+          </div>
+        </div>
+        <div class="case-visual reveal" aria-label="Visual diagram of the data pipeline">
+          <div class="case-visual__header"><span>architecture / lima.data</span><span class="status status--warning">pipeline</span></div>
+          <div class="case-visual__body">
+            <div class="architecture-diagram">
+              <div class="architecture-node architecture-node--yellow">PUBLIC<br>SOURCE</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--main">PYTHON<br>ETL</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--green">DASHBOARD<br>Streamlit</div>
+              <div class="architecture-node">QUALITY<br>IQR</div>
+              <div class="architecture-line architecture-line--vertical" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--green">STAR<br>SCHEMA</div>
+              <div class="architecture-node architecture-node--yellow">PLOTLY<br>insights</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container case-layout">
+        <aside class="case-aside reveal">
+          <div class="case-aside__label">Contents</div>
+          <ul class="case-aside__list">
+            <li><a href="#contexto">Context</a></li>
+            <li><a href="#solucion">Pipeline</a></li>
+            <li><a href="#arquitectura">Architecture</a></li>
+            <li><a href="#calidad">Quality</a></li>
+            <li><a href="#ia">Applied AI</a></li>
+            <li><a href="#validacion">Evidence</a></li>
+            <li><a href="#siguiente">Roadmap</a></li>
+          </ul>
+        </aside>
+
+        <article class="case-content">
+          <section class="case-section reveal" id="contexto">
+            <span class="section-kicker">01 / context</span>
+            <h2>Turning scattered listings into questions we can analyze</h2>
+            <p>Lima's real estate market has information spread across public listings and formats that are difficult to analyze directly. The project aims to build a complete workflow—from extraction to visualization—to answer questions about prices, districts, property types and listing features.</p>
+            <div class="metric-grid">
+              <div class="metric"><strong>4</strong><span>layers: extraction, ETL, data and dashboard</span></div>
+              <div class="metric"><strong>IQR</strong><span>statistical rule for flagging outliers</span></div>
+              <div class="metric"><strong>UPSERT</strong><span>repeatable loading without duplicates</span></div>
+            </div>
+            <h3>Users and scope</h3>
+            <p>Designed as a portfolio and analysis project: technical users can review the pipeline, while business users can explore aggregated results through filters and charts.</p>
+          </section>
+
+          <section class="case-section reveal" id="solucion">
+            <span class="section-kicker">02 / pipeline</span>
+            <h2>From public data to business insight</h2>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Extraction</h3><p>Retrieving public information and parsing embedded structures to create a reproducible working layer.</p></div>
+              <div class="glow-panel"><h3>Transformation</h3><p>Flattening structures, normalizing prices and features, and preparing analytical tables.</p></div>
+              <div class="glow-panel"><h3>Storage</h3><p>PostgreSQL with dimensions and facts for querying properties, locations, advertisers and metrics.</p></div>
+              <div class="glow-panel"><h3>Visualization</h3><p>A Streamlit/Plotly dashboard with rankings, distributions, a map, property types and linked filters.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="arquitectura">
+            <span class="section-kicker">03 / architecture</span>
+            <h2>A dimensional model for reproducible analysis</h2>
+            <p>Separating layers allows transformation and analysis without distributing raw data or tying the dashboard to one specific snapshot. The public repository contains transformation code, the schema, aggregated results and an analysis notebook.</p>
+            <pre class="code-block"><span class="yellow">public listings</span>
+      │
+      ▼
+<span class="cyan">Python extraction / parsing</span>
+      │
+      ▼
+<span class="magenta">transform + quality rules</span>
+      │
+      ├── valid rows / flagged outliers
+      │
+      ▼
+<span class="green">PostgreSQL Star Schema</span>
+      │
+      ▼
+<span class="cyan">Streamlit + Plotly dashboard</span>
+
+<span class="muted">Published repository:</span> aggregated data + ETL + schema + analysis</pre>
+            <div class="tag-list">
+              <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Requests</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">Streamlit</span><span class="tag">Plotly</span><span class="tag">Jupyter</span>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="calidad">
+            <span class="section-kicker">04 / data quality</span>
+            <h2>Flagging problems while preserving history</h2>
+            <p>One key decision was to avoid automatically deleting price outliers. The pipeline calculates IQR-based limits, adds a validity flag and makes analytical queries use only records marked valid. This preserves traceability and avoids presenting source errors as market conclusions.</p>
+            <ul>
+              <li>UPSERT loading lets the process run more than once without duplicating entities.</li>
+              <li>The dimensional model separates location and advertiser dimensions from the fact table.</li>
+              <li>The repository does not include raw data or the complete automated collection code; it publishes aggregated results and analysis layers.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="ia">
+            <span class="section-kicker">05 / workflow</span>
+            <h2>AI-assisted technical planning</h2>
+            <p>This repository includes a versioned technical planning prompt in `.github/prompts/plan-urbaniaDatos.prompt.md`. AI helped structure the plan, explore decisions and accelerate documentation; the data model, quality rules and results were reviewed manually.</p>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Before the code</h3><p>Planning helped separate extraction, transformation, storage, analysis and publication.</p></div>
+              <div class="glow-panel"><h3>After the code</h3><p>Results were validated through queries, aggregated metrics and reviewing the dashboard filters' behavior.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="validacion">
+            <span class="section-kicker">06 / evidence</span>
+            <h2>Visible results and demo status</h2>
+            <ul>
+              <li>The README documents aggregated findings on prices, districts, property types and feature distributions.</li>
+              <li>The repository includes `schema.sql`, `load_db.py`, `app.py`, a notebook, aggregated CSV files and a dashboard GIF.</li>
+              <li>A Streamlit link exists, but public availability should be checked before presenting it as a reliable demo.</li>
+              <li>The documentation preserves the academic scope and avoids publishing the original source's raw data.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="siguiente">
+            <span class="section-kicker">07 / roadmap</span>
+            <h2>Making the pipeline easier to reproduce</h2>
+            <p>The next stage is to restore a stable demo, add automated schema and quality checks, document a small test dataset and clearly separate local analysis from public visualization.</p>
+            <div class="inline-actions">
+              <a class="button button--secondary" href="https://lima-real-estate-pipeline.streamlit.app/" target="_blank" rel="noopener noreferrer">Try dashboard ↗</a>
+              <a class="button button--ghost" href="/en/projects/">← View all projects</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container site-footer__inner">
+      <span>© <span data-current-year>2026</span> Diego Rivera · Lima, Peru</span>
+      <nav class="site-footer__links" aria-label="Footer links"><a href="/en/services/">Services and demos</a><a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:08diegorivera@gmail.com">Email</a></nav>
+    </div></footer>
+</body>
+</html>

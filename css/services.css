@@ -30,3 +30,8 @@
 .services-page .site-header ul{list-style:none}
 .services-page .site-nav__status{font-size:18px}
 @media(max-width:700px){.services-page .service-intro{padding-block:36px}.services-page .service-intro p{font-size:17px}.services-page .section-block{padding-block:40px}.services-page .configurator-wrapper{padding:24px 16px}.services-page .section-subtitle{font-size:16px}}
+/* Longer translated labels must also fit narrow screens. */
+.services-page .container{padding-inline:0}
+.services-page .contact-grid>*{min-width:0;overflow-wrap:anywhere}
+.services-page .pricing-tabs-wrapper{flex-wrap:wrap}
+@media(max-width:700px){.services-page .contact-grid{grid-template-columns:minmax(0,1fr)}.services-page .pricing-tab-btn{padding:12px;font-size:12px;white-space:normal}}

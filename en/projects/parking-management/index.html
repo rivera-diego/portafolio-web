@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#10110f">
+  <title>Parking Management Platform — Case study</title>
+  <meta name="description" content="Parking Management Platform case study: Node.js API, Next.js web dashboard, React Native mobile app and Supabase/PostgreSQL.">
+  <link rel="canonical" href="https://darivo.dev/en/projects/parking-management/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/author.css">
+  <script defer src="/js/author.js"></script>
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('portfolio-motion')==='off')document.documentElement.classList.add('motion-off')}catch{}</script><link rel="preload" href="/fonts/studio-mono-latin.woff2" as="font" type="font/woff2" crossorigin><!-- language-alternates:start -->
+<link rel="alternate" hreflang="es" href="https://darivo.dev/proyectos/parking-management/">
+<link rel="alternate" hreflang="en" href="https://darivo.dev/en/projects/parking-management/">
+<link rel="alternate" hreflang="x-default" href="https://darivo.dev/proyectos/parking-management/">
+<!-- language-alternates:end -->
+</head>
+<body class="portfolio-page"><a class="skip-link" href="#contenido">Skip to content</a>
+  <header class="site-header"><nav class="site-nav container" aria-label="Main navigation">
+      <a class="site-nav__brand" href="/en/" aria-label="Diego Rivera, home">Diego Rivera</a>
+      <div class="site-nav__status">QA automation engineer at NTT DATA<br>Exploring DevOps and AI</div>
+      <ul class="site-nav__links" id="site-menu"><li><a href="/en/projects/" aria-current="page">Projects</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/resume/">Resume</a></li><li><a href="/en/#contacto">Contact</a></li></ul>
+      <div class="site-nav__actions"><!-- language-switcher:start --><div class="language-switcher" role="group" aria-label="Language"><a href="/proyectos/parking-management/" lang="es" hreflang="es" aria-label="Español">ES</a><a href="/en/projects/parking-management/" lang="en" hreflang="en" aria-label="English" aria-current="true">EN</a></div><!-- language-switcher:end --><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause motion effects" hidden><svg class="icon" viewbox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button><button class="site-nav__toggle" type="button" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </nav></header>
+
+  <main id="contenido" class="portfolio-main">
+    <section class="case-hero">
+      <div class="container case-hero__grid">
+        <div class="reveal">
+          <span class="kicker">case study / system 01</span>
+          <h1>Parking Management <span class="gradient-text">Platform</span></h1>
+          <p class="case-hero__lead">A web, mobile and backend ecosystem for managing parking facilities, bookings, occupancy and payments through a shared API.</p>
+          <div class="case-hero__meta">
+            <span class="status">Web demo available</span>
+            <span class="tag">Full Stack</span>
+            <span class="tag">UTP · 2025</span>
+          </div>
+          <div class="inline-actions">
+            <a class="button button--primary" href="https://front-web-parking.vercel.app" target="_blank" rel="noopener noreferrer">Open demo <span aria-hidden="true">↗</span></a>
+            <a class="button button--secondary" href="https://github.com/rivera-diego/api-nodejs-parking" target="_blank" rel="noopener noreferrer">API on GitHub <span aria-hidden="true">↗</span></a>
+            <a class="button button--ghost" href="/en/projects/">← Back to projects</a>
+          </div>
+        </div>
+        <div class="case-visual reveal" aria-label="Visual diagram of the Parking ecosystem">
+          <div class="case-visual__header"><span>architecture / parking.sys</span><span class="status">stable view</span></div>
+          <div class="case-visual__body">
+            <div class="architecture-diagram">
+              <div class="architecture-node">WEB<br>Next.js</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--main">API REST<br>Node / Express</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--green">MOBILE<br>React Native</div>
+              <div class="architecture-node architecture-node--yellow">JWT<br>roles</div>
+              <div class="architecture-line architecture-line--vertical" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--green">SUPABASE<br>PostgreSQL</div>
+              <div class="architecture-node">Vercel<br>deploy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container case-layout">
+        <aside class="case-aside reveal">
+          <div class="case-aside__label">Contents</div>
+          <ul class="case-aside__list">
+            <li><a href="#contexto">Context</a></li>
+            <li><a href="#solucion">Solution</a></li>
+            <li><a href="#arquitectura">Architecture</a></li>
+            <li><a href="#decisiones">Decisions</a></li>
+            <li><a href="#ia">Applied AI</a></li>
+            <li><a href="#validacion">Validation</a></li>
+            <li><a href="#siguiente">Next steps</a></li>
+          </ul>
+        </aside>
+
+        <article class="case-content">
+          <section class="case-section reveal" id="contexto">
+            <span class="section-kicker">01 / context</span>
+            <h2>From an operational need to a connected system</h2>
+            <p>The challenge was to coordinate parking operations across locations: facility management, space availability, bookings, vehicle entry and exit, payments and communication with customers. The system needed to serve administrative staff and mobile users without duplicating business logic.</p>
+            <div class="metric-grid">
+              <div class="metric"><strong>3</strong><span>repositories forming one system</span></div>
+              <div class="metric"><strong>2</strong><span>main client types</span></div>
+              <div class="metric"><strong>1</strong><span>shared API at the core</span></div>
+            </div>
+            <h3>Users and scope</h3>
+            <p>Administrators manage parking facilities, employees, rates and operations. Customers check availability, book spaces and view their information through the mobile app. The web dashboard handles operations, while the mobile app supports the customer journey.</p>
+          </section>
+
+          <section class="case-section reveal" id="solucion">
+            <span class="section-kicker">02 / solution</span>
+            <h2>One backend core for multiple experiences</h2>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Operations management</h3><p>Parking facilities, spaces, rates, employees, users and operational statuses through the admin dashboard.</p></div>
+              <div class="glow-panel"><h3>Bookings and occupancy</h3><p>Workflows for checking availability, creating bookings, recording entry and exit, and tracking statuses.</p></div>
+              <div class="glow-panel"><h3>Payments and receipts</h3><p>Models and routes for payments, payment methods, digital receipts and transaction traceability.</p></div>
+              <div class="glow-panel"><h3>Notifications</h3><p>The backend includes provisions for notifications and email services as the system evolves.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="arquitectura">
+            <span class="section-kicker">03 / architecture</span>
+            <h2>Separation by client and responsibility</h2>
+            <p>The platform consists of three related repositories. The backend handles authentication, business rules, migrations and persistence; each client consumes its endpoints according to its usage context.</p>
+            <pre class="code-block"><span class="cyan">front-web-parking</span>   Next.js + TypeScript + Tailwind
+          │
+          ├── Axios / auth guard / role-based UI
+          │
+<span class="magenta">api-nodejs-parking</span>   Node.js + Express + JWT
+          │
+          ├── controllers / routes / services / jobs
+          ├── migrations / RLS / SQL verification
+          │
+<span class="green">front-movil</span>          React Native + TypeScript
+          │
+          └── auth / maps / reservations / user flows
+
+<span class="yellow">Supabase / PostgreSQL</span>  relational persistence + managed service</pre>
+            <div class="tag-list">
+              <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Next.js</span><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span><span class="tag">Vercel</span>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="decisiones">
+            <span class="section-kicker">04 / decisions</span>
+            <h2>Key technical decisions</h2>
+            <ul>
+              <li>A shared API avoids duplicating rules between the web dashboard and mobile application.</li>
+              <li>The relational model represents relationships between users, parking facilities, spaces, bookings, occupancy, payments and receipts.</li>
+              <li>Versioned SQL migrations document schema changes and policy fixes.</li>
+              <li>Separating clients lets each experience evolve without making the backend dependent on the interface.</li>
+              <li>Environment variables keep local, testing and deployment configurations separate.</li>
+            </ul>
+            <h3>My contribution</h3>
+            <p>I worked on the evolution and integration of the ecosystem's public repositories, connecting the backend to the web and mobile clients and documenting changes to data and operational workflows.</p>
+          </section>
+
+          <section class="case-section reveal" id="ia">
+            <span class="section-kicker">05 / workflow</span>
+            <h2>AI as an engineering tool</h2>
+            <p>Development followed an AI-assisted workflow for requirements analysis, exploring alternatives, implementation, debugging and documentation. The clearest public evidence is the versioned GitHub Copilot instructions in the backend and mobile application.</p>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Persistent context</h3><p>Repository instructions help preserve conventions and technical context as the project evolves.</p></div>
+              <div class="glow-panel"><h3>Technical responsibility</h3><p>AI accelerated the workflow, while decisions, reviews and functional validation remained my responsibility.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="validacion">
+            <span class="section-kicker">06 / evidence</span>
+            <h2>Validation, deployment and limitations</h2>
+            <ul>
+              <li>The repository includes verification documentation, test scripts and migrations to reproduce backend changes.</li>
+              <li>The web dashboard has a public demo deployed on Vercel.</li>
+              <li>Supabase/PostgreSQL is used as a managed service, with configuration handled through environment variables.</li>
+              <li>My experience includes deploying the API on Azure, but the historical repository synchronization workflow is not currently available as public evidence.</li>
+              <li>I do not present Docker, Kubernetes, Terraform or observability as skills demonstrated by this project, because the reviewed repositories do not provide enough public evidence.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="siguiente">
+            <span class="section-kicker">07 / roadmap</span>
+            <h2>Next steps</h2>
+            <p>The next stage is to consolidate an OpenAPI specification, expand automated testing, document the deployment workflow and make the boundaries between operations, bookings and billing clearer.</p>
+            <div class="inline-actions">
+              <a class="button button--secondary" href="https://github.com/rivera-diego/front-web-parking" target="_blank" rel="noopener noreferrer">Web dashboard ↗</a>
+              <a class="button button--secondary" href="https://github.com/rivera-diego/front-movil" target="_blank" rel="noopener noreferrer">Mobile app ↗</a>
+              <a class="button button--ghost" href="/en/projects/">← View all projects</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container site-footer__inner">
+      <span>© <span data-current-year>2026</span> Diego Rivera · Lima, Peru</span>
+      <nav class="site-footer__links" aria-label="Footer links"><a href="/en/services/">Services and demos</a><a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:08diegorivera@gmail.com">Email</a></nav>
+    </div></footer>
+</body>
+</html>

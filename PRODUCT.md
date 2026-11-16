@@ -51,3 +51,7 @@ The brand may also include short-form video sharing experiences and knowledge ab
 ## Privacy preference
 
 The author allows naming the current employer, NTT DATA. Previous employers must remain unnamed in public biography and CV content; retain roles, dates and responsibilities. This preference supersedes the earlier instruction to preserve employer names.
+
+## Languages
+
+The portfolio is available in Spanish at its existing URLs and English under `/en/`, including services and the four project case studies. The header language selector links equivalent pages. Client demos keep their original Spanish content. Preserve employer privacy in both languages. See `i18n/README.md` for the static translation workflow.

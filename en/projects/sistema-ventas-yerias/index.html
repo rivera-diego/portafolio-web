@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#10110f">
+  <title>Yerias Hardware Store Sales System — Case study</title>
+  <meta name="description" content="Yerias Hardware Store Sales System case study: .NET API, React web client and Windows Forms desktop application.">
+  <link rel="canonical" href="https://darivo.dev/en/projects/sistema-ventas-yerias/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/author.css">
+  <script defer src="/js/author.js"></script>
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('portfolio-motion')==='off')document.documentElement.classList.add('motion-off')}catch{}</script><link rel="preload" href="/fonts/studio-mono-latin.woff2" as="font" type="font/woff2" crossorigin><!-- language-alternates:start -->
+<link rel="alternate" hreflang="es" href="https://darivo.dev/proyectos/sistema-ventas-yerias/">
+<link rel="alternate" hreflang="en" href="https://darivo.dev/en/projects/sistema-ventas-yerias/">
+<link rel="alternate" hreflang="x-default" href="https://darivo.dev/proyectos/sistema-ventas-yerias/">
+<!-- language-alternates:end -->
+</head>
+<body class="portfolio-page"><a class="skip-link" href="#contenido">Skip to content</a>
+  <header class="site-header"><nav class="site-nav container" aria-label="Main navigation">
+      <a class="site-nav__brand" href="/en/" aria-label="Diego Rivera, home">Diego Rivera</a>
+      <div class="site-nav__status">QA automation engineer at NTT DATA<br>Exploring DevOps and AI</div>
+      <ul class="site-nav__links" id="site-menu"><li><a href="/en/projects/" aria-current="page">Projects</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/resume/">Resume</a></li><li><a href="/en/#contacto">Contact</a></li></ul>
+      <div class="site-nav__actions"><!-- language-switcher:start --><div class="language-switcher" role="group" aria-label="Language"><a href="/proyectos/sistema-ventas-yerias/" lang="es" hreflang="es" aria-label="Español">ES</a><a href="/en/projects/sistema-ventas-yerias/" lang="en" hreflang="en" aria-label="English" aria-current="true">EN</a></div><!-- language-switcher:end --><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause motion effects" hidden><svg class="icon" viewbox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button><button class="site-nav__toggle" type="button" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </nav></header>
+
+  <main id="contenido" class="portfolio-main">
+    <section class="case-hero">
+      <div class="container case-hero__grid">
+        <div class="reveal">
+          <span class="kicker">case study / system 03</span>
+          <h1>Yerias Hardware Store <span class="gradient-text">Sales System</span></h1>
+          <p class="case-hero__lead">A business system with an API, web client and desktop application for inventory, purchasing, sales, users, receipts and reports.</p>
+          <div class="case-hero__meta">
+            <span class="status status--muted">No public demo · local evidence</span>
+            <span class="tag">C# / .NET</span>
+            <span class="tag">React</span>
+            <span class="tag">SQL Server</span>
+          </div>
+          <div class="inline-actions">
+            <a class="button button--primary" href="https://github.com/rivera-diego/Net5-System-Sales-Yerias-RestAPI" target="_blank" rel="noopener noreferrer">View API <span aria-hidden="true">↗</span></a>
+            <a class="button button--secondary" href="https://github.com/rivera-diego/React-System-Sales-Yerias-Web" target="_blank" rel="noopener noreferrer">View web client <span aria-hidden="true">↗</span></a>
+            <a class="button button--ghost" href="/en/projects/">← Back to projects</a>
+          </div>
+        </div>
+        <div class="case-visual reveal" aria-label="Visual diagram of the Yerias sales system">
+          <div class="case-visual__header"><span>architecture / yerias.biz</span><span class="status status--muted">local system</span></div>
+          <div class="case-visual__body">
+            <div class="architecture-diagram">
+              <div class="architecture-node">WEB<br>React</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--main">API<br>.NET 5</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--yellow">SQL<br>Server</div>
+              <div class="architecture-node architecture-node--green">POS<br>WinForms</div>
+              <div class="architecture-line architecture-line--vertical" aria-hidden="true"></div>
+              <div class="architecture-node">EF Core<br>JWT</div>
+              <div class="architecture-node architecture-node--green">Reports<br>PDF</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container case-layout">
+        <aside class="case-aside reveal">
+          <div class="case-aside__label">Contents</div>
+          <ul class="case-aside__list">
+            <li><a href="#contexto">Context</a></li>
+            <li><a href="#solucion">Modules</a></li>
+            <li><a href="#arquitectura">Architecture</a></li>
+            <li><a href="#decisiones">Decisions</a></li>
+            <li><a href="#ia">Applied AI</a></li>
+            <li><a href="#validacion">Evidence</a></li>
+            <li><a href="#siguiente">Roadmap</a></li>
+          </ul>
+        </aside>
+
+        <article class="case-content">
+          <section class="case-section reveal" id="contexto">
+            <span class="section-kicker">01 / context</span>
+            <h2>One business system across three interfaces</h2>
+            <p>Yerias Hardware Store represents a business scenario with connected operations: products and categories, suppliers, purchasing, inventory, sales, receipts and users. The challenge was to bring the same business information to a web interface and a desktop point of sale.</p>
+            <div class="metric-grid">
+              <div class="metric"><strong>3</strong><span>repositories in the ecosystem</span></div>
+              <div class="metric"><strong>2</strong><span>clients: web and desktop</span></div>
+              <div class="metric"><strong>1</strong><span>relational model in SQL Server</span></div>
+            </div>
+            <h3>Users and scope</h3>
+            <p>The system serves sales staff, warehouse teams, administrators and users with different roles. The web client supports management and reporting; the Windows Forms application handles point-of-sale workflows and local operations.</p>
+          </section>
+
+          <section class="case-section reveal" id="solucion">
+            <span class="section-kicker">02 / solution</span>
+            <h2>Modules reflecting the business workflow</h2>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Catalog and inventory</h3><p>Products, categories, brands, suppliers and stock control to keep operations organized.</p></div>
+              <div class="glow-panel"><h3>Purchasing and sales</h3><p>Purchase recording, cart/point-of-sale workflows and itemized receipts.</p></div>
+              <div class="glow-panel"><h3>Users and roles</h3><p>Authentication and authorization to separate responsibilities within the business solution.</p></div>
+              <div class="glow-panel"><h3>Reports</h3><p>Sales queries and reports, including date-range filters in the desktop application.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="arquitectura">
+            <span class="section-kicker">03 / architecture</span>
+            <h2>Web and desktop integration around the business domain</h2>
+            <p>The ecosystem includes a .NET API for the React client and a WinForms application working with Entity Framework and SQL Server. This integration difference matters: the desktop application is not presented as just another HTTP frontend.</p>
+            <pre class="code-block"><span class="cyan">React Web Client</span>       React + TypeScript + MUI
+          │
+          └── Axios → <span class="magenta">.NET 5 Web API</span>
+                              │
+                              ├── EF Core / JWT / Swagger
+                              │
+                              └── <span class="yellow">SQL Server</span>
+
+<span class="green">Windows Forms POS</span>       .NET Framework 4.7.2 + EF6
+          │
+          └── local access to the relational model and sales operations</pre>
+            <div class="tag-list">
+              <span class="tag">C#</span><span class="tag">.NET 5</span><span class="tag">ASP.NET</span><span class="tag">Entity Framework</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">MUI</span><span class="tag">WinForms</span><span class="tag">SQL Server</span>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="decisiones">
+            <span class="section-kicker">04 / decisions</span>
+            <h2>Integration decisions and lessons</h2>
+            <ul>
+              <li>Separating the API and web client supports a client-server architecture with Swagger documentation.</li>
+              <li>The entity model and migrations help represent related business operations and make them reportable.</li>
+              <li>The desktop application serves the local point-of-sale scenario, where the operational experience differs from the web dashboard.</li>
+              <li>This case shows the cost of keeping logic coupled to different interfaces and provides a foundation for separating the domain and services later.</li>
+            </ul>
+            <h3>My contribution</h3>
+            <p>I built and connected the sales ecosystem, working on the backend, web client and desktop application as parts of one business solution.</p>
+          </section>
+
+          <section class="case-section reveal" id="ia">
+            <span class="section-kicker">05 / workflow</span>
+            <h2>AI assistance alongside design work</h2>
+            <p>AI supported requirements analysis, component exploration, debugging and documentation. Business logic, entity modeling, client integration and workflow validation required my own technical review and testing.</p>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Translating business needs</h3><p>The work starts with concrete operations—purchasing, selling, tracking stock and reporting—before choosing an interface.</p></div>
+              <div class="glow-panel"><h3>State of the evidence</h3><p>I do not attribute a specific public prompt or code-generation percentage to this repository; I describe it as an assisted development workflow.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="validacion">
+            <span class="section-kicker">06 / evidence</span>
+            <h2>Evidence for exploring the system</h2>
+            <ul>
+              <li>The API documents endpoints, entities, JWT security and Swagger access.</li>
+              <li>The web client contains catalog, sales, purchasing, user and reporting modules.</li>
+              <li>The desktop repository contains login, product, sales, search and report forms.</li>
+              <li>There is currently no deployed public demo. Recommended visual evidence includes the dashboard, point-of-sale workflow, a report and the architecture diagram.</li>
+              <li>The system must run locally with SQL Server and the corresponding .NET tools.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="siguiente">
+            <span class="section-kicker">07 / roadmap</span>
+            <h2>Making deployment easier</h2>
+            <p>The next improvement would be to extract domain logic into decoupled services, add automated tests, upgrade the API to a modern .NET version and prepare a controlled demo with sample data, so the product can be shown without a local SQL Server installation.</p>
+            <div class="inline-actions">
+              <a class="button button--secondary" href="https://github.com/rivera-diego/WindowsForm-System-Sales" target="_blank" rel="noopener noreferrer">Desktop client ↗</a>
+              <a class="button button--ghost" href="/en/projects/">← View all projects</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container site-footer__inner">
+      <span>© <span data-current-year>2026</span> Diego Rivera · Lima, Peru</span>
+      <nav class="site-footer__links" aria-label="Footer links"><a href="/en/services/">Services and demos</a><a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:08diegorivera@gmail.com">Email</a></nav>
+    </div></footer>
+</body>
+</html>

@@ -68,3 +68,9 @@ El fondo y la preferencia de movimiento se establecen antes del primer renderiza
 La escultura empieza durante un momento libre del navegador. En móvil o con cuatro núcleos lógicos o menos utiliza 160 segmentos, sombras de 768 px, densidad máxima de 1 y hasta 24 fps; en escritorio usa 250 segmentos, sombras de 1024 px, densidad máxima de 1.5 y hasta 30 fps. Con ahorro de datos conserva el fotograma estático. Se mantienen la pausa y la detención fuera de pantalla.
 
 Astro puede ser útil en una futura reorganización para compartir plantillas y publicar artículos; no es un requisito para resolver los saltos actuales. React se reservaría para herramientas con interacción y estado más complejos.
+
+## Idiomas
+
+La cabecera incluye ES / EN como enlaces visibles con el idioma activo subrayado. El grupo conserva tamaños compactos y se adapta hasta 320 px sin desplazar el nombre ni el menú móvil. El cambio lleva a la misma página en el otro idioma y conserva el fragmento de sección si está presente. Los nombres accesibles del menú, la pausa y los anuncios de filtros siguen el idioma de la página.
+
+Las versiones inglesas se generan mediante `tools/build_english.py` y los diccionarios revisados de `i18n/`. Consultar `i18n/README.md` antes de editar contenido. Las demos de clientes conservan su idioma original y están identificadas como tales.

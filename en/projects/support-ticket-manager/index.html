@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#10110f">
+  <title>Support Ticket Manager — Case study</title>
+  <meta name="description" content="Support Ticket Manager case study: a full-stack demo for creating and reviewing support issues.">
+  <link rel="canonical" href="https://darivo.dev/en/projects/support-ticket-manager/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/author.css">
+  <script defer src="/js/author.js"></script>
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('portfolio-motion')==='off')document.documentElement.classList.add('motion-off')}catch{}</script><link rel="preload" href="/fonts/studio-mono-latin.woff2" as="font" type="font/woff2" crossorigin><!-- language-alternates:start -->
+<link rel="alternate" hreflang="es" href="https://darivo.dev/proyectos/support-ticket-manager/">
+<link rel="alternate" hreflang="en" href="https://darivo.dev/en/projects/support-ticket-manager/">
+<link rel="alternate" hreflang="x-default" href="https://darivo.dev/proyectos/support-ticket-manager/">
+<!-- language-alternates:end -->
+</head>
+<body class="portfolio-page"><a class="skip-link" href="#contenido">Skip to content</a>
+  <header class="site-header"><nav class="site-nav container" aria-label="Main navigation">
+      <a class="site-nav__brand" href="/en/" aria-label="Diego Rivera, home">Diego Rivera</a>
+      <div class="site-nav__status">QA automation engineer at NTT DATA<br>Exploring DevOps and AI</div>
+      <ul class="site-nav__links" id="site-menu"><li><a href="/en/projects/" aria-current="page">Projects</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/resume/">Resume</a></li><li><a href="/en/#contacto">Contact</a></li></ul>
+      <div class="site-nav__actions"><!-- language-switcher:start --><div class="language-switcher" role="group" aria-label="Language"><a href="/proyectos/support-ticket-manager/" lang="es" hreflang="es" aria-label="Español">ES</a><a href="/en/projects/support-ticket-manager/" lang="en" hreflang="en" aria-label="English" aria-current="true">EN</a></div><!-- language-switcher:end --><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pause motion effects" hidden><svg class="icon" viewbox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button><button class="site-nav__toggle" type="button" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </nav></header>
+
+  <main id="contenido" class="portfolio-main">
+    <section class="case-hero">
+      <div class="container case-hero__grid">
+        <div class="reveal">
+          <span class="kicker">case study / system 02</span>
+          <h1>Support Ticket <span class="gradient-text">Manager</span></h1>
+          <p class="case-hero__lead">A full-stack demo for creating and reviewing support issues, with a clear path from a user's report to ticket tracking.</p>
+          <div class="case-hero__meta">
+            <span class="status status--warning">Working demo · local JSON</span>
+            <span class="tag">Next.js 15</span>
+            <span class="tag">TypeScript</span>
+          </div>
+          <div class="inline-actions">
+            <a class="button button--primary" href="https://support-ticket-manager.vercel.app" target="_blank" rel="noopener noreferrer">Open demo <span aria-hidden="true">↗</span></a>
+            <a class="button button--secondary" href="https://github.com/rivera-diego/support-ticket-manager" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">↗</span></a>
+            <a class="button button--ghost" href="/en/projects/">← Back to projects</a>
+          </div>
+        </div>
+        <div class="case-visual reveal" aria-label="Visual diagram of Support Ticket Manager">
+          <div class="case-visual__header"><span>architecture / support.db</span><span class="status status--warning">demo mode</span></div>
+          <div class="case-visual__body">
+            <div class="architecture-diagram">
+              <div class="architecture-node">LOGIN<br>Next.js</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--main">TICKETS<br>API routes</div>
+              <div class="architecture-line" aria-hidden="true"></div>
+              <div class="architecture-node architecture-node--green">DETAIL<br>comments</div>
+              <div class="architecture-node architecture-node--yellow">JSON<br>mock db</div>
+              <div class="architecture-line architecture-line--vertical" aria-hidden="true"></div>
+              <div class="architecture-node">PostgreSQL<br>optional</div>
+              <div class="architecture-node architecture-node--green">Vercel<br>demo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container case-layout">
+        <aside class="case-aside reveal">
+          <div class="case-aside__label">Contents</div>
+          <ul class="case-aside__list">
+            <li><a href="#contexto">Context</a></li>
+            <li><a href="#solucion">Workflow</a></li>
+            <li><a href="#arquitectura">Architecture</a></li>
+            <li><a href="#decisiones">Decisions</a></li>
+            <li><a href="#ia">Applied AI</a></li>
+            <li><a href="#validacion">Limitations</a></li>
+            <li><a href="#siguiente">Roadmap</a></li>
+          </ul>
+        </aside>
+
+        <article class="case-content">
+          <section class="case-section reveal" id="contexto">
+            <span class="section-kicker">01 / context</span>
+            <h2>A support workflow that is clear from start to finish</h2>
+            <p>The application comes from a need close to my technical support experience: recording issues, preserving problem context and letting users check the status of a request without relying on scattered messages.</p>
+            <div class="metric-grid">
+              <div class="metric"><strong>1</strong><span>core workflow: create and review tickets</span></div>
+              <div class="metric"><strong>2</strong><span>documented persistence modes</span></div>
+              <div class="metric"><strong>0</strong><span>external dependencies needed to start the local demo</span></div>
+            </div>
+            <h3>Users and scope</h3>
+            <p>Users can sign in, view their tickets, create an issue and review its details and history. The demo data includes an administrator profile, but the interface does not yet implement an admin dashboard with distinct permissions.</p>
+          </section>
+
+          <section class="case-section reveal" id="solucion">
+            <span class="section-kicker">02 / solution</span>
+            <h2>A working demo before connecting external services</h2>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Demo authentication</h3><p>Login, registration and logout to explore the product without configuring external infrastructure.</p></div>
+              <div class="glow-panel"><h3>Tickets</h3><p>Create, list and view issues with category, priority, status and description.</p></div>
+              <div class="glow-panel"><h3>History</h3><p>A ticket's detail view can display comments and events stored in the demo model.</p></div>
+              <div class="glow-panel"><h3>Ready to evolve</h3><p>The repository includes a schema and an optional connection for migrating persistence to PostgreSQL/Supabase.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="arquitectura">
+            <span class="section-kicker">03 / architecture</span>
+            <h2>Local persistence makes the first walkthrough reproducible</h2>
+            <p>The default mode uses a JSON file and local data-access functions. API Routes isolate the frontend from storage and allow the adapter to be replaced without redesigning every screen.</p>
+            <pre class="code-block"><span class="cyan">Next.js App Router</span>   login / dashboard / ticket detail
+          │
+          ├── React + TypeScript + Tailwind + Radix UI
+          │
+<span class="magenta">API Routes</span>             auth / tickets / comments
+          │
+          ├── <span class="yellow">lib/mock-db.ts</span>  →  data/mock-data.json
+          │
+          └── <span class="green">lib/db.ts</span>        →  optional PostgreSQL
+
+<span class="muted">Deployment:</span> Vercel demo · JSON persistence is not guaranteed in serverless environments</pre>
+            <div class="tag-list">
+              <span class="tag">Next.js 15</span><span class="tag">React 19</span><span class="tag">TypeScript 5</span><span class="tag">Tailwind CSS</span><span class="tag">Radix UI</span><span class="tag">API Routes</span><span class="tag">PostgreSQL</span>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="decisiones">
+            <span class="section-kicker">04 / decisions</span>
+            <h2>Technical decisions and explicit limitations</h2>
+            <ul>
+              <li>JSON mode makes the product easier to review and the demo easier to run without external service credentials.</li>
+              <li>The documentation separates demo mode from the PostgreSQL alternative, distinguishing configuration from a completed migration.</li>
+              <li>The UI focuses on the core support workflow rather than simulating a business system whose permissions are not yet implemented.</li>
+              <li>The current session uses localStorage, which is sufficient for a demonstration but requires secure cookies or an identity provider before production.</li>
+            </ul>
+            <h3>My contribution</h3>
+            <p>I designed and built the application workflow, screens and API Routes, and documented the path to PostgreSQL, including the differences still to be resolved.</p>
+          </section>
+
+          <section class="case-section reveal" id="ia">
+            <span class="section-kicker">05 / workflow</span>
+            <h2>AI assistance with output review</h2>
+            <p>This project follows my AI-assisted development workflow: breaking down requirements, exploring components, implementation, debugging and documentation. I do not present it as automatically generated software or claim that the repository includes versioned Copilot instructions that are not published there.</p>
+            <div class="info-grid">
+              <div class="glow-panel"><h3>Fast iteration</h3><p>AI helps compare alternatives and shorten the gap between a product idea and a navigable workflow.</p></div>
+              <div class="glow-panel"><h3>Human validation</h3><p>Routes, states, messages and limitations are checked at runtime; security decisions are not delegated to the model.</p></div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="validacion">
+            <span class="section-kicker">06 / evidence</span>
+            <h2>What it demonstrates today and what it does not</h2>
+            <ul>
+              <li>The public demo supports login, dashboard navigation, ticket creation and ticket review.</li>
+              <li>The README describes the API routes and the structure required for JSON and PostgreSQL modes.</li>
+              <li>The repository should not yet be presented as a production system with complete server-side authorization.</li>
+              <li>The published GitHub Actions workflow is manual and intended to fix file tracking; it is not evidence of a complete CI/CD pipeline.</li>
+              <li>JSON persistence is not reliable for permanent changes in a serverless deployment.</li>
+            </ul>
+          </section>
+
+          <section class="case-section reveal" id="siguiente">
+            <span class="section-kicker">07 / roadmap</span>
+            <h2>Turning the demo into an operational application</h2>
+            <p>The next step is to migrate the routes to PostgreSQL, secure sessions and permissions on the server, implement the actual admin dashboard, and add UI-based comments, filters, technician assignment and integration tests.</p>
+            <div class="inline-actions">
+              <a class="button button--secondary" href="https://support-ticket-manager.vercel.app" target="_blank" rel="noopener noreferrer">Explore demo ↗</a>
+              <a class="button button--ghost" href="/en/projects/">← View all projects</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container site-footer__inner">
+      <span>© <span data-current-year>2026</span> Diego Rivera · Lima, Peru</span>
+      <nav class="site-footer__links" aria-label="Footer links"><a href="/en/services/">Services and demos</a><a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:08diegorivera@gmail.com">Email</a></nav>
+    </div></footer>
+</body>
+</html>

@@ -97,4 +97,13 @@
     <priority>0.5</priority>
   </url>
   <url><loc>https://darivo.dev/servicios/</loc></url>
+  <url><loc>https://darivo.dev/en/</loc></url>
+  <url><loc>https://darivo.dev/en/projects/</loc></url>
+  <url><loc>https://darivo.dev/en/about/</loc></url>
+  <url><loc>https://darivo.dev/en/resume/</loc></url>
+  <url><loc>https://darivo.dev/en/projects/parking-management/</loc></url>
+  <url><loc>https://darivo.dev/en/projects/support-ticket-manager/</loc></url>
+  <url><loc>https://darivo.dev/en/projects/sistema-ventas-yerias/</loc></url>
+  <url><loc>https://darivo.dev/en/projects/lima-real-estate-pipeline/</loc></url>
+  <url><loc>https://darivo.dev/en/services/</loc></url>
 </urlset>

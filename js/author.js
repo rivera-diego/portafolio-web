@@ -2,13 +2,21 @@ document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('is-ready');
+  const english = document.documentElement.lang === 'en';
+  const label = (es, en) => english ? en : es;
+  document.querySelectorAll('.language-switcher a').forEach(link => {
+    // Both versions retain the same section IDs. Keep the current section.
+    link.addEventListener('click', () => {
+      if (location.hash) link.hash = location.hash;
+    });
+  });
   const nav = document.querySelector('.site-nav');
   const toggle = document.querySelector('.site-nav__toggle');
   const menu = document.querySelector('.site-nav__links');
   function closeMenu(restoreFocus = false) {
     if (!toggle || !menu) return;
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Abrir menú');
+    toggle.setAttribute('aria-label', label('Abrir menú', 'Open menu'));
     toggle.classList.remove('is-open');
     menu.classList.remove('is-open');
     if (restoreFocus) toggle.focus();
@@ -17,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') !== 'true';
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      toggle.setAttribute('aria-label', open ? label('Cerrar menú', 'Close menu') : label('Abrir menú', 'Open menu'));
       toggle.classList.toggle('is-open', open);
       menu.classList.toggle('is-open', open);
     });
@@ -40,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.classList.toggle('motion-off', motionOff);
     document.dispatchEvent(new Event('portfolio:motion'));
     motionButton.setAttribute('aria-pressed', String(motionOff));
-    motionButton.setAttribute('aria-label', motionOff ? 'Activar efectos de movimiento' : 'Pausar efectos de movimiento');
+    motionButton.setAttribute('aria-label', motionOff ? label('Activar efectos de movimiento', 'Enable motion effects') : label('Pausar efectos de movimiento', 'Pause motion effects'));
     motionButton.title = motionButton.getAttribute('aria-label');
     motionButton.innerHTML = motionOff
       ? '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>'
@@ -80,7 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.toggle('is-hidden', !show);
         if (show) visible++;
       });
-      status.textContent = `${visible} ${visible === 1 ? 'proyecto' : 'proyectos'} en ${button.textContent.trim()}.`;
+      const noun = visible === 1 ? label('proyecto', 'project') : label('proyectos', 'projects');
+      status.textContent = `${visible} ${noun} ${label('en', 'in')} ${button.textContent.trim()}.`;
     }));
   }
   document.querySelectorAll('[data-current-year]').forEach(e => { e.textContent = new Date().getFullYear(); });
