@@ -52,26 +52,21 @@ document.addEventListener('DOMContentLoaded', () => {
   let savedMotion = false;
   try { savedMotion = localStorage.getItem('portfolio-motion') === 'off'; } catch {}
   let motionOff = reduced.matches || savedMotion;
-  const motionButton = document.querySelector('.motion-toggle') || document.createElement('button');
-  motionButton.hidden = false;
-  motionButton.className = 'motion-toggle';
-  motionButton.type = 'button';
-  if (!motionButton.isConnected) document.querySelector('.site-footer__links')?.append(motionButton);
+  const motionButton = document.querySelector('.hero-art .motion-toggle');
+  if (motionButton) motionButton.hidden = false;
   function syncMotion() {
     document.documentElement.classList.toggle('motion-off', motionOff);
     document.dispatchEvent(new Event('portfolio:motion'));
+    if (!motionButton) return;
     motionButton.setAttribute('aria-pressed', String(motionOff));
     motionButton.setAttribute('aria-label', motionOff ? label('Activar efectos de movimiento', 'Enable motion effects') : label('Pausar efectos de movimiento', 'Pause motion effects'));
     motionButton.title = motionButton.getAttribute('aria-label');
     motionButton.innerHTML = motionOff
       ? '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>'
       : '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>';
-    const motionText = document.createElement('span');
-    motionText.textContent = motionOff ? label('Activar animaciones', 'Enable animations') : label('Pausar animaciones', 'Pause animations');
-    motionButton.append(motionText);
   }
   syncMotion();
-  motionButton.addEventListener('click', () => {
+  motionButton?.addEventListener('click', () => {
     motionOff = !motionOff;
     savedMotion = motionOff;
     try { localStorage.setItem('portfolio-motion', motionOff ? 'off' : 'on'); } catch {}

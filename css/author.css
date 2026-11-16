@@ -83,12 +83,13 @@ html.motion-off::view-transition-group(*),html.motion-off::view-transition-old(*
 @media(max-width:380px){.site-nav__brand{font-size:12px;gap:8px}.site-nav__brand:before{width:14px;height:14px}.site-nav{gap:8px}}
 @media print{.language-switcher{display:none}}
 
-/* Navigation stays focused on pages; animation preferences live in the footer. */
+/* Animation controls stay with the sculpture, outside the page navigation. */
 .site-nav__toggle{border:0}
 .site-footer__links{align-items:center;justify-content:flex-end;column-gap:20px;row-gap:4px}
 .site-footer__inner>span{flex-shrink:0}
-.site-footer .motion-toggle{display:flex;align-items:center;gap:8px;width:auto;height:auto;min-height:44px;padding:0;border:0;background:none;font:inherit;color:var(--muted)}
-.site-footer .motion-toggle:hover{color:var(--accent)}
+.hero-art .motion-toggle{position:absolute;right:8%;bottom:42px;z-index:4;width:44px;height:44px;padding:0;background:var(--paper);border-color:var(--line);color:var(--soft)}
+.hero-art .motion-toggle:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:700px){.hero-art .motion-toggle{right:0;bottom:34px}}
 .motion-toggle[hidden]{display:none}
 /* Shared contact icons are local SVGs, in the same ink and copper palette. */
 .contact-link{display:inline-flex;align-items:center;gap:9px}
@@ -97,6 +98,7 @@ html.motion-off::view-transition-group(*),html.motion-off::view-transition-old(*
 .contact-link:hover .contact-icon{color:currentColor}
 .button--primary.contact-link .contact-icon{color:currentColor}
 .site-footer__links .contact-icon{width:14px;height:14px}
+.contact-arrow.contact-link{display:grid;place-items:center;gap:0}
 .contact-arrow.contact-link .contact-icon{width:30px;height:30px;color:currentColor}
 .contact-email.contact-link{overflow-wrap:anywhere}
 .resume-contact .contact-link{min-width:0;overflow-wrap:anywhere}
