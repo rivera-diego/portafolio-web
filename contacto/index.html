@@ -21,19 +21,36 @@
       <div class="site-nav__actions"><!-- language-switcher:start --><div class="language-switcher"><a href="/en/contact/" lang="en" hreflang="en" aria-label="Switch to English" title="Switch to English">EN</a></div><!-- language-switcher:end --><button class="site-nav__toggle" type="button" aria-label="Abrir menú" aria-controls="site-menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
     </nav></header>
 <main id="contenido" class="container contact-page__main">
-  <div class="contact-page__intro">
+  <section class="contact-intro" aria-labelledby="contact-title">
     <p class="studio-label">CONTACTO / LIMA, PERÚ</p>
-    <h1>Conversemos<span class="name-dot">.</span></h1>
-    <p>¿Tienes una idea, un proyecto o una experiencia que compartir? Me interesa conversar sobre software, calidad y lo que estamos aprendiendo.</p>
-  </div>
-  <div class="contact-channels">
-    <a class="contact-channel" href="mailto:08diegorivera@gmail.com"><span class="contact-channel__number" aria-hidden="true">01</span><span><span class="contact-channel__name">Correo</span><span class="contact-channel__detail">08diegorivera@gmail.com</span></span><span aria-hidden="true">↗</span></a>
-    <a class="contact-channel" href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer"><span class="contact-channel__number" aria-hidden="true">02</span><span><span class="contact-channel__name">LinkedIn</span><span class="contact-channel__detail">Conectemos y compartamos experiencias</span></span><span aria-hidden="true">↗</span></a>
-    <a class="contact-channel" href="https://wa.me/51945902833" target="_blank" rel="noopener noreferrer"><span class="contact-channel__number" aria-hidden="true">03</span><span><span class="contact-channel__name">WhatsApp</span><span class="contact-channel__detail">Escríbeme directamente</span></span><span aria-hidden="true">↗</span></a>
-  </div>
+    <h1 id="contact-title">Las buenas ideas<br>empiezan hablando<span class="name-dot">.</span></h1>
+    <p class="contact-intro__text">¿Tienes una idea, un proyecto o una experiencia que compartir? Me interesa conversar sobre software, calidad y lo que estamos aprendiendo.</p>
+    <div class="contact-signature"><img src="/img/diego-rivera-profile.webp" alt="Diego Rivera" width="72" height="72"><div><strong>Diego Rivera</strong><span>QA, software y curiosidad.</span></div></div>
+  </section>
+  <section class="contact-email-panel" aria-labelledby="email-title">
+    <div class="contact-email-panel__top"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#mail"></use></svg><span class="studio-label">01 / CORREO DIRECTO</span></div>
+    <h2 id="email-title">Cuéntame qué tienes en mente<span class="name-dot">.</span></h2>
+    <p>Una pregunta técnica, una colaboración o una idea por desarrollar. Podemos empezar con un correo.</p>
+    <a class="contact-link contact-email-address" href="mailto:08diegorivera@gmail.com"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#mail"></use></svg>08diegorivera@gmail.com</a>
+    <div class="contact-email-panel__actions"><a class="contact-link button button--primary" href="mailto:08diegorivera@gmail.com"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#mail"></use></svg>Escribir un correo</a><button class="contact-copy" type="button" data-copy-email="08diegorivera@gmail.com" hidden><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#copy"></use></svg><span>Copiar dirección</span></button></div>
+    <p class="contact-copy-status" role="status" aria-live="polite"></p>
+  </section>
+  <section class="contact-network" aria-labelledby="network-title">
+    <div class="contact-network__heading"><h2 id="network-title">Otras formas de conectar</h2><span class="studio-label">PERSONAS / IDEAS / CÓDIGO</span></div>
+    <div class="contact-channel-grid">
+      <a class="contact-channel" href="https://wa.me/51945902833" target="_blank" rel="noopener noreferrer"><span class="contact-channel__top"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#whatsapp"></use></svg><span class="contact-channel__number">02</span></span><h3>WhatsApp</h3><p>Una conversación directa</p><span class="contact-channel__action">+51 945 902 833<svg class="icon contact-icon contact-direction" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#arrow"></use></svg></span></a>
+      <a class="contact-channel" href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer"><span class="contact-channel__top"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#linkedin"></use></svg><span class="contact-channel__number">03</span></span><h3>LinkedIn</h3><p>Trayectoria y conexiones profesionales</p><span class="contact-channel__action">Conectar en LinkedIn<svg class="icon contact-icon contact-direction" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#arrow"></use></svg></span></a>
+      <a class="contact-channel" href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer"><span class="contact-channel__top"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#github"></use></svg><span class="contact-channel__number">04</span></span><h3>GitHub</h3><p>Proyectos, código y experimentos</p><span class="contact-channel__action">Explorar repositorios<svg class="icon contact-icon contact-direction" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#arrow"></use></svg></span></a>
+    </div>
+    <div class="contact-elsewhere"><p>También me encuentras en</p><div class="contact-elsewhere__links">
+<a href="https://www.instagram.com/ing.diegorivera/" target="_blank" rel="noopener noreferrer" class="contact-link"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#instagram"></use></svg>Instagram</a>
+<a href="https://www.facebook.com/profile.php?id=61590360582928" target="_blank" rel="noopener noreferrer" class="contact-link"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#facebook"></use></svg>Facebook</a>
+<a href="https://www.tiktok.com/@ingdiego.rivera" target="_blank" rel="noopener noreferrer" class="contact-link"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#tiktok"></use></svg>TikTok</a>
+</div></div>
+  </section>
 </main>
 <footer class="site-footer"><div class="container site-footer__inner">
       <span>© <span data-current-year>2026</span> Diego Rivera · Lima, Perú</span>
-      <nav class="site-footer__links" aria-label="Enlaces del pie de página"><a href="/servicios/index.html">Servicios y demos</a><a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:08diegorivera@gmail.com">Correo</a><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pausar efectos de movimiento" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button></nav>
+      <nav class="site-footer__links" aria-label="Enlaces del pie de página"><a href="/servicios/index.html">Servicios y demos</a><a href="https://github.com/rivera-diego" target="_blank" rel="noopener noreferrer" class="contact-link"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#github"></use></svg>GitHub</a><a href="https://www.linkedin.com/in/diegoriverapicoy/" target="_blank" rel="noopener noreferrer" class="contact-link"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#linkedin"></use></svg>LinkedIn</a><a href="mailto:08diegorivera@gmail.com" class="contact-link"><svg class="icon contact-icon " viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="/img/contact-icons.svg#mail"></use></svg>Correo</a><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pausar efectos de movimiento" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button></nav>
     </div></footer>
 </body></html>

@@ -4,6 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('is-ready');
   const english = document.documentElement.lang === 'en';
   const label = (es, en) => english ? en : es;
+  const copyEmail = document.querySelector('[data-copy-email]');
+  if (copyEmail && navigator.clipboard?.writeText) {
+    copyEmail.hidden = false;
+    copyEmail.addEventListener('click', async () => {
+      const status = document.querySelector('.contact-copy-status');
+      try {
+        await navigator.clipboard.writeText(copyEmail.dataset.copyEmail);
+        status.textContent = label('Dirección copiada.', 'Address copied.');
+      } catch {
+        status.textContent = label('Puedes seleccionar y copiar el correo de arriba.', 'You can select and copy the email address above.');
+      }
+    });
+  }
   document.querySelectorAll('.language-switcher a').forEach(link => {
     // Both versions retain the same section IDs. Keep the current section.
     link.addEventListener('click', () => {
